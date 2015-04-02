@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+dependencies {
+    compile files('resources/syslib/selenium-server-standalone-2.45.0.jar')
+    testCompile files('resources/thirdparty/testng-6.8.21.jar')
+}
+
+test {
+   useTestNG() {
+     listeners << 'org.testng.reporters.EmailableReporter'
+   }
+ }
