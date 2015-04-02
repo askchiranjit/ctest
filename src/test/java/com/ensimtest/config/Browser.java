@@ -6,6 +6,8 @@ public class Browser {
 
 	public void GoTo(String URL)
 	{
+		
+		//
 		Driver.driver.get(URL);
 	}
 }
