@@ -36,7 +36,7 @@ public class LoginScreen
 		{
 			public LoginBtn()
 			{
-				super("//*[@id=\"loginform\"]/li[6]/ul/li[2]/input", ElementType.Xpath);
+				super("//input[@type='button' and @value='Login']", ElementType.Xpath);
 			}
 		}
 		public LoginBtn loginBtn = new LoginBtn();
