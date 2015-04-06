@@ -149,8 +149,4 @@ public class SignUpScreen {
 		}
 	}
 	public RegisterBtn registerBtn = new RegisterBtn();
-	public static void xyz()
-	{
-		
 	}
-}
