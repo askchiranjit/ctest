@@ -2,6 +2,7 @@ package com.ensimtest.config;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+
 import com.ensimtest.base.ElementType;
 import com.ensimtest.base.IElement;
 
@@ -12,7 +13,7 @@ public class Element implements IElement
 	private ElementType type;
 	private ElementHandler handler;
 
-	public Element(String elementName, ElementType type)
+	protected void setElement(String elementName, ElementType type)
 	{
 		handler = new ElementHandler();
 		this.elementName = elementName;
@@ -70,4 +71,10 @@ public class Element implements IElement
 		else
 			return false;
 	}
+	
+	protected void mouseHover()
+	{
+		handler.moveMouseToElement(webElement);
+	}
+
 }

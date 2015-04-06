@@ -2,12 +2,10 @@ package com.ensimtest.utils;
 
 //import java.io.*;
 
-public class FileHandling
+public class FileApi
 {
 	public String ReadFileData(String filepath)
 	{
 		return "";
 	}
-	
-	
 }

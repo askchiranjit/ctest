@@ -1,10 +1,11 @@
 package com.ensimtest.tests;
 
 import org.testng.annotations.*;
-
+import org.testng.Assert;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
+import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.utils.TestUtils;
 
 public class SampleTest {
@@ -33,15 +34,13 @@ public class SampleTest {
 	public void sampleTest()
 	{
 		browser.GoTo("https://10.10.3.14:8443/escm/login/auth");
-		TestUtils.Delay(2000);
-		
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("sddsd");
-		loginScreen.password.write("ssads");
-		//loginScreen.getLogin().loginBtn.click();
-		loginScreen.forgotPassword.click();
-		
-		
+		loginScreen.username.write("admin");
+		loginScreen.password.write("123qwe");
+		loginScreen.loginBtn.click();
+		LoggedInUser user = new LoggedInUser();
+		Assert.assertEquals(true, user.userInfo.isDisplayed());
+		user.userInfo.mouseHover();
 		TestUtils.Delay(2000);
 	}
 }

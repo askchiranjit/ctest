@@ -9,8 +9,11 @@ public class LoggedInUser
 	{
 		public UserInfo()
 		{
-			super("menu", ElementType.ID);
-			
+			setElement("menu", ElementType.ID);
+		}
+		public void mouseHover()
+		{
+			super.mouseHover();
 		}
 	}
 	public UserInfo userInfo = new UserInfo();

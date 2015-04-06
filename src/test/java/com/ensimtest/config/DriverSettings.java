@@ -13,11 +13,8 @@ public class DriverSettings
 		setUpDriver("firefox", 30);
 	}
 	
-	
 	public void setUpDriver(String browserName, int timeUnitInSecond)
 	{
-		System.out.println(System.getProperty("user.dir"));
-		
 		DesiredCapabilities cap = null;
 		switch(browserName.trim().toLowerCase())
 		{
@@ -39,9 +36,7 @@ public class DriverSettings
 			cap = DesiredCapabilities.firefox();
 			break;
 		}
-
 		setWait(timeUnitInSecond);
-		
 		setBrowserAtMaxSize();
 	}
 	
@@ -60,6 +55,5 @@ public class DriverSettings
 		Driver.driver.manage().deleteAllCookies();
 		Driver.driver.close();
 		Driver.driver.quit();
-		
 	}
 }

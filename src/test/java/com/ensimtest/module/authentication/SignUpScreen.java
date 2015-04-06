@@ -9,7 +9,11 @@ public class SignUpScreen {
 	{
 		public OrgName()
 		{
-			super("orgName", ElementType.ID);
+			setElement("orgName", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public OrgName orgNameTxt = new OrgName();
@@ -18,7 +22,11 @@ public class SignUpScreen {
 	{
 		public Email()
 		{
-			super("email", ElementType.ID);
+			setElement("email", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public Email Email = new Email();
@@ -27,7 +35,11 @@ public class SignUpScreen {
 	{
 		public ConfirmEmail()
 		{
-			super("cemail", ElementType.ID);
+			setElement("cemail", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public ConfirmEmail confirmEmailTxt = new ConfirmEmail();
@@ -36,7 +48,11 @@ public class SignUpScreen {
 	{
 		public PhoneNo()
 		{
-			super("phNo", ElementType.ID);
+			setElement("phNo", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public PhoneNo phoneNoTxt = new PhoneNo();
@@ -45,7 +61,7 @@ public class SignUpScreen {
 	{
 		public Country()
 		{
-			super("contact_countryCode", ElementType.ID);
+			setElement("contact_countryCode", ElementType.ID);
 		}
 		
 		public void selectCountryName(String countryName)
@@ -59,7 +75,11 @@ public class SignUpScreen {
 	{
 		public StateProvince()
 		{
-			super("orgName", ElementType.ID);
+			setElement("orgName", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public StateProvince stateProvinceTxt = new StateProvince();
@@ -68,7 +88,7 @@ public class SignUpScreen {
 	{
 		public PreferredLanguage()
 		{
-			super("user.languageId", ElementType.ID);
+			setElement("user.languageId", ElementType.ID);
 		}
 		public void selectLanguage(String language)
 		{
@@ -81,7 +101,11 @@ public class SignUpScreen {
 	{
 		public ZipCode()
 		{
-			super("zip", ElementType.ID);
+			setElement("zip", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public ZipCode zipCodeTxt = new ZipCode();
@@ -90,7 +114,11 @@ public class SignUpScreen {
 	{
 		public City()
 		{
-			super("city", ElementType.ID);
+			setElement("city", ElementType.ID);
+		}
+		public boolean IsErrorDisplayed()
+		{
+			return IsError();
 		}
 	}
 	public City cityTxt = new City();
@@ -99,7 +127,7 @@ public class SignUpScreen {
 	{
 		public CorporateId()
 		{
-			super("corporate_id", ElementType.ID);
+			setElement("corporate_id", ElementType.ID);
 		}
 	}
 	public CorporateId corporateIdTxt = new CorporateId();
@@ -108,7 +136,7 @@ public class SignUpScreen {
 	{
 		public AgreeTermsAndConditionChkBox()
 		{
-			super("acceptTerms", ElementType.ID);
+			setElement("acceptTerms", ElementType.ID);
 		}
 	}
 	public AgreeTermsAndConditionChkBox agreeTermsCondChkBox = new AgreeTermsAndConditionChkBox();
@@ -117,7 +145,7 @@ public class SignUpScreen {
 	{
 		public RegisterBtn()
 		{
-			super("save", ElementType.ID);
+			setElement("save", ElementType.ID);
 		}
 	}
 	public RegisterBtn registerBtn = new RegisterBtn();

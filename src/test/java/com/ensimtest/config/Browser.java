@@ -6,7 +6,11 @@ public class Browser {
 
 	public void GoTo(String URL)
 	{
-
 		Driver.driver.get(URL);
+	}
+	
+	public String GetCurrntUrl()
+	{
+		return Driver.driver.getCurrentUrl();
 	}
 }

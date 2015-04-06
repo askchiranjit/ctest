@@ -3,6 +3,7 @@ package com.ensimtest.config;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import com.ensimtest.base.ElementType;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.ensimtest.base.Driver;
@@ -50,5 +51,15 @@ public class ElementHandler
 		{
 			return list.get(0);
 		}
+	}
+	
+	/**
+	 * this is used for moving the cursor on the element
+	 * @param element Web-Element on which cursor will move
+	 */
+	protected void moveMouseToElement(WebElement element)
+	{
+		Actions action = new Actions(Driver.driver);
+		action.moveToElement(element).build().perform();
 	}
 }
