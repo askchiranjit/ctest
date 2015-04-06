@@ -39,6 +39,8 @@ public class LoginScreen extends AppData
 			public LoginBtn()
 			{
 				setElement("//*[@id=\"loginform\"]/li[6]/ul/li[2]/input", ElementType.Xpath);
+				//super("//input[@type='button' and @value='Login']", ElementType.Xpath);
+
 			}
 		}
 		public LoginBtn loginBtn = new LoginBtn();
