@@ -149,7 +149,5 @@ public class SignUpScreen {
 		}
 	}
 	public RegisterBtn registerBtn = new RegisterBtn();
-	
-	//xyz
-//szs	
 }
+
