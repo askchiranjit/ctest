@@ -15,7 +15,8 @@ public class SignUpScreen {
 		{
 			return IsError();
 		}
-	}	
+	}
+	//fdc
 	public OrgName orgNameTxt = new OrgName();
 	
 	public class Email extends Element
