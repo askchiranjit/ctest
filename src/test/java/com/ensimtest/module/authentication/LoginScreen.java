@@ -3,6 +3,7 @@ package com.ensimtest.module.authentication;
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 
+
 public class LoginScreen extends AppData
 {
 		public class Username extends Element
