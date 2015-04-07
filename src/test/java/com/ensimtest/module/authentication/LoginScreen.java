@@ -4,6 +4,7 @@ import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 import com.ensimtest.base.ElementType;
 
+
 public class LoginScreen extends AppData
 {
 		public class Username extends Element
