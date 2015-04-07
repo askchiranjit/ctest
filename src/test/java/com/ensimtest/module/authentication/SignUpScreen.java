@@ -1,15 +1,15 @@
 package com.ensimtest.module.authentication;
 
-import com.ensimtest.base.ElementType;
 import com.ensimtest.config.Element;
+import com.ensimtest.resource.AppData;
 
-public class SignUpScreen {
-
+public class SignUpScreen extends AppData
+{
 	public class OrgName extends Element
 	{
 		public OrgName()
 		{
-			setElement("orgName", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -22,7 +22,7 @@ public class SignUpScreen {
 	{
 		public Email()
 		{
-			setElement("email", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -35,7 +35,7 @@ public class SignUpScreen {
 	{
 		public ConfirmEmail()
 		{
-			setElement("cemail", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -48,7 +48,7 @@ public class SignUpScreen {
 	{
 		public PhoneNo()
 		{
-			setElement("phNo", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -61,7 +61,7 @@ public class SignUpScreen {
 	{
 		public Country()
 		{
-			setElement("contact_countryCode", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		
 		public void selectCountryName(String countryName)
@@ -75,7 +75,7 @@ public class SignUpScreen {
 	{
 		public StateProvince()
 		{
-			setElement("orgName", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -88,7 +88,7 @@ public class SignUpScreen {
 	{
 		public PreferredLanguage()
 		{
-			setElement("user.languageId", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public void selectLanguage(String language)
 		{
@@ -101,7 +101,7 @@ public class SignUpScreen {
 	{
 		public ZipCode()
 		{
-			setElement("zip", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -114,7 +114,7 @@ public class SignUpScreen {
 	{
 		public City()
 		{
-			setElement("city", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public boolean IsErrorDisplayed()
 		{
@@ -127,7 +127,7 @@ public class SignUpScreen {
 	{
 		public CorporateId()
 		{
-			setElement("corporate_id", ElementType.ID);
+			setElement(readAppData(this));
 		}
 	}
 	public CorporateId corporateIdTxt = new CorporateId();
@@ -136,7 +136,7 @@ public class SignUpScreen {
 	{
 		public AgreeTermsAndConditionChkBox()
 		{
-			setElement("acceptTerms", ElementType.ID);
+			setElement(readAppData(this));
 		}
 	}
 	public AgreeTermsAndConditionChkBox agreeTermsCondChkBox = new AgreeTermsAndConditionChkBox();
@@ -145,7 +145,7 @@ public class SignUpScreen {
 	{
 		public RegisterBtn()
 		{
-			setElement("save", ElementType.ID);
+			setElement(readAppData(this));
 		}
 	}
 	public RegisterBtn registerBtn = new RegisterBtn();

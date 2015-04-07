@@ -13,11 +13,26 @@ public class Element implements IElement
 	private ElementType type;
 	private ElementHandler handler;
 
-	protected void setElement(String elementName, ElementType type)
+	public Element()
 	{
 		handler = new ElementHandler();
+	}
+	
+	protected void setElement(String elementType, String elementName)
+	{
 		this.elementName = elementName;
-		this.type = type;
+		this.type = handler.getElementType(elementType);;
+	}
+	
+	protected void setElement(ElementType elementType, String elementName)
+	{
+		this.elementName = elementName;
+		this.type = elementType;
+	}
+	
+	protected void setElement(String []elementInfo)
+	{
+		setElement(elementInfo[0], elementInfo[1]);
 	}
 	
 	@Override

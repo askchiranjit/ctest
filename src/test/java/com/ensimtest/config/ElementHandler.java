@@ -15,6 +15,30 @@ public class ElementHandler
 		return getElement(elementName, type);
 	}
 	
+	public ElementType getElementType(String elementType)
+	{
+		ElementType type = null;
+		switch(elementType)
+		{
+		case "ClassName":
+			type = ElementType.ClassName;
+			break;
+		case "ID":
+			type = ElementType.ID;
+			break;
+		case "Xpath":
+			type = ElementType.Xpath;
+			break;
+		case "Name":
+			type = ElementType.Name;
+			break;
+		case "TagName":
+			type = ElementType.TagName;
+			break;
+		}
+		return type;
+	}
+	
 	protected List<WebElement> getElements(String elementName, ElementType type)
 	{
 		List<WebElement> list = null;

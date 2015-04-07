@@ -2,7 +2,6 @@ package com.ensimtest.module.authentication;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
-import com.ensimtest.base.ElementType;
 
 public class LoginScreen extends AppData
 {
@@ -10,8 +9,7 @@ public class LoginScreen extends AppData
 		{
 			public Username()
 			{
-				readAppData(this);
-				setElement("username", ElementType.ID);
+				setElement(readAppData(this));
 			}
 			
 			public boolean IsErrorDisplayed()
@@ -25,7 +23,7 @@ public class LoginScreen extends AppData
 		{
 			public Password()
 			{
-				setElement("password", ElementType.ID);
+				setElement(readAppData(this));
 			}
 			public boolean IsErrorDisplayed()
 			{
@@ -38,9 +36,7 @@ public class LoginScreen extends AppData
 		{
 			public LoginBtn()
 			{
-				setElement("//*[@id=\"loginform\"]/li[6]/ul/li[2]/input", ElementType.Xpath);
-				//super("//input[@type='button' and @value='Login']", ElementType.Xpath);
-
+				setElement(readAppData(this));
 			}
 		}
 		public LoginBtn loginBtn = new LoginBtn();
@@ -49,7 +45,7 @@ public class LoginScreen extends AppData
 		{
 			public RememberMeBtn()
 			{
-				setElement("rememberMe", ElementType.ID);
+				setElement(readAppData(this));
 			}
 		}
 		public RememberMeBtn rememberMeBtn = new RememberMeBtn();
@@ -58,7 +54,7 @@ public class LoginScreen extends AppData
 		{
 			public ForgotPassword()
 			{
-				setElement("forgot_password", ElementType.ID);
+				setElement(readAppData(this));
 			}
 		}
 		public ForgotPassword forgotPassword = new ForgotPassword();
@@ -67,7 +63,7 @@ public class LoginScreen extends AppData
 		{
 			public SignUpBtn()
 			{
-				setElement("//*[@id=\"EAS_login_content\"]/div/div[2]/div[1]/ul/li[2]", ElementType.Xpath);
+				setElement(readAppData(this));
 			}
 		}
 		public SignUpBtn signUpBtn = new SignUpBtn();

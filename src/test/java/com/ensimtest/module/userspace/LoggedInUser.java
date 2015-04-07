@@ -1,15 +1,15 @@
 package com.ensimtest.module.userspace;
 
-import com.ensimtest.base.ElementType;
 import com.ensimtest.config.Element;
+import com.ensimtest.resource.AppData;
 
-public class LoggedInUser
+public class LoggedInUser extends AppData
 {
 	public class UserInfo extends Element
 	{
 		public UserInfo()
 		{
-			setElement("menu", ElementType.ID);
+			setElement(readAppData(this));
 		}
 		public void mouseHover()
 		{
@@ -17,6 +17,4 @@ public class LoggedInUser
 		}
 	}
 	public UserInfo userInfo = new UserInfo();
-	
-	
 }
