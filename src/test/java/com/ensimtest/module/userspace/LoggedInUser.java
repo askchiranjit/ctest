@@ -17,4 +17,13 @@ public class LoggedInUser extends AppData
 		}
 	}
 	public UserInfo userInfo = new UserInfo();
+	
+	public class LogOut extends Element
+	{
+		public LogOut()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public LogOut logOut = new LogOut();
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<root>
+	<UserInfo>
+		<key>ID</key>
+		<value>menu</value>
+	</UserInfo>
+	<LogOut>
+		<key>Xpath</key>
+		<value>//*[@id="menu"]/li/ul/li[6]/a</value>
+		
+	</LogOut>
+</root>

@@ -42,6 +42,15 @@ public class LoginScreen extends AppData
 		}
 		public LoginBtn loginBtn = new LoginBtn();
 		
+		public class ErrorMsg extends Element
+		{
+			public ErrorMsg()
+			{
+				setElement(readAppData(this));
+			}
+		}
+		public ErrorMsg errorMsg = new ErrorMsg();
+		
 		public class RememberMeBtn extends Element
 		{
 			public RememberMeBtn()

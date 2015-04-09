@@ -1,12 +1,10 @@
 package com.ensimtest.resource;
 
 import java.io.IOException;
-
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
-
 import com.ensimtest.utils.FileHandling;
 
 public class AppData
@@ -29,6 +27,15 @@ public class AppData
 		{
 			System.out.println(e);
 		}
-		return file.getXmlNodeKeyValuePair(document, subClassName);	
+		return getXmlNodeKeyValuePair(document, subClassName);	
+	}
+	
+	private String[] getXmlNodeKeyValuePair(Document document, String nodeName)
+	{
+		Element element = (Element) document.getElementsByTagName(nodeName).item(0);
+		String []pair = new String[2];
+		pair[0] = element.getElementsByTagName("key").item(0).getTextContent().trim();
+		pair[1] = element.getElementsByTagName("value").item(0).getTextContent().trim();
+		return pair;
 	}
 }

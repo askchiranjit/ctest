@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<root>
+	<Username>
+		<key>ID</key>
+		<value>username</value>
+	</Username>
+
+	<Password>
+		<key>ID</key>
+		<value>password</value>
+	</Password>
+
+	<LoginBtn>
+		<key>Xpath</key>
+		<value>//input[@type='button' and @value='Login']</value>
+	</LoginBtn>
+
+	<ErrorMsg>
+		<key>ClassName</key>
+		<value>error</value>
+	</ErrorMsg>
+
+	<RememberMeBtn>
+		<key>ID</key>
+		<value>rememberMe</value>
+	</RememberMeBtn>
+
+	<ForgotPassword>
+		<key>ID</key>
+		<value>forgot_password</value>
+	</ForgotPassword>
+	
+	<SignUpBtn>
+		<key>Xpath</key>
+		<value>//*[@id=\"EAS_login_content\"]/div/div[2]/div[1]/ul/li[2]</value>
+	</SignUpBtn>
+</root>
