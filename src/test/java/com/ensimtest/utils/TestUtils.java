@@ -13,4 +13,27 @@ public class TestUtils
 			System.out.println(e);
 		}
 	}
+
+	//to check if the suite is runnable or not
+
+	public static boolean isSuiteRunnable(Xls_Reader xr,String SuiteName)
+	{
+		boolean flag=false;
+
+		for(int i=2;i<=xr.getRowCount("TestSuites");i++)      //strting from two as 1st row only contains column names
+		{
+			if(xr.getCellData("TestSuites","TSID",i).trim().equals(SuiteName.trim()))
+			{
+				if(xr.getCellData("TestSuites","Runmode",i).trim().equalsIgnoreCase("Y"))
+				{
+					flag=true;
+					break;
+				}
+			}
+		}
+		xr=null;               //to release the memory 
+		return flag;
+
+	}	
+
 }
