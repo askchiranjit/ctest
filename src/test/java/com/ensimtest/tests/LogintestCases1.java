@@ -1,22 +1,21 @@
 package com.ensimtest.tests;
 
-import org.testng.annotations.*;
-import org.testng.Assert;
 import org.testng.SkipException;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
-import com.ensimtest.module.authentication.LoginScreen;
-import com.ensimtest.module.userspace.LoggedInUser;
-import com.ensimtest.resource.TestData;
 import com.ensimtest.utils.TestUtils;
 import com.ensimtest.utils.Xls_Reader;
 
-public class LoginTestCases {
+public class LogintestCases1 {
 	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
 	private DriverSettings settings;
 	private Browser browser;
-	public LoginTestCases()
+	public LogintestCases1()
 	{
 		settings = new DriverSettings();
 		browser = new Browser();
@@ -27,8 +26,10 @@ public class LoginTestCases {
 	{
 		Xls_Reader xr=new Xls_Reader(suiteFilePath);
 		TestUtils tu=new TestUtils();
-		if(!tu.isSuiteRunnable(xr,this.getClass().getSimpleName()))
+		if(tu.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
 		{
+			tu=null;
+			xr=null;
 			throw new SkipException("Test Suite "+this.getClass().getSimpleName()+" is runnable for this build/test cycle");
 		}
 	}
@@ -136,4 +137,6 @@ public class LoginTestCases {
 //		Assert.assertEquals(loginScreen.username.IsErrorDisplayed(), true);
 //		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
 	}
+
+
 }

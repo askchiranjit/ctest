@@ -16,7 +16,7 @@ public class TestUtils
 
 	//to check if the suite is runnable or not
 
-	public static boolean isSuiteRunnable(Xls_Reader xr,String SuiteName)
+	public boolean isSuiteRunnable(Xls_Reader xr,String SuiteName)
 	{
 		boolean flag=false;
 
