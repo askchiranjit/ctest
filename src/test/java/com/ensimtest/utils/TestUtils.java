@@ -35,5 +35,27 @@ public class TestUtils
 		return flag;
 
 	}	
+	
+	
+	public static boolean isTestCaseRunnable(Xls_Reader xr,String TestCaseName)
+	{
+
+		boolean flag=false;
+
+		for(int i=2;i<=xr.getRowCount("TestCases");i++)
+		{
+
+			if(xr.getCellData("TestCases","TCID",i).trim().equals(TestCaseName.trim()))
+			{
+				if(xr.getCellData("TestCases","Runmode",i).trim().equalsIgnoreCase("Y"))
+				{
+					flag=true;
+					break;
+				}
+			}
+		}
+		xr=null;               //to release the memory 
+		return flag;
+	}
 
 }
