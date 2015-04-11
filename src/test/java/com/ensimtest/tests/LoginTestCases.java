@@ -1,5 +1,7 @@
 package com.ensimtest.tests;
 
+import java.util.HashMap;
+
 import org.testng.annotations.*;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -11,6 +13,7 @@ import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.TestData;
 import com.ensimtest.utils.TestUtils;
 import com.ensimtest.utils.Xls_Reader;
+import com.ensimtest.utils.TestDataProvider;
 
 public class LoginTestCases {
 	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
@@ -49,22 +52,26 @@ public class LoginTestCases {
 		settings.closeDriver();
 	}
 	
-	@Test
-	public void verifyISPUserSuccessfulLogin()
-	{
-		TestData testData = new TestData();
+	@Test(dataProviderClass = com.ensimtest.utils.TestDataProvider.class, dataProvider="TestData")
+	public void verifyISPUserSuccessfulLogin(HashMap h) throws InterruptedException
+    {
+		System.out.println(h.get("Name"));
+		System.out.println(h.get("Roll"));
+		System.out.println(h.get("Div"));
+    	TestData testData = new TestData();
 		
 		// Navigate to ENSIM site
 		browser.GoTo(testData.getISPInfo().URL);
-		
+		Thread.sleep(10000);
+		System.out.println(testData.getISPInfo().URL);
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
 		
 		Assert.assertEquals(true, loginScreen.username.isDisplayed());
 		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
+//		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 		
-		// Enter user credentials
+
 		loginScreen.username.write(testData.getISPInfo().username);
 		loginScreen.password.write(testData.getISPInfo().password);
 		
@@ -87,7 +94,7 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 	}
 	
-	@Test
+	@Test(dataProviderClass = com.ensimtest.utils.TestDataProvider.class, dataProvider="TestData")
 	public void verifyISPUserfailLoginWithInvalidPswd()
 	{
 		TestData testData = new TestData();
@@ -140,4 +147,5 @@ public class LoginTestCases {
 		Assert.assertEquals(loginScreen.username.IsErrorDisplayed(), true);
 		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
 	}
+	
 }
