@@ -3,11 +3,16 @@ apply plugin: 'eclipse'
 
 dependencies {
     compile files('resources/syslib/selenium-server-standalone-2.45.0.jar')
-    testCompile files('resources/thirdparty/testng-6.8.21.jar')
-}
+    compile files('resources/thirdparty/dom4j-1.6.1.jar')
+	compile files('resources/thirdparty/poi-3.10.jar')
+	compile files('resources/thirdparty/poi-ooxml-3.10.jar')
+	compile files('resources/thirdparty/poi-ooxml-schemas-3.10.jar')
+	compile files('resources/thirdparty/xmlbeans-2.3.0.jar')
+	testCompile files('resources/thirdparty/testng-6.8.21.jar')
+	}
 
 test {
    useTestNG() {
-     listeners << 'org.testng.reporters.EmailableReporter'
+     listeners << 'com.ensimtest.listners.TestCaseRunmode'
    }
  }
