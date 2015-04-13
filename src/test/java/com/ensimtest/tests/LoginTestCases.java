@@ -8,8 +8,8 @@ import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.TestData;
 
-public class LoginTestCases {
-
+public class LoginTestCases
+{
 	private DriverSettings settings;
 	private Browser browser;
 	public LoginTestCases()
