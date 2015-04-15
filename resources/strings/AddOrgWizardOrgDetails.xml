@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<root>
+	<OrganizationIDTxt>
+		<key>ID</key>
+		<value>organization_id</value>
+	</OrganizationIDTxt>
+
+	<OrganizationNameTxt>
+		<key>ID</key>
+		<value>organization_name</value>
+	</OrganizationNameTxt>
+
+	<VatNumberTxt>
+		<key>ID</key>
+		<value>vat_number</value>
+	</VatNumberTxt>
+
+	<MacroSegmentList>
+		<key>ID</key>
+		<value>macro_segment</value>
+	</MacroSegmentList>
+
+	<EmailAddessTxt>
+		<key>ID</key>
+		<value>email</value>
+	</EmailAddessTxt>
+
+	<DomainNamesTxt>
+		<key>ID</key>
+		<value>dns_name</value>
+	</DomainNamesTxt>
+
+	<CommunicationLanguageList>
+		<key>ID</key>
+		<value>communication_language</value>
+	</CommunicationLanguageList>
+
+	<BillingLanguageList>
+		<key>ID</key>
+		<value>billing_language</value>
+	</BillingLanguageList>
+
+	<DateTimeFormatList>
+		<key>ID</key>
+		<value>datetimeformat</value>
+	</DateTimeFormatList>
+
+	<EnableGlobalDiscountChckBox>
+		<key>ID</key>
+		<value>customer_isdistributor</value>
+	</EnableGlobalDiscountChckBox>
+
+	<CustomField1Txt>
+		<key>ID</key>
+		<value>custom_field1</value>
+	</CustomField1Txt>
+
+	 <CustomField2Txt>
+	  <key>ID</key>
+	  <value>custom_field2</value>
+	 </CustomField2Txt>
+	 <CustomField3Txt>
+	  <key>ID</key>
+	  <value>custom_field3</value>
+	 </CustomField3Txt>
+	 <CustomField4Txt>
+	  <key>ID</key>
+	  <value>custom_field4</value>
+	 </CustomField4Txt>
+	 <CustomField5Txt>
+	  <key>ID</key>
+	  <value>custom_field5</value>
+	 </CustomField5Txt>
+	 <CustomField6Txt>
+	  <key>ID</key>
+	  <value>custom_field6</value>
+	 </CustomField6Txt>
+	 <CustomField7Txt>
+	  <key>ID</key>
+	  <value>custom_field7</value>
+	 </CustomField7Txt>
+	 <CustomField8Txt>
+	  <key>ID</key>
+	  <value>custom_field8</value>
+	 </CustomField8Txt>
+	 <CustomField9Txt>
+	  <key>ID</key>
+	  <value>custom_field9</value>
+	 </CustomField9Txt>
+	 <CustomField10Txt>
+	  <key>ID</key>
+	  <value>custom_field10</value>
+	 </CustomField10Txt>
+	 <CustomField11Txt>
+	  <key>ID</key>
+	  <value>custom_field11</value>
+	 </CustomField11Txt>
+	 <CustomField12Txt>
+	  <key>ID</key>
+	  <value>custom_field12</value>
+	 </CustomField12Txt>
+
+
+	<AddressLine1Txt>
+		<key>ID</key>
+		<value>addressline1</value>
+	</AddressLine1Txt>
+
+	<AddressLine2Txt>
+		<key>ID</key>
+		<value>addressline2</value>
+	</AddressLine2Txt>
+
+	<CityNameTxt>
+		<key>ID</key>
+		<value>city_name</value>
+	</CityNameTxt>
+
+	<CityCodeTxt>
+		<key>ID</key>
+		<value>city_code</value>
+	</CityCodeTxt>
+
+	<StateProvinceTxt>
+		<key>ID</key>
+		<value>state_province</value>
+	</StateProvinceTxt>
+
+	<ZipCodeTxt>
+		<key>ID</key>
+		<value>zip_code</value>
+	</ZipCodeTxt>
+
+	<CountryList>
+		<key>ID</key>
+		<value>countryCode</value>
+	</CountryList>
+
+</root>

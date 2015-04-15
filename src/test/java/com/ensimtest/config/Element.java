@@ -89,6 +89,7 @@ public class Element implements IElement
 	
 	protected void mouseHover()
 	{
+		webElement = handler.reloadElement(elementName, type);
 		handler.moveMouseToElement(webElement);
 	}
 

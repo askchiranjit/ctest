@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<root>
+	<OrderDetailsBrdCrmb>
+		<key>XPath</key>
+		<value>//*[@id="sections"]/div[1]</value>
+	</OrderDetailsBrdCrmb>
+
+	<MasterAccountDetailsBrdCrmb>
+		<key>XPath</key>
+		<value>//*[@id="sections"]/div[2]</value>
+	</MasterAccountDetailsBrdCrmb>
+
+	<SummaryBrdCrmb>
+		<key>XPath</key>
+		<value>//*[@id="sections"]/div[3]</value>
+	</SummaryBrdCrmb>
+
+	<CancelBtn>
+		<key>ID</key>
+		<value>cancelButton</value>
+	</CancelBtn>
+
+	<ContinueBtn>
+		<key>ID</key>
+		<value>continue</value>
+	</ContinueBtn>
+
+	<GoBackBtn>
+		<key>ID</key>
+		<value>goback</value>
+	</GoBackBtn>
+
+	<SaveBtn>
+		<key>ID</key>
+		<value>finalSave</value>
+	</SaveBtn>
+
+</root>

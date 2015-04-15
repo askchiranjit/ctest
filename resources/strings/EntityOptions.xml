@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<root>
+	<Menu>
+		<key>Xpath</key>
+		<value>/html/body/div/div[1]/div[3]/ul/li/a/div[2]</value>
+	</Menu>
+
+	<Org>
+		<key>Xpath</key>
+		<value>//*[@id="nav"]/li/ul/li[1]/a</value>
+	</Org>
+</root>
