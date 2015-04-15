@@ -15,7 +15,7 @@ public class LoginScreen extends AppData
 			
 			public boolean IsErrorDisplayed()
 			{
-				return IsError();
+				return isError();
 			}
 		}
 		public Username username = new Username();
@@ -28,7 +28,7 @@ public class LoginScreen extends AppData
 			}
 			public boolean IsErrorDisplayed()
 			{
-				return IsError();
+				return isError();
 			}
 		}
 		public Password password = new Password();

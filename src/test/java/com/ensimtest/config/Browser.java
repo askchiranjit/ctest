@@ -4,12 +4,12 @@ import com.ensimtest.base.Driver;
 
 public class Browser {
 
-	public void GoTo(String URL)
+	public void navigateTo(String URL)
 	{
 		Driver.driver.get(URL);
 	}
 	
-	public String GetCurrntUrl()
+	public String getCurrntUrl()
 	{
 		return Driver.driver.getCurrentUrl();
 	}

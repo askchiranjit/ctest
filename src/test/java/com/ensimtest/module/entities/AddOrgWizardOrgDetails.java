@@ -63,6 +63,15 @@ public class AddOrgWizardOrgDetails extends AppData
 	}
 	public DomainNamesTxt domainNamesTxt = new DomainNamesTxt();
 
+	public class DomainNameCheckLbl extends Element
+	{
+		public DomainNameCheckLbl()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	
+	//dnsMessageCheck
 	public class CommunicationLanguageList extends Element
 	{
 		public CommunicationLanguageList()

@@ -79,7 +79,7 @@ public class Element implements IElement
 		select.selectByValue(data);
 	}
 	
-	protected boolean IsError()
+	protected boolean isError()
 	{
 		if(getAttributeValue("class").equals("field required eas-error-msg"))
 			return true;
