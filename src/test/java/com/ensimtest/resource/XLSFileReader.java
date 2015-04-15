@@ -22,7 +22,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class Xls_Reader {
+public class XLSFileReader {
 	//data members
 	public  String Path;  //holds the path for the xlsx file
 	public  FileInputStream Fis = null; //a object of FileInputStream class
@@ -35,7 +35,7 @@ public class Xls_Reader {
 
 
 	//constructor for Xls_Reader class which ask for the path of the xlsx file
-	public Xls_Reader(String Path)
+	public XLSFileReader(String Path)
 	{
 		this.Path=Path;
 		try {

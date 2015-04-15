@@ -11,7 +11,7 @@ public class TestDataProvider {
 	@DataProvider(name = "TestData")
 	public static Object[][] fetchData(Method m)
 	{
-		Xls_Reader xr=new Xls_Reader("resources\\testdata\\"+m.getDeclaringClass().getSimpleName()+".xlsx");
+		XLSFileReader xr=new XLSFileReader("resources\\testdata\\"+m.getDeclaringClass().getSimpleName()+".xlsx");
 		TestConfigHandler tu=new TestConfigHandler();
 		return tu.getData(xr, m.getName());
 

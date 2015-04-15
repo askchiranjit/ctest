@@ -13,7 +13,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public OrgName orgNameTxt = new OrgName();
@@ -26,7 +26,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public Email Email = new Email();
@@ -39,7 +39,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public ConfirmEmail confirmEmailTxt = new ConfirmEmail();
@@ -52,7 +52,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public PhoneNo phoneNoTxt = new PhoneNo();
@@ -79,7 +79,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public StateProvince stateProvinceTxt = new StateProvince();
@@ -105,7 +105,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public ZipCode zipCodeTxt = new ZipCode();
@@ -118,7 +118,7 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return IsError();
+			return isError();
 		}
 	}
 	public City cityTxt = new City();

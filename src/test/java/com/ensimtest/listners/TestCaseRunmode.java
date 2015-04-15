@@ -5,23 +5,23 @@ import java.lang.reflect.Method;
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
 import com.ensimtest.resource.TestConfigHandler;
-import com.ensimtest.resource.Xls_Reader;
+import com.ensimtest.resource.XLSFileReader;
 
 public class TestCaseRunmode implements IAnnotationTransformer {
 
 	@Override
-	public void transform(ITestAnnotation anotation_name, Class class_name, Constructor constructor_name,Method methode_name)
+	public void transform(ITestAnnotation anotationName, Class className, Constructor constructorName,Method methodName)
 	{
-		TestConfigHandler tu=new TestConfigHandler();
-		String C_name=methode_name.getDeclaringClass().getSimpleName();
-		Xls_Reader xr=new Xls_Reader("resources\\testdata\\"+C_name+".xlsx");
-		String M_name=methode_name.getName();
-		if(tu.isTestCaseRunnable(xr,M_name)==false)
+		TestConfigHandler testConfigHandler=new TestConfigHandler();
+		String simpleName=methodName.getDeclaringClass().getSimpleName();
+		XLSFileReader xlsReadFile=new XLSFileReader("resources\\testdata\\"+simpleName+".xlsx");
+		String simpleMethodName=methodName.getName();
+		if(testConfigHandler.isTestCaseRunnable(xlsReadFile,simpleMethodName)==false)
 		{
-			anotation_name.setEnabled(false);
+			anotationName.setEnabled(false);
 		}
-		xr=null;
-		tu=null;
+		xlsReadFile=null;
+		testConfigHandler=null;
 	}
 
 }

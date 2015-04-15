@@ -5,117 +5,117 @@ import java.util.HashMap;
 
 public class TestConfigHandler
 {
-
 	//to check if the suite is runnable or not
-
-	public boolean isSuiteRunnable(Xls_Reader xr,String SuiteName)
+	public boolean isSuiteRunnable(XLSFileReader xlsFileRead,String suiteName)
 	{
 		boolean flag=false;
-
-		for(int i=2;i<=xr.getRowCount("TestSuites");i++)      //strting from two as 1st row only contains column names
+		for(int rowNumber=2;rowNumber<=xlsFileRead.getRowCount("TestSuites");rowNumber++)      //strting from two as 1st row only contains column names
 		{
-			if(xr.getCellData("TestSuites","TSID",i).trim().equals(SuiteName.trim()))
+			if(xlsFileRead.getCellData("TestSuites","TSID",rowNumber).trim().equals(suiteName.trim()))
 			{
-				if(xr.getCellData("TestSuites","Runmode",i).trim().equalsIgnoreCase("Y"))
+				if(xlsFileRead.getCellData("TestSuites","Runmode",rowNumber).trim().equalsIgnoreCase("Y"))
 				{
 					flag=true;
 					break;
 				}
 			}
 		}
-		xr=null;               //to release the memory 
+		//to release the memory 
+		xlsFileRead=null;
 		return flag;
-
 	}	
 
-
-	public static boolean isTestCaseRunnable(Xls_Reader xr,String TestCaseName)
+	public static boolean isTestCaseRunnable(XLSFileReader xlsFileRead, String testCaseName)
 	{
 
 		boolean flag=false;
-
-		for(int i=2;i<=xr.getRowCount("TestCases");i++)
+		for(int rowNumber=2;rowNumber<=xlsFileRead.getRowCount("TestCases");rowNumber++)
 		{
 
-			if(xr.getCellData("TestCases","TCID",i).trim().equals(TestCaseName.trim()))
+			if(xlsFileRead.getCellData("TestCases","TCID",rowNumber).trim().equals(testCaseName.trim()))
 			{
-				if(xr.getCellData("TestCases","Runmode",i).trim().equalsIgnoreCase("Y"))
+				if(xlsFileRead.getCellData("TestCases","Runmode",rowNumber).trim().equalsIgnoreCase("Y"))
 				{
 					flag=true;
 					break;
 				}
 			}
 		}
-		xr=null;               //to release the memory 
+		//to release the memory
+		xlsFileRead=null;
 		return flag;
 	}
 
 	//return data to a two dimentional array
-	public  Object[][] getData(Xls_Reader xr,String TestCaseName)
+	public  Object[][] getData(XLSFileReader xlsFileRead,String testCaseName)
 	{
-		ArrayList<String> lst=new ArrayList<String>();
+		ArrayList<String> listOfTestData=new ArrayList<String>();
+		
 		//if the sheet is not present
-		if(!xr.isSheetExist(TestCaseName))
+		if(!xlsFileRead.isSheetExist(testCaseName))
 		{
-			xr=null;                     //cleanup object
-			return new Object[1][0];     //hypothetical object array one row no column
+			//cleanup object
+			xlsFileRead=null;
+			
+			//hypothetical object array one row no column
+			return new Object[1][0];
 		}
-		int row=xr.getRowCount(TestCaseName);
-		int col=xr.getColumnCount(TestCaseName);
-		lst=getParam(xr, TestCaseName, col);
-		Object[][] data=new Object[row-1][1];
-		System.out.println("3");
-		for(int RowNum=2;RowNum<=row;RowNum++)
+		else
 		{
-			HashMap h = new HashMap();	
-			for(int ColNum=1;ColNum<=col;ColNum++)
+			int row=xlsFileRead.getRowCount(testCaseName);
+			int col=xlsFileRead.getColumnCount(testCaseName);
+			listOfTestData=getParam(xlsFileRead, testCaseName, col);
+			Object[][] data=new Object[row-1][1];
+			System.out.println("3");
+			for(int rowNum=2;rowNum<=row;rowNum++)
 			{
-				h.put(lst.get(ColNum-1),xr.getCellData(TestCaseName, ColNum, RowNum));
-				//					data[RowNum-2][ColNum-1]=xr.getCellData(TestCaseName, ColNum, RowNum);
+				HashMap<String, String> hashTable = new HashMap<String, String>();	
+				for(int ColNum=1;ColNum<=col;ColNum++)
+				{
+					hashTable.put(listOfTestData.get(ColNum-1),xlsFileRead.getCellData(testCaseName, ColNum, rowNum));
+					// data[RowNum-2][ColNum-1]=xr.getCellData(TestCaseName, ColNum, RowNum);
+				}
+				data[rowNum-2][0]=hashTable;
 			}
-			data[RowNum-2][0]=h;
-
+			listOfTestData=null;
+			return data;
 		}
-		lst=null;
-		return data;
-
 	}
 
-	public ArrayList<String> getParam(Xls_Reader xr,String TestCaseName,int column_count)
+	public ArrayList<String> getParam(XLSFileReader xlsFileRead, String testCaseName, int columnCount)
 	{
-		ArrayList<String> lst=new ArrayList<String>();
-		for(int i=1;i<=column_count;i++)
+		ArrayList<String> listData=new ArrayList<String>();
+		for(int rowNumber=1;rowNumber<=columnCount;rowNumber++)
 		{
-			lst.add(xr.getCellData(TestCaseName,i,1));
+			listData.add(xlsFileRead.getCellData(testCaseName,rowNumber,1));
 		}
-		return lst;
-
+		return listData;
 	}
 
-	public  Object[][] getData1(Xls_Reader xr,String TestCaseName)
+	public  Object[][] getData1(XLSFileReader xlsFileRead, String testCaseName)
 	{
 		//if the sheet is not present
-		if(!xr.isSheetExist(TestCaseName))
+		if(!xlsFileRead.isSheetExist(testCaseName))
 		{
-			xr=null;                     //cleanup object
-			return new Object[1][0];     //hypothetical object array one row no column
+			//cleanup object
+			xlsFileRead=null;
+			
+			//hypothetical object array one row no column
+			return new Object[1][0];
 		}
 
-		int row=xr.getRowCount(TestCaseName);
-		int col=xr.getColumnCount(TestCaseName);
+		int row=xlsFileRead.getRowCount(testCaseName);
+		int col=xlsFileRead.getColumnCount(testCaseName);
 		System.out.println("2");
 		Object[][] data=new Object[row-1][col];
 		System.out.println("3");
-		for(int RowNum=2;RowNum<=row;RowNum++)
+		for(int rowNum=2;rowNum<=row;rowNum++)
 		{
 			for(int ColNum=1;ColNum<=col;ColNum++)
 			{
-				data[RowNum-2][ColNum-1]=xr.getCellData(TestCaseName, ColNum, RowNum);
+				data[rowNum-2][ColNum-1]=xlsFileRead.getCellData(testCaseName, ColNum, rowNum);
 			}
-
 		}
-		return data;	
+		return data;
 	}
-
-
 }

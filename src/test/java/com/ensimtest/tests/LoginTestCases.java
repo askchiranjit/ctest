@@ -10,10 +10,9 @@ import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.userspace.LoggedInUser;
+import com.ensimtest.resource.TestConfigHandler;
 import com.ensimtest.resource.TestData;
-import com.ensimtest.utils.TestUtils;
-import com.ensimtest.utils.Xls_Reader;
-import com.ensimtest.utils.TestDataProvider;
+import com.ensimtest.resource.XLSFileReader;
 
 public class LoginTestCases {
 	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
@@ -28,8 +27,8 @@ public class LoginTestCases {
 	@BeforeClass
 	public void checkSuiteRunmode()
 	{
-		Xls_Reader xr=new Xls_Reader(suiteFilePath);
-		TestUtils tu=new TestUtils();
+		XLSFileReader xr=new XLSFileReader(suiteFilePath);
+		TestConfigHandler tu=new TestConfigHandler();
 		System.out.println("this.getClass().getSimpleName()");
 		if(tu.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
 		{
@@ -52,7 +51,7 @@ public class LoginTestCases {
 		settings.closeDriver();
 	}
 	
-	@Test(dataProviderClass = com.ensimtest.utils.TestDataProvider.class, dataProvider="TestData")
+	@Test(dataProviderClass = com.ensimtest.resource.TestDataProvider.class, dataProvider="TestData")
 	public void verifyISPUserSuccessfulLogin(HashMap h) throws InterruptedException
     {
 		System.out.println(h.get("Name"));
@@ -61,7 +60,7 @@ public class LoginTestCases {
     	TestData testData = new TestData();
 		
 		// Navigate to ENSIM site
-		browser.GoTo(testData.getISPInfo().URL);
+		browser.navigateTo(testData.getISPInfo().URL);
 		Thread.sleep(10000);
 		System.out.println(testData.getISPInfo().URL);
 		// Verify user-name, password, login button are displayed
@@ -69,9 +68,9 @@ public class LoginTestCases {
 		
 		Assert.assertEquals(true, loginScreen.username.isDisplayed());
 		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-//		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
+		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 		
-
+		
 		loginScreen.username.write(testData.getISPInfo().username);
 		loginScreen.password.write(testData.getISPInfo().password);
 		
@@ -94,13 +93,13 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 	}
 	
-	@Test(dataProviderClass = com.ensimtest.utils.TestDataProvider.class, dataProvider="TestData")
+	@Test(dataProviderClass = com.ensimtest.resource.TestDataProvider.class, dataProvider="TestData")
 	public void verifyISPUserfailLoginWithInvalidPswd()
 	{
 		TestData testData = new TestData();
 		
 		// Navigate to ENSIM site
-		browser.GoTo(testData.getISPInfo().URL);
+		browser.navigateTo(testData.getISPInfo().URL);
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
@@ -127,7 +126,7 @@ public class LoginTestCases {
 		TestData testData = new TestData();
 	
 		// Navigate to ENSIM site
-		browser.GoTo(testData.getISPInfo().URL);
+		browser.navigateTo(testData.getISPInfo().URL);
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();

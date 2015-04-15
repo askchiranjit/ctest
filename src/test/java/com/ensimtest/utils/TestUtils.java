@@ -6,7 +6,7 @@ public class TestUtils
 	 * This gives a delay for milisec
 	 * @param milisec : time unit in milisec
 	 */
-	public static void Delay(int milisec)
+	public static void delay(int milisec)
 	{
 		try
 		{
