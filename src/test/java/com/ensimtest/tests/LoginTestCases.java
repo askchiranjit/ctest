@@ -55,9 +55,9 @@ public class LoginTestCases {
 	@Test(dataProviderClass = com.ensimtest.utils.TestDataProvider.class, dataProvider="TestData")
 	public void verifyISPUserSuccessfulLogin(HashMap h) throws InterruptedException
     {
-		System.out.println(h.get("Name"));
-		System.out.println(h.get("Roll"));
-		System.out.println(h.get("Div"));
+//		System.out.println(h.get("Name"));
+//		System.out.println(h.get("Roll"));
+//		System.out.println(h.get("Div"));
     	TestData testData = new TestData();
 		
 		// Navigate to ENSIM site
@@ -69,11 +69,13 @@ public class LoginTestCases {
 		
 		Assert.assertEquals(true, loginScreen.username.isDisplayed());
 		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-//		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
-		
+		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 
-		loginScreen.username.write(testData.getISPInfo().username);
-		loginScreen.password.write(testData.getISPInfo().password);
+		loginScreen.username.write((String) h.get("UserName"));
+		loginScreen.password.write((String) h.get("Password"));
+
+//		loginScreen.username.write(testData.getISPInfo().username);
+//		loginScreen.password.write(testData.getISPInfo().password);
 		
 		// Click on login button
 		loginScreen.loginBtn.click();
