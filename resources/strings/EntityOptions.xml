@@ -9,4 +9,10 @@
 		<key>Xpath</key>
 		<value>//*[@id="nav"]/li/ul/li[1]/a</value>
 	</Org>
+	
+	<Agents>
+		<key>Xpath</key>
+		<value>//a[text()='Agents']</value>
+	</Agents>
+
 </root>
