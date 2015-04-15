@@ -1,4 +1,4 @@
-package com.ensimtest.utils;
+package com.ensimtest.resource;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -45,7 +45,6 @@ public class Xls_Reader {
 			Fis.close();                     //closing the fileInputStream
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

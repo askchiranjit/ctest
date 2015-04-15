@@ -1,9 +1,10 @@
-package com.ensimtest.utils;
+package com.ensimtest.resource;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
-
 import org.testng.annotations.DataProvider;
+
+import com.ensimtest.resource.TestConfigHandler;
 
 public class TestDataProvider {
 
@@ -11,7 +12,7 @@ public class TestDataProvider {
 	public static Object[][] fetchData(Method m)
 	{
 		Xls_Reader xr=new Xls_Reader("resources\\testdata\\"+m.getDeclaringClass().getSimpleName()+".xlsx");
-		TestUtils tu=new TestUtils();
+		TestConfigHandler tu=new TestConfigHandler();
 		return tu.getData(xr, m.getName());
 
 		

@@ -29,6 +29,11 @@
 		<key>ID</key>
 		<value>dns_name</value>
 	</DomainNamesTxt>
+	
+	<DomainNamesTxt>
+		<key>ID</key>
+		<value>dns_name</value>
+	</DomainNamesTxt>
 
 	<CommunicationLanguageList>
 		<key>ID</key>
