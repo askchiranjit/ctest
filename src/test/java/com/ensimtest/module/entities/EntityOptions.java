@@ -31,4 +31,13 @@ public class EntityOptions extends AppData
 		}
 	}
 	public Org orglink = new Org();
+	
+	public class Agents extends Element
+	{
+		public Agents()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public Agents agentlink = new Agents();
 }
