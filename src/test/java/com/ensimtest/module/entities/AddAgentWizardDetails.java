@@ -40,5 +40,56 @@ public class AddAgentWizardDetails extends AppData
 		}
 	}
 	public ConfUsernameSuffixTxt ConfUsernameSuffixTxt = new ConfUsernameSuffixTxt();
+	
+	public class CommunicationLanguageLst extends Element
+	{
+		public CommunicationLanguageLst()
+		{
+			setElement(readAppData(this));
+		}
+		
+		public void selectComunicationLanguage(String comunicationLanguage)
+		{
+			super.selectVisibleText(comunicationLanguage);
+		}
+	}
+	public CommunicationLanguageLst communicationLanguageLst = new CommunicationLanguageLst();
+
+	public class BillingLanguageLst extends Element
+	{
+		public BillingLanguageLst()
+		{
+			setElement(readAppData(this));
+		}
+		
+		public void selectBillingLanguage(String language)
+		{
+			super.selectVisibleText(language);
+		}
+	}
+	public BillingLanguageLst billingLanguageLst = new BillingLanguageLst();
+
+	public class EmailaddressTxt extends Element
+	{
+		public EmailaddressTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public EmailaddressTxt emailaddressTxt = new EmailaddressTxt();
+
+	public class DateTimeLst extends Element
+	{
+		public DateTimeLst()
+		{
+			setElement(readAppData(this));
+		}
+		
+		public void selectDateTimeFormat(String dateTimeFormat)
+		{
+			super.selectVisibleText(dateTimeFormat);
+		}
+	}
+	public DateTimeLst dateTimeLst = new DateTimeLst();
 
 }
