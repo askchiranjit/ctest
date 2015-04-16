@@ -150,29 +150,4 @@ public class LoginTestCases {
 		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
 	}
 	
-	@Test
-	public void addAgent() throws InterruptedException
-	{
-//    	TestData testData = new TestData();
-		
-		// Navigate to ENSIM site
-		browser.navigateTo(baseURL);
-//		Thread.sleep(10000);
-		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
-		loginScreen.loginBtn.click();
-		EntityOptions Entity=new EntityOptions();
-		Entity.menuBtn.mouseHover();
-		Thread.sleep(5000);
-		Entity.agentlink.click();
-		AgentHomePage ah=new AgentHomePage();
-		ah.addAgentBtn.click();
-		AddAgentWizardDetails ad=new AddAgentWizardDetails();
-		ad.AgentNameTxt.write("abc");
-		ad.VATNumberText.write("VAT5678");
-		ad.UsernameSuffixTxt.write("xyzabc.com");
-		ad.ConfUsernameSuffixTxt.write("xyzabc.com");
 	}
-	
-}
