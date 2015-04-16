@@ -30,9 +30,9 @@
 		<value>dns_name</value>
 	</DomainNamesTxt>
 	
-	<DomainNamesTxt>
+	<DomainNameCheckLbl>
 		<key>ID</key>
-		<value>dns_name</value>
+		<value>dnsMessageCheck</value>
 	</DomainNamesTxt>
 
 	<CommunicationLanguageList>
