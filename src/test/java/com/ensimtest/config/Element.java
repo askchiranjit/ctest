@@ -1,6 +1,6 @@
 package com.ensimtest.config;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import com.ensimtest.base.ElementType;
