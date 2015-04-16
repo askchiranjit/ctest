@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root>
+	<AddAgentBtn>
+		<key>Xpath</key>
+		<value>//span[text()='Add Agent']</value>
+	</AddAgentBtn>
+</root>

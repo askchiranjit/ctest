@@ -1,5 +1,6 @@
 package com.ensimtest.tests;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.testng.annotations.*;
@@ -9,15 +10,21 @@ import org.testng.SkipException;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
+import com.ensimtest.module.entities.AddAgentWizardDetails;
+import com.ensimtest.module.entities.AgentHomePage;
+import com.ensimtest.module.entities.EntityOptions;
 import com.ensimtest.module.userspace.LoggedInUser;
+import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestConfigHandler;
-import com.ensimtest.resource.TestData;
+import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.resource.XLSFileReader;
 
 public class LoginTestCases {
 	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
 	private DriverSettings settings;
 	private Browser browser;
+	private static String baseURL;
+	private static String browserName;
 	public LoginTestCases()
 	{
 		settings = new DriverSettings();
@@ -25,24 +32,27 @@ public class LoginTestCases {
 	}
 	
 	@BeforeClass
-	public void checkSuiteRunmode()
+	public void checkSuiteRunmode() throws IOException
 	{
 		XLSFileReader xr=new XLSFileReader(suiteFilePath);
-		TestConfigHandler tu=new TestConfigHandler();
+		TestConfigHandler th=new TestConfigHandler();
 		System.out.println("this.getClass().getSimpleName()");
-		if(tu.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
+		if(th.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
 		{
 			xr=null;
-			tu=null;
+			th=null;
 			throw new SkipException("Test Suite "+this.getClass().getSimpleName()+" is runnable for this build/test cycle");
 		}
+		PropertyReader pr=new PropertyReader();
+		baseURL=pr.getURL();
+		browserName=pr.getBrowserName();
 	}
 	
 	
 	@BeforeMethod
 	public void setUp()
 	{
-		settings.setUpDriver("firefox", 10);
+		settings.setUpDriver(browserName, 10);
 	}
 	
 	@AfterMethod
@@ -51,18 +61,12 @@ public class LoginTestCases {
 		settings.closeDriver();
 	}
 	
-	@Test(dataProviderClass = com.ensimtest.resource.TestDataProvider.class, dataProvider="TestData")
-	public void verifyISPUserSuccessfulLogin(HashMap h) throws InterruptedException
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void verifyISPUserSuccessfulLogin(HashMap<?, ?> h) throws InterruptedException
     {
-//		System.out.println(h.get("Name"));
-//		System.out.println(h.get("Roll"));
-//		System.out.println(h.get("Div"));
-    	TestData testData = new TestData();
-		
+	
 		// Navigate to ENSIM site
-		browser.navigateTo(testData.getISPInfo().URL);
-		Thread.sleep(10000);
-		System.out.println(testData.getISPInfo().URL);
+		browser.navigateTo(baseURL);
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
 		
@@ -95,13 +99,11 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 	}
 	
-	@Test(dataProviderClass = com.ensimtest.resource.TestDataProvider.class, dataProvider="TestData")
-	public void verifyISPUserfailLoginWithInvalidPswd()
+	@Test(dataProviderClass = TestDataProvider.class, dataProvider="TestData")
+	public void verifyISPUserfailLoginWithInvalidPswd(HashMap<?, ?> h)
 	{
-		TestData testData = new TestData();
-		
 		// Navigate to ENSIM site
-		browser.navigateTo(testData.getISPInfo().URL);
+		browser.navigateTo(baseURL);
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
@@ -111,24 +113,23 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 		
 		// Enter user credentials
-		loginScreen.username.write(testData.getISPInfo().username);
+		loginScreen.username.write((String) h.get("UserName"));
 		loginScreen.password.write("testpassword");
 		
 		// Click on login button
 		loginScreen.loginBtn.click();
 		
 		// Verify error is displayed
-		String errorMsg = "User '" + testData.getISPInfo().username + "' does not exist or the entered password is incorrect.";
+		String errorMsg = "User '" + h.get("UserName") + "' does not exist or the entered password is incorrect.";
 		Assert.assertEquals(loginScreen.errorMsg.read(), errorMsg);
 	}
-	
+//	
 	@Test
 	public void verifyNoCredentialAtLoginError()
 	{
-		TestData testData = new TestData();
-	
+			
 		// Navigate to ENSIM site
-		browser.navigateTo(testData.getISPInfo().URL);
+		browser.navigateTo(baseURL);
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
@@ -147,6 +148,31 @@ public class LoginTestCases {
 		// Verify error is displayed
 		Assert.assertEquals(loginScreen.username.IsErrorDisplayed(), true);
 		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
+	}
+	
+	@Test
+	public void addAgent() throws InterruptedException
+	{
+//    	TestData testData = new TestData();
+		
+		// Navigate to ENSIM site
+		browser.navigateTo(baseURL);
+//		Thread.sleep(10000);
+		LoginScreen loginScreen = new LoginScreen();
+		loginScreen.username.write("admin");
+		loginScreen.password.write("123qwe");
+		loginScreen.loginBtn.click();
+		EntityOptions Entity=new EntityOptions();
+		Entity.menuBtn.mouseHover();
+		Thread.sleep(5000);
+		Entity.agentlink.click();
+		AgentHomePage ah=new AgentHomePage();
+		ah.addAgentBtn.click();
+		AddAgentWizardDetails ad=new AddAgentWizardDetails();
+		ad.AgentNameTxt.write("abc");
+		ad.VATNumberText.write("VAT5678");
+		ad.UsernameSuffixTxt.write("xyzabc.com");
+		ad.ConfUsernameSuffixTxt.write("xyzabc.com");
 	}
 	
 }

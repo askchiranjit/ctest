@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<root>
+	<AgentNameTxt>
+		<key>ID</key>
+		<value>name</value>
+	</AgentNameTxt>
+	
+	<VATNumberTxt>
+		<key>ID</key>
+		<value>vat_number</value>
+	</VATNumberTxt>
+	
+	<UsernameSuffixTxt>
+		<key>ID</key>
+		<value>business_unit_upn_suffix</value>
+	</UsernameSuffixTxt>
+	
+	<ConfUsernameSuffixTxt>
+		<key>ID</key>
+		<value>business_unit_upn_suffix_confirm</value>
+	</ConfUsernameSuffixTxt>
+	
+</root>
