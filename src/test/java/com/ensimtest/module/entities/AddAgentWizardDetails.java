@@ -2,7 +2,11 @@ package com.ensimtest.module.entities;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
-
+/**
+ * This is for Agent creation page
+ * @author Pratap
+ *
+ */
 public class AddAgentWizardDetails extends AppData 
 {
 	public class AgentNameTxt extends Element
