@@ -70,8 +70,7 @@ public class AddOrgWizardOrgDetails extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	
-	//dnsMessageCheck
+
 	public class CommunicationLanguageList extends Element
 	{
 		public CommunicationLanguageList()
