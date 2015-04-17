@@ -14,5 +14,10 @@
 		<key>Xpath</key>
 		<value>//a[text()='Agents']</value>
 	</Agents>
-
+	
+	<ResellersLnk>
+		<key>Xpath</key>
+		<value>//a[text()='Resellers']</value>
+	</ResellersLnk>
+	
 </root>

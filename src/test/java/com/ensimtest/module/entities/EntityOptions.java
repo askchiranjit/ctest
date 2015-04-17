@@ -40,4 +40,13 @@ public class EntityOptions extends AppData
 		}
 	}
 	public Agents agentlink = new Agents();
+	
+	public class ResellersLnk extends Element
+	{
+		public ResellersLnk()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ResellersLnk resellersLnk = new ResellersLnk();
 }
