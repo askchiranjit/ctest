@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<root>
+	<CatalogMenu>
+		<key>Xpath</key>
+		<value>//div[text()='Catalog']</value>
+	</CatalogMenu>
+	
+	<OffersLnk>
+		<key>Xpath</key>
+		<value>//a//span[text()='Offers']</value>
+	</OffersLnk>
+
+	<RegionsLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Regions')]</value>
+	</RegionsLnk>
+
+	<ItemsAndRPPLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Items')]</value>
+	</ItemsAndRPPLnk>
+
+	<Serviceslnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Services')]</value>
+	</Serviceslnk>
+
+</root>
