@@ -20,4 +20,64 @@
 		<value>business_unit_upn_suffix_confirm</value>
 	</ConfUsernameSuffixTxt>
 	
+<CommunicationLanguageLst>
+	<key>ID</key>
+	<value>communication_language</value>
+</CommunicationLanguageLst>
+
+<BillingLanguageLst>
+	<key>ID</key>
+	<value>billing_language</value>
+</BillingLanguageLst>
+
+<EmailaddressTxt>
+	<key>ID</key>
+	<value>email</value>
+</EmailaddressTxt>
+
+<DateTimeLst>
+	<key>ID</key>
+	<value>datetimeformat</value>
+</DateTimeLst>
+
+<BoxNumberTxt>
+	<key>ID</key>
+	<value>partner_address.box_number</value>
+</BoxNumberTxt>
+
+<StreetTxt>
+	<key>ID</key>
+	<value>partner_address.street</value>
+</StreetTxt>
+
+<CityTxt>
+	<key>ID</key>
+	<value>partner_address.city</value>
+</CityTxt>
+
+<AddressNumberTxt>
+	<key>ID</key>
+	<value>partner_address.address_number</value>
+</AddressNumberTxt>
+
+<PostalCodeTxt>
+	<key>ID</key>
+	<value>partner_address.postal_code</value>
+</PostalCodeTxt>
+
+<CountryLst>
+	<key>ID</key>
+	<value>country</value>
+</CountryLst>
+
+<CancelBtn>
+	<key>ID</key>
+	<value>wiz_cancel</value>
+</CancelBtn>
+
+<SaveBtn>
+	<key>ID</key>
+	<value>finalSave</value>
+</SaveBtn>
+
 </root>

@@ -1,6 +1,6 @@
 package com.ensimtest.config;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import com.ensimtest.base.ElementType;
@@ -75,8 +75,16 @@ public class Element implements IElement
 	
 	protected void selectValue(String data)
 	{
+		webElement = handler.reloadElement(elementName, type);
 		Select select = new Select(webElement);
 		select.selectByValue(data);
+	}
+	
+	protected void selectVisibleText(String data)
+	{
+		webElement = handler.reloadElement(elementName, type);
+		Select select = new Select(webElement);
+		select.selectByVisibleText(data);
 	}
 	
 	protected boolean isError()
