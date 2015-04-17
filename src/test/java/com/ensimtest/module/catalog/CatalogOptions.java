@@ -1,4 +1,4 @@
-package com.ensimtest.module.entities;
+package com.ensimtest.module.catalog;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
