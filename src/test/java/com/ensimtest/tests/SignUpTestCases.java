@@ -2,23 +2,18 @@ package com.ensimtest.tests;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
-import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.AlertHandler;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.resource.PropertyReader;
-import com.ensimtest.resource.TestConfigHandler;
 import com.ensimtest.resource.TestDataProvider;
-import com.ensimtest.resource.XLSFileReader;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
 
@@ -62,12 +57,14 @@ public class SignUpTestCases
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void selfRegistration(HashMap<?, ?> testData)
 	{
-		// Generating random values
+		// Get data from test-data (XLS based)
 		String countyName=testData.get("countyName").toString();
 		String orgName=testData.get("orgName").toString();
 		String stateName=testData.get("stateName").toString();
 		String language=testData.get("language").toString();
 		String cityName=testData.get("cityName").toString();
+		
+		// Generating random values
 		String Email=Rd.getRandomEmailID();
 		String phno=Rd.getRandomNum(11);
 		String zipCode=Rd.getRandomNum(6);
@@ -105,7 +102,13 @@ public class SignUpTestCases
 		
 		// Verify alert for successful sign up
 		AlertHandler alert = new AlertHandler();
-		Assert.assertEquals(alert.getTextInAlert(),"You have successfully registered in EAS portal. Please check your inbox for account activation link.");
+		String alertMessage = alert.getTextInAlert();
+		alert.dismissAlert();
+		Assert.assertEquals(alertMessage,"You have successfully registered in EAS portal. Please check your inbox for account activation link.");
+		
+		// Verify in Login page
+		LoginScreen loginPage = new LoginScreen();
+		Assert.assertEquals(loginPage.username.isExists(), true);
 	}
 
 }
