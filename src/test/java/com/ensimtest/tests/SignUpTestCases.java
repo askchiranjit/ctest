@@ -107,5 +107,29 @@ public class SignUpTestCases
 		AlertHandler alert = new AlertHandler();
 		Assert.assertEquals(alert.getTextInAlert(),"You have successfully registered in EAS portal. Please check your inbox for account activation link.");
 	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void selfRegWithDuplicateEmail(HashMap<?, ?> testData)
+	{
+		// Generating random values
+		String orgName=Rd.getRandomAlfaNumeric(6);
+		String duplicateEmail=testData.get("duplicateEmail").toString();
+	   // Open the browser and goto site
+		browser.navigateTo(baseURL);
+		
+		// Click on sign up link
+		LoginScreen loginScreen = new LoginScreen();
+		loginScreen.signUpBtn.click();
+		
+		// Enter details
+		SignUpScreen signUpScreen=new SignUpScreen();
+		TestUtils.delay(2000);
+		signUpScreen.orgNameTxt.write(orgName);
+		signUpScreen.Email.write(duplicateEmail);
+		signUpScreen.confirmEmailTxt.click();
+		AlertHandler alert = new AlertHandler();
+		Assert.assertEquals(alert.getTextInAlert(),"The email address is not available. Please enter another email address");
+		
+	}
 
 }
