@@ -101,4 +101,17 @@ public class Element implements IElement
 		handler.moveMouseToElement(webElement);
 	}
 
+	@Override
+	public boolean isEnabled() {
+		webElement = handler.reloadElement(elementName, type);
+		return webElement.isEnabled();
+	}
+	
+	protected boolean isSelected()
+	{
+		webElement = handler.reloadElement(elementName, type);
+		return webElement.isSelected();
+		
+	}
+
 }
