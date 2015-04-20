@@ -1,5 +1,6 @@
 package com.ensimtest.tests;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -10,6 +11,7 @@ import org.testng.SkipException;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
+import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.module.entities.AddAgentWizardDetails;
 import com.ensimtest.module.entities.AgentHomePage;
 import com.ensimtest.module.entities.EntityOptions;
@@ -36,7 +38,6 @@ public class LoginTestCases {
 	{
 		XLSFileReader xr=new XLSFileReader(suiteFilePath);
 		TestConfigHandler th=new TestConfigHandler();
-		System.out.println("this.getClass().getSimpleName()");
 		if(th.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
 		{
 			xr=null;
@@ -62,9 +63,11 @@ public class LoginTestCases {
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void verifyISPUserSuccessfulLogin(HashMap<?, ?> h) throws InterruptedException
+	public void ISPUserSuccessfulLogin(HashMap<?, ?> h) throws InterruptedException
     {
-	
+		String userName = (String) h.get("UserName");
+		String passWord = (String) h.get("Password");
+		
 		// Navigate to ENSIM site
 		browser.navigateTo(baseURL);
 		// Verify user-name, password, login button are displayed
@@ -74,13 +77,10 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.password.isDisplayed());
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 
-		loginScreen.username.write((String) h.get("UserName"));
-		loginScreen.password.write((String) h.get("Password"));
+		loginScreen.username.write(userName);
+		loginScreen.password.write(passWord);
 
-//		loginScreen.username.write(testData.getISPInfo().username);
-//		loginScreen.password.write(testData.getISPInfo().password);
-		
-		// Click on login button
+	// Click on login button
 		loginScreen.loginBtn.click();
 		
 		// Verify User is logged in by viewing user context is displayed
@@ -99,9 +99,11 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 	}
 	
-	@Test(dataProviderClass = TestDataProvider.class, dataProvider="TestData")
-	public void verifyISPUserfailLoginWithInvalidPswd(HashMap<?, ?> h)
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void ISPLoginWithInvalidPswd(HashMap<?, ?> h)
 	{
+		String userName = (String) h.get("UserName");
+		String passWord = (String) h.get("Password");
 		// Navigate to ENSIM site
 		browser.navigateTo(baseURL);
 		
@@ -113,8 +115,8 @@ public class LoginTestCases {
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 		
 		// Enter user credentials
-		loginScreen.username.write((String) h.get("UserName"));
-		loginScreen.password.write("testpassword");
+		loginScreen.username.write(userName);
+		loginScreen.password.write(passWord);
 		
 		// Click on login button
 		loginScreen.loginBtn.click();
@@ -125,7 +127,7 @@ public class LoginTestCases {
 	}
 //	
 	@Test
-	public void verifyNoCredentialAtLoginError()
+	public void NoCredentialAtLogin()
 	{
 			
 		// Navigate to ENSIM site
@@ -148,6 +150,21 @@ public class LoginTestCases {
 		// Verify error is displayed
 		Assert.assertEquals(loginScreen.username.IsErrorDisplayed(), true);
 		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
+	}
+	
+	@Test
+	public void selfRegistration()
+	{
+		browser.navigateTo(baseURL);
+
+		// Verify user-name, password, login button are displayed
+		LoginScreen loginScreen = new LoginScreen();
+		loginScreen.signUpBtn.click();
+		SignUpScreen sc=new SignUpScreen();
+		Assert.assertEquals(sc.registerBtn.isEnabled(),false);
+//		Assert.assertEquals(sc.agreeTermsCondChkBox.isTermAndConditionAgreed(), false);
+		
+		
 	}
 	
 	}
