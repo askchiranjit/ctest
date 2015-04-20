@@ -15,7 +15,6 @@ import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestConfigHandler;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.resource.XLSFileReader;
-
 public class LoginTestCases {
 	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
 	private DriverSettings settings;
