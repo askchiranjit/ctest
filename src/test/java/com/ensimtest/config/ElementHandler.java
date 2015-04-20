@@ -8,13 +8,30 @@ import com.ensimtest.base.ElementType;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.ensimtest.base.Driver;
 
+/**
+ * Handles Element related functionalities like finding elements, 
+ * mouse hovering, listing elements etc.
+ * @author Chiranjit
+ *
+ */
 public class ElementHandler
 {
+	/**
+	 * It searches for the elements and if found more than one then returns first element
+	 * @param elementName : value of the search property
+	 * @param type : key attribute to look for the element
+	 * @return first web-element if found
+	 */
 	protected WebElement reloadElement(String elementName, ElementType type)
 	{
 		return getElement(elementName, type);
 	}
 	
+	/**
+	 * It parse the element type and returns the ElementType data
+	 * @param elementType
+	 * @return ElementType
+	 */
 	public ElementType getElementType(String elementType)
 	{
 		ElementType type = null;
@@ -39,6 +56,12 @@ public class ElementHandler
 		return type;
 	}
 	
+	/**
+	 * It searches for the elements and returns a List of WebElement(s)
+	 * @param elementName : value of the search property
+	 * @param type : key attribute to look for the element
+	 * @return : List if WebElements found
+	 */
 	protected List<WebElement> getElements(String elementName, ElementType type)
 	{
 		List<WebElement> list = null;
@@ -66,6 +89,12 @@ public class ElementHandler
 		return list;
 	}
 	
+	/**
+	 * It searches for the elements and if found more than one then returns first element
+	 * @param elementName : value of the search property
+	 * @param type : key attribute to look for the element
+	 * @return first web-element in the List if found
+	 */
 	protected WebElement getElement(String elementName, ElementType type)
 	{
 		List<WebElement> list = getElements(elementName, type);

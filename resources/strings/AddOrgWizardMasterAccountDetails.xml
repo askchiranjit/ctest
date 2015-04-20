@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<root>
+	<MasterAccountIDTxt>
+	<key>ID</key>
+	<value>business_unit_id</value>
+</MasterAccountIDTxt>
+
+<MasterAccountNameTxt>
+	<key>ID</key>
+	<value>business_unit_name</value>
+</MasterAccountNameTxt>
+
+<PaymentAgreementList>
+	<key>ID</key>
+	<value>paid</value>
+</PaymentAgreementList>
+
+<EmailToReceiveFinancialDocTxt>
+	<key>ID</key>
+	<value>billing_emails</value>
+</EmailToReceiveFinancialDocTxt>
+
+<ADOUCreationList>
+	<key>ID</key>
+	<value>oss_role_selection</value>
+</ADOUCreationList>
+
+<UsernameSuffixTxt>
+	<key>ID</key>
+	<value>business_unit_upn_suffix</value>
+</UsernameSuffixTxt>
+
+<UsernameSuffixLst>
+	<key>ID</key>
+	<value>business_unit_upn_suffix_drop</value>
+</UsernameSuffixLst>
+
+<ConfirmUsernameSuffixTxt>
+	<key>ID</key>
+	<value>confirm_business_unit_upn_suffix</value>
+</ConfirmUsernameSuffixTxt>
+
+<EnableDirSyncChk>
+	<key>ID</key>
+	<value>directorySyncEnable</value>
+</EnableDirSyncChk>
+
+<CorporateIdTxt>
+	<key>ID</key>
+	<value>corporate_id</value>
+</CorporateIdTxt>
+
+<UseOrgAddrAsAcAddrChck>
+	<key>ID</key>
+	<value>bb_checkbox</value>
+</UseOrgAddrAsAcAddrChck>
+</root>

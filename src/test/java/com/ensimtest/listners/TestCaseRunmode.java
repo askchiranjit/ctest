@@ -9,6 +9,7 @@ import com.ensimtest.resource.XLSFileReader;
 
 public class TestCaseRunmode implements IAnnotationTransformer {
 
+	@SuppressWarnings({ "static-access", "rawtypes" })
 	@Override
 	public void transform(ITestAnnotation anotationName, Class className, Constructor constructorName,Method methodName)
 	{
