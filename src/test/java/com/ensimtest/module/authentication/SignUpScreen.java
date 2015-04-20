@@ -66,7 +66,7 @@ public class SignUpScreen extends AppData
 		
 		public void selectCountryName(String countryName)
 		{
-			selectValue(countryName);
+			selectVisibleText(countryName);
 		}
 	}
 	public Country countryList = new Country();
