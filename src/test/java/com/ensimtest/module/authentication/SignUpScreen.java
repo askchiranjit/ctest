@@ -138,6 +138,10 @@ public class SignUpScreen extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isTermAndConditionAgreed()
+		{
+			return super.isSelected();
+		}
 	}
 	public AgreeTermsAndConditionChkBox agreeTermsCondChkBox = new AgreeTermsAndConditionChkBox();
 	
