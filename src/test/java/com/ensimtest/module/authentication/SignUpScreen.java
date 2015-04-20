@@ -92,7 +92,7 @@ public class SignUpScreen extends AppData
 		}
 		public void selectLanguage(String language)
 		{
-			selectValue(language);
+			selectVisibleText(language);
 		}
 	}
 	public PreferredLanguage preferredLanguageList = new PreferredLanguage();
