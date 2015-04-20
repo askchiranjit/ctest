@@ -49,9 +49,67 @@ public class AddOrgWizardMasterAccountDetails extends AppData
 		}
 		public void SelectCreationMethod(String method)
 		{
-			super.selectValue(method);
+			super.selectVisibleText(method);
 		}
 	}
 	public ADOUCreationList adouCreationList = new ADOUCreationList();
 	
+	public class UsernameSuffixTxt extends Element
+	{
+		public UsernameSuffixTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public UsernameSuffixTxt usernameSuffixTxt = new UsernameSuffixTxt();
+
+	public class UsernameSuffixLst extends Element
+	{
+		public UsernameSuffixLst()
+		{
+			setElement(readAppData(this));
+		}
+		public void selectSuffix(String method)
+		{
+			super.selectVisibleText(method);
+		}
+	}
+	public UsernameSuffixLst usernameSuffixLst = new UsernameSuffixLst();
+
+	public class ConfirmUsernameSuffixTxt extends Element
+	{
+		public ConfirmUsernameSuffixTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ConfirmUsernameSuffixTxt confirmUsernameSuffixTxt = new ConfirmUsernameSuffixTxt();
+
+	public class EnableDirSyncChk extends Element
+	{
+		public EnableDirSyncChk()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public EnableDirSyncChk enableDirSyncChk = new EnableDirSyncChk();
+
+	public class CorporateIdTxt extends Element
+	{
+		public CorporateIdTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public CorporateIdTxt corporateIdTxt = new CorporateIdTxt();
+
+	public class UseOrgAddrAsAcAddrChck extends Element
+	{
+		public UseOrgAddrAsAcAddrChck()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public UseOrgAddrAsAcAddrChck useOrgAddrAsAcAddrChck = new UseOrgAddrAsAcAddrChck();
+
 }

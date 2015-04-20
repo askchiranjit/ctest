@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<root>
+
+<OrgNameLbl>
+	<key>ID</key>
+	<value>org_name</value>
+</OrgNameLbl>
+
+<EmailAddrForCorrespondanceLbl>
+	<key>ID</key>
+	<value>org_email</value>
+</EmailAddrForCorrespondanceLbl>
+
+<DomainNamesLbl>
+	<key>ID</key>
+	<value>dns</value>
+</DomainNamesLbl>
+
+<CommunicationLanguageLbl>
+	<key>ID</key>
+	<value>comm_language</value>
+</CommunicationLanguageLbl>
+
+<BillingLanguageLbl>
+	<key>ID</key>
+	<value>bill_language</value>
+</BillingLanguageLbl>
+
+<MasterAccountNameLbl>
+	<key>ID</key>
+	<value>master_account_name</value>
+</MasterAccountNameLbl>
+
+<PaymentAgreementLbl>
+	<key>ID</key>
+	<value>payment_agreement</value>
+</PaymentAgreementLbl>
+
+<EmailAddrToReceiveFinnDocLbl>
+	<key>ID</key>
+	<value>acct_email</value>
+</EmailAddrToReceiveFinnDocLbl>
+
+<UsernameSuffixLbl>
+	<key>ID</key>
+	<value>upnSuffixSummary</value>
+</UsernameSuffixLbl>
+</root>

@@ -6,6 +6,11 @@ import org.openqa.selenium.support.ui.Select;
 import com.ensimtest.base.ElementType;
 import com.ensimtest.base.IElement;
 
+/**
+ * This implements IElements along with some additional methods
+ * @author Chiranjit
+ *
+ */
 public class Element implements IElement
 {
 	private WebElement webElement;
@@ -18,18 +23,32 @@ public class Element implements IElement
 		handler = new ElementHandler();
 	}
 	
+	/**
+	 * This sets the elements with element types(ID, XPath, etc.) and elements names
+	 * @param elementType : Type of element to identify the element as string
+	 * @param elementName : Value related to the type
+	 */
 	protected void setElement(String elementType, String elementName)
 	{
 		this.elementName = elementName;
 		this.type = handler.getElementType(elementType);;
 	}
 	
+	/**
+	 * This sets the elements with element types(ID, XPath, etc.) and elements names
+	 * @param elementType : Type of element to identify the element
+	 * @param elementName : Value related to the type
+	 */
 	protected void setElement(ElementType elementType, String elementName)
 	{
 		this.elementName = elementName;
 		this.type = elementType;
 	}
 	
+	/**
+	 * This sets the elements with String array data
+	 * @param elementInfo : String(0) contains key, String(1) contains value 
+	 */
 	protected void setElement(String []elementInfo)
 	{
 		setElement(elementInfo[0], elementInfo[1]);
@@ -44,13 +63,27 @@ public class Element implements IElement
 	@Override
 	public boolean isExists() {
 		webElement = handler.reloadElement(elementName, type);
-		return webElement.isDisplayed() && webElement.isEnabled();
+		try
+		{
+			return webElement.isDisplayed() && webElement.isEnabled();
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 
 	@Override
 	public boolean isDisplayed() {
 		webElement = handler.reloadElement(elementName, type);
-		return webElement.isDisplayed();
+		try
+		{
+			return webElement.isDisplayed();
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
 	}
 
 	@Override
@@ -65,6 +98,11 @@ public class Element implements IElement
 		webElement.sendKeys(msg);
 	}
 	
+	/**
+	 * Returns attribute value based on the attribute name of the element
+	 * @param attributeName : name of the attribute associated with the element
+	 * @return : returns the value as String
+	 */
 	protected String getAttributeValue(String attributeName)
 	{
 		webElement = handler.reloadElement(elementName, type);
@@ -73,6 +111,10 @@ public class Element implements IElement
 		return s;
 	}
 	
+	/**
+	 * Selects value from the drop-down/list box
+	 * @param data : the value to be selected
+	 */
 	protected void selectValue(String data)
 	{
 		webElement = handler.reloadElement(elementName, type);
@@ -80,6 +122,10 @@ public class Element implements IElement
 		select.selectByValue(data);
 	}
 	
+	/**
+	 * Selects visible value from the drop-down/list box
+	 * @param data : the value to be selected
+	 */
 	protected void selectVisibleText(String data)
 	{
 		webElement = handler.reloadElement(elementName, type);
@@ -95,6 +141,9 @@ public class Element implements IElement
 			return false;
 	}
 	
+	/**
+	 * Move the cursor on the element
+	 */
 	protected void mouseHover()
 	{
 		webElement = handler.reloadElement(elementName, type);

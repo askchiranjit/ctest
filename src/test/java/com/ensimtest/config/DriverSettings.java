@@ -8,11 +8,21 @@ import com.ensimtest.base.Driver;
 
 public class DriverSettings
 {
+	/**
+	 * Default browser set-up. It will open firefox with
+	 * 30 seconds of implicit time-out.
+	 */
 	public void setUpDriver()
 	{
 		setUpDriver("firefox", 30);
 	}
 	
+	/**
+	 * Overloaded browser setup with browser name and time-out being
+	 * sent as parameter
+	 * @param browserName : name of the browser (like: firefox, ie, chrome) case insensitive
+	 * @param timeUnitInSecond : Timeout second for implicit time-out
+	 */
 	public void setUpDriver(String browserName, int timeUnitInSecond)
 	{
 		DesiredCapabilities cap = null;
@@ -40,16 +50,26 @@ public class DriverSettings
 		setBrowserAtMaxSize();
 	}
 	
+	/**
+	 * Sets the implicit time out as parameter
+	 * @param timeUnitInSecond : Timeout second for implicit time-out
+	 */
 	protected void setWait(int timeUnitInSecond)
 	{
 		Driver.driver.manage().timeouts().implicitlyWait(timeUnitInSecond, TimeUnit.SECONDS);
 	}
 	
+	/**
+	 * Sets the browser at maximum size of the screen
+	 */
 	protected void setBrowserAtMaxSize()
 	{
 		Driver.driver.manage().window().maximize();
 	}
 	
+	/**
+	 * Closes the driver, deletes all cookies
+	 */
 	public void closeDriver()
 	{
 		Driver.driver.manage().deleteAllCookies();

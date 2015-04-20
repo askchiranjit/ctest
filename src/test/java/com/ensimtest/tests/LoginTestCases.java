@@ -1,20 +1,15 @@
 package com.ensimtest.tests;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
 import org.testng.annotations.*;
 import org.testng.Assert;
 import org.testng.SkipException;
-
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
-import com.ensimtest.module.entities.AddAgentWizardDetails;
-import com.ensimtest.module.entities.AgentHomePage;
-import com.ensimtest.module.entities.EntityOptions;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestConfigHandler;
