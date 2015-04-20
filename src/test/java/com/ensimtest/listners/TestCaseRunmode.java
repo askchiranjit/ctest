@@ -23,6 +23,7 @@ public class TestCaseRunmode implements IAnnotationTransformer {
 		}
 		xlsReadFile=null;
 		testConfigHandler=null;
+		}
 	}
 
-}
+
