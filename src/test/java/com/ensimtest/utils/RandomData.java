@@ -31,7 +31,7 @@ public class RandomData
 		String output = "";
 		for(int i=0; i<randNum.length(); i++)
 		{
-			output += (randNum.charAt(i) +'a') + "";
+			output += (char)(Character.getNumericValue(randNum.charAt(i)) +'a') + "";
 		}
 		return output;
 	}
