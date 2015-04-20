@@ -23,11 +23,14 @@ public interface IElement
 	 * @return if displayed then returns true else returns false. 
 	 */
 	public boolean isDisplayed();
-	
+
 	/**
 	 * Read text data from the element
 	 * @return String data of the text of the elements
 	 */
+
+	public boolean isEnabled();
+
 	public String read();
 	
 	/**

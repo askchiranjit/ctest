@@ -49,4 +49,22 @@ public class EntityOptions extends AppData
 		}
 	}
 	public ResellersLnk resellersLnk = new ResellersLnk();
+	
+	public class MyOrganizationLnk extends Element
+	{
+		public MyOrganizationLnk()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public MyOrganizationLnk myOrganizationLnk = new MyOrganizationLnk();
+
+	public class UsersLnk extends Element
+	{
+		public UsersLnk()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public UsersLnk usersLnk = new UsersLnk();
 }

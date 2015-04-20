@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+	<OrderMenu>
+		<key>Xpath</key>
+		<value>//div[text()='Orders']</value>
+	</OrderMenu>
+
+	<ListOrderLnk>
+		<key>Xpath</key>
+		<value>//a[text()='List Order']</value>
+	</ListOrderLnk>
+
+	<CreateOrderLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Create Order')]</value>
+	</CreateOrderLnk>
+</root>

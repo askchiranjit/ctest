@@ -6,7 +6,7 @@
 	</UserInfo>
 	<LogOut>
 		<key>Xpath</key>
-		<value>//*[@id="menu"]/li/ul/li[6]/a</value>
+		<value>//a[contains(text(),'Logout')]</value>
 		
 	</LogOut>
 </root>

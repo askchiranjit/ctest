@@ -20,4 +20,14 @@
 		<value>//a[text()='Resellers']</value>
 	</ResellersLnk>
 	
+	<MyOrganizationLnk>
+		<key>Xpath</key>
+		<value>//a[text()='My Organization']</value>
+	</MyOrganizationLnk>
+
+<UsersLnk>
+		<key>Xpath</key>
+		<value>//a[text()='Users']</value>
+</UsersLnk>
+	
 </root>

@@ -32,6 +32,6 @@
 	
 	<SignUpBtn>
 		<key>Xpath</key>
-		<value>//*[@id=\"EAS_login_content\"]/div/div[2]/div[1]/ul/li[2]</value>
+		<value>//li[text()='Signup']</value>
 	</SignUpBtn>
 </root>

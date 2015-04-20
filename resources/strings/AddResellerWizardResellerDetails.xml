@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<root>
+
+	<ResellerNameTxt>
+		<key>ID</key>
+		<value>name</value>
+	</ResellerNameTxt>
+
+	<VATNumberTxt>
+		<key>ID</key>
+		<value>vat_number</value>
+	</VATNumberTxt>
+
+	<EmailCorrespondenceTxt>
+		<key>ID</key>
+		<value>email</value>
+	</EmailCorrespondenceTxt>
+
+	<EmaiReceiveFinancialDocumentsTxt>
+		<key>ID</key>
+		<value>billing_emails</value>
+	</EmaiReceiveFinancialDocumentsTxt>
+
+	<DomainNamesTxt>
+		<key>ID</key>
+		<value>dns_names</value>
+	</DomainNamesTxt>
+
+	<UsernameSuffixTxt>
+		<key>ID</key>
+		<value>business_unit_upn_suffix</value>
+	</UsernameSuffixTxt>
+
+	<ConfirmUsernameSuffixTxt>
+		<key>ID</key>
+		<value>business_unit_upn_suffix_confirm</value>
+	</ConfirmUsernameSuffixTxt>
+
+	<CustomizedLoginURLTxt>
+		<key>ID</key>
+		<value>cust_login_url</value>
+	</CustomizedLoginURLTxt>
+
+	<CommunicationLanguageLst>
+		<key>Name</key>
+		<value>communication_language</value>
+	</CommunicationLanguageLst>
+
+	<BillingLanguageLst>
+		<key>Name</key>
+		<value>billing_language</value>
+	</BillingLanguageLst>
+
+	<DateTimeFormatLst>
+		<key>Name</key>
+		<value>datetimeformat</value>
+	</DateTimeFormatLst>
+	
+</root>
