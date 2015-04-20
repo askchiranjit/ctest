@@ -5,18 +5,17 @@ import java.util.HashMap;
 
 import org.testng.annotations.*;
 import org.testng.Assert;
-import org.testng.SkipException;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.PropertyReader;
-import com.ensimtest.resource.TestConfigHandler;
 import com.ensimtest.resource.TestDataProvider;
-import com.ensimtest.resource.XLSFileReader;
-public class LoginTestCases {
-	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
+import com.ensimtest.utils.TestUtils;
+
+public class LoginTestCases
+{
 	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
@@ -30,14 +29,7 @@ public class LoginTestCases {
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
-		XLSFileReader xr=new XLSFileReader(suiteFilePath);
-		TestConfigHandler th=new TestConfigHandler();
-		if(th.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
-		{
-			xr=null;
-			th=null;
-			throw new SkipException("Test Suite "+this.getClass().getSimpleName()+" is runnable for this build/test cycle");
-		}
+		TestUtils.checkSuitRunnable(this);
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();

@@ -24,7 +24,7 @@ import com.ensimtest.utils.TestUtils;
 
 public class SignUpTestCases 
 {
-	private String suiteFilePath = "resources\\testdata\\TestSuite.xlsx";
+	
 	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
@@ -40,14 +40,7 @@ public class SignUpTestCases
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
-		XLSFileReader xr=new XLSFileReader(suiteFilePath);
-		TestConfigHandler th=new TestConfigHandler();
-		if(th.isSuiteRunnable(xr,this.getClass().getSimpleName())==false)
-		{
-			xr=null;
-			th=null;
-			throw new SkipException("Test Suite "+this.getClass().getSimpleName()+" is runnable for this build/test cycle");
-		}
+		TestUtils.checkSuitRunnable(this);
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();
