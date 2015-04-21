@@ -153,4 +153,13 @@ public class SignUpScreen extends AppData
 		}
 	}
 	public RegisterBtn registerBtn = new RegisterBtn();
+	
+	public class PopupMessage extends Element
+	{
+		public PopupMessage()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public PopupMessage popupMessage=new PopupMessage();
 }
