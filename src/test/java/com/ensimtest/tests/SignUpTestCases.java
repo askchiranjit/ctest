@@ -131,8 +131,8 @@ public class SignUpTestCases
 		signUpScreen.orgNameTxt.write(orgName);
 		signUpScreen.Email.write(duplicateEmail);
 		signUpScreen.confirmEmailTxt.click();
-		AlertHandler alert = new AlertHandler();
-		Assert.assertEquals(alert.getTextInAlert(),"The email address is not available. Please enter another email address");
+		TestUtils.delay(5000);
+		Assert.assertEquals(signUpScreen.popupMessage.read().trim(),"The email address is not available. Please enter another email address");
 		
 	}
 
