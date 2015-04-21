@@ -48,4 +48,8 @@
 		<key>ID</key>
 		<value>save</value>
 	</RegisterBtn>
+	<PopupMessage>
+		<key>ID</key>
+		<value>popup_message</value>
+	</PopupMessage>
 </root>
