@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -16,9 +15,7 @@ import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.resource.PropertyReader;
-import com.ensimtest.resource.TestConfigHandler;
 import com.ensimtest.resource.TestDataProvider;
-import com.ensimtest.resource.XLSFileReader;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
 
