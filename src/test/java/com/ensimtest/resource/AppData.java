@@ -11,7 +11,7 @@ public class AppData
 {
 	private String resFilePath = "resources\\strings\\";
 	
-	public String[] readAppData(Object className)
+	protected String[] readAppData(Object className)
 	{
 		String fullName = className.getClass().getCanonicalName().toString();
 		String packageName = className.getClass().getPackage().toString().replace("package", "").trim();
