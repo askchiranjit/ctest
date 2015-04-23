@@ -45,4 +45,14 @@
 	<key>ID</key>
 	<value>upnSuffixSummary</value>
 </UsernameSuffixLbl>
+
+<CreateSuccessAlert>
+	<key>ID</key>
+	<value>popup_message</value>
+</CreateSuccessAlert>
+
+<CreateSuccessAlertOkBtn>
+	<key>ID</key>
+	<value>popup_ok</value>
+</CreateSuccessAlertOkBtn>
 </root>

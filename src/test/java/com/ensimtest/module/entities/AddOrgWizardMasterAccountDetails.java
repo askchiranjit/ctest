@@ -29,6 +29,10 @@ public class AddOrgWizardMasterAccountDetails extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public void selectAgreement(String data)
+		{
+			super.selectVisibleText(data);
+		}
 	}
 	public PaymentAgreementList paymentAgreementList = new PaymentAgreementList();
 	

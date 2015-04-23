@@ -40,7 +40,7 @@ public class AddOrgWizardOrgDetails extends AppData
 		}
 		public void selectMacroSegment(String info)
 		{
-			super.selectValue(info);
+			super.selectVisibleText(info);
 		}
 	}
 	public MacroSegmentList macroSegmentList = new MacroSegmentList();
@@ -79,7 +79,7 @@ public class AddOrgWizardOrgDetails extends AppData
 		}
 		public void selectLanguage(String language)
 		{
-			super.selectValue(language);
+			super.selectVisibleText(language);
 		}
 	}
 	public CommunicationLanguageList communicationLanguageList = new CommunicationLanguageList();
@@ -92,7 +92,7 @@ public class AddOrgWizardOrgDetails extends AppData
 		}
 		public void selectLanguage(String language)
 		{
-			super.selectValue(language);
+			super.selectVisibleText(language);
 		}
 	}
 	public BillingLanguageList billingLanguageList = new BillingLanguageList();
@@ -105,7 +105,7 @@ public class AddOrgWizardOrgDetails extends AppData
 		}
 		public void selectFormat(String dateTimeFormat)
 		{
-			super.selectValue(dateTimeFormat);
+			super.selectVisibleText(dateTimeFormat);
 		}
 	}
 	public DateTimeFormatList dateTimeFormatList = new DateTimeFormatList();
@@ -289,7 +289,7 @@ public class AddOrgWizardOrgDetails extends AppData
 		}
 		public void selectCountry(String countryName)
 		{
-			super.selectValue(countryName);
+			super.selectVisibleText(countryName);
 		}
 	}
 	public CountryList countryList = new CountryList();

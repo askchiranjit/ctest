@@ -86,4 +86,21 @@ public class AddOrgWizardSummary extends AppData
 	}
 	public UsernameSuffixLbl usernameSuffixLbl = new UsernameSuffixLbl();
 
+	public class CreateSuccessAlert extends Element
+	{
+		public CreateSuccessAlert()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public CreateSuccessAlert createSuccessAlert = new CreateSuccessAlert();
+	
+	public class CreateSuccessAlertOkBtn extends Element
+	{
+		public CreateSuccessAlertOkBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public CreateSuccessAlertOkBtn createSuccessAlertOkBtn = new CreateSuccessAlertOkBtn();
 }

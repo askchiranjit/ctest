@@ -33,7 +33,7 @@
 	<DomainNameCheckLbl>
 		<key>ID</key>
 		<value>dnsMessageCheck</value>
-	</DomainNamesTxt>
+	</DomainNameCheckLbl>
 
 	<CommunicationLanguageList>
 		<key>ID</key>
