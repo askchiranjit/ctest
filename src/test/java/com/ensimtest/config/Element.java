@@ -107,7 +107,6 @@ public class Element implements IElement
 	{
 		webElement = handler.reloadElement(elementName, type);
 		String s = webElement.getAttribute(attributeName);
-		System.out.println("Attribute >> " + s);
 		return s;
 	}
 	
@@ -160,7 +159,12 @@ public class Element implements IElement
 	{
 		webElement = handler.reloadElement(elementName, type);
 		return webElement.isSelected();
-		
 	}
 
+	@Override
+	public void clear()
+	{
+		webElement = handler.reloadElement(elementName, type);
+		webElement.clear();
+	}
 }
