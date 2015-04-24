@@ -139,6 +139,7 @@ public class SignUpTestCases
 		Assert.assertEquals(signUpScreen.popupMessage.read().trim(),getMessage.getProperty("duplicate_email_selfristration"));
 		
 	}
+	
 	@Test
 	public void signupValidations()
 	{
