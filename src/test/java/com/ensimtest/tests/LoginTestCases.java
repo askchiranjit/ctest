@@ -9,7 +9,6 @@ import org.testng.Assert;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
-import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.GetEASMessages;
 import com.ensimtest.resource.PropertyReader;
