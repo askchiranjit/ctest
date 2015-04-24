@@ -108,7 +108,7 @@ public class SignUpTestCases
 		AlertHandler alert = new AlertHandler();
 		String alertMessage = alert.getTextInAlert();
 		alert.dismissAlert();
-		Assert.assertEquals(alertMessage,"You have successfully registered in EAS portal. Please check your inbox for account activation link.");
+		Assert.assertEquals(alertMessage,getMessage.getProperty("sucessful_selfregistration_message"));
 		
 		// Verify in Login page
 		LoginScreen loginPage = new LoginScreen();
@@ -136,7 +136,7 @@ public class SignUpTestCases
 		signUpScreen.Email.write(duplicateEmail);
 		signUpScreen.confirmEmailTxt.click();
 		TestUtils.delay(5000);
-		Assert.assertEquals(signUpScreen.popupMessage.read().trim(),"The email address is not available. Please enter another email address");
+		Assert.assertEquals(signUpScreen.popupMessage.read().trim(),getMessage.getProperty("duplicate_email_selfristration"));
 		
 	}
 	@Test
