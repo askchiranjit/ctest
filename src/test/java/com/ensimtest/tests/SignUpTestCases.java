@@ -27,8 +27,8 @@ public class SignUpTestCases
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
-	RandomData Rd=new RandomData();
-	GetEASMessages getMessage=new GetEASMessages();
+	private RandomData Rd=new RandomData();
+	private GetEASMessages getMessage=new GetEASMessages();
 
 	public SignUpTestCases()
 	{
