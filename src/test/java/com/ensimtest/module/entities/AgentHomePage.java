@@ -17,4 +17,5 @@ public class AgentHomePage extends AppData
 		}
 	}
    public AddAgentBtn addAgentBtn=new AddAgentBtn();
+      
 }
