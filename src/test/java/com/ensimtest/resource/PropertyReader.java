@@ -6,9 +6,9 @@ import java.util.Properties;
 
 public class PropertyReader {
 	
-	public static String propertyFile="resources\\testprop\\framework.properties"; 
-	public static Properties prop;
-	public static FileInputStream fis;
+	private static String propertyFile="resources\\testprop\\framework.properties"; 
+	private static Properties prop;
+	private static FileInputStream fis;
 	
 	public PropertyReader() throws IOException
 	{

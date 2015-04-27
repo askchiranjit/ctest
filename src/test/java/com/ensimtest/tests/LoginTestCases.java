@@ -5,11 +5,12 @@ import java.util.HashMap;
 
 import org.testng.annotations.*;
 import org.testng.Assert;
+
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
-import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.module.userspace.LoggedInUser;
+import com.ensimtest.resource.GetEASMessages;
 import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
@@ -20,6 +21,7 @@ public class LoginTestCases
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
+	private GetEASMessages getMessage=new GetEASMessages(); 
 	public LoginTestCases()
 	{
 		settings = new DriverSettings();
@@ -108,10 +110,10 @@ public class LoginTestCases
 		loginScreen.loginBtn.click();
 		
 		// Verify error is displayed
-		String errorMsg = "User '" + h.get("UserName") + "' does not exist or the entered password is incorrect.";
+		String errorMsg = "User '" + h.get("UserName") + "' "+getMessage.getProperty("wrong_username_password");
 		Assert.assertEquals(loginScreen.errorMsg.read(), errorMsg);
 	}
-//	
+	
 	@Test
 	public void NoCredentialAtLogin()
 	{
@@ -136,21 +138,6 @@ public class LoginTestCases
 		// Verify error is displayed
 		Assert.assertEquals(loginScreen.username.IsErrorDisplayed(), true);
 		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
-	}
-	
-	@Test
-	public void selfRegistration()
-	{
-		browser.navigateTo(baseURL);
-
-		// Verify user-name, password, login button are displayed
-		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.signUpBtn.click();
-		SignUpScreen sc=new SignUpScreen();
-		Assert.assertEquals(sc.registerBtn.isEnabled(),false);
-//		Assert.assertEquals(sc.agreeTermsCondChkBox.isTermAndConditionAgreed(), false);
-		
-		
 	}
 	
 	}

@@ -52,7 +52,10 @@ public class SignUpScreen extends AppData
 		}
 		public boolean IsErrorDisplayed()
 		{
-			return isError();
+			if(getAttributeValue("class").equals("field required eas_tooltip eas-error-msg"))
+				return true;
+			else
+				return false;
 		}
 	}
 	public PhoneNo phoneNoTxt = new PhoneNo();
@@ -153,4 +156,22 @@ public class SignUpScreen extends AppData
 		}
 	}
 	public RegisterBtn registerBtn = new RegisterBtn();
+	
+	public class PopupMessage extends Element
+	{
+		public PopupMessage()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public PopupMessage popupMessage=new PopupMessage();
+	
+	public class PopupOKBtn extends Element
+	{
+		public PopupOKBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public PopupOKBtn popupOkBtn=new PopupOKBtn();
 }

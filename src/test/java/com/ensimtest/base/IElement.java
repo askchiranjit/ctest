@@ -38,4 +38,11 @@ public interface IElement
 	 * @param s : Text to be written
 	 */
 	public void write(String s);
-}
+	
+	/**
+	 * use to clean a text field
+	 */
+	
+	public void clear();
+	
+	}

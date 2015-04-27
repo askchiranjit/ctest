@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<root>
+	<GetPopUPData>
+		<key>ID</key>
+		<value>popup_message</value>
+	</GetPopUPData>
+	<AcceptPopUP>
+		<key>ID</key>
+		<value>popup_ok</value>
+	</AcceptPopUP>
+</root>
