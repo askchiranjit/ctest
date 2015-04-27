@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<root>
+	<VersionNumber>
+		<key>Xpath</key>
+		<value>//*[@id="column1"]/div/div[2]/div/div/table[1]/tbody/tr[1]/td[2]</value>
+	</VersionNumber>
+
+	<BuildDate>
+		<key>Xpath</key>
+		<value>//*[@id="column1"]/div/div[2]/div/div/table[1]/tbody/tr[2]/td[2]</value>
+	</BuildDate>
+	
+	<GrailsVersion>
+		<key>Xpath</key>
+		<value>//*[@id="column1"]/div/div[2]/div/div/table[1]/tbody/tr[3]/td[2]</value>
+	</GrailsVersion>
+	
+	<JVMVersion>
+		<key>Xpath</key>
+		<value>//*[@id="column1"]/div/div[2]/div/div/table[1]/tbody/tr[4]/td[2]</value>
+	</JVMVersion>
+	
+	<DefaultLocale>
+		<key>Xpath</key>
+		<value>//*[@id="column1"]/div/div[2]/div/div/table[2]/tbody/tr[1]/td[2]</value>
+	</DefaultLocale>
+
+</root>

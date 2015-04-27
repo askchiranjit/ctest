@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<root>
+	<Menu>
+		<key>Xpath</key>
+		<value>//*[@id="header"]/div[8]</value>
+	</Menu>
+
+	<ConfigurationMenu>
+		<key>Xpath</key>
+		<value>//*[@id="nav"]/li/ul/li[1]/a</value>
+	</ConfigurationMenu>
+	
+	<ControlPanelMenu>
+		<key>Xpath</key>
+		<value>//*[@id="nav"]/li/ul/li[2]/a</value>
+	</ControlPanelMenu>
+
+</root>
