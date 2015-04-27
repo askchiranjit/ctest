@@ -79,6 +79,8 @@ public class AddAgentWizardDetails extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		
+
 	}
 	public EmailaddressTxt emailaddressTxt = new EmailaddressTxt();
 
@@ -173,4 +175,22 @@ public class AddAgentWizardDetails extends AppData
 	}
 	public SaveBtn saveBtn = new SaveBtn();
 
+	public class UPNErrorImage extends Element
+	{
+		public UPNErrorImage()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public UPNErrorImage upnErrorImage = new UPNErrorImage();
+	
+	public class UPNExistsImage extends Element
+	{
+		public UPNExistsImage()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public UPNExistsImage upnExistsImage = new UPNExistsImage();
+	
 }
