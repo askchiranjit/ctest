@@ -80,4 +80,14 @@
 	<value>finalSave</value>
 </SaveBtn>
 
+<UPNErrorImage>
+	<key>Xpath</key>
+	<value>//span[@id='upnSuffixQueryResult1']//img[contains(@src,'cross.png')]</value>
+</UPNErrorImage>
+
+<UPNExistsImage>
+	<key>Xpath</key>
+	<value>//span[@id='upnSuffixQueryResult1']//img[contains(@src,'tick.png')]</value>
+</UPNExistsImage>
+
 </root>
