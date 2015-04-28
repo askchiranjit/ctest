@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<root>
+	<LogInNameTxt>
+		<key>ID</key>
+		<value>login_name</value>
+	</LogInNameTxt>
+    <FirstNameTxt>
+		<key>ID</key>
+		<value>fname</value>
+	</FirstNameTxt>
+	<LastNameTxt>
+		<key>ID</key>
+		<value>lname</value>
+	</LastNameTxt>
+	<EmailAddressTxt>
+		<key>ID</key>
+		<value>primary_email</value>
+	</EmailAddressTxt>
+	<PhoneNumberTxt>
+		<key>ID</key>
+		<value>phone_number</value>
+	</PhoneNumberTxt>
+    <SearchBtn>
+		<key>ID</key>
+		<value>userSearch</value>
+	</SearchBtn>
+	<ResetBtn>
+		<key>Xpath</key>
+		<value>//*[@id="filters"]/ul/li[8]/div</value>
+	</ResetBtn>
+	<ImportUserBtn>
+		<key>Xpath</key>
+		<value>//*[@id="filters"]/ul/li[9]/div</value>
+	</ImportUserBtn>
+</root>
