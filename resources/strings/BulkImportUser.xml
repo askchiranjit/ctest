@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+	<LoadCSVFileLnk>
+		<key>ID</key>
+		<value>csvFile</value>
+	</LoadCSVFileLnk>
+    <SendActivationEmailChk>
+		<key>ID</key>
+		<value>sendNotification</value>
+	</SendActivationEmailChk>
+	<DownloadSampleCSVBtn>
+		<key>ID</key>
+		<value>download_csv_button</value>
+	</DownloadSampleCSVBtn>
+	<ImportNowBtn>
+		<key>ID</key>
+		<value>saveCsv</value>
+	</ImportNowBtn>
+</root>
