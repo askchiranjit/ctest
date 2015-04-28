@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+	<SearchByLst>
+		<key>ID</key>
+		<value>searchCriteria</value>
+	</SearchByLst>
+    <KeywordTxt>
+		<key>ID</key>
+		<value>searchCriteriaValue</value>
+	</KeywordTxt>
+	<DeactivatedChk>
+		<key>ID</key>
+		<value>cbincl</value>
+	</DeactivatedChk>
+	<SearchBtn>
+		<key>ID</key>
+		<value>searchuser</value>
+	</SearchBtn>
+</root>
