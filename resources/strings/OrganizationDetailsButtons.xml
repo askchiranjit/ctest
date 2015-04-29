@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<root>
+	<EditBtn>
+		<key>ID</key>
+		<value>editCustomerButton</value>
+	</EditBtn>
+    <AddUserBtn>
+		<key>ID</key>
+		<value>addUserButton</value>
+	</AddUserBtn>
+	<ListUsersBtn>
+		<key>ID</key>
+		<value>listUsersButton</value>
+	</ListUsersBtn>
+	<ImportUsersBtn>
+		<key>ID</key>
+		<value>uploadDialog</value>
+	</ImportUsersBtn>
+	<AddAccountBtn>
+		<key>ID</key>
+		<value>add_account_button</value>
+	</AddAccountBtn>
+    <CreateOrderBtn>
+		<key>ID</key>
+		<value>createOrderButton</value>
+	</CreateOrderBtn>
+	<NewTicketBtn>
+		<key>ID</key>
+		<value>ticketfororganizationid</value>
+	</NewTicketBtn>
+</root>
