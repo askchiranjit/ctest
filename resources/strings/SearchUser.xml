@@ -26,10 +26,10 @@
 	</SearchBtn>
 	<ResetBtn>
 		<key>Xpath</key>
-		<value>//*[@id="filters"]/ul/li[8]/div</value>
+		<value>//span[text()='Reset']</value>
 	</ResetBtn>
 	<ImportUserBtn>
 		<key>Xpath</key>
-		<value>//*[@id="filters"]/ul/li[9]/div</value>
+		<value>//span[contains(text(),'Import Users')]</value>
 	</ImportUserBtn>
 </root>
