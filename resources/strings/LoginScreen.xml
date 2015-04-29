@@ -11,8 +11,8 @@
 	</Password>
 
 	<LoginBtn>
-		<key>Xpath</key>
-		<value>//input[@type='button' and @value='Login']</value>
+		<key>ID</key>
+		<value>loginBtn</value>
 	</LoginBtn>
 
 	<ErrorMsg>
@@ -31,7 +31,7 @@
 	</ForgotPassword>
 	
 	<SignUpBtn>
-		<key>Xpath</key>
-		<value>//li[text()='Signup']</value>
+		<key>ID</key>
+		<value>signupTab</value>
 	</SignUpBtn>
 </root>
