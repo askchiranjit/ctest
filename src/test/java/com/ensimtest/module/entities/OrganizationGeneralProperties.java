@@ -139,7 +139,7 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public MacroSegmentFld macroSegmentFld = new MacroSegmentFld();
 	
-	//End of General Properties Expander
+//--------End of General Properties Expander--------
 	
 	/**
 	 * Click on Organization Owner Information Expander
@@ -253,7 +253,7 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public SalesRepMobileFld salesRepMobileFld = new SalesRepMobileFld();
 	
-	//End of Organization Owner Information Expander
+//--------End of Organization Owner Information Expander--------
 	
 	/**
 	 * Click on Organization Global Discount Expander
@@ -310,7 +310,7 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public EnableDiscountBtn enableDiscountBtn = new EnableDiscountBtn();
 	
-	//End of Organization Owner Information Expander
+//--------End of Organization Owner Information Expander--------
 	
 	/**
 	 * Click on Custom Fields Expander
@@ -493,6 +493,6 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public CustomField12Fld customField12Fld = new CustomField12Fld();
 	
-	//End of Custom Fields Expander
+//--------End of Custom Fields Expander--------
 
 }
