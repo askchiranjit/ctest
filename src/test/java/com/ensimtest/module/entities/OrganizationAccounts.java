@@ -147,12 +147,12 @@ public class OrganizationAccounts extends AppData{
 	 * @author Dip
 	 *
 	 */
-	public class UseOrgAddressAsAccountAddress extends Element{
-		public UseOrgAddressAsAccountAddress(){
+	public class UseOrgAddressAsAccountAddressFld extends Element{
+		public UseOrgAddressAsAccountAddressFld(){
 			setElement(readAppData(this));
 		}
 	}
-	public UseOrgAddressAsAccountAddress useOrgAddressAsAccountAddress = new UseOrgAddressAsAccountAddress();
+	public UseOrgAddressAsAccountAddressFld useOrgAddressAsAccountAddressFld = new UseOrgAddressAsAccountAddressFld();
 	
 	/**
 	 * To get the Organization Account's Address Line 1 
@@ -249,4 +249,277 @@ public class OrganizationAccounts extends AppData{
 		}
 	}
 	public OrgEditAccountBtn orgEditAccountBtn = new OrgEditAccountBtn();
+	
+//--------Edit Account Details Section--------
+	/**
+	 * To Edit the Organization's Account ID 
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountIDEditTxt extends Element{
+		public OrgAccountIDEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountIDEditTxt orgAccountIDEditTxt = new OrgAccountIDEditTxt();
+	
+	/**
+	 * To Edit the Organization's Account Name 
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountNameEditTxt extends Element{
+		public OrgAccountNameEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountNameEditTxt orgAccountNameEditTxt = new OrgAccountNameEditTxt();
+	
+	/**
+	 * To Edit the Organization's Corporate ID 
+	 * @author Dip
+	 *
+	 */
+	public class OrgCorporateIDEditTxt extends Element{
+		public OrgCorporateIDEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgCorporateIDEditTxt orgCorporateIDEditTxt = new OrgCorporateIDEditTxt();
+	
+	/**
+	 * To Edit the Organization's Currency 
+	 * @author Dip
+	 *
+	 */
+	public class OrgCurrencyEditLst extends Element{
+		public OrgCurrencyEditLst(){
+			setElement(readAppData(this));
+		}
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	public OrgCurrencyEditLst orgCurrencyEditLst = new OrgCurrencyEditLst();
+	
+	/**
+	 * To Edit the Organization's External Billing Id
+	 * @author Dip
+	 *
+	 */
+	public class OrgExternalBillingIDEditTxt extends Element{
+		public OrgExternalBillingIDEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgExternalBillingIDEditTxt orgExternalBillingIDEditTxt = new OrgExternalBillingIDEditTxt();
+	
+	/**
+	 * To Edit the Organization's Payment Agreement
+	 * @author Dip
+	 *
+	 */
+	public class OrgPaymentAgreementEditLst extends Element{
+		public OrgPaymentAgreementEditLst(){
+			setElement(readAppData(this));
+		}
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	public OrgPaymentAgreementEditLst orgPaymentAgreementEditLst = new OrgPaymentAgreementEditLst();
+	
+	/**
+	 * To edit the Organization's Billable to Account 
+	 * @author Dip
+	 *
+	 */
+	public class OrgBillableToAccountEditLst extends Element{
+		public OrgBillableToAccountEditLst(){
+			setElement(readAppData(this));
+		}
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	public OrgBillableToAccountEditLst orgBillableToAccountEditLst = new OrgBillableToAccountEditLst();
+	
+	/**
+	 * To edit the Organization's Billing Language 
+	 * @author Dip
+	 *
+	 */
+	public class OrgBillingLanguageEditLst extends Element{
+		public OrgBillingLanguageEditLst(){
+			setElement(readAppData(this));
+		}
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	public OrgBillingLanguageEditLst orgBillingLanguageEditLst = new OrgBillingLanguageEditLst();
+	
+	/**
+	 * To edit the Organization's Communication Language 
+	 * @author Dip
+	 *
+	 */
+	public class OrgCommunicationLanguageEditLst extends Element{
+		public OrgCommunicationLanguageEditLst(){
+			setElement(readAppData(this));
+		}
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	public OrgCommunicationLanguageEditLst orgCommunicationLanguageEditLst = new OrgCommunicationLanguageEditLst();
+	
+	/**
+	 * To Edit the Organization's Email addresses to receive financial documents 
+	 * @author Dip
+	 *
+	 */
+	public class OrgFinancialEmailEditTxt extends Element{
+		public OrgFinancialEmailEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgFinancialEmailEditTxt orgFinancialEmailEditTxt = new OrgFinancialEmailEditTxt();
+	
+	/**
+	 * To use different address rather use of organization address as account address
+	 * @author Dip
+	 *
+	 */
+	public class UseDifferentAddressAsAccountAddressImgBtn extends Element{
+		public UseDifferentAddressAsAccountAddressImgBtn(){
+			setElement(readAppData(this));
+		}
+	}
+	public UseDifferentAddressAsAccountAddressImgBtn useDifferentAddressAsAccountAddressImgBtn = new UseDifferentAddressAsAccountAddressImgBtn();
+	
+	/**
+	 * To use organization address as account address rather use of different address as account address
+	 * @author Dip
+	 *
+	 */
+	public class UseOrgAddressAsAccountAddressImgBtn extends Element{
+		public UseOrgAddressAsAccountAddressImgBtn(){
+			setElement(readAppData(this));
+		}
+		
+		//TODO: Need to handle alert
+	}
+	public UseOrgAddressAsAccountAddressImgBtn useOrgAddressAsAccountAddressImgBtn = new UseOrgAddressAsAccountAddressImgBtn();
+	/**
+	 * To Edit the Organization Account's Address Line 1 
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountAddressLine1EditTxt extends Element{
+		public OrgAccountAddressLine1EditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountAddressLine1EditTxt orgAccountAddressLine1EditTxt = new OrgAccountAddressLine1EditTxt();
+	
+	/**
+	 * To Edit the Organization Account's Address Line 2 
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountAddressLine2EditTxt extends Element{
+		public OrgAccountAddressLine2EditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountAddressLine2EditTxt orgAccountAddressLine2EditTxt = new OrgAccountAddressLine2EditTxt();
+	
+	/**
+	 * To Edit the Organization Account's City Name
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountCityNameEditTxt extends Element{
+		public OrgAccountCityNameEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountCityNameEditTxt orgAccountCityNameEditTxt = new OrgAccountCityNameEditTxt();
+	
+	/**
+	 * To Edit the Organization Account's City Code
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountCityCodeEditTxt extends Element{
+		public OrgAccountCityCodeEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountCityCodeEditTxt orgAccountCityCodeEditTxt = new OrgAccountCityCodeEditTxt();
+	
+	/**
+	 * To Edit the Organization Account's Zip Code
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountZipCodeEditTxt extends Element{
+		public OrgAccountZipCodeEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountZipCodeEditTxt orgAccountZipCodeEditTxt = new OrgAccountZipCodeEditTxt();
+	
+	/**
+	 * To edit the Organization Account's State
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountStateEditTxt extends Element{
+		public OrgAccountStateEditTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAccountStateEditTxt orgAccountStateEditTxt = new OrgAccountStateEditTxt();
+	
+	/**
+	 * To edit the Organization Account's Country
+	 * @author Dip
+	 *
+	 */
+	public class OrgAccountCountryEditLst extends Element{
+		public OrgAccountCountryEditLst(){
+			setElement(readAppData(this));
+		}
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	public OrgAccountCountryEditLst orgAccountCountryEditLst = new OrgAccountCountryEditLst();
+	
+	/**
+	 * To Click on Cancel button
+	 * @author Dip
+	 *
+	 */
+	public class CancelEditAccountBtn extends Element{
+		public CancelEditAccountBtn(){
+			setElement(readAppData(this));
+		}
+	}
+	public CancelEditAccountBtn cancelEditAccountBtn = new CancelEditAccountBtn();
+	
+	/**
+	 * To Click on Update button
+	 * @author Dip
+	 *
+	 */
+	public class UpdateEditAccountBtn extends Element{
+		public UpdateEditAccountBtn(){
+			setElement(readAppData(this));
+		}
+	}
+	public UpdateEditAccountBtn updateEditAccountBtn = new UpdateEditAccountBtn();
+	
 }

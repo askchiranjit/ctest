@@ -78,6 +78,8 @@ public class OrganizationDNS extends AppData{
 		public OrgDeleteDomainImgBtn(){
 			setElement(readAppData(this));
 		}
+		
+		//TODO: need to handle alert
 	}
 	public OrgDeleteDomainImgBtn orgDeleteDomainImgBtn = new OrgDeleteDomainImgBtn();
 }
