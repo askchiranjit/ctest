@@ -346,13 +346,13 @@ public class OrganizationGeneralProperties extends AppData {
 	 * @author Dip
 	 *
 	 */
-	public class DiscountFld extends Element{
-		public DiscountFld(){
+	public class OrgDiscountFld extends Element{
+		public OrgDiscountFld(){
 			setElement(readAppData(this));
 		}
 		
 	}
-	public DiscountFld discountFld = new DiscountFld();
+	public OrgDiscountFld orgDiscountFld = new OrgDiscountFld();
 	
 	/**
 	 * Check for Revoke Date
