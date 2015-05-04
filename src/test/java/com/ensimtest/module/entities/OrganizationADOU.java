@@ -67,7 +67,8 @@ public class OrganizationADOU extends AppData{
 	}
 	public OrgADOUEditBtn orgADOUEditBtn = new OrgADOUEditBtn();
 	
-//Edit AD OU Information section
+	
+//--------Edit AD OU Information section--------
 	/**
 	 * To edit User Name Suffix
 	 * @author Dip
