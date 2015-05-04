@@ -23,7 +23,7 @@ public class OrganizationDNS extends AppData{
 	public OrgDomainNameFld orgDomainNameFld = new OrgDomainNameFld();
 	
 	/**
-	 * To add domain under an organization
+	 * Click To add domain under an organization
 	 * @author Dip
 	 *
 	 */
@@ -33,6 +33,41 @@ public class OrganizationDNS extends AppData{
 		}
 	}
 	public OrgAddDomainImgBtn orgAddDomainImgBtn = new OrgAddDomainImgBtn();
+	
+	/**
+	 * To enter a Domain Name
+	 * @author Dip
+	 */
+	public class OrgDomainNameTxt extends Element{
+		public OrgDomainNameTxt(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgDomainNameTxt orgDomainNameTxt = new OrgDomainNameTxt();
+	
+	/**
+	 * click on Add Domain Name(s) Button
+	 * @author Dip
+	 *
+	 */
+	public class OrgAddDomainNameBtn extends Element{
+		public OrgAddDomainNameBtn(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgAddDomainNameBtn orgAddDomainNameBtn = new OrgAddDomainNameBtn();
+	
+	/**
+	 * Click To cancel and exit from add domain section
+	 * @author Dip
+	 *
+	 */
+	public class OrgCancelDomainImgBtn extends Element{
+		public OrgCancelDomainImgBtn(){
+			setElement(readAppData(this));
+		}
+	}
+	public OrgCancelDomainImgBtn orgCancelDomainImgBtn = new OrgCancelDomainImgBtn();
 	
 	/**
 	 * To delete registered domain under an organization
