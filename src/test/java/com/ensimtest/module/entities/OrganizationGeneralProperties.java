@@ -139,7 +139,7 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public MacroSegmentFld macroSegmentFld = new MacroSegmentFld();
 	
-	//End of General Properties Expander
+//--------End of General Properties Expander--------
 	
 	/**
 	 * Click on Organization Owner Information Expander
@@ -253,7 +253,64 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public SalesRepMobileFld salesRepMobileFld = new SalesRepMobileFld();
 	
-	//End of Organization Owner Information Expander
+	/**
+	 * Edit Sales Representative : Enter Employee ID
+	 * It will appear when click on "Change" Button
+	 * @author Dip
+	 *
+	 */
+	public class SalesRepresentativeIDTxt extends Element{
+		public SalesRepresentativeIDTxt(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public SalesRepresentativeIDTxt salesRepresentativeIDTxt = new SalesRepresentativeIDTxt();
+	
+	/**
+	 * To check the employee ID click on "Check" Button
+	 * It will appear when click on "Change" Button
+	 * @author Dip
+	 *
+	 */
+	public class SalesRepresentativeIDCheckBtn extends Element{
+		public SalesRepresentativeIDCheckBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public SalesRepresentativeIDCheckBtn salesRepresentativeIDCheckBtn = new SalesRepresentativeIDCheckBtn();
+	
+	/**
+	 * To cancel the edited employee ID for Sales Representative
+	 * It will appear when click on "Change" Button
+	 * @author Dip
+	 *
+	 */
+	public class CancelSalesRepresentativeEditBtn extends Element{
+		public CancelSalesRepresentativeEditBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public CancelSalesRepresentativeEditBtn cancelSalesRepresentativeEditBtn = new CancelSalesRepresentativeEditBtn();
+	
+	/**
+	 * To Update the edited employee ID for Sales Representative
+	 * It will appear when click on "Change" Button
+	 * @author Dip
+	 *
+	 */
+	public class UpdateSalesRepresentativeEditBtn extends Element{
+		public UpdateSalesRepresentativeEditBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public UpdateSalesRepresentativeEditBtn updateSalesRepresentativeEditBtn = new UpdateSalesRepresentativeEditBtn();
+	
+	
+//--------End of Organization Owner Information Expander--------
 	
 	/**
 	 * Click on Organization Global Discount Expander
@@ -285,20 +342,49 @@ public class OrganizationGeneralProperties extends AppData {
 	public GlobalDiscountFld globalDiscountFld = new GlobalDiscountFld();
 	
 	/**
-	 * Check for Discount % and also enter Discount %
+	 * Check for Discount %
 	 * @author Dip
 	 *
 	 */
-	public class DiscountTxt extends Element{
-		public DiscountTxt(){
+	public class OrgDiscountFld extends Element{
+		public OrgDiscountFld(){
 			setElement(readAppData(this));
 		}
 		
 	}
-	public DiscountTxt discountTxt = new DiscountTxt();
+	public OrgDiscountFld orgDiscountFld = new OrgDiscountFld();
+	
+	/**
+	 * Check for Revoke Date
+	 * It will appear when Global Discount is disabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class RevokeOnFld extends Element{
+		public RevokeOnFld(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public RevokeOnFld revokeOnFld = new RevokeOnFld();
+	
+	/**
+	 * Check for Revoke By
+	 * It will appear when Global Discount is disabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class RevokeByFld extends Element{
+		public RevokeByFld(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public RevokeByFld revokeByFld = new RevokeByFld();
 	
 	/**
 	 * Click on Enable discount button
+	 * It will appear when Global Discount is disabled for an Organization
 	 * @author Dip
 	 *
 	 */
@@ -310,7 +396,107 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public EnableDiscountBtn enableDiscountBtn = new EnableDiscountBtn();
 	
-	//End of Organization Owner Information Expander
+	/**
+	 * Check for Enabled since Date
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class EnabledSinceFld extends Element{
+		public EnabledSinceFld(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public EnabledSinceFld enabledSinceFld = new EnabledSinceFld();
+	
+	/**
+	 * Check for Enabled by
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class EnabledByFld extends Element{
+		public EnabledByFld(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public EnabledByFld enabledByFld = new EnabledByFld();
+	
+	/**
+	 * Click on Revoke discount button
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class RevokeDiscountBtn extends Element{
+		public RevokeDiscountBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public RevokeDiscountBtn revokeDiscountBtn = new RevokeDiscountBtn();
+	
+	/**
+	 * Click on Edit discount button
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class EditDiscountBtn extends Element{
+		public EditDiscountBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public EditDiscountBtn editDiscountBtn = new EditDiscountBtn();
+	
+	/**
+	 * To Edit Discount %
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class EditDiscountTxt extends Element{
+		public EditDiscountTxt(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public EditDiscountTxt editDiscountTxt = new EditDiscountTxt();
+	
+	/**
+	 * Click on Cancel edited discount button
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class CancelDiscountBtn extends Element{
+		public CancelDiscountBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public CancelDiscountBtn cancelDiscountBtn = new CancelDiscountBtn();
+	
+	/**
+	 * Click on Update Edited discount button
+	 * It will appear when Global Discount is enabled for an Organization
+	 * @author Dip
+	 *
+	 */
+	public class UpdateDiscountBtn extends Element{
+		public UpdateDiscountBtn(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public UpdateDiscountBtn updateDiscountBtn = new UpdateDiscountBtn();
+	
+	
+	
+//--------End of Organization Owner Information Expander--------
 	
 	/**
 	 * Click on Custom Fields Expander
@@ -493,6 +679,6 @@ public class OrganizationGeneralProperties extends AppData {
 	}
 	public CustomField12Fld customField12Fld = new CustomField12Fld();
 	
-	//End of Custom Fields Expander
+//--------End of Custom Fields Expander--------
 
 }
