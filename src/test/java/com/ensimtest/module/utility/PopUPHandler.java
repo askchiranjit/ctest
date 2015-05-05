@@ -23,5 +23,15 @@ public class PopUPHandler extends AppData
 		}
 	}
 	public AcceptPopUP acceptPopUP=new AcceptPopUP();
+	
+	
+	public class CanclePopUP extends Element
+	{
+		public CanclePopUP()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public CanclePopUP canclePopUP=new CanclePopUP();
 
 }
