@@ -8,4 +8,8 @@
 		<key>ID</key>
 		<value>popup_ok</value>
 	</AcceptPopUP>
+	<CanclePopUP>
+		<key>ID</key>
+		<value>popup_cancel</value>
+	</CanclePopUP>
 </root>
