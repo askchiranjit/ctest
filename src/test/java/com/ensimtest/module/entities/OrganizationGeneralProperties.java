@@ -455,6 +455,7 @@ public class OrganizationGeneralProperties extends AppData {
 	/**
 	 * To Edit Discount %
 	 * It will appear when Global Discount is enabled for an Organization
+	 * Also appear when Global Discount not enabled but we can provide discount% in the text box and click on Enabled Button
 	 * @author Dip
 	 *
 	 */

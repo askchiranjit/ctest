@@ -40,6 +40,15 @@ public class SearchMyOrganization extends AppData{
 		public DeactivatedChk(){
 			setElement(readAppData(this));
 		}
+		public void Check()
+		{
+			super.check();
+		}
+		public void UnCheck()
+		{
+			super.unCheck();
+		}
+		
 	}
 	public DeactivatedChk deactivatedChk = new DeactivatedChk();
 	
