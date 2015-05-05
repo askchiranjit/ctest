@@ -168,4 +168,22 @@ public class Element implements IElement
 		webElement.clear();
 	}
 	
+	protected void check()
+	{
+		webElement = handler.reloadElement(elementName, type);
+		if(webElement.isSelected()==false)
+		{
+			webElement.click();
+		}
+	}
+	
+	protected void unCheck()
+	{
+		webElement = handler.reloadElement(elementName, type);
+		if(webElement.isSelected()==true)
+		{
+			webElement.click();
+		}
+	}
+	
 }
