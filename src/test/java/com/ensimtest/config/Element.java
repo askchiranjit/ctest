@@ -167,4 +167,5 @@ public class Element implements IElement
 		webElement = handler.reloadElement(elementName, type);
 		webElement.clear();
 	}
+	
 }
