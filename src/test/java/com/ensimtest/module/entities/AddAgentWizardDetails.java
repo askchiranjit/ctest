@@ -1,6 +1,5 @@
 package com.ensimtest.module.entities;
 
-import com.ensimtest.base.Driver;
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 /**
