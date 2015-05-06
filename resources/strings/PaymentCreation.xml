@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<root>
+	<PaymentReceivedRdo>
+		<key>Xpath</key>
+		<value>//td[text()='Payment Received']//preceding::td[1]//input[@type='radio']</value>
+	</PaymentReceivedRdo>
+	<AdjustmentRdo>
+		<key>Xpath</key>
+		<value>//td[text()='Adjustment']//preceding::td[1]//input[@type='radio']</value>
+	</AdjustmentRdo>
+	<PaymentDate>
+		<key>ID</key>
+		<value>paymentdate</value>
+	</PaymentDate>
+	
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<BillingMenu>
+		<key>Xpath</key>
+		<value>//div[text()='Billing']</value>
+	</BillingMenu>
+	
+	<InvoicesLink>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Invoices')]</value>
+	</InvoicesLink>
+
+	<PaymentLink>
+		<key>Xpath</key>
+		<value>//a[text()='Payments']</value>
+	</PaymentLink>
+</root>

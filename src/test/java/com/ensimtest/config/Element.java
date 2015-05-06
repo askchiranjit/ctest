@@ -1,5 +1,7 @@
 package com.ensimtest.config;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -187,5 +189,24 @@ public class Element implements IElement
 			webElement.click();
 		}
 	}
+	
+	protected boolean isEntityPresent(String entity_name)
+	{
+		
+	  List<WebElement> webElements=handler.getElements(elementName, type);
+		
+		for(int i=0;i<webElements.size();i++)
+		{
+			String s[]=webElements.get(i).getText().split("\n");
+			if(entity_name.equals(s[0].trim()))
+			{
+				return true;
+			}
+			
+		}
+		return false;
+
+	}
+	
 	
 }
