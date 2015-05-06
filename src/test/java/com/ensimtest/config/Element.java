@@ -173,6 +173,7 @@ public class Element implements IElement
 		webElement = handler.reloadElement(elementName, type);
 		if(webElement.isSelected()==false)
 		{
+			System.out.println("inside check");
 			webElement.click();
 		}
 	}
@@ -182,6 +183,7 @@ public class Element implements IElement
 		webElement = handler.reloadElement(elementName, type);
 		if(webElement.isSelected()==true)
 		{
+			System.out.println("inside uncheck");
 			webElement.click();
 		}
 	}
