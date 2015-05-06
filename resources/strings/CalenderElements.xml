@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<root>
+	<NextMonthBtn>
+		<key>Xpath</key>
+		<value>//span[contains(@class,'ui-icon-circle-triangle-e')]</value>
+	</NextMonthBtn>
+	<PreviousMonthBtn>
+		<key>Xpath</key>
+		<value>//span[contains(@class,'ui-icon-circle-triangle-w')]</value>
+	</PreviousMonthBtn>
+	<MonthTxt>
+		<key>ClassName</key>
+		<value>ui-datepicker-month</value>
+	</MonthTxt>
+	<YearTxt>
+		<key>ClassName</key>
+		<value>ui-datepicker-year</value>
+	</YearTxt>
+	
+	
+</root>
