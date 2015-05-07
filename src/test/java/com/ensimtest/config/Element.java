@@ -22,6 +22,7 @@ public class Element implements IElement
 
 	public Element()
 	{
+		type = null;
 		handler = new ElementHandler();
 	}
 	
@@ -56,15 +57,30 @@ public class Element implements IElement
 		setElement(elementInfo[0], elementInfo[1]);
 	}
 	
+	protected void setElement(WebElement element)
+	{
+		this.webElement = element;
+	}
+	
+	protected WebElement getWebElement()
+	{
+		return webElement;
+	}
+	
+	protected Element getElement()
+	{
+		return this;
+	}
+	
 	@Override
 	public void click() {
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		webElement.click();
 	}
 
 	@Override
 	public boolean isExists() {
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		try
 		{
 			return webElement.isDisplayed() && webElement.isEnabled();
@@ -77,7 +93,7 @@ public class Element implements IElement
 
 	@Override
 	public boolean isDisplayed() {
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		try
 		{
 			return webElement.isDisplayed();
@@ -90,13 +106,13 @@ public class Element implements IElement
 
 	@Override
 	public String read() {
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		return webElement.getText();
 	}
 
 	@Override
 	public void write(String msg) {
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		webElement.sendKeys(msg);
 	}
 	
@@ -107,7 +123,7 @@ public class Element implements IElement
 	 */
 	protected String getAttributeValue(String attributeName)
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		String s = webElement.getAttribute(attributeName);
 		return s;
 	}
@@ -147,29 +163,44 @@ public class Element implements IElement
 	 */
 	protected void mouseHover()
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		handler.moveMouseToElement(webElement);
 	}
 
 	@Override
 	public boolean isEnabled() {
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		return webElement.isEnabled();
 	}
 	
 	protected boolean isSelected()
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		return webElement.isSelected();
 	}
 
 	@Override
 	public void clear()
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		webElement.clear();
 	}
 	
+
+
+	private WebElement getReloadedElement(String elementName, ElementType type)
+	{
+		if(type==null)
+		{
+			return webElement;
+		}
+		else
+		{
+			return handler.reloadElement(elementName, type);
+		}
+	}
+
+
 	protected void check()
 	{
 		webElement = handler.reloadElement(elementName, type);
@@ -192,7 +223,7 @@ public class Element implements IElement
 	
 	protected boolean isEntityPresent(String entity_name)
 	{
-		
+
 	  List<WebElement> webElements=handler.getElements(elementName, type);
 		
 		for(int i=0;i<webElements.size();i++)
@@ -209,4 +240,5 @@ public class Element implements IElement
 	}
 	
 	
+
 }

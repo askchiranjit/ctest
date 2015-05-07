@@ -13,9 +13,17 @@ public class OrganizationHomePage extends AppData
 		}
 	}
 	public AddOrgBtn addOrgBtn = new AddOrgBtn();
-	
-	
-	
+
+
+	public class OrganizationRow extends Element
+	{
+		public OrganizationRow()
+		{
+			setElement(readAppData(this));
+		}
+	}
+
+
 	public class SearchBtn extends Element
 	{
 		public SearchBtn()
@@ -24,6 +32,6 @@ public class OrganizationHomePage extends AppData
 		}
 		
 	}
-	
 	public SearchBtn searchBtn=new SearchBtn();
+
 }

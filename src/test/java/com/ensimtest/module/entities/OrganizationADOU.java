@@ -1,3 +1,4 @@
+
 package com.ensimtest.module.entities;
 
 import com.ensimtest.config.Element;
@@ -113,3 +114,4 @@ public class OrganizationADOU extends AppData{
 	}
 	public OrgADOUUpdateBtn orgADOUUpdateBtn = new OrgADOUUpdateBtn();
 }
+
