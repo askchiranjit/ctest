@@ -1,3 +1,4 @@
+
 package com.ensimtest.module.entities;
 
 import com.ensimtest.config.Element;
@@ -93,3 +94,4 @@ public class OrganizationAddress extends AppData{
 	}
 	public OrgZipCodeFld orgZipCodeFld = new OrgZipCodeFld();
 }
+

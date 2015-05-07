@@ -69,12 +69,15 @@ public class OrgCreateTestCases
 		String _emailAddress = rData.getRandomEmailID();
 		String _masterAcName = rData.getRandomString(5);
 		String _custField4 = rData.getRandomAlfaNumeric(5);
+		String _vatNumber = rData.getRandomString(4);
 		String commLanguage = testData.get("commLanguage").toString();
 		String billLanguage = testData.get("billLanguage").toString();
 		String paymentAgreement = testData.get("paymentAgreement").toString();
 		String macroSeg = testData.get("macroSeg").toString();
 		String dateTimeFormat = testData.get("dateTimeFormat").toString();
 		String country = testData.get("country").toString();
+		String username = testData.get("UserName").toString();
+		String password = testData.get("password").toString();
 				
 		// Go to the site
 		browser.navigateTo(baseURL);
@@ -86,9 +89,6 @@ public class OrgCreateTestCases
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 		
 		// Enter ISP credentials
-		String username = testData.get("UserName").toString();
-		String password = testData.get("password").toString();
-		
 		loginScreen.username.write(username);
 		loginScreen.password.write(password);
 		
@@ -110,7 +110,7 @@ public class OrgCreateTestCases
 		// Enter details in Details page
 		AddOrgWizardOrgDetails details = new AddOrgWizardOrgDetails();
 		details.organizationNameTxt.write(_orgName);
-		details.vatNumberTxt.write(rData.getRandomString(4));
+		details.vatNumberTxt.write(_vatNumber);
 		details.macroSegmentList.selectMacroSegment(macroSeg);
 		details.emailAddessTxt.write(_emailAddress);
 		details.communicationLanguageList.selectLanguage(commLanguage);

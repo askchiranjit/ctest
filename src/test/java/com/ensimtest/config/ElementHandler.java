@@ -89,6 +89,34 @@ public class ElementHandler
 		return list;
 	}
 	
+	protected List<WebElement> getElements(Element masterElement, String elementName, ElementType type)
+	{
+		WebElement element = masterElement.getWebElement(); 
+		List<WebElement> list = null;
+		switch(type)
+		{
+		case ClassName:
+			list = element.findElements(By.className(elementName));
+			break;
+		case ID:
+			list = element.findElements(By.id(elementName));
+			break;
+		case Xpath:
+			list = element.findElements(By.xpath(elementName));
+			break;
+		case Name:
+			list = element.findElements(By.name(elementName));
+			break;
+		case TagName:
+			list = element.findElements(By.tagName(elementName));
+			break;
+			
+		default:
+			break;
+		}
+		return list;
+	}
+	
 	/**
 	 * It searches for the elements and if found more than one then returns first element
 	 * @param elementName : value of the search property

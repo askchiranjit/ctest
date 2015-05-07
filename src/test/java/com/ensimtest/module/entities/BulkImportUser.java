@@ -1,3 +1,4 @@
+
 package com.ensimtest.module.entities;
 
 import com.ensimtest.config.Element;
@@ -8,7 +9,8 @@ import com.ensimtest.resource.AppData;
  * @author Dip
  *
  */
-public class BulkImportUser extends AppData{
+public class BulkImportUser extends AppData {
+	
 	/**
 	 * To Load a User CSV file
 	 */
@@ -53,3 +55,5 @@ public class BulkImportUser extends AppData{
 	public ImportNowBtn importNowBtn = new ImportNowBtn();
 
 }
+
+

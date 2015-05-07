@@ -1,3 +1,4 @@
+
 package com.ensimtest.module.entities;
 
 import com.ensimtest.config.Element;
@@ -527,3 +528,4 @@ public class OrganizationAccounts extends AppData{
 	public UpdateEditAccountBtn updateEditAccountBtn = new UpdateEditAccountBtn();
 	
 }
+

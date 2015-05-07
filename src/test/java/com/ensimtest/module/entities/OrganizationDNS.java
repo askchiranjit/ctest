@@ -1,3 +1,4 @@
+
 package com.ensimtest.module.entities;
 
 import com.ensimtest.config.Element;
@@ -83,3 +84,4 @@ public class OrganizationDNS extends AppData{
 	}
 	public OrgDeleteDomainImgBtn orgDeleteDomainImgBtn = new OrgDeleteDomainImgBtn();
 }
+
