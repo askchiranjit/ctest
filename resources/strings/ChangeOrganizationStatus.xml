@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<root>
+	<VerifiedOrgStatusRdo>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Verified')]//following::td[1]//input</value>
+	</VerifiedOrgStatusRdo>
+	<SelfRegisteredOrgStatusRdo>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Self Registered')]//following::td[1]//input</value>
+	</SelfRegisteredOrgStatusRdo>
+	<BlackListedOrgStatusRdo>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Black Listed')]//following::td[1]//input</value>
+	</BlackListedOrgStatusRdo>
+	<ClosedOrgStatusRdo>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Closed')]//following::td[1]//input</value>
+	</ClosedOrgStatusRdo>
+	<SaveOrgStatusBtn>
+		<key>Xpath</key>
+		<value>//div[@id='StatusEdit']//following::div[1]//span[text()='Save']</value>
+	</SaveOrgStatusBtn>
+	<CancelOrgStatusRdo>
+		<key>Xpath</key>
+		<value>//div[@id='StatusEdit']//following::div[1]//span[text()='Cancel']</value>
+	</CancelOrgStatusRdo>
+</root>
