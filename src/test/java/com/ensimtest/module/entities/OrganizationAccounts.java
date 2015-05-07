@@ -23,6 +23,20 @@ public class OrganizationAccounts extends AppData{
 		
 	}
 	public OrgAccountsLnk orgAccountsLnk = new OrgAccountsLnk();
+	
+	/**
+	 * To list out more than 5 organization's accounts in a single page 
+	 * @author Dip
+	 *
+	 */
+	public class DisplayAllAccountsBtn extends Element{
+		public DisplayAllAccountsBtn(){
+			setElement(readAppData(this));
+		}
+	}
+	//TODO: need to handle pop-up of this button(to view and edit more than 5a/c if available in a org)
+	public DisplayAllAccountsBtn displayAllAccountsBtn = new DisplayAllAccountsBtn();
+	
 	/**
 	 * To get the Organization's Account ID 
 	 * @author Dip
