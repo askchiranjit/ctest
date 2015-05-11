@@ -68,8 +68,11 @@ public class LoginTestCases
 		loginScreen.username.write(userName);
 		loginScreen.password.write(passWord);
 
-	// Click on login button
+		// Click on login button
 		loginScreen.loginBtn.click();
+		
+		TestUtils.delay(3000);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), false);
 		
 		// Verify User is logged in by viewing user context is displayed
 		LoggedInUser user = new LoggedInUser();

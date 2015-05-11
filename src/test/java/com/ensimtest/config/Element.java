@@ -80,9 +80,9 @@ public class Element implements IElement
 
 	@Override
 	public boolean isExists() {
-		webElement = getReloadedElement(elementName, type);
 		try
 		{
+			webElement = getReloadedElement(elementName, type);
 			return webElement.isDisplayed() && webElement.isEnabled();
 		}
 		catch(Exception e)
@@ -93,9 +93,9 @@ public class Element implements IElement
 
 	@Override
 	public boolean isDisplayed() {
-		webElement = getReloadedElement(elementName, type);
 		try
 		{
+			webElement = getReloadedElement(elementName, type);
 			return webElement.isDisplayed();
 		}
 		catch(Exception e)
