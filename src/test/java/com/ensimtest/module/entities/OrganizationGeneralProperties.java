@@ -163,6 +163,19 @@ public class OrganizationGeneralProperties extends AppData {
 	public OrgOwnerInfoLnk orgOwnerInfoLnk = new OrgOwnerInfoLnk();
 	
 	/**
+	 * Check for Organization Owner Name Filed value
+	 * @author Dip
+	 *
+	 */
+	public class OrgOwnedByFld extends Element{
+		public OrgOwnedByFld(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public OrgOwnedByFld orgOwnedByFld = new OrgOwnedByFld();
+	
+	/**
 	 * Check for Owner type Filed value
 	 * @author Dip
 	 *
@@ -329,17 +342,30 @@ public class OrganizationGeneralProperties extends AppData {
 	public OrgGlobalDiscountLnk orgGlobalDiscountLnk = new OrgGlobalDiscountLnk();
 	
 	/**
-	 * Check for Global Discount allowed or not
+	 * Check for Global Discount Present
 	 * @author Dip
 	 *
 	 */
-	public class GlobalDiscountFld extends Element{
-		public GlobalDiscountFld(){
+	public class GlobalDiscountPresentFld extends Element{
+		public GlobalDiscountPresentFld(){
 			setElement(readAppData(this));
 		}
 		
 	}
-	public GlobalDiscountFld globalDiscountFld = new GlobalDiscountFld();
+	public GlobalDiscountPresentFld globalDiscountPresentFld = new GlobalDiscountPresentFld();
+	
+	/**
+	 * Check for Global Discount Not Present
+	 * @author Dip
+	 *
+	 */
+	public class GlobalDiscountNotPresentFld extends Element{
+		public GlobalDiscountNotPresentFld(){
+			setElement(readAppData(this));
+		}
+		
+	}
+	public GlobalDiscountNotPresentFld globalDiscountNotPresentFld = new GlobalDiscountNotPresentFld();
 	
 	/**
 	 * Check for Discount %
