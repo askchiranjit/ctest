@@ -1,4 +1,4 @@
-package com.ensimtest.tests;
+package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;

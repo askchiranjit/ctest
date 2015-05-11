@@ -16,7 +16,7 @@ public class SearchOrganization extends AppData
 			super.selectVisibleText(data);
 		}
 	}
-	OrganizationOfList organizationOfList = new OrganizationOfList();
+	public OrganizationOfList organizationOfList = new OrganizationOfList();
 	
 	public class SearchByLst extends Element
 	{
@@ -29,7 +29,7 @@ public class SearchOrganization extends AppData
 			super.selectVisibleText(data);
 		}
 	}
-	SearchByLst searchByLst = new SearchByLst();
+	public SearchByLst searchByLst = new SearchByLst();
 	
 	public class KeywordTxt extends Element
 	{
@@ -38,7 +38,7 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	KeywordTxt keywordTxt = new KeywordTxt();
+	public KeywordTxt keywordTxt = new KeywordTxt();
 	
 	public class StreetName extends Element
 	{
@@ -47,7 +47,7 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	StreetName streetName = new StreetName();
+	public StreetName streetName = new StreetName();
 	
 	public class CityName extends Element
 	{
@@ -56,7 +56,7 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	CityName cityName = new CityName();
+	public CityName cityName = new CityName();
 	
 	public class ZipCode extends Element
 	{
@@ -65,7 +65,7 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	ZipCode zipCode = new ZipCode();
+	public ZipCode zipCode = new ZipCode();
 	
 	public class ResellerNameOrVatTxt extends Element
 	{
@@ -74,7 +74,7 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	ResellerNameOrVatTxt resellerNameOrVatTxt = new ResellerNameOrVatTxt();
+	public ResellerNameOrVatTxt resellerNameOrVatTxt = new ResellerNameOrVatTxt();
 	
 	public class SearchBtn extends Element
 	{
@@ -83,7 +83,7 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	SearchBtn searchBtn = new SearchBtn();
+	public SearchBtn searchBtn = new SearchBtn();
 	
 	public class ResetBtn extends Element
 	{
@@ -92,5 +92,5 @@ public class SearchOrganization extends AppData
 			setElement(readAppData(this));
 		}
 	}
-	ResetBtn resetBtn = new ResetBtn();
+	public ResetBtn resetBtn = new ResetBtn();
 }

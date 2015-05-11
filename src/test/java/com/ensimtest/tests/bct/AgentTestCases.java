@@ -1,4 +1,4 @@
-package com.ensimtest.tests;
+package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -66,7 +66,8 @@ public class AgentTestCases
 		String password=testData.get("password").toString();
 		String agentName=testData.get("agentName").toString();
 		String vatNumber=testData.get("vatNumber").toString();
-		String userNameSuffix=testData.get("userNameSuffix").toString();
+		RandomData rData = new RandomData();
+		String userNameSuffix=rData.getRandomString(3) + "." + rData.getRandomString(3);
 		String comunicationLanguage=testData.get("comunicationLanguage").toString();
 		String billingLanguage=testData.get("billingLanguage").toString();
 		String dataTimeFormat=testData.get("dataTimeFormat").toString();

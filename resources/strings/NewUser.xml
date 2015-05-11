@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<root>
+	<UsernameTxt>
+	<key>ID</key>
+	<value>userName1</value>
+</UsernameTxt>
+
+<PasswordTxt>
+	<key>ID</key>
+	<value>pass</value>
+</PasswordTxt>
+
+<VerifyPasswordTxt>
+	<key>ID</key>
+	<value>repass</value>
+</VerifyPasswordTxt>
+
+<AccountLst>
+	<key>ID</key>
+	<value>ossdomain</value>
+</AccountLst>
+
+<LanguageLst>
+	<key>ID</key>
+	<value>user.languageId</value>
+</LanguageLst>
+
+<PrimaryRoleLst>
+	<key>ID</key>
+	<value>role</value>
+</PrimaryRoleLst>
+
+<SecondaryRolesLst>
+	<key>ID</key>
+	<value>secondaryRoleIds</value>
+</SecondaryRolesLst>
+
+<IsdefaultBusinessContactChk>
+	<key>ID</key>
+	<value>chkBoxDefaultBC</value>
+</IsdefaultBusinessContactChk>
+
+<IsdefaultTechnicalContactChk>
+	<key>ID</key>
+	<value>chkBoxDefaultTC</value>
+</IsdefaultTechnicalContactChk>
+
+<FirstNameTxt>
+	<key>ID</key>
+	<value>contact_firstName</value>
+</FirstNameTxt>
+
+<LastNameTxt>
+	<key>ID</key>
+	<value>contact_lastName</value>
+</LastNameTxt>
+
+<EmailAddressTxt>
+	<key>ID</key>
+	<value>contact_email</value>
+</EmailAddressTxt>
+
+<SecondaryEmailAddressTxt>
+	<key>ID</key>
+	<value>contact_secondaryemail</value>
+</SecondaryEmailAddressTxt>
+
+<PhoneNumberTxt>
+	<key>ID</key>
+	<value>phoneno</value>
+</PhoneNumberTxt>
+
+<MobileTxt>
+	<key>ID</key>
+	<value>contact_mobile</value>
+</MobileTxt>
+
+<FaxCountryCodeTxt>
+	<key>ID</key>
+	<value>contact_faxCountryCode</value>
+</FaxCountryCodeTxt>
+
+<FaxAreaCodeTxt>
+	<key>ID</key>
+	<value>contact_faxAreaCode</value>
+</FaxAreaCodeTxt>
+
+<FaxNumberTxt>
+	<key>ID</key>
+	<value>contact_faxNumber</value>
+</FaxNumberTxt>
+
+<AddressLine1Txt>
+	<key>ID</key>
+	<value>add1</value>
+</AddressLine1Txt>
+
+<AddressLine2Txt>
+	<key>ID</key>
+	<value>contact_address2</value>
+</AddressLine2Txt>
+
+<CityTxt>
+	<key>ID</key>
+	<value>contact_city</value>
+</CityTxt>
+
+<StateProvinceTxt>
+	<key>ID</key>
+	<value>state</value>
+</StateProvinceTxt>
+
+<ZipPostalCodeTxt>
+	<key>ID</key>
+	<value>contact_postalCode</value>
+</ZipPostalCodeTxt>
+
+<CountryLst>
+	<key>ID</key>
+	<value>contact_countryCode</value>
+</CountryLst>
+
+<CancelBtn>
+	<key>ID</key>
+	<value>cancelbutton</value>
+</CancelBtn>
+
+<CreateUserBtn>
+	<key>ID</key>
+	<value>saveandproceed</value>
+</CreateUserBtn>
+
+<UserCreatePopupText>
+	<key>ID</key>
+	<value>popup_message</value>
+</UserCreatePopupText>
+
+<UserCreatePopupOKBtn>
+	<key>ID</key>
+	<value>popup_ok</value>
+</UserCreatePopupOKBtn>
+
+</root>
