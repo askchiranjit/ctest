@@ -1,10 +1,6 @@
 package com.ensimtest.module.billing;
 
 import com.ensimtest.config.Element;
-import com.ensimtest.module.billing.PaymentResellerCreation.CardType;
-import com.ensimtest.module.billing.PaymentResellerCreation.ChequeDate;
-import com.ensimtest.module.billing.PaymentResellerCreation.FinancialInstitutionLst;
-import com.ensimtest.module.billing.PaymentResellerCreation.InstrumentNumber;
 import com.ensimtest.resource.AppData;
 /**
  * Organization Payment Addition screen
