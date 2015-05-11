@@ -16,6 +16,11 @@
 	<value>searchCustomer_IdValue</value>
 </OrganizationId>
 
+<ResellerId>
+	<key>ID</key>
+	<value>searchResellerId</value>
+</ResellerId>
+
 <StartDate>
 	<key>ID</key>
 	<value>searchStart_DateValue</value>

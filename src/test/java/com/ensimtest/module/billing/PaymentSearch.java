@@ -38,6 +38,14 @@ public class PaymentSearch extends AppData{
 	}
 	public OrganizationId organizationId = new OrganizationId();
 	
+	public class ResellerId extends Element{
+		public ResellerId()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ResellerId resellerId = new ResellerId();
+	
 	/**
 	 * Payment Date Range
 	 * @author Karabi
