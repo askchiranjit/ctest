@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<root>
+<AddServiceBtn>
+	<key>ID</key>
+	<value>addNewServiceBtn</value>
+</AddServiceBtn>
+
+<ImportServiceBtn>
+	<key>ID</key>
+	<value>importServiceBtn</value>
+</ImportServiceBtn>
+</root>

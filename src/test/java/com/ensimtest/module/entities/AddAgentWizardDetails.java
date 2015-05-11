@@ -1,6 +1,5 @@
 package com.ensimtest.module.entities;
 
-import com.ensimtest.base.Driver;
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 /**
@@ -80,7 +79,7 @@ public class AddAgentWizardDetails extends AppData
 		{
 			setElement(readAppData(this));
 		}
-		
+
 
 	}
 	public EmailaddressTxt emailaddressTxt = new EmailaddressTxt();
@@ -184,7 +183,7 @@ public class AddAgentWizardDetails extends AppData
 		}
 	}
 	public UPNErrorImage upnErrorImage = new UPNErrorImage();
-	
+
 	public class UPNExistsImage extends Element
 	{
 		public UPNExistsImage()
@@ -193,6 +192,6 @@ public class AddAgentWizardDetails extends AppData
 		}
 	}
 	public UPNExistsImage upnExistsImage = new UPNExistsImage();
-	
-		
+
+
 }

@@ -1,12 +1,18 @@
 package com.ensimtest.module.utility;
 
-import com.ensimtest.utils.TestUtils;
+/**
+ * This is use to handle calendar
+ * @author Pratap
+ *
+ */
 
 public class CalenderHandler
 {
 	enum Months	{January,February,March,April,May,June,July,August,September,October,November,December}
+	
 	public void selectDate(String date)
 	{
+		int temp=0;
 		CalenderElements calenderElement=new CalenderElements();
 		String Eliment[]=new String[2];
 		Eliment[0]="Xpath";
@@ -17,32 +23,37 @@ public class CalenderHandler
 		int curYear=Integer.parseInt(calenderElement.yearTxt.read().trim());
 		String pathDate="//table[@class='ui-datepicker-calendar']//tr//td//a[text()='";
 		//year section	
+		int curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim());
 		while(curYear>expYear)
 		{
+			temp=curMonth;
 			calenderElement.previousMonth.click();
-			TestUtils.delay(1000);
+			while(temp==getMonthsNumericValue(calenderElement.monthTxt.read().trim()));
 			curYear=Integer.parseInt(calenderElement.yearTxt.read().trim());
+			
 		}
 		while(curYear<expYear)
 		{
+			temp=curMonth;
 			calenderElement.nextMonth.click();
-			TestUtils.delay(1000);
+			while(temp==getMonthsNumericValue(calenderElement.monthTxt.read().trim()));
 			curYear=Integer.parseInt(calenderElement.yearTxt.read().trim());
+						
 		}
 
 		//Month section
-		int curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim());
+		curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim());
 		while(curMonth>expMonth)
 		{
+			temp=curMonth;
 			calenderElement.previousMonth.click();
-			TestUtils.delay(1000);
-			curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim());
+			while(temp==(curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim())));
 		}
 		while(curMonth<expMonth)
 		{
+			temp=curMonth;
 			calenderElement.nextMonth.click();
-			TestUtils.delay(1000);
-			curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim());
+			while(temp==(curMonth=getMonthsNumericValue(calenderElement.monthTxt.read().trim())));
 		}
 
 		pathDate=pathDate+expDate+"']";

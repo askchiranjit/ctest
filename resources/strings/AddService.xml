@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<root>
+<ServiceNameTxt>
+	<key>ID</key>
+	<value>serviceName</value>
+</ServiceNameTxt>
+
+<InternalServiceIDTxt>
+	<key>ID</key>
+	<value>serviceInternalId</value>
+</InternalServiceIDTxt>
+
+<SubscriptionTypeTxt>
+	<key>ID</key>
+	<value>subscriptionType</value>
+</SubscriptionTypeTxt>
+
+<VendorNameTxt>
+	<key>ID</key>
+	<value>vendorName</value>
+</VendorNameTxt>
+
+<SearchTagTxt>
+	<key>ID</key>
+	<value>searchTag</value>
+</SearchTagTxt>
+
+<ProvSystemIdTxt>
+	<key>ID</key>
+	<value>provSystemId</value>
+</ProvSystemIdTxt>
+
+<EmbeddedMessageTxt>
+	<key>ID</key>
+	<value>embeddedMessage</value>
+</EmbeddedMessageTxt>
+
+<SuggestedServiceBtn>
+	<key>ID</key>
+	<value>suggestedService</value>
+</SuggestedServiceBtn>
+
+<ProvisioningDelayTxt>
+	<key>ID</key>
+	<value>delayedPeriod</value>
+</ProvisioningDelayTxt>
+
+<ProvisioningDelayLst>
+	<key>ID</key>
+	<value>delayedperiodunit</value>
+</ProvisioningDelayLst>
+
+<DNSRequireChk>
+	<key>ID</key>
+	<value>privateDomainallow</value>
+</DNSRequireChk>
+
+<MultipleOrdersOnSameDNSChk>
+	<key>ID</key>
+	<value>allowMultipleOrder</value>
+</MultipleOrdersOnSameDNSChk>
+
+<UsageCollectionRequireChk>
+	<key>ID</key>
+	<value>usagedataallowed</value>
+</UsageCollectionRequireChk>
+
+<RequireActiveDirectoryDomainChk>
+	<key>ID</key>
+	<value>requireservicedomain</value>
+</RequireActiveDirectoryDomainChk>
+
+<HasUserManagementChk>
+	<key>ID</key>
+	<value>hasUserManagement</value>
+</HasUserManagementChk>
+
+<NeedPhNoChk>
+	<key>ID</key>
+	<value>phoneInventoryRequired</value>
+</NeedPhNoChk>
+
+<AssociateifSamePrivateDomainRdo>
+	<key>ID</key>
+	<value>containerType2</value>
+</AssociateifSamePrivateDomainRdo>
+
+<NeverAssociateOrderRdo>
+	<key>ID</key>
+	<value>containerType3</value>
+</NeverAssociateOrderRdo>
+
+<AlwaysAssociateOrderRdo>
+	<key>ID</key>
+	<value>containerType1</value>
+</AlwaysAssociateOrderRdo>
+
+<TrackChangeOfSalesAgentChk>
+	<key>ID</key>
+	<value>salesAgentChange</value>
+</TrackChangeOfSalesAgentChk>
+
+<TrackChangeOfTechnicalContactChk>
+	<key>ID</key>
+	<value>techContChange</value>
+</TrackChangeOfTechnicalContactChk>
+
+<TrackChangeOfProvisioningInformationChk>
+	<key>ID</key>
+	<value>custInfoChangeEvent</value>
+</TrackChangeOfProvisioningInformationChk>
+
+<OneTimeProvisioningRdo>
+	<key>ID</key>
+	<value>oneTime</value>
+</OneTimeProvisioningRdo>
+
+<HostedServiceRdo>
+	<key>ID</key>
+	<value>recurring</value>
+</HostedServiceRdo>
+
+<ManualProvisioningRdo>
+	<key>ID</key>
+	<value>autoProvisioning1</value>
+</ManualProvisioningRdo>
+
+<AutomaticProvisioningRdo>
+	<key>ID</key>
+	<value>autoProvisioning</value>
+</AutomaticProvisioningRdo>
+
+<SendAccessCredentialsChk>
+	<key>ID</key>
+	<value>requireaccesstoken1</value>
+</SendAccessCredentialsChk>
+
+<NotificationTemplateLnk>
+	<key>Xpath</key>
+	<value>//a//font[text()='View notification template']</value>
+</NotificationTemplateLnk>
+
+<AccessInformationTxt>
+	<key>ID</key>
+	<value>accessTokendefault</value>
+</AccessInformationTxt>
+
+<ResellerCanConfigureChk>
+	<key>ID</key>
+	<value>serviceconfugbyreseller</value>
+</ResellerCanConfigureChk>
+
+<AgentCanConfigureChk>
+	<key>ID</key>
+	<value>serviceconfugbyagent</value>
+</AgentCanConfigureChk>
+
+<UseEASControlPanel>
+	<key>ID</key>
+	<value>escmControlPanel</value>
+</UseEASControlPanel>
+
+<CancelBtn>
+	<key>ID</key>
+	<value>cancelButton</value>
+</CancelBtn>
+
+<SaveBtn>
+	<key>ID</key>
+	<value>saveser</value>
+</SaveBtn>
+</root>
