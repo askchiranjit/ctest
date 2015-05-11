@@ -25,6 +25,14 @@ public class PaymentAdvSearch extends AppData{
 	}
 	public OrganizationIdTxt organizationIdTxt = new OrganizationIdTxt();
 	
+	public class ResellerIdTxt extends Element{
+		public ResellerIdTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ResellerIdTxt resellerIdTxt = new ResellerIdTxt();
+	
 	public class AccountIdTxt extends Element{
 		public AccountIdTxt()
 		{

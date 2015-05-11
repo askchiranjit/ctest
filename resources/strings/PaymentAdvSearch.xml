@@ -11,6 +11,11 @@
 <value>searchCustomer_IdValue_adv</value>
 </OrganizationIdTxt>
 
+<ResellerIdTxt>
+<key>ID</key>
+<value>searchResellerId_adv</value>
+</ResellerIdTxt>
+
 <AccountIdTxt>
 <key>ID</key>
 <value>searchCustomer_AccountID_adv</value>
