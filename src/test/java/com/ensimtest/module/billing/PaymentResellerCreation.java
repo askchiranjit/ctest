@@ -1,32 +1,30 @@
 package com.ensimtest.module.billing;
 
 import com.ensimtest.config.Element;
-import com.ensimtest.module.billing.PaymentResellerCreation.CardType;
-import com.ensimtest.module.billing.PaymentResellerCreation.ChequeDate;
-import com.ensimtest.module.billing.PaymentResellerCreation.FinancialInstitutionLst;
-import com.ensimtest.module.billing.PaymentResellerCreation.InstrumentNumber;
+import com.ensimtest.module.billing.PaymentCreation.AdjustmentNumberTxt;
+import com.ensimtest.module.billing.PaymentCreation.AdjustmentRdo;
+import com.ensimtest.module.billing.PaymentCreation.CancelBtn;
+import com.ensimtest.module.billing.PaymentCreation.CreditNoteRDo;
+import com.ensimtest.module.billing.PaymentCreation.DebitNoteRDo;
+import com.ensimtest.module.billing.PaymentCreation.PaymentReceivedRdo;
+import com.ensimtest.module.billing.PaymentCreation.SavePaymentBtn;
+import com.ensimtest.module.billing.PaymentCreation.UploadCsvBtn;
 import com.ensimtest.resource.AppData;
 /**
- * Organization Payment Addition screen
+ * Added for creating reseller payment
  * @author Karabi
  *
  */
 
-public class PaymentCreation extends AppData
-{
-	/**
-	 * Common fields for Payment received and Adjustment
-	 * @author Karabi
-	 *
-	 */
-	public class OrganizationPaymentTab extends Element
-	{
-		public OrganizationPaymentTab()
+public class PaymentResellerCreation extends AppData{
+	
+	public class ResellerPaymentTab extends Element{
+		public ResellerPaymentTab()
 		{
 			setElement(readAppData(this));
 		}
 	}
-	public OrganizationPaymentTab organizationPaymentTab = new OrganizationPaymentTab();
+	public ResellerPaymentTab resellerPaymentTab = new ResellerPaymentTab();
 
 	public class PaymentReceivedRdo extends Element
 	{
@@ -46,69 +44,58 @@ public class PaymentCreation extends AppData
 		}
 	}
 	public AdjustmentRdo adjustmentRdo=new AdjustmentRdo();
+	
+	public class ResellerId extends Element
+	{
+		public ResellerId()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	
+	public ResellerId resellerId=new ResellerId();
+	
+	public class PaymentDate extends Element
+	{
+		public PaymentDate()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public PaymentDate paymentDate=new PaymentDate();
 
-	
-	/**
-	 * Added for account id or organization id
-	 */
-	public class AccOrganizationIdTxt extends Element
-	   {
-		   public AccOrganizationIdTxt()
-		   {
-			   setElement(readAppData(this));
-		   }
-	   }
-	public AccOrganizationIdTxt accOrganizationIdTxt = new AccOrganizationIdTxt();
-	
-    public class PaymentDate extends Element
-    {
-	   public PaymentDate()
-	   {
-		   setElement(readAppData(this));
-	   }
-    }
-    public PaymentDate paymentDate = new PaymentDate();
-	/**
-	 * This field is same for Payment received and Adjustment but for adjustment the name should be Adjustment amount
-	 * @author Karabi
-	 *
-	 */
-	public class AmountPaidTxt extends Element
-	   {
-		   public AmountPaidTxt()
-		   {
-			   setElement(readAppData(this));
-		   }
-	   }
-	public AmountPaidTxt amountPaidTxt = new AmountPaidTxt();
-	
-	public class CurrencyLst extends Element
-	   {
-		   public CurrencyLst()
-		   {
-			   setElement(readAppData(this));
-		   }
-	   }
-	public CurrencyLst currencyLst = new CurrencyLst();
-	
-	/**
-	 * Payment Received Specific Field
-	 * @author Karabi
-	 *
-	 */
+	public class AmountPaid extends Element
+	{
+		public AmountPaid()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public AmountPaid amountPaid=new AmountPaid();
+
+	public class Currency extends Element
+	{
+		public Currency()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public Currency currency=new Currency();
 	
 	public class ModeOfPaymentLst extends Element
-	   {
-		   public ModeOfPaymentLst()
-		   {
-			   setElement(readAppData(this));
-		   }
-			public void selectPayment(String payment)
-			{
-				super.selectVisibleText(payment);
-			}
-	   }
-	public ModeOfPaymentLst modeOfPaymentLst = new ModeOfPaymentLst();
+	{
+		public ModeOfPaymentLst()
+		{
+			setElement(readAppData(this));
+		}
+		public void selectPayment(String payment)
+		{
+			super.selectVisibleText(payment);
+		}
+	}
+	public ModeOfPaymentLst modeOfPaymentLst=new ModeOfPaymentLst();
+	
+
 	/**
 	 * Fields Based on the payment mode selected
 	 */
@@ -158,20 +145,6 @@ public class PaymentCreation extends AppData
 	}
 	public ChequeDate chequeDate=new ChequeDate();
 	
-	public class CommentTxt extends Element
-	   {
-		   public CommentTxt()
-		   {
-			   setElement(readAppData(this));
-		   }
-	   }
-	public CommentTxt commentTxt = new CommentTxt();
-
-	/**
-	 * Adjustment Specific field 
-	 * @author Karabi
-	 *
-	 */
 	public class AdjustmentNumberTxt extends Element
 	   {
 		   public AdjustmentNumberTxt()
@@ -180,6 +153,15 @@ public class PaymentCreation extends AppData
 		   }
 	   }
 	public AdjustmentNumberTxt adjustmentNumberTxt = new AdjustmentNumberTxt();
+	
+	public class CommentsTxt extends Element
+	   {
+		   public CommentsTxt()
+		   {
+			   setElement(readAppData(this));
+		   }
+	   }
+	public CommentsTxt commentsTxt = new CommentsTxt();
 	
 	/**
 	 * Adjustment Type Fields
@@ -237,4 +219,5 @@ public class PaymentCreation extends AppData
 	   }
 	public UploadCsvBtn uploadCsvBtn = new UploadCsvBtn();
 
+	
 }

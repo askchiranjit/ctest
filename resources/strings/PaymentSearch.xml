@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+
+<AdvanceSearchBtn>
+	<key>Xpath</key>
+	<value>//span[text()='Advanced Search']</value>
+</AdvanceSearchBtn>
+
+<PaymentByLst>
+	<key>ID</key>
+	<value>searchCriteria</value>
+</PaymentByLst>
+
+<OrganizationId>
+	<key>ID</key>
+	<value>searchCustomer_IdValue</value>
+</OrganizationId>
+
+<StartDate>
+	<key>ID</key>
+	<value>searchStart_DateValue</value>
+</StartDate>
+
+<EndDate>
+	<key>ID</key>
+	<value>searchEnd_DateValue</value>
+</EndDate>
+
+<MinimumAmt>
+	<key>ID</key>
+	<value>searchMin_AmountValue</value>
+</MinimumAmt>
+
+<MaximumAmt>
+	<key>ID</key>
+	<value>searchMax_AmountValue</value>
+</MaximumAmt>
+
+<SearchBtn>
+	<key>Xpath</key>
+	<value>//span[text()='Search']</value>
+</SearchBtn>
+
+<ResetBtn>
+	<key>Xpath</key>
+	<value>//span[text()='Reset']</value>
+</ResetBtn>
+
+</root>
