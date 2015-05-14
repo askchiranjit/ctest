@@ -71,9 +71,6 @@ public class LoginTestCases
 		// Click on login button
 		loginScreen.loginBtn.click();
 		
-		TestUtils.delay(3000);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), false);
-		
 		// Verify User is logged in by viewing user context is displayed
 		LoggedInUser user = new LoggedInUser();
 		Assert.assertEquals(true, user.userInfo.isDisplayed());
@@ -85,9 +82,9 @@ public class LoginTestCases
 		user.logOut.click();
 		
 		// Verify logged out and redirected to login page
-		Assert.assertEquals(true, loginScreen.username.isDisplayed());
-		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -95,15 +92,15 @@ public class LoginTestCases
 	{
 		String userName = (String) h.get("UserName");
 		String passWord = (String) h.get("Password");
+		
 		// Navigate to ENSIM site
 		browser.navigateTo(baseURL);
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
-		
-		Assert.assertEquals(true, loginScreen.username.isDisplayed());
-		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 		
 		// Enter user credentials
 		loginScreen.username.write(userName);
@@ -113,23 +110,21 @@ public class LoginTestCases
 		loginScreen.loginBtn.click();
 		
 		// Verify error is displayed
-		String errorMsg = "User '" + h.get("UserName") + "' "+getMessage.getProperty("wrong_username_password");
+		String errorMsg = "User '" + userName + "' "+getMessage.getProperty("wrong_username_password");
 		Assert.assertEquals(loginScreen.errorMsg.read(), errorMsg);
 	}
 	
 	@Test
 	public void NoCredentialAtLogin()
 	{
-			
 		// Navigate to ENSIM site
 		browser.navigateTo(baseURL);
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
-		
-		Assert.assertEquals(true, loginScreen.username.isDisplayed());
-		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 		
 		// Enter user credentials
 		loginScreen.username.write("");
@@ -142,5 +137,4 @@ public class LoginTestCases
 		Assert.assertEquals(loginScreen.username.IsErrorDisplayed(), true);
 		Assert.assertEquals(loginScreen.password.IsErrorDisplayed(), true);
 	}
-	
-	}
+}

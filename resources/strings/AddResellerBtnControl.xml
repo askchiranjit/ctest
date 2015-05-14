@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<root>
+	<CancelBtn>
+		<key>ID</key>
+		<value>wiz_cancel</value>
+	</CancelBtn>
+	
+	<ContinueBtn>
+		<key>ID</key>
+		<value>continue</value>
+	</ContinueBtn>
+	
+	<GoBackBtn>
+		<key>ID</key>
+		<value>goback</value>
+	</GoBackBtn>
+	
+	<SaveBtn>
+		<key>ID</key>
+		<value>finalSave</value>
+	</SaveBtn>
+	
+	
+</root>

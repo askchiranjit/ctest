@@ -2,13 +2,10 @@ package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
@@ -43,16 +40,10 @@ public class AgentTestCases
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();
-	}
-	
-	
-	@BeforeMethod
-	public void setUp()
-	{
 		settings.setUpDriver(browserName, 10);
 	}
-	
-	@AfterMethod
+
+	@AfterClass
 	public void tearDown()
 	{
 		settings.closeDriver();
@@ -64,10 +55,9 @@ public class AgentTestCases
 		// Get data from test-data (XLS based)
 		String userName=testData.get("userName").toString();
 		String password=testData.get("password").toString();
-		String agentName=testData.get("agentName").toString();
+		String agentName=testData.get("agentName").toString() + Rd.getRandomString(2);
 		String vatNumber=testData.get("vatNumber").toString();
-		RandomData rData = new RandomData();
-		String userNameSuffix=rData.getRandomString(3) + "." + rData.getRandomString(3);
+		String userNameSuffix=Rd.getRandomString(3) + "." + Rd.getRandomString(3);
 		String comunicationLanguage=testData.get("comunicationLanguage").toString();
 		String billingLanguage=testData.get("billingLanguage").toString();
 		String dataTimeFormat=testData.get("dataTimeFormat").toString();
@@ -77,12 +67,11 @@ public class AgentTestCases
 		String addressNumber=testData.get("addressNumber").toString();
 		String postalCode=testData.get("postalCode").toString();
 		String countryName=testData.get("countryName").toString();
-		//Get Random data
 		String email=Rd.getRandomEmailID();
 		
 		// Navigate to ENSIM site
 		browser.navigateTo(baseURL);
-		// Verify user-name, password, login button are displayed
+		
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(userName);
 		loginScreen.password.write(password);
@@ -93,18 +82,14 @@ public class AgentTestCases
 		//Click on agent link
 		EntityOptions entityOption=new EntityOptions();
 		entityOption.menuBtn.mouseHover();
-		TestUtils.delay(2000);
 		entityOption.agentlink.click();
 		
 		//Click on agent button
-		
 		AgentHomePage agentHome=new AgentHomePage();
 		agentHome.addAgentBtn.click();
-		
 		AddAgentWizardDetails addAgentWizard=new AddAgentWizardDetails();
 		
 		//Agent Details fill up
-		
 		addAgentWizard.AgentNameTxt.write(agentName);
 		addAgentWizard.VATNumberText.write(vatNumber);
 		addAgentWizard.UsernameSuffixTxt.write(userNameSuffix);
@@ -114,7 +99,6 @@ public class AgentTestCases
 		addAgentWizard.emailaddressTxt.write(email);
 		
 		//Address Details fill up
-		
 		addAgentWizard.boxNumberTxt.write(boxNumber);
 		addAgentWizard.streetTxt.write(streetName);
 		addAgentWizard.cityTxt.write(cityName);
@@ -123,7 +107,7 @@ public class AgentTestCases
 		addAgentWizard.countryLst.selectCountry(countryName);
 		addAgentWizard.saveBtn.click();
 		
-		//check successfull agent creation
+		//check successful agent creation
 		PopUPHandler popUPHandler=new PopUPHandler();
 		String message = popUPHandler.getPopUPData.read().trim();
 		popUPHandler.acceptPopUP.click();
@@ -131,12 +115,10 @@ public class AgentTestCases
 	}
 	
 	
-	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "addAgentUserGivenUPN" })
 	public void addAgentAutogenUPN(HashMap<?, ?> testData)
 	{
 		       // Get data from test-data (XLS based)
-				String userName=testData.get("userName").toString();
-				String password=testData.get("password").toString();
 				String agentName=testData.get("agentName").toString();
 				String vatNumber=testData.get("vatNumber").toString();
 				String comunicationLanguage=testData.get("comunicationLanguage").toString();
@@ -151,31 +133,17 @@ public class AgentTestCases
 				//Get Random data
 				String email=Rd.getRandomEmailID();
 				
-				// Navigate to ENSIM site
-				browser.navigateTo(baseURL);
-				// Verify user-name, password, login button are displayed
-				LoginScreen loginScreen = new LoginScreen();
-				loginScreen.username.write(userName);
-				loginScreen.password.write(password);
-
-				// Click on login button
-				loginScreen.loginBtn.click();
-				
 				//Click on agent link
 				EntityOptions entityOption=new EntityOptions();
 				entityOption.menuBtn.mouseHover();
-				TestUtils.delay(2000);
 				entityOption.agentlink.click();
 				
 				//Click on agent button
-				
 				AgentHomePage agentHome=new AgentHomePage();
 				agentHome.addAgentBtn.click();
-				
 				AddAgentWizardDetails addAgentWizard=new AddAgentWizardDetails();
 				
 				//Agent Details fill up
-				
 				addAgentWizard.AgentNameTxt.write(agentName);
 				addAgentWizard.VATNumberText.write(vatNumber);
 			    addAgentWizard.communicationLanguageLst.selectComunicationLanguage(comunicationLanguage);
@@ -184,7 +152,6 @@ public class AgentTestCases
 				addAgentWizard.emailaddressTxt.write(email);
 				
 				//Address Details fill up
-				
 				addAgentWizard.boxNumberTxt.write(boxNumber);
 				addAgentWizard.streetTxt.write(streetName);
 				addAgentWizard.cityTxt.write(cityName);
@@ -193,7 +160,7 @@ public class AgentTestCases
 				addAgentWizard.countryLst.selectCountry(countryName);
 				addAgentWizard.saveBtn.click();
 				
-				//check successfull agent creation
+				//check successful agent creation
 				PopUPHandler popUPHandler=new PopUPHandler();
 				String message = popUPHandler.getPopUPData.read().trim();
 				popUPHandler.acceptPopUP.click();
@@ -201,58 +168,35 @@ public class AgentTestCases
 	}
 	
 	
-	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "addAgentAutogenUPN" })
 	public void checkUPN(HashMap<?, ?> testData)
 	{
 		 // Get data from test-data (XLS based)
-		String userName=testData.get("userName").toString();
-		String password=testData.get("password").toString();
 		String userNameSuffix=testData.get("userNameSuffix").toString();
-		//Ramdom data
+		// generate random data
 		String correctUserNameSuffix=Rd.getRandomString(5)+"."+Rd.getRandomString(3);
-		// Navigate to ENSIM site
-		browser.navigateTo(baseURL);
-		// Verify user-name, password, login button are displayed
-		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write(userName);
-		loginScreen.password.write(password);
-
-		// Click on login button
-		loginScreen.loginBtn.click();
 		
 		//Click on agent link
 		EntityOptions entityOption=new EntityOptions();
 		entityOption.menuBtn.mouseHover();
-		TestUtils.delay(2000);
 		entityOption.agentlink.click();
 		
 		//Click on agent button
-		
 		AgentHomePage agentHome=new AgentHomePage();
 		agentHome.addAgentBtn.click();
 		
 		AddAgentWizardDetails addAgentWizard=new AddAgentWizardDetails();
 		addAgentWizard.UsernameSuffixTxt.write(userNameSuffix);
 		addAgentWizard.addressNumberTxt.click();
-	    TestUtils.delay(2000);
 	    PopUPHandler popUPHandler=new PopUPHandler();
 	    Assert.assertEquals(popUPHandler.getPopUPData.read().trim(), getMessage.getProperty("agent_duplicate_upn"));
 	    popUPHandler.acceptPopUP.click();
-	    TestUtils.delay(2000);
 	    Assert.assertEquals(addAgentWizard.upnErrorImage.isExists(),true);
 	    Assert.assertEquals(addAgentWizard.upnErrorImage.isDisplayed(),true);
 	    addAgentWizard.UsernameSuffixTxt.clear();
 	    addAgentWizard.UsernameSuffixTxt.write(correctUserNameSuffix);
 	    addAgentWizard.addressNumberTxt.click();
-	    TestUtils.delay(2000);
 	    Assert.assertEquals(addAgentWizard.upnExistsImage.isExists(),true);
 	    Assert.assertEquals(addAgentWizard.upnExistsImage.isDisplayed(),true);
-	    
-	}
-	
-	
-	
-	}
-	
-	
-
+	    }
+}

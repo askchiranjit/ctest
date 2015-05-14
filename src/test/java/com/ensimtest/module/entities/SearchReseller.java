@@ -66,6 +66,6 @@ public class SearchReseller extends AppData {
 			setElement(readAppData(this));
 		}
 	}
-	public SearchBtn SearchBtn = new SearchBtn();
+	public SearchBtn searchBtn = new SearchBtn();
 
 }

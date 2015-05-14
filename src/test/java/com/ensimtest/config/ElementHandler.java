@@ -140,7 +140,6 @@ public class ElementHandler
 	 */
 	protected void moveMouseToElement(WebElement element)
 	{
-		System.out.println(element);
 		Actions action = new Actions(Driver.driver);
 		action.moveToElement(element).build().perform();
 	}

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<root>
+<ResellerNameLbl>
+	<key>ID</key>
+	<value>resellerName</value>
+</ResellerNameLbl>
+
+<CanCreateOffersLbl>
+	<key>ID</key>
+	<value>canCreateOffersVal</value>
+</CanCreateOffersLbl>
+
+<DiscountFromServiceProviderLbl>
+	<key>ID</key>
+	<value>discount</value>
+</DiscountFromServiceProviderLbl>
+
+<UsernameSuffixLbl>
+	<key>ID</key>
+	<value>upnSuffix</value>
+</UsernameSuffixLbl>
+
+<AdminNameLbl>
+	<key>ID</key>
+	<value>adminName</value>
+</AdminNameLbl>
+
+<CurrencyLbl>
+	<key>ID</key>
+	<value>currency</value>
+</CurrencyLbl>
+
+<BrandingLbl>
+	<key>ID</key>
+	<value>brandingVal</value>
+</BrandingLbl>
+
+<PaymentAgreementLbl>
+	<key>ID</key>
+	<value>paymentAgreementVal</value>
+</PaymentAgreementLbl>
+
+<CreateStatus>
+	<key>Xpath</key>
+	<value>//*[@id="actionLogForm"]/div/div[1]/div[2]/table/tbody/tr[3]/td[2]</value>
+</CreateStatus>
+</root>

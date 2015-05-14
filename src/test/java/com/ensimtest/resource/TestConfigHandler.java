@@ -66,7 +66,7 @@ public class TestConfigHandler
 			int col=xlsFileRead.getColumnCount(testCaseName);
 			listOfTestData=getParam(xlsFileRead, testCaseName, col);
 			Object[][] data=new Object[row-1][1];
-			System.out.println("3");
+
 			for(int rowNum=2;rowNum<=row;rowNum++)
 			{
 				HashMap<String, String> hashTable = new HashMap<String, String>();	
@@ -106,9 +106,7 @@ public class TestConfigHandler
 
 		int row=xlsFileRead.getRowCount(testCaseName);
 		int col=xlsFileRead.getColumnCount(testCaseName);
-		System.out.println("2");
 		Object[][] data=new Object[row-1][col];
-		System.out.println("3");
 		for(int rowNum=2;rowNum<=row;rowNum++)
 		{
 			for(int ColNum=1;ColNum<=col;ColNum++)

@@ -2,14 +2,10 @@ package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
@@ -243,7 +239,7 @@ public class OrgCreateTestCases
 		RandomData rData = new RandomData();
 		String _username = rData.getRandomString(5);
 		String _password = "P@" + rData.getRandomAlfaNumeric(4);
-		String role = "Organization Super Admin";
+		// String role = "Organization Super Admin";
 		String _firstName = rData.getRandomString(5);
 		String _lastName = rData.getRandomString(5);
 		String _email = rData.getRandomEmailID();
@@ -343,7 +339,6 @@ public class OrgCreateTestCases
 			Assert.assertEquals(rows.length <= 10, true);
 			for(int i=0; i<rows.length; i++)
 			{
-				System.out.println(rows[i].getOrgName());
 				if(rows[i].getOrgName().equals(_orgName))
 				{
 					isOrgNameFound = true;
