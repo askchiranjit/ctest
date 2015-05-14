@@ -209,8 +209,11 @@ public class ResellerTests
 		boolean isFound = false;
 		for(int i=0; i<rows.length; i++)
 		{
-			isFound = (rows[i].getResellerName() == resName);
-			if(isFound) break;
+			if(rows[i].getResellerName().trim().equals(resName));
+				{
+					isFound = true;
+					break;
+				}
 		}
 		Assert.assertEquals(isFound, true);
 		

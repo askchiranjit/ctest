@@ -116,18 +116,18 @@ public class OrgCreateTestCases
 		details.communicationLanguageList.selectLanguage(commLanguage);
 		details.billingLanguageList.selectLanguage(billLanguage);
 		details.dateTimeFormatList.selectFormat(dateTimeFormat);
-//		details.customField1Txt.write(_customFieldData);
-//		details.customField2Txt.write(_customFieldData);
-//		details.customField3Txt.write(_customFieldData);
-//		details.customField4Txt.write(_customFieldData);
-//		details.customField5Txt.write(_customFieldData);
+		details.customField1Txt.write(_customFieldData);
+		details.customField2Txt.write(_customFieldData);
+		details.customField3Txt.write(_customFieldData);
+		details.customField4Txt.write(_customFieldData);
+		details.customField5Txt.write(_customFieldData);
 		details.customField6Txt.write(_customFieldData);
 		details.customField7Txt.write(_customFieldData);
-//		details.customField8Txt.write(_customFieldData);
-//		details.customField9Txt.write(_customFieldData);
-//		details.customField10Txt.write(_customFieldData);
-//		details.customField11Txt.write(_customFieldData);
-//		details.customField12Txt.write(_customFieldData);
+		details.customField8Txt.write(_customFieldData);
+		details.customField9Txt.write(_customFieldData);
+		details.customField10Txt.write(_customFieldData);
+		details.customField11Txt.write(_customFieldData);
+		details.customField12Txt.write(_customFieldData);
 		details.countryList.selectCountry(country);
 		
 		// Verify buttons available
@@ -179,17 +179,9 @@ public class OrgCreateTestCases
 		// TODO : GRAMMER ERROR
 		// String s = summary.createSuccessAlert.read();
 		//Assert.assertEquals(s, "Organization " + _orgName + " created successfully.");
+		boolean isExists = summary.createSuccessAlert.isExists();
 		summary.createSuccessAlertOkBtn.click();
-		
-		// Logout
-//		LoggedInUser user = new LoggedInUser();
-//		user.userInfo.mouseHover();
-//		user.logOut.click();
-//		
-//		// Verify login page is displayed
-//		Assert.assertEquals(true, loginScreen.username.isDisplayed());
-//		Assert.assertEquals(true, loginScreen.password.isDisplayed());
-//		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
+		Assert.assertEquals(isExists, true);
 	}
 	
 	@Test(dependsOnMethods = { "createOrgTest1" })
