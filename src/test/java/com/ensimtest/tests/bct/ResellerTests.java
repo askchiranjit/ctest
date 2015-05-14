@@ -78,10 +78,13 @@ public class ResellerTests
 		String firstName = rData.getRandomString(8);
 		String lastName = rData.getRandomString(8);
 		String resUserEmail = rData.getRandomEmailID();
-		String resUserName = rData.getRandomString(8) + _userName;
+		String resNameSuf = (String) testData.get("resNameSuf");
+		String resUserName = rData.getRandomAlfaNumeric(4) + resNameSuf;
 		String userSuffix = (String) testData.get("userSuffix");
 		String currency = (String) testData.get("currency");
+		String userIDMPassword = (String) testData.get("userIDMPassword");
 		
+				
 		browser.navigateTo(baseURL);
 		
 		LoginScreen loginScreen = new LoginScreen();
@@ -137,10 +140,15 @@ public class ResellerTests
 		admin.lastNameTxt.write(lastName);
 		admin.emailAddressTxt.write(resUserEmail);
 		admin.userNameTxt.write(resUserName);
+		TestUtils.delay(2000);
 		admin.passwordTxt.click();
-		admin.passwordTxt.write(_passWord);
-		admin.verifyPasswordTxt.write(_passWord);
-		
+		TestUtils.delay(2000);
+		System.out.println(userIDMPassword);
+		admin.passwordTxt.write(userIDMPassword);
+		admin.verifyPasswordTxt.click();
+		TestUtils.delay(1000);
+		admin.verifyPasswordTxt.write(userIDMPassword);
+		//TestUtils.delay(1000);
 		Assert.assertEquals(btns.cancelBtn.isExists(), true);
 		Assert.assertEquals(btns.continueBtn.isExists(), true);
 		Assert.assertEquals(btns.goBackBtn.isExists(), true);
@@ -149,7 +157,9 @@ public class ResellerTests
 		btns.continueBtn.click();
 		
 		AddResellerWizardSummary summary = new AddResellerWizardSummary();
+		System.out.println(summary.resellerNameLbl.read());
 		Assert.assertEquals(summary.resellerNameLbl.read(), _resellerName);
+		
 		Assert.assertEquals(summary.usernameSuffixLbl.read(), userSuffix);
 		Assert.assertEquals(summary.adminNameLbl.read(), firstName + " " + lastName);
 		Assert.assertEquals(summary.currencyLbl.read(), currency);
