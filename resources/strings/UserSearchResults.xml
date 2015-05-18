@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root>
+
+	<PreviousPageBtn>
+		<key>ID</key>
+		<value>searchButtonPrevious</value>
+	</PreviousPageBtn>
+	
+	<NextPageBtn>
+		<key>ID</key>
+		<value>searchButtonNext</value>
+	</NextPageBtn>
+	
+</root>
