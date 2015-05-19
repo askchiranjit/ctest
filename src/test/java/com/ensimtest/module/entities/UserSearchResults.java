@@ -7,6 +7,22 @@ import com.ensimtest.resource.AppData;
 
 public class UserSearchResults extends AppData
 {
+	private class CommonTable
+	{
+		public String info[];
+		public CommonTable()
+		{
+			info = readAppData(this);
+		}
+	}
+	private class ActionButtonInfo
+	{
+		public String info[];
+		public ActionButtonInfo()
+		{
+			info = readAppData(this);
+		}
+	}
 	public class UserRow
 	{
 		public Element link;
@@ -20,7 +36,8 @@ public class UserSearchResults extends AppData
 			
 			// Setting ActionButton
 			ElementSet set = new ElementSet();
-			Element []elements = set.getSubElementSet(e, "ClassName", "secondary_button");
+			ActionButtonInfo act = new ActionButtonInfo();
+			Element []elements = set.getSubElementSet(e, act.info[0], act.info[1]);
 			actionButton = elements[0];
 			
 			// Check the info
@@ -49,9 +66,9 @@ public class UserSearchResults extends AppData
 	
 	public UserRow[] getUserResultRows()
 	{
+		CommonTable table = new CommonTable();
 		CommonResultRows resultRows = new CommonResultRows();
-		//RowInfo rowInfo = new RowInfo();
-		Element[] elements = resultRows.getResultRow("ClassName", "ui-list-item-4");
+		Element[] elements = resultRows.getResultRow(table.info[0], table.info[1]);
 		UserRow []row = new UserRow[elements.length];
 		for(int i=0; i<elements.length; i++)
 		{

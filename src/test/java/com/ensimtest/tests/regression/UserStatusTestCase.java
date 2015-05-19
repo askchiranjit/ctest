@@ -1,6 +1,7 @@
 package com.ensimtest.tests.regression;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -18,6 +19,7 @@ import com.ensimtest.module.entities.UserSearchResults.UserRow;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.module.utility.PopUPHandler;
 import com.ensimtest.resource.PropertyReader;
+import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
 
 public class UserStatusTestCase
@@ -55,13 +57,20 @@ public class UserStatusTestCase
 		settings.closeDriver();
 	}
 	
-	@Test
-	public void deactivateUser()
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void deactivateUser(HashMap<?, ?> testData)
 	{
+		// Get the data
+		String username = testData.get("username").toString();
+		String password = testData.get("password").toString();
+		String loginname = testData.get("loginname").toString();
+		String btnStatus = testData.get("btnStatus").toString();
+		String msg = testData.get("msg").toString();
+
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(username);
+		loginScreen.password.write(password);
 		loginScreen.loginBtn.click();
 		
 		EntityOptions entity = new EntityOptions();
@@ -81,14 +90,14 @@ public class UserStatusTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(loginname))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].actionButtonStatus, btnStatus);
 					rows[i].actionButton.click();
 					
 					PopUPHandler popUp = new PopUPHandler();
-					Assert.assertEquals(popUp.getPopUPData.read(), "Are you sure you want to deactivate this user globally?");
+					Assert.assertEquals(popUp.getPopUPData.read(), msg);
 					
 					popUp.acceptPopUP.click();
 					
@@ -106,25 +115,37 @@ public class UserStatusTestCase
 		userLogg.logOut.click();
 	}
 	
-	@Test(dependsOnMethods = { "deactivateUser" })
-	public void deactivatedUserLogin()
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "deactivateUser" })
+	public void deactivatedUserLogin(HashMap<?, ?> testData)
 	{
+		// Get the data
+		String username = testData.get("username").toString();
+		String password = testData.get("password").toString();
+		String msg = testData.get("msg").toString();
+		
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("autotestuser1@10000.escm.local");
-		loginScreen.password.write("Independent23#");
+		loginScreen.username.write(username);
+		loginScreen.password.write(password);
 		loginScreen.loginBtn.click();
 		TestUtils.delay(1000);
-		Assert.assertEquals(loginScreen.errorMsg.read(), "User autotestuser1@10000.escm.local is deactivated globally. Contact your Service Provider.");
+		Assert.assertEquals(loginScreen.errorMsg.read(), msg);
 	}
 	
-	@Test(dependsOnMethods = { "deactivatedUserLogin" })
-	public void reactivateUser()
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "deactivatedUserLogin" })
+	public void reactivateUser(HashMap<?, ?> testData)
 	{
+		// Get the data
+		String username = testData.get("username").toString();
+		String password = testData.get("password").toString();
+		String loginname = testData.get("loginname").toString();
+		String btnStatus = testData.get("btnStatus").toString();
+		String msg = testData.get("msg").toString();
+		
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(username);
+		loginScreen.password.write(password);
 		loginScreen.loginBtn.click();
 		
 		EntityOptions entity = new EntityOptions();
@@ -144,14 +165,14 @@ public class UserStatusTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(loginname))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].actionButtonStatus, "Activate");
+					Assert.assertEquals(rows[i].actionButtonStatus, btnStatus);
 					rows[i].actionButton.click();
 					
 					PopUPHandler popUp = new PopUPHandler();
-					Assert.assertEquals(popUp.getPopUPData.read(), "Are you sure you want to activate this user globally?");
+					Assert.assertEquals(popUp.getPopUPData.read(), msg);
 					
 					popUp.acceptPopUP.click();
 					
@@ -170,13 +191,17 @@ public class UserStatusTestCase
 		Assert.assertEquals(loginScreen.username.isExists(), true);
 	}
 	
-	@Test(dependsOnMethods = { "reactivateUser" })
-	public void testActivatedUser()
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "reactivateUser" })
+	public void testActivatedUser(HashMap<?, ?> testData)
 	{
+		// Get the data
+		String username = testData.get("username").toString();
+		String password = testData.get("password").toString();
+				
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("autotestuser1@10000.escm.local");
-		loginScreen.password.write("Independent23#");
+		loginScreen.username.write(username);
+		loginScreen.password.write(password);
 		loginScreen.loginBtn.click();
 		TestUtils.delay(1000);
 		// Logged out

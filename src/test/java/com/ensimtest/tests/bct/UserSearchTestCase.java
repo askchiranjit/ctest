@@ -1,6 +1,7 @@
 package com.ensimtest.tests.bct;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +18,7 @@ import com.ensimtest.module.entities.UserSearchResults;
 import com.ensimtest.module.entities.UserSearchResults.UserRow;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.PropertyReader;
+import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
 
 public class UserSearchTestCase
@@ -54,13 +56,22 @@ public class UserSearchTestCase
 		settings.closeDriver();
 	}
 	
-	@Test
-	public void lookforUser()
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void lookforUser(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+		String _btnStatus = (String)testData.get("buttonStatus");
+		
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
@@ -75,13 +86,13 @@ public class UserSearchTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, "autotestuser1@10000.escm.local");
-					Assert.assertEquals(rows[i].name, "autoTestF1" + " " + "autoTestL1");
-					Assert.assertEquals(rows[i].primaryEmail, "ensimautotest@outlook.com");
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].loginName, _loginName);
+					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
+					Assert.assertEquals(rows[i].primaryEmail, _email);
+					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
 					break;
 				}
 			}
@@ -96,7 +107,7 @@ public class UserSearchTestCase
 		userLogg.logOut.click();
 	}
 	
-	@Test
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void searchLoginName()
 	{
 		browser.navigateTo(baseURL);
@@ -143,7 +154,7 @@ public class UserSearchTestCase
 		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
-	@Test
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void searchFirstName()
 	{
 		browser.navigateTo(baseURL);
@@ -189,7 +200,7 @@ public class UserSearchTestCase
 		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
-	@Test
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void searchLastName()
 	{
 		browser.navigateTo(baseURL);
@@ -235,7 +246,7 @@ public class UserSearchTestCase
 		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
-	@Test
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void searchEmail()
 	{
 		browser.navigateTo(baseURL);
@@ -281,7 +292,7 @@ public class UserSearchTestCase
 		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
-	@Test
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void searchAll()
 	{
 		browser.navigateTo(baseURL);
@@ -330,7 +341,7 @@ public class UserSearchTestCase
 		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
-	@Test
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void testResetWithAllData()
 	{
 		browser.navigateTo(baseURL);
