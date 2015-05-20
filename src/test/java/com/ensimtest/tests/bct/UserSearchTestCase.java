@@ -37,7 +37,7 @@ public class UserSearchTestCase
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
-		//TestUtils.checkSuitRunnable(this);
+		TestUtils.checkSuitRunnable(this);
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();
@@ -99,6 +99,8 @@ public class UserSearchTestCase
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
 				results.nextPageBtn.click();
+			if(results.nextPageBtn.isEnabled()==false)
+				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -108,18 +110,28 @@ public class UserSearchTestCase
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void searchLoginName()
+	public void searchLoginName(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+		String _btnStatus = (String)testData.get("buttonStatus");
+		String _shortLoginName = (String)testData.get("shortLoginName");
+				
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
 		entity.usersLnk.click();
 		SearchUser user = new SearchUser();
-		user.logInNameTxt.write("autotestuser1");
+		user.logInNameTxt.write(_shortLoginName);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
 		UserSearchResults results = new UserSearchResults();
@@ -129,19 +141,21 @@ public class UserSearchTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(_shortLoginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, "autotestuser1@10000.escm.local");
-					Assert.assertEquals(rows[i].name, "autoTestF1" + " " + "autoTestL1");
-					Assert.assertEquals(rows[i].primaryEmail, "ensimautotest@outlook.com");
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].loginName, _loginName);
+					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
+					Assert.assertEquals(rows[i].primaryEmail, _email);
+					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
 					break;
 				}
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
 				results.nextPageBtn.click();
+			if(results.nextPageBtn.isEnabled()==false)
+				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -155,18 +169,27 @@ public class UserSearchTestCase
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void searchFirstName()
+	public void searchFirstName(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+		String _btnStatus = (String)testData.get("buttonStatus");
+		
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
 		entity.usersLnk.click();
 		SearchUser user = new SearchUser();
-		user.firstNameTxt.write("autoTestF1");
+		user.firstNameTxt.write(_firstName);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
 		UserSearchResults results = new UserSearchResults();
@@ -176,19 +199,21 @@ public class UserSearchTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, "autotestuser1@10000.escm.local");
-					Assert.assertEquals(rows[i].name, "autoTestF1" + " " + "autoTestL1");
-					Assert.assertEquals(rows[i].primaryEmail, "ensimautotest@outlook.com");
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].loginName, _loginName);
+					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
+					Assert.assertEquals(rows[i].primaryEmail, _email);
+					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
 					break;
 				}
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
 				results.nextPageBtn.click();
+			if(results.nextPageBtn.isEnabled()==false)
+				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -201,18 +226,27 @@ public class UserSearchTestCase
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void searchLastName()
+	public void searchLastName(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+		String _btnStatus = (String)testData.get("buttonStatus");
+		
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
 		entity.usersLnk.click();
 		SearchUser user = new SearchUser();
-		user.lastNameTxt.write("autoTestL1");
+		user.lastNameTxt.write(_lastName);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
 		UserSearchResults results = new UserSearchResults();
@@ -222,19 +256,21 @@ public class UserSearchTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, "autotestuser1@10000.escm.local");
-					Assert.assertEquals(rows[i].name, "autoTestF1" + " " + "autoTestL1");
-					Assert.assertEquals(rows[i].primaryEmail, "ensimautotest@outlook.com");
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].loginName, _loginName);
+					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
+					Assert.assertEquals(rows[i].primaryEmail, _email);
+					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
 					break;
 				}
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
 				results.nextPageBtn.click();
+			if(results.nextPageBtn.isEnabled()==false)
+				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -247,12 +283,21 @@ public class UserSearchTestCase
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void searchEmail()
+	public void searchEmail(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+		String _btnStatus = (String)testData.get("buttonStatus");
+				
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
@@ -268,19 +313,21 @@ public class UserSearchTestCase
 			UserRow []rows = results.getUserResultRows();
 			for(int i= 0; i<rows.length; i++)
 			{
-				if(rows[i].loginName.contains("autotestuser1"))
+				if(rows[i].loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, "autotestuser1@10000.escm.local");
-					Assert.assertEquals(rows[i].name, "autoTestF1" + " " + "autoTestL1");
-					Assert.assertEquals(rows[i].primaryEmail, "ensimautotest@outlook.com");
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].loginName, _loginName);
+					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
+					Assert.assertEquals(rows[i].primaryEmail, _email);
+					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
 					break;
 				}
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
 				results.nextPageBtn.click();
+			if(results.nextPageBtn.isEnabled()==false)
+				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -293,21 +340,30 @@ public class UserSearchTestCase
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void searchAll()
+	public void searchAll(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+		String _btnStatus = (String)testData.get("buttonStatus");
+				
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
 		entity.usersLnk.click();
 		SearchUser user = new SearchUser();
-		user.logInNameTxt.write("autotestuser1");
-		user.firstNameTxt.write("autoTestF1");
-		user.lastNameTxt.write("autoTestL1");
-		user.emailAddressTxt.write("ensimautotest@outlook.com");
+		user.logInNameTxt.write(_loginName);
+		user.firstNameTxt.write(_firstName);
+		user.lastNameTxt.write(_lastName);
+		user.emailAddressTxt.write(_email);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
 		UserSearchResults results = new UserSearchResults();
@@ -320,16 +376,18 @@ public class UserSearchTestCase
 				if(rows[i].loginName.contains("autotestuser1"))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, "autotestuser1@10000.escm.local");
-					Assert.assertEquals(rows[i].name, "autoTestF1" + " " + "autoTestL1");
-					Assert.assertEquals(rows[i].primaryEmail, "ensimautotest@outlook.com");
-					Assert.assertEquals(rows[i].actionButtonStatus, "Deactivate");
+					Assert.assertEquals(rows[i].loginName, _loginName);
+					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
+					Assert.assertEquals(rows[i].primaryEmail, _email);
+					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
 					break;
 				}
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
 				results.nextPageBtn.click();
+			if(results.nextPageBtn.isEnabled()==false)
+				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -342,21 +400,29 @@ public class UserSearchTestCase
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void testResetWithAllData()
+	public void testResetWithAllData(HashMap<?, ?> testData)
 	{
+		// Getting the values
+		String _username = (String)testData.get("username");
+		String _password = (String)testData.get("password");
+		String _loginName = (String)testData.get("loginName");
+		String _firstName = (String)testData.get("firstName");
+		String _lastName = (String)testData.get("lastName");
+		String _email = (String)testData.get("email");
+				
 		browser.navigateTo(baseURL);
 		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(_username);
+		loginScreen.password.write(_password);
 		loginScreen.loginBtn.click();
 		EntityOptions entity = new EntityOptions();
 		entity.menuBtn.mouseHover();
 		entity.usersLnk.click();
 		SearchUser user = new SearchUser();
-		user.logInNameTxt.write("autotestuser1");
-		user.firstNameTxt.write("autoTestF1");
-		user.lastNameTxt.write("autoTestL1");
-		user.emailAddressTxt.write("ensimautotest@outlook.com");
+		user.logInNameTxt.write(_loginName);
+		user.firstNameTxt.write(_firstName);
+		user.lastNameTxt.write(_lastName);
+		user.emailAddressTxt.write(_email);
 		user.resetBtn.click();
 		TestUtils.delay(1000);
 		

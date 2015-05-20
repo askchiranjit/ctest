@@ -38,7 +38,7 @@ public class UserStatusTestCase
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
-		//TestUtils.checkSuitRunnable(this);
+		TestUtils.checkSuitRunnable(this);
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();
