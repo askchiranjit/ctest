@@ -27,7 +27,7 @@ public class TestConfigHandler
 
 	public static boolean isTestCaseRunnable(XLSFileReader xlsFileRead, String testCaseName)
 	{
-
+		System.out.println(testCaseName);
 		boolean flag=false;
 		for(int rowNumber=2;rowNumber<=xlsFileRead.getRowCount("TestCases");rowNumber++)
 		{
