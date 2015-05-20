@@ -83,7 +83,9 @@ public class UserSearchTestCase
 		boolean isFound = false;
 		while(true)
 		{
+			results = new UserSearchResults();
 			UserRow []rows = results.getUserResultRows();
+			System.out.println("Rows " + rows);
 			for(int i= 0; i<rows.length; i++)
 			{
 				if(rows[i].loginName.contains(_loginName))
@@ -96,11 +98,19 @@ public class UserSearchTestCase
 					break;
 				}
 			}
+			
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
+				{
+					results.nextPageBtn.click();
+					TestUtils.delay(2000);
+				}
+			else
+			{
 			if(results.nextPageBtn.isEnabled()==false)
 				break;
+			}
+			
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
