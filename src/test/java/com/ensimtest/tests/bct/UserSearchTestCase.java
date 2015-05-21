@@ -2,19 +2,18 @@ package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
-
+import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.EntityOptions;
+import com.ensimtest.module.entities.SearchResultList;
 import com.ensimtest.module.entities.SearchUser;
-import com.ensimtest.module.entities.UserSearchResults;
 import com.ensimtest.module.entities.UserSearchResults.UserRow;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.PropertyReader;
@@ -79,39 +78,23 @@ public class UserSearchTestCase
 		SearchUser user = new SearchUser();
 		user.searchBtn.click();
 		TestUtils.delay(3000);
-		UserSearchResults results = new UserSearchResults();
+		SearchResultList search = new SearchResultList();
+		List<UserRow> list = search.getUserSearchList();
 		boolean isFound = false;
-		while(true)
+		for(int i=0; i<list.size(); i++)
 		{
-			results = new UserSearchResults();
-			UserRow []rows = results.getUserResultRows();
-			System.out.println("Rows " + rows);
-			for(int i= 0; i<rows.length; i++)
-			{
-				if(rows[i].loginName.contains(_loginName))
+			UserRow row = list.get(i);
+			if(row.loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, _loginName);
-					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
-					Assert.assertEquals(rows[i].primaryEmail, _email);
-					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
+					Assert.assertEquals(row.loginName, _loginName);
+					Assert.assertEquals(row.name, _firstName + " " + _lastName);
+					Assert.assertEquals(row.primaryEmail, _email);
+					Assert.assertEquals(row.actionButtonStatus, _btnStatus);
 					break;
 				}
-			}
-			
-			if(isFound) break;
-			if(results.nextPageBtn.isEnabled()==true)
-				{
-					results.nextPageBtn.click();
-					TestUtils.delay(2000);
-				}
-			else
-			{
-			if(results.nextPageBtn.isEnabled()==false)
-				break;
-			}
-			
 		}
+		
 		Assert.assertEquals(isFound, true);
 		// Logged out
 		LoggedInUser userLogg = new LoggedInUser();
@@ -144,29 +127,23 @@ public class UserSearchTestCase
 		user.logInNameTxt.write(_shortLoginName);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
-		UserSearchResults results = new UserSearchResults();
+		SearchResultList search = new SearchResultList();
+		List<UserRow> list = search.getUserSearchList();
 		boolean isFound = false;
-		while(true)
+		for(int i=0; i<list.size(); i++)
 		{
-			UserRow []rows = results.getUserResultRows();
-			for(int i= 0; i<rows.length; i++)
-			{
-				if(rows[i].loginName.contains(_shortLoginName))
+			UserRow row = list.get(i);
+			if(row.loginName.contains(_shortLoginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, _loginName);
-					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
-					Assert.assertEquals(rows[i].primaryEmail, _email);
-					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
+					Assert.assertEquals(row.loginName, _loginName);
+					Assert.assertEquals(row.name, _firstName + " " + _lastName);
+					Assert.assertEquals(row.primaryEmail, _email);
+					Assert.assertEquals(row.actionButtonStatus, _btnStatus);
 					break;
 				}
-			}
-			if(isFound) break;
-			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
-			if(results.nextPageBtn.isEnabled()==false)
-				break;
 		}
+		
 		Assert.assertEquals(isFound, true);
 		// Logged out
 		LoggedInUser userLogg = new LoggedInUser();
@@ -202,28 +179,21 @@ public class UserSearchTestCase
 		user.firstNameTxt.write(_firstName);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
-		UserSearchResults results = new UserSearchResults();
+		SearchResultList search = new SearchResultList();
+		List<UserRow> list = search.getUserSearchList();
 		boolean isFound = false;
-		while(true)
+		for(int i=0; i<list.size(); i++)
 		{
-			UserRow []rows = results.getUserResultRows();
-			for(int i= 0; i<rows.length; i++)
-			{
-				if(rows[i].loginName.contains(_loginName))
+			UserRow row = list.get(i);
+			if(row.loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, _loginName);
-					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
-					Assert.assertEquals(rows[i].primaryEmail, _email);
-					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
+					Assert.assertEquals(row.loginName, _loginName);
+					Assert.assertEquals(row.name, _firstName + " " + _lastName);
+					Assert.assertEquals(row.primaryEmail, _email);
+					Assert.assertEquals(row.actionButtonStatus, _btnStatus);
 					break;
 				}
-			}
-			if(isFound) break;
-			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
-			if(results.nextPageBtn.isEnabled()==false)
-				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -259,28 +229,21 @@ public class UserSearchTestCase
 		user.lastNameTxt.write(_lastName);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
-		UserSearchResults results = new UserSearchResults();
+		SearchResultList search = new SearchResultList();
+		List<UserRow> list = search.getUserSearchList();
 		boolean isFound = false;
-		while(true)
+		for(int i=0; i<list.size(); i++)
 		{
-			UserRow []rows = results.getUserResultRows();
-			for(int i= 0; i<rows.length; i++)
-			{
-				if(rows[i].loginName.contains(_loginName))
+			UserRow row = list.get(i);
+			if(row.loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, _loginName);
-					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
-					Assert.assertEquals(rows[i].primaryEmail, _email);
-					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
+					Assert.assertEquals(row.loginName, _loginName);
+					Assert.assertEquals(row.name, _firstName + " " + _lastName);
+					Assert.assertEquals(row.primaryEmail, _email);
+					Assert.assertEquals(row.actionButtonStatus, _btnStatus);
 					break;
 				}
-			}
-			if(isFound) break;
-			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
-			if(results.nextPageBtn.isEnabled()==false)
-				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -316,28 +279,21 @@ public class UserSearchTestCase
 		user.emailAddressTxt.write("ensimautotest@outlook.com");
 		user.searchBtn.click();
 		TestUtils.delay(3000);
-		UserSearchResults results = new UserSearchResults();
+		SearchResultList search = new SearchResultList();
+		List<UserRow> list = search.getUserSearchList();
 		boolean isFound = false;
-		while(true)
+		for(int i=0; i<list.size(); i++)
 		{
-			UserRow []rows = results.getUserResultRows();
-			for(int i= 0; i<rows.length; i++)
-			{
-				if(rows[i].loginName.contains(_loginName))
+			UserRow row = list.get(i);
+			if(row.loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, _loginName);
-					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
-					Assert.assertEquals(rows[i].primaryEmail, _email);
-					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
+					Assert.assertEquals(row.loginName, _loginName);
+					Assert.assertEquals(row.name, _firstName + " " + _lastName);
+					Assert.assertEquals(row.primaryEmail, _email);
+					Assert.assertEquals(row.actionButtonStatus, _btnStatus);
 					break;
 				}
-			}
-			if(isFound) break;
-			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
-			if(results.nextPageBtn.isEnabled()==false)
-				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -376,28 +332,21 @@ public class UserSearchTestCase
 		user.emailAddressTxt.write(_email);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
-		UserSearchResults results = new UserSearchResults();
+		SearchResultList search = new SearchResultList();
+		List<UserRow> list = search.getUserSearchList();
 		boolean isFound = false;
-		while(true)
+		for(int i=0; i<list.size(); i++)
 		{
-			UserRow []rows = results.getUserResultRows();
-			for(int i= 0; i<rows.length; i++)
-			{
-				if(rows[i].loginName.contains("autotestuser1"))
+			UserRow row = list.get(i);
+			if(row.loginName.contains(_loginName))
 				{
 					isFound = true;
-					Assert.assertEquals(rows[i].loginName, _loginName);
-					Assert.assertEquals(rows[i].name, _firstName + " " + _lastName);
-					Assert.assertEquals(rows[i].primaryEmail, _email);
-					Assert.assertEquals(rows[i].actionButtonStatus, _btnStatus);
+					Assert.assertEquals(row.loginName, _loginName);
+					Assert.assertEquals(row.name, _firstName + " " + _lastName);
+					Assert.assertEquals(row.primaryEmail, _email);
+					Assert.assertEquals(row.actionButtonStatus, _btnStatus);
 					break;
 				}
-			}
-			if(isFound) break;
-			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
-			if(results.nextPageBtn.isEnabled()==false)
-				break;
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
