@@ -15,29 +15,23 @@ import com.ensimtest.module.entities.UserSearchResults;
 import com.ensimtest.module.entities.UserSearchResults.UserRow;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.module.utility.PopUPHandler;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
 
 public class UserStatusTestCase
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
 	}
 
 	@BeforeMethod
 	public void setUp()
 	{
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 
 	@AfterMethod
@@ -56,7 +50,7 @@ public class UserStatusTestCase
 		String btnStatus = testData.get("btnStatus").toString();
 		String msg = testData.get("msg").toString();
 
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(username);
 		loginScreen.password.write(password);
@@ -95,7 +89,15 @@ public class UserStatusTestCase
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
+				{
+					results.nextPageBtn.click();
+					TestUtils.delay(2000);
+				}
+			else
+			{
+				if(results.nextPageBtn.isEnabled() == false)
+					break;
+			}
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -112,7 +114,7 @@ public class UserStatusTestCase
 		String password = testData.get("password").toString();
 		String msg = testData.get("msg").toString();
 		
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(username);
 		loginScreen.password.write(password);
@@ -131,7 +133,7 @@ public class UserStatusTestCase
 		String btnStatus = testData.get("btnStatus").toString();
 		String msg = testData.get("msg").toString();
 		
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(username);
 		loginScreen.password.write(password);
@@ -170,7 +172,15 @@ public class UserStatusTestCase
 			}
 			if(isFound) break;
 			if(results.nextPageBtn.isEnabled()==true)
-				results.nextPageBtn.click();
+				{
+					results.nextPageBtn.click();
+					TestUtils.delay(2000);
+				}
+			else
+			{
+				if(results.nextPageBtn.isEnabled() == false)
+					break;
+			}
 		}
 		Assert.assertEquals(isFound, true);
 		// Logged out
@@ -187,7 +197,7 @@ public class UserStatusTestCase
 		String username = testData.get("username").toString();
 		String password = testData.get("password").toString();
 				
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(username);
 		loginScreen.password.write(password);

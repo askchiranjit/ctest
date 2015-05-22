@@ -20,7 +20,6 @@ import com.ensimtest.module.entities.SearchOrganization;
 import com.ensimtest.module.entities.SearchResults;
 import com.ensimtest.module.entities.SearchResults.OrgRow;
 import com.ensimtest.module.userspace.LoggedInUser;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
@@ -28,19 +27,14 @@ import com.ensimtest.utils.TestUtils;
 public class OrgCreateTestCases 
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
-	RandomData Rd=new RandomData();
+	RandomData randomData=new RandomData();
 	String _orgName = "";
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 
 	@AfterClass
@@ -70,7 +64,7 @@ public class OrgCreateTestCases
 		String _userSuffix = rData.getRandomString(3) + "." + rData.getRandomString(3);
 				
 		// Go to the site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Verify in login page
 		LoginScreen loginScreen = new LoginScreen();

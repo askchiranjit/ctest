@@ -15,30 +15,23 @@ import com.ensimtest.module.entities.SearchResultList;
 import com.ensimtest.module.entities.SearchUser;
 import com.ensimtest.module.entities.UserSearchResults.UserRow;
 import com.ensimtest.module.userspace.LoggedInUser;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
 
 public class UserSearchTestCase
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
 	}
-
 
 	@BeforeMethod
 	public void setUp()
 	{
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 
 	@AfterMethod
@@ -59,7 +52,7 @@ public class UserSearchTestCase
 		String _email = (String)testData.get("email");
 		String _btnStatus = (String)testData.get("buttonStatus");
 		
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);
@@ -107,7 +100,7 @@ public class UserSearchTestCase
 		String _btnStatus = (String)testData.get("buttonStatus");
 		String _shortLoginName = (String)testData.get("shortLoginName");
 				
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);
@@ -159,7 +152,7 @@ public class UserSearchTestCase
 		String _email = (String)testData.get("email");
 		String _btnStatus = (String)testData.get("buttonStatus");
 		
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);
@@ -209,7 +202,7 @@ public class UserSearchTestCase
 		String _email = (String)testData.get("email");
 		String _btnStatus = (String)testData.get("buttonStatus");
 		
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);
@@ -259,7 +252,7 @@ public class UserSearchTestCase
 		String _email = (String)testData.get("email");
 		String _btnStatus = (String)testData.get("buttonStatus");
 				
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);
@@ -309,7 +302,7 @@ public class UserSearchTestCase
 		String _email = (String)testData.get("email");
 		String _btnStatus = (String)testData.get("buttonStatus");
 				
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);
@@ -361,7 +354,7 @@ public class UserSearchTestCase
 		String _lastName = (String)testData.get("lastName");
 		String _email = (String)testData.get("email");
 				
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(_username);
 		loginScreen.password.write(_password);

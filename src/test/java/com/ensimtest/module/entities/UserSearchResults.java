@@ -70,7 +70,6 @@ public class UserSearchResults extends AppData
 		CommonResultRows resultRows = new CommonResultRows();
 		Element[] elements = resultRows.getResultRow(table.info[0], table.info[1]);
 		UserRow []row = new UserRow[elements.length];
-		System.out.println("Length = " + row.length);
 		for(int i=0; i<elements.length; i++)
 		{
 			row[i] = new UserRow(elements[i]);

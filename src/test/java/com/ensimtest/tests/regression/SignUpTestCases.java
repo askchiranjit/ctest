@@ -12,7 +12,6 @@ import com.ensimtest.config.Browser;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.resource.GetEASMessages;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
@@ -20,8 +19,6 @@ import com.ensimtest.utils.TestUtils;
 public class SignUpTestCases 
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
 	private RandomData randomData=new RandomData();
 	private GetEASMessages getMessage=new GetEASMessages();
 
@@ -29,16 +26,12 @@ public class SignUpTestCases
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
 	}
-
 
 	@BeforeMethod
 	public void setUp()
 	{
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 
 	@AfterMethod
@@ -64,7 +57,7 @@ public class SignUpTestCases
 		String corporateID=randomData.getRandomAlfaNumeric(6);
 		
 		// Open the browser and goto site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Click on sign up link
 		LoginScreen loginScreen = new LoginScreen();
@@ -112,7 +105,7 @@ public class SignUpTestCases
 		//Get test data from data provider
 		String duplicateEmail=testData.get("duplicateEmail").toString();
 	   // Open the browser and goto site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Click on sign up link
 		LoginScreen loginScreen = new LoginScreen();
@@ -132,7 +125,7 @@ public class SignUpTestCases
 	@Test
 	public void signupValidations()
 	{
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		// Generating random values
 		String orgName=randomData.getRandomString(4);
 		String email=randomData.getRandomEmailID();

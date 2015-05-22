@@ -13,7 +13,6 @@ import com.ensimtest.module.entities.AgentHomePage;
 import com.ensimtest.module.entities.EntityOptions;
 import com.ensimtest.module.utility.PopUPHandler;
 import com.ensimtest.resource.GetEASMessages;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
@@ -21,19 +20,14 @@ import com.ensimtest.utils.TestUtils;
 public class AgentTestCases 
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
 	private GetEASMessages getMessage=new GetEASMessages(); 
-	private RandomData Rd=new RandomData();
+	private RandomData randomdata=new RandomData();
 	
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 
 	@AfterClass
@@ -48,9 +42,9 @@ public class AgentTestCases
 		// Get data from test-data (XLS based)
 		String userName=testData.get("userName").toString();
 		String password=testData.get("password").toString();
-		String agentName=testData.get("agentName").toString() + Rd.getRandomString(2);
+		String agentName=testData.get("agentName").toString() + randomdata.getRandomString(2);
 		String vatNumber=testData.get("vatNumber").toString();
-		String userNameSuffix=Rd.getRandomString(3) + "." + Rd.getRandomString(3);
+		String userNameSuffix=randomdata.getRandomString(3) + "." + randomdata.getRandomString(3);
 		String comunicationLanguage=testData.get("comunicationLanguage").toString();
 		String billingLanguage=testData.get("billingLanguage").toString();
 		String dataTimeFormat=testData.get("dataTimeFormat").toString();
@@ -60,10 +54,10 @@ public class AgentTestCases
 		String addressNumber=testData.get("addressNumber").toString();
 		String postalCode=testData.get("postalCode").toString();
 		String countryName=testData.get("countryName").toString();
-		String email=Rd.getRandomEmailID();
+		String email=randomdata.getRandomEmailID();
 		
 		// Navigate to ENSIM site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.username.write(userName);
@@ -124,7 +118,7 @@ public class AgentTestCases
 		String postalCode=testData.get("postalCode").toString();
 		String countryName=testData.get("countryName").toString();
 		//Get Random data
-		String email=Rd.getRandomEmailID();
+		String email=randomdata.getRandomEmailID();
 				
 		//Click on agent link
 		EntityOptions entityOption=new EntityOptions();
@@ -167,7 +161,7 @@ public class AgentTestCases
 		 // Get data from test-data (XLS based)
 		String userNameSuffix=testData.get("userNameSuffix").toString();
 		// generate random data
-		String correctUserNameSuffix=Rd.getRandomString(5)+"."+Rd.getRandomString(3);
+		String correctUserNameSuffix=randomdata.getRandomString(5)+"."+randomdata.getRandomString(3);
 		
 		//Click on agent link
 		EntityOptions entityOption=new EntityOptions();

@@ -8,30 +8,24 @@ import com.ensimtest.config.Browser;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.GetEASMessages;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
 
 public class LoginTestCases
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
 	private GetEASMessages getMessage=new GetEASMessages(); 
 	
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
 	}
 	
 	@BeforeMethod
 	public void setUp()
 	{
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 	
 	@AfterMethod
@@ -47,7 +41,7 @@ public class LoginTestCases
 		String passWord = (String) h.get("Password");
 		
 		// Navigate to ENSIM site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
 		
@@ -84,7 +78,7 @@ public class LoginTestCases
 		String passWord = (String) h.get("Password");
 		
 		// Navigate to ENSIM site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
@@ -108,7 +102,7 @@ public class LoginTestCases
 	public void NoCredentialAtLogin()
 	{
 		// Navigate to ENSIM site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();

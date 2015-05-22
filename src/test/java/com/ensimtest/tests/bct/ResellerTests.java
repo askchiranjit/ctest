@@ -20,7 +20,6 @@ import com.ensimtest.module.entities.SearchReseller;
 import com.ensimtest.module.entities.SearchResults;
 import com.ensimtest.module.entities.SearchResults.OrgReseller;
 import com.ensimtest.module.userspace.LoggedInUser;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
@@ -28,23 +27,19 @@ import com.ensimtest.utils.TestUtils;
 public class ResellerTests
 {
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
+	
 	//private GetEASMessages getMessage=new GetEASMessages(); 
 	
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
 	}
 	
 	@BeforeMethod
 	public void setup()
 	{
-		browser = new Browser(browserName);
+		browser = new Browser();
 	}
 
 	@AfterMethod
@@ -78,7 +73,7 @@ public class ResellerTests
 		String userIDMPassword = (String) testData.get("userIDMPassword");
 		
 				
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		LoginScreen loginScreen = new LoginScreen();
 		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
@@ -185,7 +180,7 @@ public class ResellerTests
 		String userName = (String) testData.get("userName");
 		String password = (String) testData.get("password");
 		String resName = (String) testData.get("resName");
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		LoginScreen loginScreen = new LoginScreen();
 		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
