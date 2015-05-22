@@ -258,6 +258,7 @@ public class OrgCreateTestCases
 		entity.orglink.click();
 		
 		SearchOrganization searchOrg = new SearchOrganization();
+		searchOrg.keywordTxt.write(_orgName);
 		searchOrg.searchBtn.click();
 		
 		TestUtils.delay(3000);
