@@ -2,12 +2,41 @@ package com.ensimtest.config;
 
 import java.io.File;
 import java.io.IOException;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
 import com.ensimtest.base.Driver;
 
 public class Browser {
+	
+	private DriverSettings driverSetting;
+	private final int timeToWait = 30;
+	private final String defaultBrowser = "firefox";
+	
+	public Browser()
+	{
+		driverSetting = new DriverSettings();
+		driverSetting.setUpDriver(defaultBrowser, timeToWait);
+	}
+	
+	public Browser(String browserName)
+	{
+		driverSetting = new DriverSettings();
+		driverSetting.setUpDriver(browserName, timeToWait);
+	}
+	
+	public Browser(String browserName, int timeUnitInSecond)
+	{
+		driverSetting = new DriverSettings();
+		driverSetting.setUpDriver(browserName, timeUnitInSecond);
+	}
+	
+	public void closeBrowser()
+	{
+		driverSetting.closeDriver();
+	}
 
 	/**
 	 * Go to the URL mentioned

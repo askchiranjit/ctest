@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.EntityOptions;
 import com.ensimtest.module.entities.SearchResultList;
@@ -22,16 +21,9 @@ import com.ensimtest.utils.TestUtils;
 
 public class UserSearchTestCase
 {
-	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
-
-	public UserSearchTestCase()
-	{
-		settings = new DriverSettings();
-		browser = new Browser();
-	}
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
@@ -46,13 +38,13 @@ public class UserSearchTestCase
 	@BeforeMethod
 	public void setUp()
 	{
-		settings.setUpDriver(browserName, 30);
+		browser = new Browser(browserName);
 	}
 
 	@AfterMethod
 	public void tearDown()
 	{
-		settings.closeDriver();
+		browser.closeBrowser();
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")

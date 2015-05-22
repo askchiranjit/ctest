@@ -7,7 +7,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.AddAgentWizardDetails;
 import com.ensimtest.module.entities.AgentHomePage;
@@ -21,17 +20,11 @@ import com.ensimtest.utils.TestUtils;
 
 public class AgentTestCases 
 {
-	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
 	private GetEASMessages getMessage=new GetEASMessages(); 
 	private RandomData Rd=new RandomData();
-	public AgentTestCases()
-	{
-		settings = new DriverSettings();
-		browser = new Browser();
-	}
 	
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
@@ -40,13 +33,13 @@ public class AgentTestCases
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();
-		settings.setUpDriver(browserName, 10);
+		browser = new Browser(browserName);
 	}
 
 	@AfterClass
 	public void tearDown()
 	{
-		settings.closeDriver();
+		browser.closeBrowser();
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")

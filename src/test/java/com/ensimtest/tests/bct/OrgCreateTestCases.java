@@ -7,7 +7,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.AddOrgWizardMasterAccountDetails;
 import com.ensimtest.module.entities.AddOrgWizardMasterControls;
@@ -28,19 +27,11 @@ import com.ensimtest.utils.TestUtils;
 
 public class OrgCreateTestCases 
 {
-	
-	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
 	RandomData Rd=new RandomData();
 	String _orgName = "";
-
-	public OrgCreateTestCases()
-	{
-		settings = new DriverSettings();
-		browser = new Browser();
-	}
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
@@ -49,15 +40,14 @@ public class OrgCreateTestCases
 		PropertyReader pr=new PropertyReader();
 		baseURL=pr.getURL();
 		browserName=pr.getBrowserName();
-		settings.setUpDriver(browserName, 30);
+		browser = new Browser(browserName);
 	}
 
 	@AfterClass
 	public void tearDown()
 	{
-		settings.closeDriver();
+		browser.closeBrowser();
 	}
-
 
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void createOrgTest1(HashMap<?, ?> testData)

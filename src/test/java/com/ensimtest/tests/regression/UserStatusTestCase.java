@@ -2,15 +2,12 @@ package com.ensimtest.tests.regression;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.EntityOptions;
 import com.ensimtest.module.entities.SearchUser;
@@ -24,16 +21,9 @@ import com.ensimtest.utils.TestUtils;
 
 public class UserStatusTestCase
 {
-	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
-
-	public UserStatusTestCase()
-	{
-		settings = new DriverSettings();
-		browser = new Browser();
-	}
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
@@ -44,17 +34,16 @@ public class UserStatusTestCase
 		browserName=pr.getBrowserName();
 	}
 
-
 	@BeforeMethod
 	public void setUp()
 	{
-		settings.setUpDriver(browserName, 30);
+		browser = new Browser(browserName);
 	}
 
 	@AfterMethod
 	public void tearDown()
 	{
-		settings.closeDriver();
+		browser.closeBrowser();
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")

@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.AddResellerBtnControl;
 import com.ensimtest.module.entities.AddResellerWizardAdminUser;
@@ -28,16 +27,10 @@ import com.ensimtest.utils.TestUtils;
 
 public class ResellerTests
 {
-	private DriverSettings settings;
 	private Browser browser;
 	private static String baseURL;
 	private static String browserName;
 	//private GetEASMessages getMessage=new GetEASMessages(); 
-	public ResellerTests()
-	{
-		settings = new DriverSettings();
-		browser = new Browser();
-	}
 	
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
@@ -51,13 +44,13 @@ public class ResellerTests
 	@BeforeMethod
 	public void setup()
 	{
-		settings.setUpDriver(browserName, 10);
+		browser = new Browser(browserName);
 	}
 
 	@AfterMethod
 	public void tearDown()
 	{
-		settings.closeDriver();
+		browser.closeBrowser();
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
