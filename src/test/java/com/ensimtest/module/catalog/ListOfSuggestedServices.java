@@ -41,6 +41,23 @@ public class ListOfSuggestedServices extends AppData
 		}
 		
 		}
+		
+		public boolean isServicesSelected(String services)
+		{
+			boolean flag=true;
+			String[] serviceslst=services.split(";");
+			for(int i=0;i<serviceslst.length;i++)
+			{
+			    SelectServiceFromSugList selService=new SelectServiceFromSugList(serviceslst[i].trim());
+				if(!selService.getAttributeValue("class").contains("c_on"))
+				{
+					flag=false;
+					break;
+				}
+			}
+			return flag;
+		}
+		
 	}
 	public ServicesList servicesList=new ServicesList(); 
 

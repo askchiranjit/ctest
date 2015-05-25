@@ -237,6 +237,13 @@ public class Element implements IElement
 
 	}
 	
+	protected String getSelectedType()
+	{
+		webElement = getReloadedElement(elementName, type);
+		Select selectElement=new Select(webElement);
+		return selectElement.getFirstSelectedOption().getText();
+	}
+	
 	
 
 }

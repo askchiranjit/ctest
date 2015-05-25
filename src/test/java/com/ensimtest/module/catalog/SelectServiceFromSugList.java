@@ -11,5 +11,10 @@ public class SelectServiceFromSugList extends Element
 	   Eliment[1]="//div[@id='suggestedServiceDialog']//tr//td[contains(text(),'"+service+"')]//preceding::td[1]//label";
 	   setElement(Eliment);
    }
-	
+   @Override
+   public String getAttributeValue(String attribute)
+   {
+	   return super.getAttributeValue(attribute);
+   }
+  
 }

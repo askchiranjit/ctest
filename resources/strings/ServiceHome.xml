@@ -9,4 +9,10 @@
 	<key>ID</key>
 	<value>importServiceBtn</value>
 </ImportServiceBtn>
+
+<EditServiceBtn>
+	<key>ID</key>
+	<value>editService</value>
+</EditServiceBtn>
+
 </root>
