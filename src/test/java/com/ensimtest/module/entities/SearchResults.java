@@ -80,7 +80,6 @@ public class SearchResults extends AppData
 		{
 			this.link = link;
 			String data = link.read().trim();
-			System.out.println("Data >> " + data);
 			String info[] = data.split("\n");
 			agentName = info[0].trim();
 			if(info[1].trim().contains(","))
@@ -112,6 +111,49 @@ public class SearchResults extends AppData
 		for(int i=0; i<elements.length; i++)
 		{
 			row[i] = new OrgAgent(elements[i]);
+		}
+		return row;
+	}
+	
+	public class OrgReseller
+	{
+		public Element link;
+		private String resellerName, resellerID;
+		public OrgReseller(Element link)
+		{
+			this.link = link;
+			String data = link.read().trim();
+			String info[] = data.split("\n");
+			resellerName = info[0].trim();
+			if(info[1].trim().contains(","))
+			{
+				resellerID = info[1].trim().split(",")[0].trim();
+			}
+			else
+			{
+				resellerID = info[1].trim();
+			}
+			resellerID = resellerID.split(":")[1].trim();
+		}
+		public String getResellerName()
+		{
+			return resellerName;
+		}
+		public String getResellerID()
+		{
+			return resellerID;
+		}
+	}
+	
+	public OrgReseller[] getResellerResultRows()
+	{
+		CommonResultRows resultRows = new CommonResultRows();
+		RowInfo rowInfo = new RowInfo();
+		Element[] elements = resultRows.getResultRow(rowInfo.info[0], rowInfo.info[1]);
+		OrgReseller []row = new OrgReseller[elements.length];
+		for(int i=0; i<elements.length; i++)
+		{
+			row[i] = new OrgReseller(elements[i]);
 		}
 		return row;
 	}

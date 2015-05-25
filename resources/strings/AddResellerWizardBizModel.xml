@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<root>
+
+<ImportFromTemplateLst>
+	<key>ID</key>
+	<value>templateReseller</value>
+</ImportFromTemplateLst>
+
+<CurrencyLst>
+	<key>ID</key>
+	<value>currencyId</value>
+</CurrencyLst>
+
+<PaymentAgreementLst>
+	<key>ID</key>
+	<value>paid</value>
+</PaymentAgreementLst>
+
+<BrandingLst>
+	<key>ID</key>
+	<value>branding</value>
+</BrandingLst>
+
+<DiscountfromServiceProviderTxt>
+	<key>ID</key>
+	<value>discountSetByprovider</value>
+</DiscountfromServiceProviderTxt>
+
+<PublishCatalognowChk>
+	<key>ID</key>
+	<value>publishCatalogcheckBox</value>
+</PublishCatalognowChk>
+
+<CanSellToSPOrgChk>
+	<key>ID</key>
+	<value>reseller_can_sell_isp_customers</value>
+</CanSellToSPOrgChk>
+
+<CanOwnOrgChk>
+	<key>ID</key>
+	<value>reseller_can_own_customers</value>
+</CanOwnOrgChk>
+
+<SPCanSellToResellerChk>
+	<key>ID</key>
+	<value>reseller_isp_can_sell</value>
+</SPCanSellToResellerChk>
+
+<CanEditPriceInOfferChk>
+	<key>ID</key>
+	<value>can_modify_offer_price</value>
+</CanEditPriceInOfferChk>
+
+<MarkAsResellerTemplateChk>
+	<key>ID</key>
+	<value>markAsBusinessModelTemplate</value>
+</MarkAsResellerTemplateChk>
+
+<AllowUsageImportChk>
+	<key>ID</key>
+	<value>usageImportAllowed</value>
+</AllowUsageImportChk>
+
+</root>
