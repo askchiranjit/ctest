@@ -11,6 +11,11 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public ServiceNameTxt serviceNameTxt = new ServiceNameTxt();
 
@@ -19,6 +24,11 @@ public class AddService extends AppData
 		public InternalServiceIDTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public InternalServiceIDTxt internalServiceIDTxt = new InternalServiceIDTxt();
@@ -29,6 +39,11 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public SubscriptionTypeTxt subscriptionTypeTxt = new SubscriptionTypeTxt();
 
@@ -37,6 +52,11 @@ public class AddService extends AppData
 		public VendorNameTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public VendorNameTxt vendorNameTxt = new VendorNameTxt();
@@ -47,6 +67,11 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public SearchTagTxt searchTagTxt = new SearchTagTxt();
 
@@ -55,6 +80,11 @@ public class AddService extends AppData
 		public ProvSystemIdTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public ProvSystemIdTxt provSystemIdTxt = new ProvSystemIdTxt();
@@ -83,6 +113,11 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public ProvisioningDelayTxt provisioningDelayTxt = new ProvisioningDelayTxt();
 
@@ -91,6 +126,14 @@ public class AddService extends AppData
 		public ProvisioningDelayLst()
 		{
 			setElement(readAppData(this));
+		}
+		public void selectDelayType(String delayType)
+		{
+			super.selectVisibleText(delayType);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
 		}
 	}
 	public ProvisioningDelayLst provisioningDelayLst = new ProvisioningDelayLst();
@@ -101,6 +144,11 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
+	
 	}
 	public DNSRequireChk dNSRequireChk = new DNSRequireChk();
 
@@ -109,6 +157,10 @@ public class AddService extends AppData
 		public MultipleOrdersOnSameDNSChk()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public MultipleOrdersOnSameDNSChk multipleOrdersOnSameDNSChk = new MultipleOrdersOnSameDNSChk();
@@ -119,6 +171,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public UsageCollectionRequireChk usageCollectionRequireChk = new UsageCollectionRequireChk();
 
@@ -127,6 +183,10 @@ public class AddService extends AppData
 		public RequireActiveDirectoryDomainChk()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public RequireActiveDirectoryDomainChk requireActiveDirectoryDomainChk = new RequireActiveDirectoryDomainChk();
@@ -137,6 +197,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public HasUserManagementChk hasUserManagementChk = new HasUserManagementChk();
 
@@ -146,14 +210,35 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public NeedPhNoChk needPhNoChk = new NeedPhNoChk();
+	
+	public class BulkAssignment extends Element
+	{
+		public BulkAssignment()
+		{
+			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
+	}
+	public BulkAssignment bulkAssignment = new BulkAssignment();
 
 	public class AssociateifSamePrivateDomainRdo extends Element
 	{
 		public AssociateifSamePrivateDomainRdo()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public AssociateifSamePrivateDomainRdo associateifSamePrivateDomainRdo = new AssociateifSamePrivateDomainRdo();
@@ -164,6 +249,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public NeverAssociateOrderRdo neverAssociateOrderRdo = new NeverAssociateOrderRdo();
 
@@ -172,6 +261,10 @@ public class AddService extends AppData
 		public AlwaysAssociateOrderRdo()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public AlwaysAssociateOrderRdo alwaysAssociateOrderRdo = new AlwaysAssociateOrderRdo();
@@ -182,6 +275,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public TrackChangeOfSalesAgentChk trackChangeOfSalesAgentChk = new TrackChangeOfSalesAgentChk();
 
@@ -190,6 +287,10 @@ public class AddService extends AppData
 		public TrackChangeOfTechnicalContactChk()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public TrackChangeOfTechnicalContactChk trackChangeOfTechnicalContactChk = new TrackChangeOfTechnicalContactChk();
@@ -200,6 +301,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public TrackChangeOfProvisioningInformationChk trackChangeOfProvisioningInformationChk = new TrackChangeOfProvisioningInformationChk();
 
@@ -208,6 +313,10 @@ public class AddService extends AppData
 		public OneTimeProvisioningRdo()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public OneTimeProvisioningRdo oneTimeProvisioningRdo = new OneTimeProvisioningRdo();
@@ -218,6 +327,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public HostedServiceRdo hostedServiceRdo = new HostedServiceRdo();
 
@@ -226,6 +339,10 @@ public class AddService extends AppData
 		public ManualProvisioningRdo()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public ManualProvisioningRdo manualProvisioningRdo = new ManualProvisioningRdo();
@@ -236,6 +353,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public AutomaticProvisioningRdo automaticProvisioningRdo = new AutomaticProvisioningRdo();
 
@@ -244,6 +365,10 @@ public class AddService extends AppData
 		public SendAccessCredentialsChk()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public SendAccessCredentialsChk sendAccessCredentialsChk = new SendAccessCredentialsChk();
@@ -272,6 +397,10 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public ResellerCanConfigureChk resellerCanConfigureChk = new ResellerCanConfigureChk();
 
@@ -281,14 +410,41 @@ public class AddService extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
+		}
 	}
 	public AgentCanConfigureChk agentCanConfigureChk = new AgentCanConfigureChk();
+	
+	public class ProvisioningSystemLst extends Element
+	{
+		public ProvisioningSystemLst()
+		{
+			setElement(readAppData(this));
+		}
+		public void selectProvisioningSystem(String proSystem)
+		{
+			super.selectVisibleText(proSystem);
+		}
+		public String getSelectedProvisioningSystem()
+		{
+			return super.getSelectedType();
+		}
+	}
+	public ProvisioningSystemLst provisioningSystemLst = new ProvisioningSystemLst();
+	
+	
 
 	public class UseEASControlPanel extends Element
 	{
 		public UseEASControlPanel()
 		{
 			setElement(readAppData(this));
+		}
+		public boolean isSelecetd()
+		{
+			return super.isSelected();
 		}
 	}
 	public UseEASControlPanel useEASControlPanel = new UseEASControlPanel();

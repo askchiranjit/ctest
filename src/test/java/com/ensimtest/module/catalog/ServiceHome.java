@@ -22,4 +22,13 @@ public class ServiceHome extends AppData
 		}
 	}
 	public ImportServiceBtn importServiceBtn = new ImportServiceBtn();
+	
+	public class EditServiceBtn extends Element
+	{
+		public EditServiceBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public EditServiceBtn editServiceBtn = new EditServiceBtn();
 }

@@ -79,6 +79,10 @@
 	<key>ID</key>
 	<value>phoneInventoryRequired</value>
 </NeedPhNoChk>
+<BulkAssignment>
+	<key>ID</key>
+	<value>bulkAssignment</value>
+</BulkAssignment>
 
 <AssociateifSamePrivateDomainRdo>
 	<key>ID</key>
@@ -169,4 +173,8 @@
 	<key>ID</key>
 	<value>saveser</value>
 </SaveBtn>
+<ProvisioningSystemLst>
+	<key>ID</key>
+	<value>provisioning-system</value>
+</ProvisioningSystemLst>
 </root>
