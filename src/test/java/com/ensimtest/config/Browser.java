@@ -48,7 +48,7 @@ public class Browser {
 		driverSetting.setUpDriver(browserName, timeUnitInSecond);
 	}
 	
-	public void closeBrowser()
+	public void close()
 	{
 		driverSetting.closeDriver();
 	}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+	<ChooseServiceLst>
+		<key>ID</key>
+		<value>selectService</value>
+	</ChooseServiceLst>
+	<ChooseOfferLst>
+		<key>ID</key>
+		<value>selectOffer</value>
+	</ChooseOfferLst>
+	<ExportNowBtn>
+		<key>ID</key>
+		<value>export_order</value>
+	</ExportNowBtn>
+</root>

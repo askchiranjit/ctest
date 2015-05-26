@@ -14,4 +14,9 @@
 		<key>Xpath</key>
 		<value>//a[contains(text(),'Create Order')]</value>
 	</CreateOrderLnk>
+	
+	<ExportOrderLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Export Orders')]</value>
+	</ExportOrderLnk>
 </root>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<root>
+	<RecentTab>
+		<key>Xpath</key>
+		<value>//*[@id="tabs"]/ul/li[1]</value>
+	</RecentTab>
+	
+	<FailedTab>
+		<key>Xpath</key>
+		<value>//*[@id="tabs"]/ul/li[2]</value>
+	</FailedTab>
+	
+	<PendingTab>
+		<key>Xpath</key>
+		<value>//*[@id="tabs"]/ul/li[3]</value>
+	</PendingTab>
+	
+	<CancelledTab>
+		<key>Xpath</key>
+		<value>//*[@id="tabs"]/ul/li[4]</value>
+	</CancelledTab>
+	
+	<NextBtn>
+		<key>ID</key>
+		<value>searchButtonNext0</value>
+	</NextBtn>
+	
+	<PreviousBtn>
+		<key>ID</key>
+		<value>searchButtonPrevious0</value>
+	</PreviousBtn>
+</root>
