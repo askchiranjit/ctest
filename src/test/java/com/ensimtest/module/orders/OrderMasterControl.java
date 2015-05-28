@@ -47,6 +47,23 @@ public class OrderMasterControl extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public boolean isEnabled()
+		{
+			try
+			{
+				String info = super.getAttributeValue("class");
+				if(info.equals("disabledImage"))
+				{
+					return false;
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			return true;
+		}
 	}
 	public NextBtn nextBtn = new NextBtn();
 	
@@ -55,6 +72,23 @@ public class OrderMasterControl extends AppData
 		public PreviousBtn()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isEnabled()
+		{
+			try
+			{
+				String info = super.getAttributeValue("class");
+				if(info.equals("disabledImage"))
+				{
+					return false;
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			return true;
 		}
 	}
 	public PreviousBtn previousBtn = new PreviousBtn();

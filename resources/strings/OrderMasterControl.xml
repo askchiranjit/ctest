@@ -7,7 +7,7 @@
 	
 	<FailedTab>
 		<key>Xpath</key>
-		<value>//*[@id="tabs"]/ul/li[2]</value>
+		<value>//*[@id="tabs"]/ul/li[2]/a/table/tbody/tr/td[1]/strong</value>
 	</FailedTab>
 	
 	<PendingTab>
