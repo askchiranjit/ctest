@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<root>
+<CancelBtn>
+	<key>ID</key>
+	<value>cancelButton</value>
+</CancelBtn>
+
+<SaveBtn>
+	<key>ID</key>
+	<value>saveresource</value>
+</SaveBtn>
+
+<ResourceNameTxt>
+	<key>ID</key>
+	<value>newresourcename</value>
+</ResourceNameTxt>
+
+<ResourceIDTxt>
+	<key>ID</key>
+	<value>newresourceid</value>
+</ResourceIDTxt>
+
+<PayPerUseTrueRdo>
+	<key>Xpath</key>
+	<value>"//label[contains(text()</value>
+</PayPerUseTrueRdo>
+
+<PayPerUseFalseRdo>
+	<key>Xpath</key>
+	<value>"//label[contains(text()</value>
+</PayPerUseFalseRdo>
+
+<DafaultQuantityTxt>
+	<key>ID</key>
+	<value>defaultQuantity</value>
+</DafaultQuantityTxt>
+
+<ResourceCategoryTxt>
+	<key>ID</key>
+	<value>resourcecategory</value>
+</ResourceCategoryTxt>
+
+<AvailableForUserChk>
+	<key>Xpath</key>
+	<value>"//label[contains(text()</value>
+</AvailableForUserChk>
+
+<ReservationUnitLst>
+	<key>ID</key>
+	<value>newreservedunit</value>
+</ReservationUnitLst>
+
+<PPUUnitLst>
+	<key>ID</key>
+	<value>newppuUnit</value>
+</PPUUnitLst>
+
+<MeteringRuleLst>
+	<key>ID</key>
+	<value>newratingrule</value>
+</MeteringRuleLst>
+
+<ReservProvisioningSystemUnitTxt>
+	<key>ID</key>
+	<value>ossreservedunit_error</value>
+</ReservProvisioningSystemUnitTxt>
+
+<PPUProvisioningSystemUnitTxt>
+	<key>ID</key>
+	<value>ossppuunit</value>
+</PPUProvisioningSystemUnitTxt>
+
+<PPUReportingMechanismLst>
+	<key>ID</key>
+	<value>newOssResultPpudown</value>
+</PPUReportingMechanismLst>
+
+<ReservConvertionFactorTxt>
+	<key>ID</key>
+	<value>new_reserved_conversion_factor</value>
+</ReservConvertionFactorTxt>
+
+<PPUConvertionFactorTxt>
+	<key>ID</key>
+	<value>new_ppu_conversion_factor</value>
+</PPUConvertionFactorTxt>
+
+<ReservConversionOperationLst>
+	<key>ID</key>
+	<value>new-conversion-operation-reserved</value>
+</ReservConversionOperationLst>
+
+<ProvisioningInformationRdo>
+	<key>Xpath</key>
+	<value>//strong[text()='Provisioning Information']//preceding-sibling::input</value>
+</ProvisioningInformationRdo>
+
+<OrderItemRdo>
+	<key>Xpath</key>
+	<value>//strong[text()='Order Item']//preceding-sibling::input</value>
+</OrderItemRdo>
+
+<ReportedValuePerTxt>
+	<key>ID</key>
+	<value>reportVal</value>
+</ReportedValuePerTxt>
+
+<DefaultValueTxt>
+	<key>ID</key>
+	<value>defalutvalue</value>
+</DefaultValueTxt>
+
+<AskInFirstOrderRdo>
+	<key>ID</key>
+	<value>instanceInfo</value>
+</AskInFirstOrderRdo>
+
+<AskInEveryOrderRdo>
+	<key>Xpath</key>
+	<value>//td[@id='instinfo']//input[2]</value>
+</AskInEveryOrderRdo>
+
+<UniqueChk>
+	<key>ID</key>
+	<value>unique</value>
+</UniqueChk>
+
+<MandetoryChk>
+	<key>Name</key>
+	<value>newresourcemandatory</value>
+</MandetoryChk>
+
+<EditableAfterProvisioningChk>
+	<key>Name</key>
+	<value>editableafterProvision</value>
+</EditableAfterProvisioningChk>
+
+<PIFResourceTypeLst>
+	<key>ID</key>
+	<value>new_resource_type_pifs</value>
+</PIFResourceTypeLst>
+</root>

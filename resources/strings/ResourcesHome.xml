@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+
+<AddResourcesBtn>
+    <key>ID</key>
+	<value>addResource</value>
+</AddResourcesBtn>
+
+</root>
