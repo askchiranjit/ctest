@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root>
+	<Categories>
+		<key>Xpath</key>
+		<value>//div[@class=' categoryList' and contains(text(),$$$$)]</value>
+	</Categories>
+</root>

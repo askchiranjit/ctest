@@ -37,7 +37,7 @@ public class UserStatusTestCase
 	@AfterMethod
 	public void tearDown()
 	{
-		browser.closeBrowser();
+		browser.close();
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")

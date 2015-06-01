@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<root>
+	<RowInfo>
+		<key>ClassName</key>
+		<value>ui-list-item_BB</value>
+	</RowInfo>
+	
+	<RecentTab>
+		<key>ID</key>
+		<value>tabs-1</value>
+	</RecentTab>
+	
+	<FailedTab>
+		<key>ID</key>
+		<value>tabs-2</value>
+	</FailedTab>
+	
+	<PendingTab>
+		<key>ID</key>
+		<value>tabs-3</value>
+	</PendingTab>
+	
+	<CancelledTab>
+		<key>ID</key>
+		<value>tabs-4</value>
+	</CancelledTab>
+	
+</root>

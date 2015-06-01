@@ -40,4 +40,13 @@ public class OrderOptions extends AppData
 		}
 	}
 	public CreateOrderLnk createOrderLnk = new CreateOrderLnk();
+	
+	public class ExportOrderLnk extends Element
+	{
+		public ExportOrderLnk()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ExportOrderLnk exportOrderLnk = new ExportOrderLnk();
 }

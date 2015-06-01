@@ -25,7 +25,10 @@ public class ElementSet
 	{
 		boolean isExistingElement = element.isExists();
 		if(!isExistingElement)
+		{
+			System.out.println("Super element does not exist");
 			return null;
+		}
 		ElementHandler handler = new ElementHandler();
 		ElementType typeOfElement = handler.getElementType(elementType);
 		List<WebElement> list = handler.getElements(element, elementName, typeOfElement);

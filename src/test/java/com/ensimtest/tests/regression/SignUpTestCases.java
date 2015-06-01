@@ -37,7 +37,7 @@ public class SignUpTestCases
 	@AfterMethod
 	public void tearDown()
 	{
-		browser.closeBrowser();
+		browser.close();
 	}
 
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
