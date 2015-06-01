@@ -87,7 +87,7 @@ public class TestConfigHandler
 		ArrayList<String> listData=new ArrayList<String>();
 		for(int rowNumber=1;rowNumber<=columnCount;rowNumber++)
 		{
-			listData.add(xlsFileRead.getCellData(testCaseName,rowNumber,1));
+			listData.add(xlsFileRead.getCellData(testCaseName,rowNumber,1).trim());
 		}
 		return listData;
 	}

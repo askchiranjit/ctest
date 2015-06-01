@@ -15,4 +15,33 @@
 	<value>editService</value>
 </EditServiceBtn>
 
+<NextImg>
+    <key>Xpath</key>
+	<value>//img[contains(@src,'next.png')]</value>
+</NextImg>
+
+<PreviousImg>
+    <key>Xpath</key>
+	<value>//img[contains(@src,'previous.png')]</value>
+</PreviousImg>
+
+<DeleteServiceBtn>
+    <key>ID</key>
+	<value>deleteService</value>
+</DeleteServiceBtn>
+
+<SearchServiceTxt>
+    <key>ID</key>
+	<value>searchInProductModel</value>
+</SearchServiceTxt>
+
+<SearchServiceImg>
+    <key>Xpath</key>
+	<value>//img[contains(@src,'search.png')]</value>
+</SearchServiceImg>
+
+<ConfigurResourceBtn>
+    <key>ID</key>
+	<value>configurResource</value>
+</ConfigurResourceBtn>
 </root>
