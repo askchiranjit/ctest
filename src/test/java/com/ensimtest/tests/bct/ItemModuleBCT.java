@@ -45,7 +45,7 @@ public class ItemModuleBCT
 	@AfterClass
 	public void tearDown()
 	{
-		browser.closeBrowser();
+		browser.close();
 	}
 
 	
