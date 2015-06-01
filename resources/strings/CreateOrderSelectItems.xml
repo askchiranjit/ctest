@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<root>
+
+	<ItemTable>
+		<key>ClassName</key>
+		<value>ProductInfo</value>
+	</ItemTable>
+	
+	<ItemRowFinder>
+		<key>Xpath</key>
+		<value>//*[@id=\"wizard_screen1\"]/center/table[1]/tbody/tr</value>
+	</ItemRowFinder>
+	
+	<MonthlySubtotal>
+		<key>ID</key>
+		<value>monthlyTotalSpan</value>
+	</MonthlySubtotal>
+	
+	<OneTimeSubtotal>
+		<key>ID</key>
+		<value>oneTimeSubTotalSpan</value>
+	</OneTimeSubtotal>
+	
+	<GrossTotal>
+		<key>ID</key>
+		<value>totalAftrDisc</value>
+	</GrossTotal>
+	
+
+</root>

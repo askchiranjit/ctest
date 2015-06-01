@@ -96,7 +96,15 @@ public class Element implements IElement
 		try
 		{
 			webElement = getReloadedElement(elementName, type);
-			return webElement.isDisplayed();
+			if(webElement == null)
+			{
+				System.out.println("null element");
+				return false;
+			}
+			else
+			{
+				return webElement.isDisplayed();
+			}
 		}
 		catch(Exception e)
 		{
@@ -170,7 +178,10 @@ public class Element implements IElement
 	@Override
 	public boolean isEnabled() {
 		webElement = getReloadedElement(elementName, type);
-		return webElement.isEnabled();
+		if(webElement == null)
+			return false;
+		else
+			return webElement.isEnabled();
 	}
 	
 	protected boolean isSelected()
@@ -196,7 +207,15 @@ public class Element implements IElement
 		}
 		else
 		{
-			return handler.reloadElement(elementName, type);
+			try
+			{
+				return handler.reloadElement(elementName, type);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				throw e;
+			}
 		}
 	}
 

@@ -5,13 +5,34 @@ import com.ensimtest.resource.AppData;
 
 public class CreateOrderSelectCategory extends AppData
 {
+	private class TopSelectedCatagory
+	{
+		public String info[];
+		public TopSelectedCatagory()
+		{
+			info = readAppData(this);
+		}
+	}
+	
 	public class Categories extends Element
 	{
-		public void SetCategory(String categoryname)
+		public void selectCategory(String categoryname)
 		{
 			String info[] = readAppData(this);
 			info[1] = info[1].replace("$$$$", "'" + categoryname + "'");
 			setElement(info);
+			try
+			{
+				click();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				TopSelectedCatagory selected = new TopSelectedCatagory();
+				String []ei = {selected.info[0], selected.info[1]};
+				setElement(ei);
+				click();
+			}
 		}
 	}
 	public Categories categories = new Categories();

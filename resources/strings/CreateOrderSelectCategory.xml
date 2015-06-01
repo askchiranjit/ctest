@@ -4,4 +4,10 @@
 		<key>Xpath</key>
 		<value>//div[@class=' categoryList' and contains(text(),$$$$)]</value>
 	</Categories>
+	
+	<TopSelectedCatagory>
+		<key>ClassName</key>
+		<value>categoryListSelected</value>
+	</TopSelectedCatagory>
+	
 </root>
