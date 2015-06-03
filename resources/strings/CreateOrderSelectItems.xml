@@ -8,7 +8,7 @@
 	
 	<ItemRowFinder>
 		<key>Xpath</key>
-		<value>//*[@id=\"wizard_screen1\"]/center/table[1]/tbody/tr</value>
+		<value>//*[@id="wizard_screen1"]/center/table[1]/tbody/tr</value>
 	</ItemRowFinder>
 	
 	<MonthlySubtotal>

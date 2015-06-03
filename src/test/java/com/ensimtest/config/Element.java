@@ -263,6 +263,11 @@ public class Element implements IElement
 		return selectElement.getFirstSelectedOption().getText();
 	}
 	
-	
+	protected String selectedText()
+	{
+		webElement = handler.reloadElement(elementName, type);
+		Select select = new Select(webElement);
+		return select.getFirstSelectedOption().getText();
+	}
 
 }

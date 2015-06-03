@@ -12,17 +12,12 @@ public class CreateOrderSelectItems extends AppData
 		public Element quantity;
 		public ItemRow(Element element)
 		{
-			//System.out.println(element.read());
-			
 			itemName = new ElementSet().getSubElementSet(element, "ClassName", "padding_15")[0].read().trim();
-			
 			Element []elements = new ElementSet().getSubElementSet(element, "ClassName", "padding_3");
 			priceInfo = elements[0].read();
 			quantity = elements[1];
 			orgDiscount = elements[2].read();
 			itemSubtotal = elements[3].read();
-			
-			System.out.println("\n >>>> " + itemName + "..." + priceInfo + "..." + itemSubtotal);
 		}
 	}
 	private class ItemTable extends Element
@@ -48,7 +43,6 @@ public class CreateOrderSelectItems extends AppData
 		ItemRowFinder itemFinder = new ItemRowFinder();
 		ElementSet set = new ElementSet();
 		Element elements[] = set.getSubElementSet(table, itemFinder.info[0], itemFinder.info[1]);
-		System.out.println(elements.length);
 		ItemRow []rows = new ItemRow[elements.length-1];
 		for(int i=0;i<rows.length; i++)
 		{
