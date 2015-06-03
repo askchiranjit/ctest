@@ -5,17 +5,13 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.config.Element;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.catalog.AddResources;
-import com.ensimtest.module.catalog.AddResources.DafaultQuantityTxt;
 import com.ensimtest.module.catalog.AddService;
 import com.ensimtest.module.catalog.CatalogOptions;
 import com.ensimtest.module.catalog.ImportService;
@@ -26,11 +22,9 @@ import com.ensimtest.module.catalog.ServiceSearchResult;
 import com.ensimtest.module.catalog.ServiceSearchResult.ServiceRow;
 import com.ensimtest.module.utility.PopUPHandler;
 import com.ensimtest.resource.GetEASMessages;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class ItemModuleBCT 
 {
