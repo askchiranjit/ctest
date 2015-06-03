@@ -174,4 +174,13 @@ public class SignUpScreen extends AppData
 		}
 	}
 	public PopupOKBtn popupOkBtn=new PopupOKBtn();
+	
+	public class AgreeTermsAndConditionTxt extends Element
+	{
+		public AgreeTermsAndConditionTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public AgreeTermsAndConditionTxt agreeTermsAndConditionTxt=new AgreeTermsAndConditionTxt();
 }

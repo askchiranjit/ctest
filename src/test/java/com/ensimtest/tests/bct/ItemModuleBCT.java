@@ -34,7 +34,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class ItemModuleBCT 
 {
-	private Browser browser;
+	private Browser browser=null;
 	private GetEASMessages getMessage=new GetEASMessages(); 
 	private RandomData randomdata=new RandomData();
 
@@ -573,10 +573,7 @@ public class ItemModuleBCT
 
 		}
 
-		if(flag==false)
-		{
-			Assert.fail("Service not present");
-		}
+		Assert.assertEquals(flag, false, "Service got present");
 
 		serviceHome.deleteServiceBtn.click();
 		
@@ -620,10 +617,7 @@ public class ItemModuleBCT
 
 		}
 		
-		if(flag==false)
-		{
-			Assert.fail("Service got deleted");
-		}
+		Assert.assertEquals(flag, false, "Service got deleted");
 
 
 	}
@@ -692,11 +686,8 @@ public class ItemModuleBCT
 
 		}
 
-		if(flag==false)
-		{
-			Assert.fail("Service not present");
-		}
-
+		Assert.assertEquals(flag, false, "Service not present");
+		
 		serviceHome.deleteServiceBtn.click();
 		
 		PopUPHandler popUpHandler=new PopUPHandler();
@@ -739,12 +730,7 @@ public class ItemModuleBCT
 
 		}
 		
-		if(flag==true)
-		{
-			Assert.fail("Service not deleted properly");
-		}
-
-
+		Assert.assertEquals(flag, false, "Service not deleted properly");
 	}
 
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")

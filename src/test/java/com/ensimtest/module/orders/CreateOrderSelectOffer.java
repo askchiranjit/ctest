@@ -33,11 +33,15 @@ public class CreateOrderSelectOffer extends AppData
 		{
 			String []info = new OrderButtons().info;
 			ElementSet set = new ElementSet();
+			
 			Element[] buttons = set.getSubElementSet(element, info[0], info[1]);
 			
-			// Setting up buttons
-			orderBtn = buttons[0];
-			tryBtn = buttons.length==2 ? buttons[1] : null;
+			if(buttons.length>0)
+			{
+				// Setting up buttons
+				orderBtn = buttons[0];
+				tryBtn = buttons.length==2 ? buttons[1] : null;
+			}
 			
 			// Setting up labels
 			String []data = element.read().trim().split("\n");
