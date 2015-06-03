@@ -33,5 +33,14 @@ public class PopUPHandler extends AppData
 		}
 	}
 	public CanclePopUP canclePopUP=new CanclePopUP();
+	
+	public class PopUpTitle extends Element
+	{
+		public PopUpTitle()
+		{
+			setElement(readAppData(this));
+		}
+	}
 
+	public PopUpTitle popUPTitle= new PopUpTitle();
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <root>
 <CancelBtn>
-	<key>ID</key>
-	<value>cancelButton</value>
+	<key>Xpath</key>
+	<value>//a[contains(@id,'cancelButton')]</value>
 </CancelBtn>
 
 <SaveBtn>
@@ -11,58 +11,58 @@
 </SaveBtn>
 
 <ResourceNameTxt>
-	<key>ID</key>
+	<key>ClassName</key>
 	<value>newresourcename</value>
 </ResourceNameTxt>
 
 <ResourceIDTxt>
-	<key>ID</key>
+	<key>ClassName</key>
 	<value>newresourceid</value>
 </ResourceIDTxt>
 
 <PayPerUseTrueRdo>
 	<key>Xpath</key>
-	<value>"//label[contains(text()</value>
+	<value>//label[contains(text(),'Pay-per-use Allowed')]//following-sibling::input[1]</value>
 </PayPerUseTrueRdo>
 
 <PayPerUseFalseRdo>
 	<key>Xpath</key>
-	<value>"//label[contains(text()</value>
+	<value>//label[contains(text(),'Pay-per-use Allowed')]//following-sibling::input[2]</value>
 </PayPerUseFalseRdo>
 
 <DafaultQuantityTxt>
-	<key>ID</key>
-	<value>defaultQuantity</value>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'defaultQuantity')]</value>
 </DafaultQuantityTxt>
 
 <ResourceCategoryTxt>
-	<key>ID</key>
-	<value>resourcecategory</value>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'resourcecategory')]</value>
 </ResourceCategoryTxt>
 
 <AvailableForUserChk>
 	<key>Xpath</key>
-	<value>"//label[contains(text()</value>
+	<value>//label[contains(text(),'Available for user')]//following-sibling::input</value>
 </AvailableForUserChk>
 
 <ReservationUnitLst>
-	<key>ID</key>
-	<value>newreservedunit</value>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'reservedunit')]</value>
 </ReservationUnitLst>
 
 <PPUUnitLst>
-	<key>ID</key>
-	<value>newppuUnit</value>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'ppuUnit')]</value>
 </PPUUnitLst>
 
 <MeteringRuleLst>
-	<key>ID</key>
-	<value>newratingrule</value>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'ratingrule')]</value>
 </MeteringRuleLst>
 
 <ReservProvisioningSystemUnitTxt>
 	<key>ID</key>
-	<value>ossreservedunit_error</value>
+	<value>ossreservedunit</value>
 </ReservProvisioningSystemUnitTxt>
 
 <PPUProvisioningSystemUnitTxt>
@@ -71,33 +71,33 @@
 </PPUProvisioningSystemUnitTxt>
 
 <PPUReportingMechanismLst>
-	<key>ID</key>
-	<value>newOssResultPpudown</value>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'newOssResultPpu')]</value>
 </PPUReportingMechanismLst>
 
 <ReservConvertionFactorTxt>
-	<key>ID</key>
-	<value>new_reserved_conversion_factor</value>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'reserved_conversion_factor')]</value>
 </ReservConvertionFactorTxt>
 
 <PPUConvertionFactorTxt>
-	<key>ID</key>
-	<value>new_ppu_conversion_factor</value>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'ppu_conversion_factor')]</value>
 </PPUConvertionFactorTxt>
 
 <ReservConversionOperationLst>
-	<key>ID</key>
-	<value>new-conversion-operation-reserved</value>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'conversion-operation-reserved')]</value>
 </ReservConversionOperationLst>
 
 <ProvisioningInformationRdo>
 	<key>Xpath</key>
-	<value>//strong[text()='Provisioning Information']//preceding-sibling::input</value>
+	<value>//strong[text()='Provisioning Information']//preceding::input[1]</value>
 </ProvisioningInformationRdo>
 
 <OrderItemRdo>
 	<key>Xpath</key>
-	<value>//strong[text()='Order Item']//preceding-sibling::input</value>
+	<value>//strong[text()='Order Item']//preceding::input[1]</value>
 </OrderItemRdo>
 
 <ReportedValuePerTxt>
@@ -106,18 +106,18 @@
 </ReportedValuePerTxt>
 
 <DefaultValueTxt>
-	<key>ID</key>
-	<value>defalutvalue</value>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Default value')]//parent::td//following::td[2]//input</value>
 </DefaultValueTxt>
 
 <AskInFirstOrderRdo>
-	<key>ID</key>
-	<value>instanceInfo</value>
+	<key>Xpath</key>
+	<value>//input[@name='instanceInfo'][1]</value>
 </AskInFirstOrderRdo>
 
 <AskInEveryOrderRdo>
 	<key>Xpath</key>
-	<value>//td[@id='instinfo']//input[2]</value>
+	<value>//input[@name='instanceInfo'][2]</value>
 </AskInEveryOrderRdo>
 
 <UniqueChk>
@@ -126,17 +126,28 @@
 </UniqueChk>
 
 <MandetoryChk>
-	<key>Name</key>
-	<value>newresourcemandatory</value>
+	<key>Xpath</key>
+	<value>//td[contains(text(),'Mandatory')]//input</value>
 </MandetoryChk>
 
 <EditableAfterProvisioningChk>
-	<key>Name</key>
-	<value>editableafterProvision</value>
+	<key>Xpath</key>
+	<value>//td[contains(text(),'Editable after provisioning')]//input</value>
 </EditableAfterProvisioningChk>
 
 <PIFResourceTypeLst>
-	<key>ID</key>
-	<value>new_resource_type_pifs</value>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Resource type')]//following::select[1]</value>
 </PIFResourceTypeLst>
+
+<PIFInputTypeLst>
+  <key>Xpath</key>
+  <value>//label[contains(text(),'Input type')]//following::select[1]</value>
+</PIFInputTypeLst>
+
+<PPUConversionOperationLst>
+  <key>Xpath</key>
+  <value>//select[contains(@id,'conversion-operation-ppu')]</value>
+</PPUConversionOperationLst>
+
 </root>

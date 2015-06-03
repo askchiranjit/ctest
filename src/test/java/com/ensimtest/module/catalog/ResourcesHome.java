@@ -5,6 +5,15 @@ import com.ensimtest.resource.AppData;
 
 public class ResourcesHome extends AppData 
 {
+	public class ResourcesHeadingTxt extends Element
+	{
+		public ResourcesHeadingTxt()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ResourcesHeadingTxt resourcesHeadingTxt = new ResourcesHeadingTxt(); 
+	
 	public class AddResourcesBtn extends Element
 	{
 		public AddResourcesBtn()
@@ -13,5 +22,14 @@ public class ResourcesHome extends AppData
 		}
 	}
 	public AddResourcesBtn addResourcesBtn = new AddResourcesBtn();
+	
+	public class EditResourcesBtn extends Element
+	{
+		public EditResourcesBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public EditResourcesBtn editResourcesBtn = new EditResourcesBtn();
 
 }
