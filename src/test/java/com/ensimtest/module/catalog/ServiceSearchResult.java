@@ -68,6 +68,6 @@ public class ServiceSearchResult extends AppData
 			serviceType=s[1].trim();
 		}
 		
-			}
+	}
 
 }
