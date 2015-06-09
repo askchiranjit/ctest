@@ -30,6 +30,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public ResourceNameTxt resourceNameTxt = new ResourceNameTxt();
 
@@ -38,6 +43,11 @@ public class AddResources extends AppData
 		public ResourceIDTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public ResourceIDTxt resourceIDTxt = new ResourceIDTxt();
@@ -48,6 +58,12 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
+		}
 	}
 	public PayPerUseTrueRdo payPerUseTrueRdo = new PayPerUseTrueRdo();
 
@@ -56,6 +72,12 @@ public class AddResources extends AppData
 		public PayPerUseFalseRdo()
 		{
 			setElement(readAppData(this));
+		}
+		
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
 		}
 	}
 	public PayPerUseFalseRdo payPerUseFalseRdo = new PayPerUseFalseRdo();
@@ -66,6 +88,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public DafaultQuantityTxt dafaultQuantityTxt = new DafaultQuantityTxt();
 
@@ -74,6 +101,11 @@ public class AddResources extends AppData
 		public ResourceCategoryTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public ResourceCategoryTxt resourceCategoryTxt = new ResourceCategoryTxt();
@@ -84,6 +116,12 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
+		}
+		
 	}
 	public AvailableForUserChk availableForUserChk = new AvailableForUserChk();
 
@@ -92,6 +130,14 @@ public class AddResources extends AppData
 		public ReservationUnitLst()
 		{
 			setElement(readAppData(this));
+		}
+		public void selectReservationUnit(String resoureType)
+		{
+			super.selectVisibleText(resoureType);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
 		}
 	}
 	public ReservationUnitLst reservationUnitLst = new ReservationUnitLst();
@@ -102,6 +148,14 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public void selectPPUUnit(String resoureType)
+		{
+			super.selectVisibleText(resoureType);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
+		}
 	}
 	public PPUUnitLst pPUUnitLst = new PPUUnitLst();
 
@@ -110,6 +164,14 @@ public class AddResources extends AppData
 		public MeteringRuleLst()
 		{
 			setElement(readAppData(this));
+		}
+		public void selectMeteringRule(String resoureType)
+		{
+			super.selectVisibleText(resoureType);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
 		}
 	}
 	public MeteringRuleLst meteringRuleLst = new MeteringRuleLst();
@@ -120,6 +182,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public ReservProvisioningSystemUnitTxt reservProvisioningSystemUnitTxt = new ReservProvisioningSystemUnitTxt();
 
@@ -128,6 +195,11 @@ public class AddResources extends AppData
 		public PPUProvisioningSystemUnitTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public PPUProvisioningSystemUnitTxt pPUProvisioningSystemUnitTxt = new PPUProvisioningSystemUnitTxt();
@@ -138,6 +210,14 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public void selectPPUReportingMechanism(String reportingMechanism)
+		{
+			super.selectVisibleText(reportingMechanism);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
+		}
 	}
 	public PPUReportingMechanismLst pPUReportingMechanismLst = new PPUReportingMechanismLst();
 
@@ -146,6 +226,11 @@ public class AddResources extends AppData
 		public ReservConvertionFactorTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public ReservConvertionFactorTxt reservConvertionFactorTxt = new ReservConvertionFactorTxt();
@@ -156,6 +241,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public PPUConvertionFactorTxt pPUConvertionFactorTxt = new PPUConvertionFactorTxt();
 
@@ -165,6 +255,15 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		public void selectReservConversionOperation(String resCovOperation)
+		{
+			super.selectVisibleText(resCovOperation);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
+		}
+		
 	}
 	public ReservConversionOperationLst reservConversionOperationLst = new ReservConversionOperationLst();
 
@@ -173,6 +272,11 @@ public class AddResources extends AppData
 		public ProvisioningInformationRdo()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
 		}
 	}
 	public ProvisioningInformationRdo provisioningInformationRdo = new ProvisioningInformationRdo();
@@ -183,6 +287,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
+		}
 	}
 	public OrderItemRdo orderItemRdo = new OrderItemRdo();
 
@@ -191,6 +300,11 @@ public class AddResources extends AppData
 		public ReportedValuePerTxt()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
 		}
 	}
 	public ReportedValuePerTxt reportedValuePerTxt = new ReportedValuePerTxt();
@@ -201,6 +315,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public String read()
+		{
+			return super.getAttributeValue("value");
+		}
 	}
 	public DefaultValueTxt defaultValueTxt = new DefaultValueTxt();
 
@@ -209,6 +328,11 @@ public class AddResources extends AppData
 		public AskInFirstOrderRdo()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
 		}
 	}
 	public AskInFirstOrderRdo askInFirstOrderRdo = new AskInFirstOrderRdo();
@@ -219,6 +343,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
+		}
 	}
 	public AskInEveryOrderRdo askInEveryOrderRdo = new AskInEveryOrderRdo();
 
@@ -227,6 +356,11 @@ public class AddResources extends AppData
 		public UniqueChk()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
 		}
 	}
 	public UniqueChk uniqueChk = new UniqueChk();
@@ -237,6 +371,11 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
+		}
 	}
 	public MandetoryChk mandetoryChk = new MandetoryChk();
 
@@ -245,6 +384,11 @@ public class AddResources extends AppData
 		public EditableAfterProvisioningChk()
 		{
 			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isSelected()
+		{
+			return super.isSelected();
 		}
 	}
 	public EditableAfterProvisioningChk editableAfterProvisioningChk = new EditableAfterProvisioningChk();
@@ -255,7 +399,54 @@ public class AddResources extends AppData
 		{
 			setElement(readAppData(this));
 		}
+		
+		public void selectResourceType(String resoureType)
+		{
+			super.selectVisibleText(resoureType);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
+		}
 	}
 	public PIFResourceTypeLst pIFResourceTypeLst = new PIFResourceTypeLst();
+	
+	
+	public class PIFInputTypeLst extends Element
+	{
+		public PIFInputTypeLst()
+		{
+			setElement(readAppData(this));
+		}
+		
+		public void selectInputType(String resoureType)
+		{
+			super.selectVisibleText(resoureType);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
+		}
+	}
+	public PIFInputTypeLst pIFInputTypeLst = new PIFInputTypeLst();
+	
+	
+	public class PPUConversionOperationLst extends Element
+	{
+		public PPUConversionOperationLst()
+		{
+			setElement(readAppData(this));
+		}
+		public void selectPPUConversion(String ppuConversion)
+		{
+			super.selectVisibleText(ppuConversion);
+		}
+		public String getSelectedType()
+		{
+			return super.getSelectedType();
+		}
+	}
+	
+	public PPUConversionOperationLst pPUConversionOperationLst= new PPUConversionOperationLst();
 	
 }

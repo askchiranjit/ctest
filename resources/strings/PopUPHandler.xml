@@ -12,4 +12,8 @@
 		<key>ID</key>
 		<value>popup_cancel</value>
 	</CanclePopUP>
+	<PopUpTitle>
+		<key>ID</key>
+		<value>popup_title</value>
+	</PopUpTitle>
 </root>
