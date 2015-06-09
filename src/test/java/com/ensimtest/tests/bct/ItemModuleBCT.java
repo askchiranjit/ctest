@@ -11,13 +11,18 @@ import org.testng.annotations.Test;
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.Element;
 import com.ensimtest.module.authentication.LoginScreen;
+import com.ensimtest.module.catalog.AddBaseItem;
 import com.ensimtest.module.catalog.AddResources;
 import com.ensimtest.module.catalog.AddService;
 import com.ensimtest.module.catalog.CatalogOptions;
 import com.ensimtest.module.catalog.ImportService;
+import com.ensimtest.module.catalog.ItemLandingPage;
+import com.ensimtest.module.catalog.ItemList;
 import com.ensimtest.module.catalog.ListOfSuggestedServices;
 import com.ensimtest.module.catalog.ResourcesHome;
 import com.ensimtest.module.catalog.ServiceHome;
+import com.ensimtest.module.catalog.ServiceSearchInItemHome;
+import com.ensimtest.module.catalog.ServiceSearchInItemHome.ServiceRowInItemHome;
 import com.ensimtest.module.catalog.ServiceSearchResult;
 import com.ensimtest.module.catalog.ServiceSearchResult.ServiceRow;
 import com.ensimtest.module.utility.PopUPHandler;
@@ -247,262 +252,262 @@ public class ItemModuleBCT
 			Assert.assertEquals(addService.sendAccessCredentialsChk.isSelecetd(),credentialstoTC);
 		    
 		}
-
-		@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-		public void importService(HashMap<?, ?> testData)
-		{
-			//Get Data From XLS file
-			String username = testData.get("UserName").toString();
-			String password = testData.get("password").toString();
-			String serviceXMLPath=testData.get("serviceXMLPath").toString();
-			String serviceSuccessMessage=testData.get("serviceSuccessMessage").toString();
-			String searchtags=testData.get("searchtags").toString();
-			String serviceName=testData.get("serviceName").toString();
-			String serviceID=testData.get("serviceID").toString();
-			String subscriptionType=testData.get("subscriptionType").toString();
-			String vendorName=testData.get("vendorName").toString();
-			String prosysID=testData.get("prosysID").toString();
-			String embeddedMessage=testData.get("embeddedMessage").toString();
-			String proviDelayTime=testData.get("proviDelayTime").toString();
-			String provDelayIn=testData.get("provDelayIn").toString();
-			String privateDNSRequired=testData.get("privateDNSRequired").toString();
-			String allowOnsameDNS=testData.get("allowOnsameDNS").toString();
-			String usageColRequired=testData.get("usageColRequired").toString();
-			String ADdomain=testData.get("ADdomain").toString();
-			String userManagement=testData.get("userManagement").toString();
-			String phoneNO=testData.get("phoneNO").toString();
-			String bulkAssignment=testData.get("bulkAssignment").toString();
-			String associateSameDomain=testData.get("associateSameDomain").toString();
-			String neverAssociateOrder=testData.get("neverAssociateOrder").toString();
-			String alwaysAssociateOrder=testData.get("alwaysAssociateOrder").toString();
-			String trackChangeSalesAgent=testData.get("trackChangeSalesAgent").toString();
-			String trackChangeTechnicalContact=testData.get("trackChangeTechnicalContact").toString();
-			String trackChangePI=testData.get("trackChangePI").toString();
-			String oneTimeProvision=testData.get("oneTimeProvision").toString();
-			String hostedService=testData.get("hostedService").toString();
-			String manualProvisioning=testData.get("manualProvisioning").toString();
-			String automaticProvisioning=testData.get("automaticProvisioning").toString();
-			String provisioningSystem=testData.get("provisioningSystem").toString();
-			String resellerCanConfig=testData.get("resellerCanConfig").toString();
-			String agentCanConfig=testData.get("agentCanConfig").toString();
-			String useEASCP=testData.get("useEASCP").toString();
-			String credentialstoTC=testData.get("credentialstoTC").toString();
-			String accessInformation=testData.get("accessInformation").toString();
-			// Navigate to ENSIM site
-			browser.navigateTo();
-			
-			//Navigate to login screen 
-			LoginScreen loginScreen = new LoginScreen();
-			
-			// Enter ISP credentials
-			loginScreen.username.write(username);
-			loginScreen.password.write(password);
-			
-			// Click Login button
-			loginScreen.loginBtn.click();
-			
-			//Click Service link
-			CatalogOptions catOptions=new CatalogOptions();
-			catOptions.catalogMenu.mouseHover();
-			catOptions.serviceslnk.click();
-			
-			//Click Add service button
-			ServiceHome serviceHome=new ServiceHome();
-			serviceHome.importServiceBtn.click();
-			//
-			ImportService importService=new ImportService();
-			importService.browseBtn.write(serviceXMLPath);
-			importService.importBtn.click();
-			PopUPHandler popUP=new PopUPHandler();
-			Assert.assertEquals(popUP.getPopUPData.read(),serviceSuccessMessage);
-			popUP.acceptPopUP.click();
-			serviceHome.editServiceBtn.click();
-			AddService addService=new AddService();
-			Assert.assertEquals(addService.serviceNameTxt.read(), serviceName);
-			Assert.assertEquals(addService.internalServiceIDTxt.read(), serviceID);
-			Assert.assertEquals(addService.subscriptionTypeTxt.read(), subscriptionType);
-			Assert.assertEquals(addService.vendorNameTxt.read(), vendorName);
-			Assert.assertEquals(addService.provSystemIdTxt.read(), prosysID);
-			Assert.assertEquals(addService.embeddedMessageTxt.read(), embeddedMessage);
-			Assert.assertEquals(addService.searchTagTxt.read(),searchtags);
-			Assert.assertEquals(addService.provisioningDelayTxt.read(), proviDelayTime);
-			Assert.assertEquals(addService.provisioningDelayLst.getSelectedType(), provDelayIn);
-			
-			if(privateDNSRequired.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.dNSRequireChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.dNSRequireChk.isSelecetd(), false);
-			}
-			
-			if(allowOnsameDNS.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.multipleOrdersOnSameDNSChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.multipleOrdersOnSameDNSChk.isSelecetd(), false);
-			}
-			
-			if(usageColRequired.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.usageCollectionRequireChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.usageCollectionRequireChk.isSelecetd(), false);
-			}
-			if(ADdomain.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.requireActiveDirectoryDomainChk.isSelecetd(), true);	
-			}
-			else
-			{
-				Assert.assertEquals(addService.requireActiveDirectoryDomainChk.isSelecetd(), false);
-			}
-			if(userManagement.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.hasUserManagementChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.hasUserManagementChk.isSelecetd(), false);
-			}
-			if(phoneNO.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.needPhNoChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.needPhNoChk.isSelecetd(), false);
-			}
-			if(bulkAssignment.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.bulkAssignment.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.bulkAssignment.isSelecetd(), false);
-			}
-			if(associateSameDomain.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.associateifSamePrivateDomainRdo.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.associateifSamePrivateDomainRdo.isSelecetd(), false);
-			}
-			if(neverAssociateOrder.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.neverAssociateOrderRdo.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.neverAssociateOrderRdo.isSelecetd(), false);
-			}
-			if(alwaysAssociateOrder.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.alwaysAssociateOrderRdo.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.alwaysAssociateOrderRdo.isSelecetd(), false);
-			}
-			if(trackChangeSalesAgent.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.trackChangeOfSalesAgentChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.trackChangeOfSalesAgentChk.isSelecetd(), false);
-			}
-			if(trackChangeTechnicalContact.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.trackChangeOfTechnicalContactChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.trackChangeOfTechnicalContactChk.isSelecetd(), false);
-			}
-			if(trackChangePI.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.trackChangeOfProvisioningInformationChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.trackChangeOfProvisioningInformationChk.isSelecetd(), false);
-			}
-			if(oneTimeProvision.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.oneTimeProvisioningRdo.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.oneTimeProvisioningRdo.isSelecetd(), false);
-			}
-			if(hostedService.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.hostedServiceRdo.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.hostedServiceRdo.isSelecetd(), false);
-			}
-			if(manualProvisioning.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.manualProvisioningRdo.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.manualProvisioningRdo.isSelecetd(), false);
-			}
-			if(automaticProvisioning.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.automaticProvisioningRdo.isSelecetd(), true);
-				Assert.assertEquals(addService.provisioningSystemLst.getSelectedProvisioningSystem(), provisioningSystem);
-			}
-			else
-			{
-				Assert.assertEquals(addService.automaticProvisioningRdo.isSelecetd(), false);
-			}
-			if(resellerCanConfig.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.resellerCanConfigureChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.resellerCanConfigureChk.isSelecetd(), false);
-			}
-			if(agentCanConfig.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.agentCanConfigureChk.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.agentCanConfigureChk.isSelecetd(), false);
-			}
-			if(useEASCP.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.useEASControlPanel.isSelecetd(), true);
-			}
-			else
-			{
-				Assert.assertEquals(addService.useEASControlPanel.isSelecetd(), false);
-			}
-			if(credentialstoTC.equalsIgnoreCase("Y"))
-			{
-				Assert.assertEquals(addService.sendAccessCredentialsChk.isSelecetd(), true);
-				Assert.assertEquals(addService.accessInformationTxt.read(), accessInformation);
-			}
-			else
-			{
-				Assert.assertEquals(addService.sendAccessCredentialsChk.isSelecetd(), false);
-			}
-			
-		}
-
+//
+//		@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+//		public void importService(HashMap<?, ?> testData)
+//		{
+//			//Get Data From XLS file
+//			String username = testData.get("UserName").toString();
+//			String password = testData.get("password").toString();
+//			String serviceXMLPath=testData.get("serviceXMLPath").toString();
+//			String serviceSuccessMessage=testData.get("serviceSuccessMessage").toString();
+//			String searchtags=testData.get("searchtags").toString();
+//			String serviceName=testData.get("serviceName").toString();
+//			String serviceID=testData.get("serviceID").toString();
+//			String subscriptionType=testData.get("subscriptionType").toString();
+//			String vendorName=testData.get("vendorName").toString();
+//			String prosysID=testData.get("prosysID").toString();
+//			String embeddedMessage=testData.get("embeddedMessage").toString();
+//			String proviDelayTime=testData.get("proviDelayTime").toString();
+//			String provDelayIn=testData.get("provDelayIn").toString();
+//			String privateDNSRequired=testData.get("privateDNSRequired").toString();
+//			String allowOnsameDNS=testData.get("allowOnsameDNS").toString();
+//			String usageColRequired=testData.get("usageColRequired").toString();
+//			String ADdomain=testData.get("ADdomain").toString();
+//			String userManagement=testData.get("userManagement").toString();
+//			String phoneNO=testData.get("phoneNO").toString();
+//			String bulkAssignment=testData.get("bulkAssignment").toString();
+//			String associateSameDomain=testData.get("associateSameDomain").toString();
+//			String neverAssociateOrder=testData.get("neverAssociateOrder").toString();
+//			String alwaysAssociateOrder=testData.get("alwaysAssociateOrder").toString();
+//			String trackChangeSalesAgent=testData.get("trackChangeSalesAgent").toString();
+//			String trackChangeTechnicalContact=testData.get("trackChangeTechnicalContact").toString();
+//			String trackChangePI=testData.get("trackChangePI").toString();
+//			String oneTimeProvision=testData.get("oneTimeProvision").toString();
+//			String hostedService=testData.get("hostedService").toString();
+//			String manualProvisioning=testData.get("manualProvisioning").toString();
+//			String automaticProvisioning=testData.get("automaticProvisioning").toString();
+//			String provisioningSystem=testData.get("provisioningSystem").toString();
+//			String resellerCanConfig=testData.get("resellerCanConfig").toString();
+//			String agentCanConfig=testData.get("agentCanConfig").toString();
+//			String useEASCP=testData.get("useEASCP").toString();
+//			String credentialstoTC=testData.get("credentialstoTC").toString();
+//			String accessInformation=testData.get("accessInformation").toString();
+//			// Navigate to ENSIM site
+//			browser.navigateTo();
+//			
+//			//Navigate to login screen 
+//			LoginScreen loginScreen = new LoginScreen();
+//			
+//			// Enter ISP credentials
+//			loginScreen.username.write(username);
+//			loginScreen.password.write(password);
+//			
+//			// Click Login button
+//			loginScreen.loginBtn.click();
+//			
+//			//Click Service link
+//			CatalogOptions catOptions=new CatalogOptions();
+//			catOptions.catalogMenu.mouseHover();
+//			catOptions.serviceslnk.click();
+//			
+//			//Click Add service button
+//			ServiceHome serviceHome=new ServiceHome();
+//			serviceHome.importServiceBtn.click();
+//			//
+//			ImportService importService=new ImportService();
+//			importService.browseBtn.write(serviceXMLPath);
+//			importService.importBtn.click();
+//			PopUPHandler popUP=new PopUPHandler();
+//			Assert.assertEquals(popUP.getPopUPData.read(),serviceSuccessMessage);
+//			popUP.acceptPopUP.click();
+//			serviceHome.editServiceBtn.click();
+//			AddService addService=new AddService();
+//			Assert.assertEquals(addService.serviceNameTxt.read(), serviceName);
+//			Assert.assertEquals(addService.internalServiceIDTxt.read(), serviceID);
+//			Assert.assertEquals(addService.subscriptionTypeTxt.read(), subscriptionType);
+//			Assert.assertEquals(addService.vendorNameTxt.read(), vendorName);
+//			Assert.assertEquals(addService.provSystemIdTxt.read(), prosysID);
+//			Assert.assertEquals(addService.embeddedMessageTxt.read(), embeddedMessage);
+//			Assert.assertEquals(addService.searchTagTxt.read(),searchtags);
+//			Assert.assertEquals(addService.provisioningDelayTxt.read(), proviDelayTime);
+//			Assert.assertEquals(addService.provisioningDelayLst.getSelectedType(), provDelayIn);
+//			
+//			if(privateDNSRequired.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.dNSRequireChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.dNSRequireChk.isSelecetd(), false);
+//			}
+//			
+//			if(allowOnsameDNS.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.multipleOrdersOnSameDNSChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.multipleOrdersOnSameDNSChk.isSelecetd(), false);
+//			}
+//			
+//			if(usageColRequired.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.usageCollectionRequireChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.usageCollectionRequireChk.isSelecetd(), false);
+//			}
+//			if(ADdomain.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.requireActiveDirectoryDomainChk.isSelecetd(), true);	
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.requireActiveDirectoryDomainChk.isSelecetd(), false);
+//			}
+//			if(userManagement.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.hasUserManagementChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.hasUserManagementChk.isSelecetd(), false);
+//			}
+//			if(phoneNO.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.needPhNoChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.needPhNoChk.isSelecetd(), false);
+//			}
+//			if(bulkAssignment.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.bulkAssignment.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.bulkAssignment.isSelecetd(), false);
+//			}
+//			if(associateSameDomain.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.associateifSamePrivateDomainRdo.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.associateifSamePrivateDomainRdo.isSelecetd(), false);
+//			}
+//			if(neverAssociateOrder.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.neverAssociateOrderRdo.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.neverAssociateOrderRdo.isSelecetd(), false);
+//			}
+//			if(alwaysAssociateOrder.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.alwaysAssociateOrderRdo.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.alwaysAssociateOrderRdo.isSelecetd(), false);
+//			}
+//			if(trackChangeSalesAgent.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.trackChangeOfSalesAgentChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.trackChangeOfSalesAgentChk.isSelecetd(), false);
+//			}
+//			if(trackChangeTechnicalContact.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.trackChangeOfTechnicalContactChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.trackChangeOfTechnicalContactChk.isSelecetd(), false);
+//			}
+//			if(trackChangePI.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.trackChangeOfProvisioningInformationChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.trackChangeOfProvisioningInformationChk.isSelecetd(), false);
+//			}
+//			if(oneTimeProvision.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.oneTimeProvisioningRdo.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.oneTimeProvisioningRdo.isSelecetd(), false);
+//			}
+//			if(hostedService.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.hostedServiceRdo.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.hostedServiceRdo.isSelecetd(), false);
+//			}
+//			if(manualProvisioning.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.manualProvisioningRdo.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.manualProvisioningRdo.isSelecetd(), false);
+//			}
+//			if(automaticProvisioning.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.automaticProvisioningRdo.isSelecetd(), true);
+//				Assert.assertEquals(addService.provisioningSystemLst.getSelectedProvisioningSystem(), provisioningSystem);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.automaticProvisioningRdo.isSelecetd(), false);
+//			}
+//			if(resellerCanConfig.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.resellerCanConfigureChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.resellerCanConfigureChk.isSelecetd(), false);
+//			}
+//			if(agentCanConfig.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.agentCanConfigureChk.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.agentCanConfigureChk.isSelecetd(), false);
+//			}
+//			if(useEASCP.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.useEASControlPanel.isSelecetd(), true);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.useEASControlPanel.isSelecetd(), false);
+//			}
+//			if(credentialstoTC.equalsIgnoreCase("Y"))
+//			{
+//				Assert.assertEquals(addService.sendAccessCredentialsChk.isSelecetd(), true);
+//				Assert.assertEquals(addService.accessInformationTxt.read(), accessInformation);
+//			}
+//			else
+//			{
+//				Assert.assertEquals(addService.sendAccessCredentialsChk.isSelecetd(), false);
+//			}
+//			
+//		}
+//
 
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void deleteServiceWithItem(HashMap<?, ?> testData)
@@ -944,5 +949,206 @@ public class ItemModuleBCT
 		Assert.assertEquals(resourceHome.resourcesHeadingTxt.isExists(), true,"Not return to Resource Home Page");
 			
 }
+    
+ @Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+ public void addBaseItem(HashMap<?, ?> testData)
+ {
+	 boolean flag=false;
+	 boolean flag1=true;
+	 String username = testData.get("UserName").toString();
+	 String password = testData.get("password").toString();
+	 String serviceName=testData.get("serviceName").toString();
+	 String itemCode=testData.get("itemCode").toString();
+	 String itemName=testData.get("itemName").toString();
+	 String uniqueIdentifier=testData.get("uniqueIdentifier").toString();
+	 String description=testData.get("description").toString();
+	 String reqProvInfos=testData.get("reqProvInfos").toString();
+	 String custom1=testData.get("custom1").toString();
+	 String custom2=testData.get("custom2").toString();
+	 String custom3=testData.get("custom3").toString();
+	 String custom4=testData.get("custom4").toString();
+	 String custom5=testData.get("custom5").toString();
+	 String custom6=testData.get("custom6").toString();
+	 String custom7=testData.get("custom7").toString();
+	 String custom8=testData.get("custom8").toString();
+	 String custom9=testData.get("custom9").toString();
+	 String custom10=testData.get("custom10").toString();
+	 String custom11=testData.get("custom11").toString();
+	 String custom12=testData.get("custom12").toString();
+	 String billOfMat=testData.get("billOfMat").toString();
+	 String primaryvenCost=testData.get("primaryvenCost").toString();
+	 String resourceRef=testData.get("resourceRef").toString();
+	 String itemType=testData.get("itemType").toString();
+	 
+			 
+		//Random data
+		
+	 itemCode=itemCode+" "+randomdata.getRandomNum(5);
+	 itemName=itemName+" "+randomdata.getRandomNum(6);
+	 uniqueIdentifier=uniqueIdentifier+"_"+randomdata.getRandomNum(6);
+
+	 browser.navigateTo();
+
+	 //Navigate to login screen 
+	 LoginScreen loginScreen = new LoginScreen();
+
+	 // Enter credentials
+
+	 loginScreen.username.write(username);
+	 loginScreen.password.write(password);
+
+	 // Click Login button
+	 loginScreen.loginBtn.click();
+
+	 //Click Service link
+	 CatalogOptions catOptions=new CatalogOptions();
+	 catOptions.catalogMenu.mouseHover();
+	 catOptions.itemsAndRPPLnk.click();
+	 //
+	 ItemLandingPage itemLandingPage=new ItemLandingPage();
+	 ServiceSearchInItemHome servSerchItem=new ServiceSearchInItemHome();
+	
+	 ServiceRowInItemHome[] ser;
+	 while(flag==false)
+	 {
+		 
+		 ser=servSerchItem.serviceResultRow.getServiceRows();
+
+		 for(int i=0;i<ser.length;i++)
+		 {
+			 if(ser[i].serviceName.read().equalsIgnoreCase(serviceName))
+			 {
+				 ser[i].serviceName.click();
+				 TestUtils.delay(2000);
+				 flag=true;
+				 break;
+			 }
+
+
+		 }
+		 if(flag==false)
+		 {
+			 if(itemLandingPage.nextImg.isEnabled()==true)
+			 {
+				 itemLandingPage.nextImg.click();
+				 TestUtils.delay(2000);
+			 }
+			 else
+			 {
+				 break;
+			 }
+		 }
+
+	 }
+
+	 Assert.assertEquals(flag,true,"Service not present");
+	 
+	 //click on base item button
+	 itemLandingPage=new ItemLandingPage();
+	 itemLandingPage.baseItemBtn.click();
+	 
+	 AddBaseItem addBaseItem=new AddBaseItem();
+	 
+	 //putting value to item fields
+	 addBaseItem.itemCodeTxt.write(itemCode);
+	 
+	 if(!uniqueIdentifier.startsWith("_"))
+	 {
+		 addBaseItem.uniqueIdentifierTxt.write(uniqueIdentifier);
+		 addBaseItem.itemNameTxt.click();
+		 TestUtils.delay(5000);
+		 Assert.assertEquals(addBaseItem.guidAvailable.read(), getMessage.getProperty("guid_available"));
+	 }
+	 addBaseItem.itemNameTxt.write(itemName);
+	 addBaseItem.descriptionTxt.write(description);
+	 addBaseItem.customField1.write(custom1);
+	 addBaseItem.customField2.write(custom2);
+	 addBaseItem.customField3.write(custom3);
+	 addBaseItem.customField4.write(custom4);
+	 addBaseItem.customField5.write(custom5);
+	 addBaseItem.customField6.write(custom6);
+	 addBaseItem.customField7.write(custom7);
+	 addBaseItem.customField8.write(custom8);
+	 addBaseItem.customField9.write(custom9);
+	 addBaseItem.customField10.write(custom10);
+	 addBaseItem.customField11.write(custom11);
+	 addBaseItem.customField12.write(custom12);
+	 addBaseItem.billOfMaterialCostTxt.clear();
+	 addBaseItem.billOfMaterialCostTxt.write(billOfMat);
+	 addBaseItem.primaryVendorCostTxt.write(primaryvenCost);
+	 addBaseItem.resourceRefLst.selectResourceRef(resourceRef);
+	 addBaseItem.itemTypeLst.selectItemType(itemType);
+	 
+	 String provinfos[]=reqProvInfos.split(";");
+	 for(int i=0;i<provinfos.length;i++)
+	 {
+		 addBaseItem.provInfoReq.selectProvInfo(provinfos[i].toString().trim());
+	 }
+	 
+	 addBaseItem.saveBtn.click();
+	 
+	 
+	 //Verify add item msg
+	 ItemList itemList=new ItemList();
+	 
+	 Assert.assertEquals(itemList.itemSuccessMsg.read(), getMessage.getProperty("add_base_item_success"));
+	 
+	 //verifying every field for base item
+	 
+	 itemList.editItemBtn.click();
+	 Assert.assertEquals(addBaseItem.itemNameTxt.read(), itemName);
+	 Assert.assertEquals(addBaseItem.itemCodeTxt.read(), itemCode);
+	 if(!uniqueIdentifier.startsWith("_"))
+	 {
+		 Assert.assertEquals(addBaseItem.uniqueIdentifierTxt.read(), uniqueIdentifier);
+	 }
+	 Assert.assertEquals(addBaseItem.descriptionTxt.read(), description);
+	 Assert.assertEquals(addBaseItem.billOfMaterialCostTxt.read(), billOfMat);
+	 Assert.assertEquals(addBaseItem.primaryVendorCostTxt.read(), primaryvenCost);
+	 Assert.assertEquals(addBaseItem.customField1.read(),custom1);
+	 Assert.assertEquals(addBaseItem.customField2.read(),custom2);
+	 Assert.assertEquals(addBaseItem.customField3.read(),custom3);
+	 Assert.assertEquals(addBaseItem.customField4.read(),custom4);
+	 Assert.assertEquals(addBaseItem.customField5.read(),custom5);
+	 Assert.assertEquals(addBaseItem.customField6.read(),custom6);
+	 Assert.assertEquals(addBaseItem.customField7.read(),custom7);
+	 Assert.assertEquals(addBaseItem.customField8.read(),custom8);
+	 Assert.assertEquals(addBaseItem.customField9.read(),custom9);
+	 Assert.assertEquals(addBaseItem.customField10.read(),custom10);
+	 Assert.assertEquals(addBaseItem.customField11.read(),custom11);
+	 Assert.assertEquals(addBaseItem.customField12.read(),custom12);
+	 Assert.assertEquals(addBaseItem.resourceRefLst.getSelectedType(), resourceRef);
+	 Assert.assertEquals(addBaseItem.itemTypeLst.getSelectedType(), itemType);
+	 
+	 String gete[]=addBaseItem.provInfoReq.getAllSelectedIdfrs();
+	 
+	 for(int i=0;i<provinfos.length;i++)
+	 {
+		boolean contains=false; 
+		for(int j=0;j<gete.length;j++)
+		{
+			if(provinfos[i].equalsIgnoreCase(gete[j]))
+			{
+				contains=true;
+				break;
+			}
+		}
+		if(contains==false)
+		{
+			flag1=false;
+			break;
+		}
+	 }
+	 
+	 Assert.assertEquals(flag1, true,"Provisioning information's not selected properly");
+	
+	 addBaseItem.cancleBtn.click();
+	 
+	 Assert.assertEquals(itemLandingPage.headingTxt.read(), getMessage.getProperty("item_landing_page_heading"));
+
+	 
+ 
+ }
+ 
 
 }
