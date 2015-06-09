@@ -92,21 +92,18 @@ public class OrderTestCases
 		
 		CreateOrderSelectOffer offer = new CreateOrderSelectOffer();
 		Offer []offers = offer.getOffers();
-		
+		Assert.assertEquals(offers[0].offerName, offerName);
 		 
 		offers[0].orderBtn.click();
-
-		Assert.assertEquals(offers[0].offerName, offerName);
-
 		TestUtils.delay(8000);
 
-		CreateOrderSelectItems items = new CreateOrderSelectItems();
-		ItemRow []rows =  items.getItemRows(browser);
+		// TODO: CreateOrderSelectItems items = new CreateOrderSelectItems();
+		// TODO: ItemRow []rows =  items.getItemRows(browser);
 		
 		TestUtils.delay(3000);
 		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
 		buttons.continueBtn.click();
-		TestUtils.delay(10000);
+		TestUtils.delay(3000);
 		buttons.continueBtn.click();
 		
 		CreateOrderProvisioningInfo prov = new CreateOrderProvisioningInfo();
@@ -117,11 +114,13 @@ public class OrderTestCases
 		for(int i=0; i <info.length; i ++)
 		{
 			if(info[i].label!=null)
-			if(info[i].label.contains("Custom"))
 			{
-				info[i].elemenet.write("dfdf");
-				System.out.println("writing...");
+				if(info[i].label.contains("Custom"))
+				{
+					info[i].elemenet.write("dfdf");
+				}
 			}
+			
 		}
 		buttons.continueBtn.click();
 		TestUtils.delay(6000);
