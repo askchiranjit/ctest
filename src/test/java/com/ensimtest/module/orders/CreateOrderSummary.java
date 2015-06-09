@@ -1,5 +1,8 @@
 package com.ensimtest.module.orders;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 
@@ -85,4 +88,65 @@ public class CreateOrderSummary extends AppData
 		}
 	}
 	public SubmitTCBtn submitTCBtn = new SubmitTCBtn();
+	
+	public class ApproveOrder extends Element
+	{
+		public ApproveOrder()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ApproveOrder approveOrder = new ApproveOrder();
+	
+	public class ApproveOrderCancelBtn extends Element
+	{
+		public ApproveOrderCancelBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ApproveOrderCancelBtn approveOrderCancelBtn = new ApproveOrderCancelBtn();
+	
+	public class ApproveOrderApproveNowBtn extends Element
+	{
+		public ApproveOrderApproveNowBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ApproveOrderApproveNowBtn approveOrderApproveNowBtn = new ApproveOrderApproveNowBtn();
+	
+	public class ApproveOrderMsgLbl extends Element
+	{
+		public ApproveOrderMsgLbl()
+		{
+			setElement(readAppData(this));
+		}
+		public String getRefNumber()
+		{
+			String text = super.read();
+			String re1=".*?";
+		    String re2="((?:(?:[1]{1}\\d{1}\\d{1}\\d{1})|(?:[2]{1}\\d{3}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:[0-2]?\\d{1})|(?:[3][01]{1})))(?![\\d])";	// YYYYMMDD 1
+		    String re3="([-+]\\d+)";
+
+		    Pattern p = Pattern.compile(re1+re2+re3,Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+		    Matcher m = p.matcher(text);
+		    String refNumber = null;
+		    if (m.find())
+		    {
+		        String yyyymmdd1=m.group(1);
+		        String signed_int1=m.group(2);
+		        refNumber = yyyymmdd1.toString()+signed_int1.toString();
+		        return refNumber;
+		    }
+		    else
+		    {
+		    	text = text.replaceAll("Order with reference number", "");
+		    	text = text.replaceAll("has been submitted for provisioning", "");
+		    	refNumber = text.trim();
+		    }
+		    return refNumber;
+		}
+	}
+	public ApproveOrderMsgLbl approveOrderMsgLbl = new ApproveOrderMsgLbl();
 }

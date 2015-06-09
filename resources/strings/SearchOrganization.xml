@@ -44,4 +44,19 @@
 		<key>Xpath</key>
 		<value>//*[@id="filters"]/div[2]/div[2]</value>
 	</ResetBtn>
+	
+	<SearchTypeSimilarSound>
+		<key>Xpath</key>
+		<value>//*[@id="phoneticSearchRadio"]/table/tbody/tr/td[1]</value>
+	</SearchTypeSimilarSound>
+	
+	<SearchTypeStartsWith>
+		<key>Xpath</key>
+		<value>//*[@id="normalSearchRadio"]/table/tbody/tr/td[1]</value>
+	</SearchTypeStartsWith>
+	
+	<SearchTypeContains>
+		<key>Xpath</key>
+		<value>//*[@id="deepSearchRadio"]/table/tbody/tr/td[1]</value>
+	</SearchTypeContains>
 </root>

@@ -46,4 +46,24 @@
 	<value>//html/body/div[10]/div[3]/div/button/span[text()='submit']</value>
 </SubmitTCBtn>
 
+<ApproveOrder>
+	<key>ID</key>
+	<value>momofexe</value>
+</ApproveOrder>
+
+<ApproveOrderCancelBtn>
+	<key>Xpath</key>
+	<value>//html/body/div[11]/div[3]/div/button/span[text()='Cancel']</value>
+</ApproveOrderCancelBtn>
+
+<ApproveOrderApproveNowBtn>
+	<key>Xpath</key>
+	<value>//button//span[text()='Approve Now']</value>
+</ApproveOrderApproveNowBtn>
+
+<ApproveOrderMsgLbl>
+	<key>ID</key>
+	<value>approved_msg</value>
+</ApproveOrderMsgLbl>
+
 </root>

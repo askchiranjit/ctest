@@ -17,8 +17,8 @@
 </GoBackBtn>
 
 <PlaceOrderBtn>
-	<key>ID</key>
-	<value>addAndApprove</value>
+	<key>Xpath</key>
+	<value>//a[@id='addAndApprove']//span[text()='Place Order']</value>
 </PlaceOrderBtn>
 
 <SaveAsDraftBtn>
