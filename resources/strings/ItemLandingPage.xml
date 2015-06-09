@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<root>
+<NextImg>
+    <key>Xpath</key>
+	<value>//img[contains(@src,'next.png')]</value>
+</NextImg>
+
+<PreviousImg>
+    <key>Xpath</key>
+	<value>//img[contains(@src,'previous.png')]</value>
+</PreviousImg>
+
+<BaseItemBtn>
+	<key>ID</key>
+	<value>add_base</value>
+</BaseItemBtn>
+
+<BundleItemBtn>
+	<key>ID</key>
+	<value>add_bundle</value>
+</BundleItemBtn>
+
+<CompositeItemBtn>
+	<key>ID</key>
+	<value>add_composite</value>
+</CompositeItemBtn>
+
+<HeadingTxt>
+	<key>Xpath</key>
+	<value>//div[@id='service-list']//div[@class='menuHeading']</value>
+</HeadingTxt>
+
+
+</root>

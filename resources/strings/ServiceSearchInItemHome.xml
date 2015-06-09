@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+
+<ServiceResultRows>
+	<key>Xpath</key>
+	<value>//div[@id='service-list']//table//tbody</value>
+</ServiceResultRows>
+
+<RowInfo>
+	<key>Xpath</key>
+	<value>tr[contains(@class,'ui-list-item-4')]</value>
+</RowInfo>
+
+<Components>
+	<key>Xpath</key>
+	<value>td//a</value>
+</Components>
+
+</root>

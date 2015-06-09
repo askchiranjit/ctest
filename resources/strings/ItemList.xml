@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root>
+
+<ItemSuccessMsg>
+    <key>Xpath</key>
+	<value>//div[contains(@class,'msg-box')]//p</value>
+</ItemSuccessMsg>
+
+<EditItemBtn>
+    <key>ID</key>
+	<value>edit_item</value>
+</EditItemBtn>
+
+</root>

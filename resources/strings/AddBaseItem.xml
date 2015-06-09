@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<root>
+<ItemCodeTxt>
+	<key>ID</key>
+	<value>itemcode</value>
+</ItemCodeTxt>
+
+<UniqueIdentifierTxt>
+	<key>ID</key>
+	<value>product_guid</value>
+</UniqueIdentifierTxt>
+
+<ItemNameTxt>
+	<key>ID</key>
+	<value>itemname</value>
+</ItemNameTxt>
+
+<DescriptionTxt>
+	<key>ID</key>
+	<value>product_desc</value>
+</DescriptionTxt>
+
+<BillOfMaterialCostTxt>
+	<key>ID</key>
+	<value>BOM</value>
+</BillOfMaterialCostTxt>
+
+<PrimaryVendorCostTxt>
+	<key>ID</key>
+	<value>vendorcost</value>
+</PrimaryVendorCostTxt>
+
+<CustomField1>
+	<key>ID</key>
+	<value>customField1</value>
+</CustomField1>
+
+<CustomField2>
+	<key>ID</key>
+	<value>customField2</value>
+</CustomField2>
+
+<CustomField3>
+	<key>ID</key>
+	<value>customField3</value>
+</CustomField3>
+
+<CustomField4>
+	<key>ID</key>
+	<value>customField4</value>
+</CustomField4>
+
+<CustomField5>
+	<key>ID</key>
+	<value>customField5</value>
+</CustomField5>
+
+<CustomField6>
+	<key>ID</key>
+	<value>customField6</value>
+</CustomField6>
+
+<CustomField7>
+	<key>ID</key>
+	<value>customField7</value>
+</CustomField7>
+
+<CustomField8>
+	<key>ID</key>
+	<value>customField8</value>
+</CustomField8>
+
+<CustomField9>
+	<key>ID</key>
+	<value>customField9</value>
+</CustomField9>
+
+<CustomField10>
+	<key>ID</key>
+	<value>customField10</value>
+</CustomField10>
+
+<CustomField11>
+	<key>ID</key>
+	<value>customField11</value>
+</CustomField11>
+
+<CustomField12>
+	<key>ID</key>
+	<value>customField12</value>
+</CustomField12>
+
+<CancleBtn>
+	<key>ID</key>
+	<value>cancel_base</value>
+</CancleBtn>
+
+<SaveBtn>
+	<key>ID</key>
+	<value>save_base_product</value>
+</SaveBtn>
+
+<ResourceRefLst>
+	<key>ID</key>
+	<value>unifyreference</value>
+</ResourceRefLst>
+
+<ItemTypeLst>
+	<key>ID</key>
+	<value>service.item.type</value>
+</ItemTypeLst>
+
+<GuidAvailable>
+	<key>ID</key>
+	<value>guidavailable</value>
+</GuidAvailable>
+
+<ProvInfoReq>
+	<key>ID</key>
+	<value>custInfo</value>
+</ProvInfoReq>
+
+</root>
