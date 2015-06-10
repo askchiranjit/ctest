@@ -226,4 +226,117 @@ public class ResellerTests
 		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void searchResellerVat(HashMap<?, ?> testData)
+	{
+		String userName = (String) testData.get("userName");
+		String password = (String) testData.get("password");
+		String vatNumber = (String) testData.get("vatNumber");
+		String resName = (String) testData.get("resName");
+		String searchByList = (String) testData.get("searchList");
+		
+		browser.navigateTo();
+		
+		LoginScreen loginScreen = new LoginScreen();
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+		
+		loginScreen.username.write(userName);
+		loginScreen.password.write(password);
+
+		// Click on login button
+		loginScreen.loginBtn.click();
+		
+		EntityOptions entity = new EntityOptions();
+		entity.menuBtn.mouseHover();
+		entity.resellersLnk.click();
+		
+		SearchReseller search = new SearchReseller();
+		search.searchByLst.select(searchByList);
+		search.keywordTxt.write(vatNumber);
+		search.searchBtn.click();
+		
+		SearchResults results = new SearchResults();
+		OrgReseller[] rows = results.getResellerResultRows();
+		
+		boolean isFound = false;
+		for(int i=0; i<rows.length; i++)
+		{
+			if(rows[i].getResellerName().trim().equals(resName))
+				{
+					isFound = true;
+					break;
+				}
+		}
+		Assert.assertEquals(isFound, true);
+		
+		// Click on log-out button
+		LoggedInUser user = new LoggedInUser();
+		user.userInfo.mouseHover();
+		user.logOut.click();
+				
+		// Verify in login page
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void searchResellerID(HashMap<?, ?> testData)
+	{
+		String userName = (String) testData.get("userName");
+		String password = (String) testData.get("password");
+		String id = (String) testData.get("id");
+		String resName = (String) testData.get("resName");
+		String searchByList = (String) testData.get("searchList");
+		
+		browser.navigateTo();
+		
+		LoginScreen loginScreen = new LoginScreen();
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+		
+		loginScreen.username.write(userName);
+		loginScreen.password.write(password);
+
+		// Click on login button
+		loginScreen.loginBtn.click();
+		
+		EntityOptions entity = new EntityOptions();
+		entity.menuBtn.mouseHover();
+		entity.resellersLnk.click();
+		
+		SearchReseller search = new SearchReseller();
+		search.searchByLst.select(searchByList);
+		search.keywordTxt.write(id);
+		search.searchBtn.click();
+		
+		SearchResults results = new SearchResults();
+		OrgReseller[] rows = results.getResellerResultRows();
+		
+		boolean isFound = false;
+		for(int i=0; i<rows.length; i++)
+		{
+			if(rows[i].getResellerName().trim().equals(resName))
+				{
+					Assert.assertEquals(rows[i].getResellerID(), id);
+					isFound = true;
+					break;
+				}
+		}
+		Assert.assertEquals(isFound, true);
+		
+		// Click on log-out button
+		LoggedInUser user = new LoggedInUser();
+		user.userInfo.mouseHover();
+		user.logOut.click();
+				
+		// Verify in login page
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+	}
+	
 }
