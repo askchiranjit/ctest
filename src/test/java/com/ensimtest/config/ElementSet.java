@@ -40,4 +40,20 @@ public class ElementSet
 		}
 		return elements;
 	}
+	
+	public Element getSubElement(Element element, String elementType, String elementName)
+	{
+		boolean isExistingElement = element.isExists();
+		if(!isExistingElement)
+		{
+			System.out.println("Super element does not exist");
+			return null;
+		}
+		ElementHandler handler = new ElementHandler();
+		ElementType typeOfElement = handler.getElementType(elementType);
+		Element newElement=new Element();
+		newElement.setElement(handler.getElement(element, elementName,typeOfElement)); 
+		return newElement;
+		
+	}
 }

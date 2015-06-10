@@ -1,9 +1,11 @@
 package com.ensimtest.config;
 
 import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import com.ensimtest.base.ElementType;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.ensimtest.base.Driver;
@@ -143,4 +145,18 @@ public class ElementHandler
 		Actions action = new Actions(Driver.driver);
 		action.moveToElement(element).build().perform();
 	}
+	
+	protected WebElement getElement(Element masterElement, String elementName, ElementType type)
+	{
+		List<WebElement> list = getElements(masterElement,elementName, type);
+		if(list.size()==0)
+			throw new ElementNotFoundException(elementName, type.toString(), elementName);
+		else
+		{
+			return list.get(0);
+		}
+	}
+
+	
+	
 }
