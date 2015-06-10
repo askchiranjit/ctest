@@ -10,10 +10,10 @@
 	<value>ssid</value>
 </SubscriptionIDTxt>
 
-<Organization IDTxt>
+<OrganizationIDTxt>
 	<key>ID</key>
 	<value>customerID</value>
-</Organization IDTxt>
+</OrganizationIDTxt>
 
 <StatusLst>
 	<key>ID</key>

@@ -2,8 +2,8 @@
 <root>
 
 	<ItemTable>
-		<key>ClassName</key>
-		<value>ProductInfo</value>
+		<key>Xpath</key>
+		<value>//*[@id="wizard_screen1"]/center/table[1]/tbody</value>
 	</ItemTable>
 	
 	<ItemRowFinder>

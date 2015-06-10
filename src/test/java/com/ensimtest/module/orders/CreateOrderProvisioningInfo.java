@@ -41,7 +41,14 @@ public class CreateOrderProvisioningInfo extends AppData
 			{
 				label = list[0].read();
 				System.out.println(label);
-				this.elemenet = list[1];
+				if(label.toLowerCase().contains("custom"))
+				{
+					this.elemenet = set.getSubElementSet(list[1], "Xpath", "textarea")[0];
+				}
+				else
+				{
+					this.elemenet = list[1];
+				}
 			}
 		}
 	}

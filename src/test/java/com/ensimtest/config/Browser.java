@@ -11,7 +11,7 @@ import com.ensimtest.resource.PropertyReader;
 public class Browser {
 	
 	private DriverSettings driverSetting;
-	private final int timeToWait = 30;
+	private int timeToWait = 30;
 	private final String defaultBrowser = "firefox";
 	private static String baseURL;
 	private static String browserName = null;
@@ -45,6 +45,7 @@ public class Browser {
 	public Browser(String browserName, int timeUnitInSecond)
 	{
 		driverSetting = new DriverSettings();
+		timeToWait = timeUnitInSecond;
 		driverSetting.setUpDriver(browserName, timeUnitInSecond);
 	}
 	
@@ -92,5 +93,15 @@ public class Browser {
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public void setWait(int milisec)
+	{
+		driverSetting.setWait(milisec);
+	}
+	
+	public void setDefaultWait()
+	{
+		driverSetting.setWait(timeToWait);
 	}
 }

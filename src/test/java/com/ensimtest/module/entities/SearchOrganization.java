@@ -93,4 +93,31 @@ public class SearchOrganization extends AppData
 		}
 	}
 	public ResetBtn resetBtn = new ResetBtn();
+	
+	public class SearchTypeSimilarSound extends Element
+	{
+		public SearchTypeSimilarSound()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public SearchTypeSimilarSound searchTypeSimilarSound = new SearchTypeSimilarSound();
+	
+	public class SearchTypeStartsWith extends Element
+	{
+		public SearchTypeStartsWith()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public SearchTypeStartsWith searchTypeStartsWith = new SearchTypeStartsWith();
+	
+	public class SearchTypeContains extends Element
+	{
+		public SearchTypeContains()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public SearchTypeContains searchTypeContains = new SearchTypeContains();
 }
