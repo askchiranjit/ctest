@@ -2,11 +2,13 @@ package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import com.ensimtest.config.Browser;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.entities.AddResellerBtnControl;
@@ -18,6 +20,7 @@ import com.ensimtest.module.entities.EntityOptions;
 import com.ensimtest.module.entities.ResellersHomePage;
 import com.ensimtest.module.entities.SearchReseller;
 import com.ensimtest.module.entities.SearchResults;
+import com.ensimtest.module.entities.SearchResults.CommonResultRows;
 import com.ensimtest.module.entities.SearchResults.OrgReseller;
 import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.TestDataProvider;
@@ -327,6 +330,54 @@ public class ResellerTests
 				}
 		}
 		Assert.assertEquals(isFound, true);
+		
+		// Click on log-out button
+		LoggedInUser user = new LoggedInUser();
+		user.userInfo.mouseHover();
+		user.logOut.click();
+				
+		// Verify in login page
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+	public void searchResellerInvalidID(HashMap<?, ?> testData)
+	{
+		String userName = (String) testData.get("userName");
+		String password = (String) testData.get("password");
+		String id = (String) testData.get("id");
+		String expected = (String) testData.get("expected");
+		String searchByList = (String) testData.get("searchList");
+		
+		browser.navigateTo();
+		
+		LoginScreen loginScreen = new LoginScreen();
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+		
+		loginScreen.username.write(userName);
+		loginScreen.password.write(password);
+
+		// Click on login button
+		loginScreen.loginBtn.click();
+		
+		EntityOptions entity = new EntityOptions();
+		entity.menuBtn.mouseHover();
+		entity.resellersLnk.click();
+		
+		SearchReseller search = new SearchReseller();
+		search.searchByLst.select(searchByList);
+		search.keywordTxt.write(id);
+		search.searchBtn.click();
+		TestUtils.delay(2000);
+		SearchResults results = new SearchResults();
+		CommonResultRows info = results.new CommonResultRows();
+
+		System.out.println(info.read());
+		Assert.assertEquals(info.read().trim(), expected);
 		
 		// Click on log-out button
 		LoggedInUser user = new LoggedInUser();
