@@ -158,9 +158,9 @@ public class Element implements IElement
 	 * Selects visible value from the drop-down/list box
 	 * @param data : the value to be selected
 	 */
-	protected void selectVisibleText(String data)
+	public void selectVisibleText(String data)
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		Select select = new Select(webElement);
 		select.selectByVisibleText(data);
 	}
