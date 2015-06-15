@@ -8,6 +8,7 @@ dependencies {
 	compile files('resources/thirdparty/poi-ooxml-3.10.jar')
 	compile files('resources/thirdparty/poi-ooxml-schemas-3.10.jar')
 	compile files('resources/thirdparty/xmlbeans-2.3.0.jar')
+	compile files('resources/thirdparty/json-simple.jar')
 	testCompile files('resources/thirdparty/testng-6.8.21.jar')
 	}
 

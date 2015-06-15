@@ -16,5 +16,6 @@ test {
    useTestNG() {
      listeners << 'com.ensimtest.listners.TestCaseRunmode'
 	 listeners << 'org.testng.reporters.XMLReporter'
+	 options.suites("resources/testprop/suit3.xml") 
    }
  }
