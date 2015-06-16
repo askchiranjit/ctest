@@ -26,6 +26,8 @@ import com.ensimtest.resource.GetEASMessages;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.OrderItemJsonHandler;
 import com.ensimtest.utils.OrderItemJsonHandler.ItemDetails;
+import com.ensimtest.utils.OrderProvInfoJsonHandler;
+import com.ensimtest.utils.OrderProvInfoJsonHandler.ProvInfoDetails;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
 
@@ -60,6 +62,7 @@ public class OrderCustomerBCT
 		String offerName=testData.get("offerName").toString();
 		String orderType=testData.get("orderType").toString();
 		String itemDetails=testData.get("itemDetails").toString();
+		String provInfo=testData.get("provInfoDetails").toString();
 		// Navigate to ENSIM site
 		browser.navigateTo();
 
@@ -159,13 +162,45 @@ public class OrderCustomerBCT
 		
 		OrderProvisioningInfo prov = new OrderProvisioningInfo();
 		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
-		for(int i=0;i<provItemLst.length;i++)
+				
+		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
+		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
+		
+		System.out.println("2nd loop length:-"+provItemLst.length);
+		System.out.println("1st loop length:-"+provInfoDetails.length);
+		
+		for(int i=0;i<provInfoDetails.length;i++)
 		{
-			System.out.println(provItemLst[i].itemName);
-			System.out.println(provItemLst[i].textbox);
+			for(int j=0;j<provItemLst.length;j++)
+			{
+				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
+				{
+				System.out.println("Inside");
+				if(provInfoDetails[i].operation==true)
+				{
+					if(provInfoDetails[i].checkbox==true)
+					{
+						performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+//						TestUtils.delay(10000);
+					}
+					
+					if(provInfoDetails[i].textbox==true)
+					{
+						System.out.println("Inside here");
+						performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
+//						TestUtils.delay(10000);
+					}
+					if(provInfoDetails[i].dropdown==true)
+					{
+						performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
+//						TestUtils.delay(10000);
+					}
+				}
+				
+				break;
+				}
+			}
 		}
-		
-		
 		
 		TestUtils.delay(10000);
 
