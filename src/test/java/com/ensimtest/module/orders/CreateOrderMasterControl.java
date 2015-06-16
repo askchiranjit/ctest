@@ -94,4 +94,14 @@ public class CreateOrderMasterControl extends AppData
 		}
 	}
 	public SummaryBreadCrumb summaryBreadCrumb = new SummaryBreadCrumb();
+	
+	public class AddToCartBtn extends Element
+	{
+		public AddToCartBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public AddToCartBtn addToCartBtn = new AddToCartBtn();
+	
 }

@@ -66,4 +66,15 @@
 	<value>approved_msg</value>
 </ApproveOrderMsgLbl>
 
+<OrderNOCustomer>
+	<key>Xpath</key>
+	<value>//div[@id='suggestedServicesDiv']//table[@class='bb_center']//div//b</value>
+</OrderNOCustomer>
+
+<GotoCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='wiz_visit_cart']//span[contains(text(),'Go to CART')]</value>
+</GotoCartBtn>
+
+
 </root>

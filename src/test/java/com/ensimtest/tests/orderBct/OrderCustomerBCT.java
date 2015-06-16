@@ -11,10 +11,14 @@ import org.testng.annotations.Test;
 import com.ensimtest.config.Browser;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.catalog.CatalogOptions;
+import com.ensimtest.module.dashboard.CustomerDashboard;
 import com.ensimtest.module.orders.CreateOrderMasterControl;
 import com.ensimtest.module.orders.CreateOrderProvisioningInfo;
 import com.ensimtest.module.orders.CreateOrderSelectCategory;
 import com.ensimtest.module.orders.CreateOrderSelectItems;
+import com.ensimtest.module.orders.CreateOrderSummary;
+import com.ensimtest.module.orders.OrderDetails;
+import com.ensimtest.module.orders.SearchOrder;
 import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
 import com.ensimtest.module.orders.OrderProvisioningInfo;
 import com.ensimtest.module.orders.OrderProvisioningInfo.ProvItemLst;
@@ -72,6 +76,13 @@ public class OrderCustomerBCT
 
 		// Click on login button
 		loginScreen.loginBtn.click();
+		
+//		//Test Code
+//		CustomerDashboard customerDashboard=new CustomerDashboard();
+//		
+//		customerDashboard.cartLnk.click();
+//		
+//		//End of test code
 
 		//Click on agent link
 		CatalogOptions catalogOption=new CatalogOptions();
@@ -118,8 +129,6 @@ public class OrderCustomerBCT
 		PerformAction performActn=new PerformAction();
 		CreateOrderSelectItems items = new CreateOrderSelectItems();
 		ItemRow itemr[]=items.getItemRows(browser);
-		System.out.println(itemr.length);
-		
 		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
 		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
 		for(int i=0;i<itemdetailslst.length;i++)
@@ -133,19 +142,15 @@ public class OrderCustomerBCT
 						if(itemdetailslst[i].checkbox==true)
 						{
 							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
-//							TestUtils.delay(10000);
 						}
 						
 						if(itemdetailslst[i].textbox==true)
 						{
 							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
-//							TestUtils.delay(10000);
 						}
 						if(itemdetailslst[i].dropdown==true)
 						{
-							System.out.println(itemr[j].listBox);
 							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
-//							TestUtils.delay(10000);
 						}
 					}
 					
@@ -165,9 +170,7 @@ public class OrderCustomerBCT
 				
 		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
 		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
-		
-		System.out.println("2nd loop length:-"+provItemLst.length);
-		System.out.println("1st loop length:-"+provInfoDetails.length);
+
 		
 		for(int i=0;i<provInfoDetails.length;i++)
 		{
@@ -181,19 +184,15 @@ public class OrderCustomerBCT
 					if(provInfoDetails[i].checkbox==true)
 					{
 						performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
-//						TestUtils.delay(10000);
 					}
 					
 					if(provInfoDetails[i].textbox==true)
 					{
-						System.out.println("Inside here");
 						performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
-//						TestUtils.delay(10000);
 					}
 					if(provInfoDetails[i].dropdown==true)
 					{
 						performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
-//						TestUtils.delay(10000);
 					}
 				}
 				
@@ -201,6 +200,25 @@ public class OrderCustomerBCT
 				}
 			}
 		}
+		
+		TestUtils.delay(2000);
+		buttons.continueBtn.click();
+		TestUtils.delay(10000);
+		
+		System.out.println("Clicking on add to cart");
+		
+		buttons.addToCartBtn.click();
+		TestUtils.delay(10000);
+		CreateOrderSummary summary = new CreateOrderSummary();
+		
+		System.out.println(summary.orderNOCustomer.read().trim());
+		
+		summary.gotoCartBtn.click();
+		
+		TestUtils.delay(10000);
+		
+		
+		
 		
 		TestUtils.delay(10000);
 
