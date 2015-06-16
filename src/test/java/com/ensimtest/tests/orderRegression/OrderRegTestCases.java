@@ -1,4 +1,4 @@
-package com.ensimtest.tests.bct;
+package com.ensimtest.tests.orderRegression;
 
 import java.util.HashMap;
 
@@ -28,7 +28,7 @@ import com.ensimtest.module.userspace.LoggedInUser;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.TestUtils;
 
-public class OrderTestCases
+public class OrderRegTestCases
 {
 	private Browser browser;
 	
