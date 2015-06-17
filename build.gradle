@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+
 dependencies {
     compile files('resources/syslib/selenium-server-standalone-2.45.0.jar')
     compile files('resources/thirdparty/dom4j-1.6.1.jar')
@@ -17,4 +18,22 @@ test {
      listeners << 'com.ensimtest.listners.TestCaseRunmode'
 	 listeners << 'org.testng.reporters.XMLReporter'
    }
+ }
+
+ task setURL << {
+ 	println myUrl
+ 	Properties props = new Properties()
+ 	File propsFile = new File('./resources/testprop/framework.properties')
+ 	props.load(propsFile.newDataInputStream())
+ 	props.setProperty('URL', myUrl)
+	props.store(propsFile.newWriter(), null)
+ }
+
+  task setBrowser << {
+ 	println myBrowser
+ 	Properties props = new Properties()
+ 	File propsFile = new File('./resources/testprop/framework.properties')
+ 	props.load(propsFile.newDataInputStream())
+ 	props.setProperty('BrowserName', myBrowser)
+	props.store(propsFile.newWriter(), null)
  }
