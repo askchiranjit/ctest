@@ -3,97 +3,97 @@
 
 	<EditBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_edit')]</value>
 </EditBtn>
 
 <UpsizeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'upsize')]</value>
 </UpsizeBtn>
 
 <DownsizeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'downsize')]</value>
 </DownsizeBtn>
 
 <ViewHistoryBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_order_histry')]</value>
 </ViewHistoryBtn>
 
 <ConfigureBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_order_configure')]</value>
 </ConfigureBtn>
 
 <CancelBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_order_cancel')]</value>
 </CancelBtn>
 
 <AbortBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_abort')]</value>
 </AbortBtn>
 
 <SuspendBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_ordr_suspend')]</value>
 </SuspendBtn>
 
 <UpgradeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'upgrade')]</value>
 </UpgradeBtn>
 
 <DowngradeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'downgrade')]</value>
 </DowngradeBtn>
 
 <ResumeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_ordr_resume')]</value>
 </ResumeBtn>
 
 <SeekApprovalBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_requestforApp')]</value>
 </SeekApprovalBtn>
 
 <RetryBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_order_retry')]</value>
 </RetryBtn>
 
 <ApproveBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_approve')]</value>
 </ApproveBtn>
 
 <RectifyFailureBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_order_undoLastChg')]</value>
 </RectifyFailureBtn>
 
 <DiscardDraftBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'mui_orderhistory')]</value>
 </DiscardDraftBtn>
 
 <OrderNumberLbl>
 	<key>Xpath</key>
-	<value>"id('orderStatusDiv1')/div/div/div/div[contains(text()</value>
+	<value>id('orderStatusDiv1')/div/div/div/div[contains(text(),'Order Number')]</value>
 </OrderNumberLbl>
 
 <Status>
 	<key>Xpath</key>
-	<value>"//*[@id=""status_td""]/div"</value>
+	<value>//*[@id="status_td"]/div</value>
 </Status>
 
 <GenerateQuotaBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src,'generateQuote')]</value>
 </GenerateQuotaBtn>
 
-</xml>
+</root>
