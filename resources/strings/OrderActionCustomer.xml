@@ -3,97 +3,97 @@
 
 	<EditBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </EditBtn>
 
 <UpsizeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </UpsizeBtn>
 
 <DownsizeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </DownsizeBtn>
 
 <ViewHistoryBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </ViewHistoryBtn>
 
 <ConfigureBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </ConfigureBtn>
 
 <CancelBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </CancelBtn>
 
 <AbortBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </AbortBtn>
 
 <SuspendBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </SuspendBtn>
 
 <UpgradeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </UpgradeBtn>
 
 <DowngradeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </DowngradeBtn>
 
 <ResumeBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </ResumeBtn>
 
 <SeekApprovalBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </SeekApprovalBtn>
 
 <RetryBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </RetryBtn>
 
 <ApproveBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </ApproveBtn>
 
 <RectifyFailureBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </RectifyFailureBtn>
 
 <DiscardDraftBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </DiscardDraftBtn>
 
 <OrderNumberLbl>
 	<key>Xpath</key>
-	<value>"id('orderStatusDiv1')/div/div/div/div[contains(text()</value>
+	<value>id('orderStatusDiv1')/div/div/div/div[contains(text()</value>
 </OrderNumberLbl>
 
 <Status>
 	<key>Xpath</key>
-	<value>"//*[@id=""status_td""]/div"</value>
+	<value>//*[@id=""status_td""]/div"</value>
 </Status>
 
 <GenerateQuotaBtn>
 	<key>Xpath</key>
-	<value>"//img[contains(@src</value>
+	<value>//img[contains(@src</value>
 </GenerateQuotaBtn>
 
-</xml>
+</root>
