@@ -47,6 +47,7 @@ public class OrderProvisioningInfo extends AppData
     	{
     		this.itemName=null;
     		this.textbox=null;
+    		this.dropDown=null;
  
           	ElementSet elementSet = new ElementSet();
           	Element ele[];
@@ -84,8 +85,23 @@ public class OrderProvisioningInfo extends AppData
     	{
     		//text area
     		ElementSet elementSet = new ElementSet();
-    		textbox=setElement(elementSet.getSubElementSet(e, "Xpath","textarea|input"));
-    		dropDown=setElement(elementSet.getSubElementSet(e, "Xpath", "select"));
+    		
+    		textbox=setElement(elementSet.getSubElementSet(e, "Xpath","input"));
+    		if(textbox==null || !textbox.isDisplayed())
+    		{
+    			System.out.println("Insideeeeeeeeeeeeee");
+    			textbox=setElement(elementSet.getSubElementSet(e, "Xpath","textarea"));
+    			if(textbox==null || !textbox.isDisplayed())
+    			{
+    				System.out.println("Insideeeeedddddddeeeeeeeee");
+    				textbox=setElement(elementSet.getSubElementSet(e, "Xpath","div//input"));
+    			}
+    		}
+    			
+    		
+    		
+    	
+    		dropDown=setElement(elementSet.getSubElementSet(e, "Xpath", "select|span//select"));
     		
     		
     	}

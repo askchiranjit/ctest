@@ -51,4 +51,9 @@
 	<value>"//*[@id=""sections""]/div[4]"</value>
 </SummaryBreadCrumb>
 
+<AddToCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='addToCart']//span[contains(text(),'Add to CART')]</value>
+</AddToCartBtn>
+
 </root>
