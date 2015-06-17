@@ -12,6 +12,8 @@ import com.ensimtest.config.Browser;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.catalog.CatalogOptions;
 import com.ensimtest.module.dashboard.CustomerDashboard;
+import com.ensimtest.module.orders.CreateOrderCart;
+import com.ensimtest.module.orders.CreateOrderCart.CartOrderDetails;
 import com.ensimtest.module.orders.CreateOrderMasterControl;
 import com.ensimtest.module.orders.CreateOrderProvisioningInfo;
 import com.ensimtest.module.orders.CreateOrderSelectCategory;
@@ -67,6 +69,7 @@ public class OrderCustomerBCT
 		String orderType=testData.get("orderType").toString();
 		String itemDetails=testData.get("itemDetails").toString();
 		String provInfo=testData.get("provInfoDetails").toString();
+
 		// Navigate to ENSIM site
 		browser.navigateTo();
 
@@ -76,13 +79,6 @@ public class OrderCustomerBCT
 
 		// Click on login button
 		loginScreen.loginBtn.click();
-		
-//		//Test Code
-//		CustomerDashboard customerDashboard=new CustomerDashboard();
-//		
-//		customerDashboard.cartLnk.click();
-//		
-//		//End of test code
 
 		//Click on agent link
 		CatalogOptions catalogOption=new CatalogOptions();
@@ -108,7 +104,7 @@ public class OrderCustomerBCT
 						offerDetlsLst[i].orderButton.click();
 					}
 				}
-				
+
 				if(orderType.equalsIgnoreCase("TrialOrder"))
 				{
 					if(offerDetlsLst[i].tryButton==null)
@@ -120,8 +116,8 @@ public class OrderCustomerBCT
 						offerDetlsLst[i].tryButton.click();
 					}
 				}
-				
-				
+
+
 			}
 		}
 
@@ -143,7 +139,7 @@ public class OrderCustomerBCT
 						{
 							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
 						}
-						
+
 						if(itemdetailslst[i].textbox==true)
 						{
 							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
@@ -153,74 +149,90 @@ public class OrderCustomerBCT
 							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
 						}
 					}
-					
+
 					break;
 				}
 			}
 		}
-		
-		
+
+
 		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
 		buttons.continueBtn.click();
 		TestUtils.delay(3000);
 		buttons.continueBtn.click();
-		
+
 		OrderProvisioningInfo prov = new OrderProvisioningInfo();
 		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
-				
+
 		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
 		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
 
-		
+
 		for(int i=0;i<provInfoDetails.length;i++)
 		{
 			for(int j=0;j<provItemLst.length;j++)
 			{
 				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
 				{
-				System.out.println("Inside");
-				if(provInfoDetails[i].operation==true)
-				{
-					if(provInfoDetails[i].checkbox==true)
+					System.out.println("Inside");
+					if(provInfoDetails[i].operation==true)
 					{
-						performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+						if(provInfoDetails[i].checkbox==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+						}
+
+						if(provInfoDetails[i].textbox==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
+						}
+						if(provInfoDetails[i].dropdown==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
+						}
 					}
-					
-					if(provInfoDetails[i].textbox==true)
-					{
-						performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
-					}
-					if(provInfoDetails[i].dropdown==true)
-					{
-						performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
-					}
-				}
-				
-				break;
+
+					break;
 				}
 			}
 		}
-		
+
 		TestUtils.delay(2000);
 		buttons.continueBtn.click();
 		TestUtils.delay(10000);
-		
+
 		System.out.println("Clicking on add to cart");
-		
+
 		buttons.addToCartBtn.click();
 		TestUtils.delay(10000);
 		CreateOrderSummary summary = new CreateOrderSummary();
-		
-		System.out.println(summary.orderNOCustomer.read().trim());
-		
+
+		String orderNo=summary.orderNOCustomer.read().trim();
+
 		summary.gotoCartBtn.click();
-		
-		TestUtils.delay(10000);
-		
-		
-		
-		
-		TestUtils.delay(10000);
+
+		TestUtils.delay(5000);
+
+
+		CreateOrderCart createOrderCart=new CreateOrderCart();
+		CartOrderDetails cartOrderDetails[]=createOrderCart.cartDetails.getOrderList();
+
+		for(int i=0;i<cartOrderDetails.length;i++)
+		{
+			if(orderNo.equalsIgnoreCase(cartOrderDetails[i].orderNo.read()))
+			{
+				cartOrderDetails[i].checkBox.click();
+				break;
+			}
+		}
+
+		TestUtils.delay(5000);
+		createOrderCart.checkoutBtn.click();
+		TestUtils.delay(5000);
+		createOrderCart.yesBtn.click();
+		TestUtils.delay(5000);
+		Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_success_msg"));
+
 
 	}
 
