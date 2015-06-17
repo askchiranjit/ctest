@@ -4,4 +4,9 @@
 	<key>ID</key>
 	<value>customerOrganizationData</value>
 	</OrderInfo>
+	
+	<OrderDetailsButtons>
+		<key>ID</key>
+		<value>orderDetail</value>
+	</OrderDetailsButtons>
 </root>
