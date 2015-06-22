@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<root>
+
+	<CancelBtn>
+	<key>ID</key>
+	<value>wiz_cancel</value>
+</CancelBtn>
+
+<ContinueBtn>
+	<key>ID</key>
+	<value>continue</value>
+</ContinueBtn>
+
+<GoBackBtn>
+	<key>ID</key>
+	<value>goback</value>
+</GoBackBtn>
+
+<PlaceOrderBtn>
+	<key>Xpath</key>
+	<value>//a[@id='addAndApprove']//span[text()='Place Order']</value>
+</PlaceOrderBtn>
+
+<SaveAsDraftBtn>
+	<key>ID</key>
+	<value>addToCart</value>
+</SaveAsDraftBtn>
+
+<CreateOrderHeadingLbl>
+	<key>ID</key>
+	<value>create_ord_heading</value>
+</CreateOrderHeadingLbl>
+
+<SelectItemsBreadCrumb>
+	<key>Xpath</key>
+	<value>"//*[@id=""sections""]/div[1]"</value>
+</SelectItemsBreadCrumb>
+
+<ContactDetailsBreadCrumb>
+	<key>Xpath</key>
+	<value>"//*[@id=""sections""]/div[2]"</value>
+</ContactDetailsBreadCrumb>
+
+<ProvisioningInformationBreadCrumb>
+	<key>Xpath</key>
+	<value>"//*[@id=""sections""]/div[3]"</value>
+</ProvisioningInformationBreadCrumb>
+
+<SummaryBreadCrumb>
+	<key>Xpath</key>
+	<value>"//*[@id=""sections""]/div[4]"</value>
+</SummaryBreadCrumb>
+
+<AddToCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='addToCart']//span[contains(text(),'Add to CART')]</value>
+</AddToCartBtn>
+
+</root>

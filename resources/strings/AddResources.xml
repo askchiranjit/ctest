@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<root>
+<CancelBtn>
+	<key>Xpath</key>
+	<value>//a[contains(@id,'cancelButton')]</value>
+</CancelBtn>
+
+<SaveBtn>
+	<key>ID</key>
+	<value>saveresource</value>
+</SaveBtn>
+
+<ResourceNameTxt>
+	<key>ClassName</key>
+	<value>newresourcename</value>
+</ResourceNameTxt>
+
+<ResourceIDTxt>
+	<key>ClassName</key>
+	<value>newresourceid</value>
+</ResourceIDTxt>
+
+<PayPerUseTrueRdo>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Pay-per-use Allowed')]//following-sibling::input[1]</value>
+</PayPerUseTrueRdo>
+
+<PayPerUseFalseRdo>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Pay-per-use Allowed')]//following-sibling::input[2]</value>
+</PayPerUseFalseRdo>
+
+<DafaultQuantityTxt>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'defaultQuantity')]</value>
+</DafaultQuantityTxt>
+
+<ResourceCategoryTxt>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'resourcecategory')]</value>
+</ResourceCategoryTxt>
+
+<AvailableForUserChk>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Available for user')]//following-sibling::input</value>
+</AvailableForUserChk>
+
+<ReservationUnitLst>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'reservedunit')]</value>
+</ReservationUnitLst>
+
+<PPUUnitLst>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'ppuUnit')]</value>
+</PPUUnitLst>
+
+<MeteringRuleLst>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'ratingrule')]</value>
+</MeteringRuleLst>
+
+<ReservProvisioningSystemUnitTxt>
+	<key>ID</key>
+	<value>ossreservedunit</value>
+</ReservProvisioningSystemUnitTxt>
+
+<PPUProvisioningSystemUnitTxt>
+	<key>ID</key>
+	<value>ossppuunit</value>
+</PPUProvisioningSystemUnitTxt>
+
+<PPUReportingMechanismLst>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'newOssResultPpu')]</value>
+</PPUReportingMechanismLst>
+
+<ReservConvertionFactorTxt>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'reserved_conversion_factor')]</value>
+</ReservConvertionFactorTxt>
+
+<PPUConvertionFactorTxt>
+	<key>Xpath</key>
+	<value>//input[contains(@id,'ppu_conversion_factor')]</value>
+</PPUConvertionFactorTxt>
+
+<ReservConversionOperationLst>
+	<key>Xpath</key>
+	<value>//select[contains(@id,'conversion-operation-reserved')]</value>
+</ReservConversionOperationLst>
+
+<ProvisioningInformationRdo>
+	<key>Xpath</key>
+	<value>//strong[text()='Provisioning Information']//preceding::input[1]</value>
+</ProvisioningInformationRdo>
+
+<OrderItemRdo>
+	<key>Xpath</key>
+	<value>//strong[text()='Order Item']//preceding::input[1]</value>
+</OrderItemRdo>
+
+<ReportedValuePerTxt>
+	<key>ID</key>
+	<value>reportVal</value>
+</ReportedValuePerTxt>
+
+<DefaultValueTxt>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Default value')]//parent::td//following::td[2]//input</value>
+</DefaultValueTxt>
+
+<AskInFirstOrderRdo>
+	<key>Xpath</key>
+	<value>//input[@name='instanceInfo'][1]</value>
+</AskInFirstOrderRdo>
+
+<AskInEveryOrderRdo>
+	<key>Xpath</key>
+	<value>//input[@name='instanceInfo'][2]</value>
+</AskInEveryOrderRdo>
+
+<UniqueChk>
+	<key>ID</key>
+	<value>unique</value>
+</UniqueChk>
+
+<MandetoryChk>
+	<key>Xpath</key>
+	<value>//td[contains(text(),'Mandatory')]//input</value>
+</MandetoryChk>
+
+<EditableAfterProvisioningChk>
+	<key>Xpath</key>
+	<value>//td[contains(text(),'Editable after provisioning')]//input</value>
+</EditableAfterProvisioningChk>
+
+<PIFResourceTypeLst>
+	<key>Xpath</key>
+	<value>//label[contains(text(),'Resource type')]//following::select[1]</value>
+</PIFResourceTypeLst>
+
+<PIFInputTypeLst>
+  <key>Xpath</key>
+  <value>//label[contains(text(),'Input type')]//following::select[1]</value>
+</PIFInputTypeLst>
+
+<PPUConversionOperationLst>
+  <key>Xpath</key>
+  <value>//select[contains(@id,'conversion-operation-ppu')]</value>
+</PPUConversionOperationLst>
+
+</root>

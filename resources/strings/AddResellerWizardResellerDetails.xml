@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <root>
 
+	<ResellerTypeLst>
+		<key>ID</key>
+		<value>resellerType</value>
+	</ResellerTypeLst>
+	
+	<ResellerID>
+		<key>ID</key>
+		<value>reseller_id</value>
+	</ResellerID>
+
 	<ResellerNameTxt>
 		<key>ID</key>
 		<value>name</value>
@@ -55,5 +65,70 @@
 		<key>Name</key>
 		<value>datetimeformat</value>
 	</DateTimeFormatLst>
+	
+	<LoginContentURLTxt>
+	<key>ID</key>
+	<value>dynamicContentUrl</value>
+	</LoginContentURLTxt>
+
+<PortalURLTxt>
+	<key>ID</key>
+	<value>externalURL</value>
+</PortalURLTxt>
+
+<HomeURLTxt>
+	<key>ID</key>
+	<value>reseller_db_home_url</value>
+</HomeURLTxt>
+
+<SupportURLTxt>
+	<key>ID</key>
+	<value>reseller_db_support_url</value>
+</SupportURLTxt>
+
+<NewsURLTxt>
+	<key>ID</key>
+	<value>reseller_db_news_url</value>
+</NewsURLTxt>
+
+<PhoneNumberTxt>
+	<key>ID</key>
+	<value>partner_address.phone</value>
+</PhoneNumberTxt>
+
+<FaxTxt>
+	<key>ID</key>
+	<value>partner_address.fax</value>
+</FaxTxt>
+
+<Address1Txt>
+	<key>ID</key>
+	<value>address1</value>
+</Address1Txt>
+
+<Address2Txt>
+	<key>ID</key>
+	<value>address2</value>
+</Address2Txt>
+
+<StateProvinceTxt>
+	<key>ID</key>
+	<value>state_province</value>
+</StateProvinceTxt>
+
+<PostalCodeTxt>
+	<key>ID</key>
+	<value>partner_address.postal_code</value>
+</PostalCodeTxt>
+
+<CityTxt>
+	<key>ID</key>
+	<value>partner_address.city</value>
+</CityTxt>
+
+<CountryLst>
+	<key>ID</key>
+	<value>country</value>
+</CountryLst>
 	
 </root>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<root>
+<ServiceAccountLst>
+	<key>ID</key>
+	<value>accountID</value>
+</ServiceAccountLst>
+
+<BillingAddressLbl>
+	<key>ID</key>
+	<value>domainDiv</value>
+</BillingAddressLbl>
+
+<AgentIdTxt>
+	<key>ID</key>
+	<value>agentOrgParId</value>
+</AgentIdTxt>
+
+<CommentTxt>
+	<key>ID</key>
+	<value>comment</value>
+</CommentTxt>
+
+<BusinessContactDetailsLbl>
+	<key>ID</key>
+	<value>buis_con_dropdown</value>
+</BusinessContactDetailsLbl>
+
+<TechnicalContactDetailsLbl>
+	<key>ID</key>
+	<value>tech_con_dropdown</value>
+</TechnicalContactDetailsLbl>
+
+</root>

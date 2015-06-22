@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<root>
+<FirstNameTxt>
+	<key>ID</key>
+	<value>userFirstName</value>
+</FirstNameTxt>
+
+<LastNameTxt>
+	<key>ID</key>
+	<value>userLastName</value>
+</LastNameTxt>
+
+<EmailAddressTxt>
+	<key>ID</key>
+	<value>useremailAddress</value>
+</EmailAddressTxt>
+
+<UserNameTxt>
+	<key>ID</key>
+	<value>useruserName1</value>
+</UserNameTxt>
+
+<PasswordTxt>
+	<key>ID</key>
+	<value>userpassword</value>
+</PasswordTxt>
+
+<VerifyPasswordTxt>
+	<key>ID</key>
+	<value>userverifyPassword</value>
+</VerifyPasswordTxt>
+
+<LanguageLst>
+	<key>ID</key>
+	<value>userlanguage</value>
+</LanguageLst>
+
+<PrimaryRoleLbl>
+	<key>ClassName</key>
+	<value>innerTableBtnBox_shadeRight</value>
+</PrimaryRoleLbl>
+
+<AssignAsMemberChk>
+	<key>ID</key>
+	<value>assignAsMember</value>
+</AssignAsMemberChk>
+
+</root>

@@ -25,7 +25,7 @@ public class Element implements IElement
 		type = null;
 		handler = new ElementHandler();
 	}
-	
+
 	/**
 	 * This sets the elements with element types(ID, XPath, etc.) and elements names
 	 * @param elementType : Type of element to identify the element as string
@@ -36,7 +36,7 @@ public class Element implements IElement
 		this.elementName = elementName;
 		this.type = handler.getElementType(elementType);;
 	}
-	
+
 	/**
 	 * This sets the elements with element types(ID, XPath, etc.) and elements names
 	 * @param elementType : Type of element to identify the element
@@ -47,7 +47,7 @@ public class Element implements IElement
 		this.elementName = elementName;
 		this.type = elementType;
 	}
-	
+
 	/**
 	 * This sets the elements with String array data
 	 * @param elementInfo : String(0) contains key, String(1) contains value 
@@ -56,22 +56,22 @@ public class Element implements IElement
 	{
 		setElement(elementInfo[0], elementInfo[1]);
 	}
-	
+
 	protected void setElement(WebElement element)
 	{
 		this.webElement = element;
 	}
-	
+
 	protected WebElement getWebElement()
 	{
 		return webElement;
 	}
-	
+
 	protected Element getElement()
 	{
 		return this;
 	}
-	
+
 	@Override
 	public void click() {
 		webElement = getReloadedElement(elementName, type);
@@ -80,9 +80,9 @@ public class Element implements IElement
 
 	@Override
 	public boolean isExists() {
-		webElement = getReloadedElement(elementName, type);
 		try
 		{
+			webElement = getReloadedElement(elementName, type);
 			return webElement.isDisplayed() && webElement.isEnabled();
 		}
 		catch(Exception e)
@@ -93,10 +93,18 @@ public class Element implements IElement
 
 	@Override
 	public boolean isDisplayed() {
-		webElement = getReloadedElement(elementName, type);
 		try
 		{
-			return webElement.isDisplayed();
+			webElement = getReloadedElement(elementName, type);
+			if(webElement == null)
+			{
+				System.out.println("null element");
+				return false;
+			}
+			else
+			{
+				return webElement.isDisplayed();
+			}
 		}
 		catch(Exception e)
 		{
@@ -115,7 +123,14 @@ public class Element implements IElement
 		webElement = getReloadedElement(elementName, type);
 		webElement.sendKeys(msg);
 	}
-	
+
+
+
+	protected void write(String characterSeq, String msg) {
+		webElement = getReloadedElement(elementName, type);
+		webElement.sendKeys(characterSeq,msg);
+	}
+
 	/**
 	 * Returns attribute value based on the attribute name of the element
 	 * @param attributeName : name of the attribute associated with the element
@@ -127,7 +142,7 @@ public class Element implements IElement
 		String s = webElement.getAttribute(attributeName);
 		return s;
 	}
-	
+
 	/**
 	 * Selects value from the drop-down/list box
 	 * @param data : the value to be selected
@@ -138,18 +153,18 @@ public class Element implements IElement
 		Select select = new Select(webElement);
 		select.selectByValue(data);
 	}
-	
+
 	/**
 	 * Selects visible value from the drop-down/list box
 	 * @param data : the value to be selected
 	 */
-	protected void selectVisibleText(String data)
+	public void selectVisibleText(String data)
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		Select select = new Select(webElement);
 		select.selectByVisibleText(data);
 	}
-	
+
 	protected boolean isError()
 	{
 		if(getAttributeValue("class").equals("field required eas-error-msg"))
@@ -157,7 +172,7 @@ public class Element implements IElement
 		else
 			return false;
 	}
-	
+
 	/**
 	 * Move the cursor on the element
 	 */
@@ -170,9 +185,12 @@ public class Element implements IElement
 	@Override
 	public boolean isEnabled() {
 		webElement = getReloadedElement(elementName, type);
-		return webElement.isEnabled();
+		if(webElement == null)
+			return false;
+		else
+			return webElement.isEnabled();
 	}
-	
+
 	protected boolean isSelected()
 	{
 		webElement = getReloadedElement(elementName, type);
@@ -185,7 +203,7 @@ public class Element implements IElement
 		webElement = getReloadedElement(elementName, type);
 		webElement.clear();
 	}
-	
+
 
 
 	private WebElement getReloadedElement(String elementName, ElementType type)
@@ -196,7 +214,15 @@ public class Element implements IElement
 		}
 		else
 		{
-			return handler.reloadElement(elementName, type);
+			try
+			{
+				return handler.reloadElement(elementName, type);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				throw e;
+			}
 		}
 	}
 
@@ -209,7 +235,7 @@ public class Element implements IElement
 			webElement.click();
 		}
 	}
-	
+
 	protected void unCheck()
 	{
 		webElement = handler.reloadElement(elementName, type);
@@ -218,12 +244,12 @@ public class Element implements IElement
 			webElement.click();
 		}
 	}
-	
+
 	protected boolean isEntityPresent(String entity_name)
 	{
 
-	  List<WebElement> webElements=handler.getElements(elementName, type);
-		
+		List<WebElement> webElements=handler.getElements(elementName, type);
+
 		for(int i=0;i<webElements.size();i++)
 		{
 			String s[]=webElements.get(i).getText().split("\n");
@@ -231,12 +257,40 @@ public class Element implements IElement
 			{
 				return true;
 			}
-			
+
 		}
 		return false;
 
 	}
-	
-	
+
+	protected String getSelectedType()
+	{
+		webElement = getReloadedElement(elementName, type);
+		Select selectElement=new Select(webElement);
+		return selectElement.getFirstSelectedOption().getText();
+	}
+
+
+	protected String[] getSelectedTypes()
+	{
+		String [] selectedElements=null;
+		webElement = getReloadedElement(elementName, type);
+		Select selectElement=new Select(webElement);
+		List<WebElement> subElements= selectElement.getAllSelectedOptions();
+		selectedElements = new String[subElements.size()];
+		for(int i=0;i<subElements.size();i++)
+		{
+			selectedElements[i]=subElements.get(i).getText();
+
+		}
+		return selectedElements;
+	}
+
+	protected String selectedText()
+	{
+		webElement = handler.reloadElement(elementName, type);
+		Select select = new Select(webElement);
+		return select.getFirstSelectedOption().getText();
+	}
 
 }

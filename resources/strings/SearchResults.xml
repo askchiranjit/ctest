@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<root>
+	<CommonResultRows>
+		<key>ID</key>
+		<value>searchResultDiv</value>
+	</CommonResultRows>
+
+	<RowInfo>
+		<key>ClassName</key>
+		<value>ui-list-item_BB</value>
+	</RowInfo>
+	
+	<PreviousPageBtn>
+		<key>ID</key>
+		<value>searchButtonPrevious</value>
+	</PreviousPageBtn>
+	
+	<NextPageBtn>
+		<key>ID</key>
+		<value>searchButtonNext</value>
+	</NextPageBtn>
+
+
+</root>

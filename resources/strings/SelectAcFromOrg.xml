@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<root>
+<AccountIDTxt>
+	<key>ID</key>
+	<value>account_id</value>
+</AccountIDTxt>
+
+<AccountNameTxt>
+	<key>ID</key>
+	<value>account_name</value>
+</AccountNameTxt>
+
+<SearchBtn>
+	<key>ID</key>
+	<value>account_search_button</value>
+</SearchBtn>
+
+<SelectAccountBtn>
+	<key>ClassName</key>
+	<value>select_account_button</value>
+</SelectAccountBtn>
+
+<AccountRow>
+	<key>ClassName</key>
+	<value>escm_evenrow</value>
+</AccountRow>
+
+</root>

@@ -34,4 +34,30 @@
 		<key>ID</key>
 		<value>signupTab</value>
 	</SignUpBtn>
+	
+	<LanguageLst>
+		<key>ID</key>
+		<value>lang</value>
+	</LanguageLst>
+	
+	<RecoverUsername>
+		<key>ID</key>
+		<value>recovery_username</value>
+	</RecoverUsername>
+	
+	<RecoverEmail>
+		<key>ID</key>
+		<value>recovery_email</value>
+	</RecoverEmail>
+	
+	<ResetPasswordBtn>
+		<key>ID</key>
+		<value>password_recovery_nextbutton</value>
+	</ResetPasswordBtn>
+	
+	<ResetPasswordHeadingLbl>
+		<key>ClassName</key>
+		<value>recover-pass-heading</value>
+	</ResetPasswordHeadingLbl>
+	
 </root>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<root>
+<OrderIdTxt>
+	<key>ID</key>
+	<value>orderNumber</value>
+</OrderIdTxt>
+
+<SubscriptionIDTxt>
+	<key>ID</key>
+	<value>ssid</value>
+</SubscriptionIDTxt>
+
+<OrganizationIDTxt>
+	<key>ID</key>
+	<value>customerID</value>
+</OrganizationIDTxt>
+
+<StatusLst>
+	<key>ID</key>
+	<value>orderStatus</value>
+</StatusLst>
+
+<OfferNameTxt>
+	<key>ID</key>
+	<value>offerName</value>
+</OfferNameTxt>
+
+<StartDateTxt>
+	<key>ID</key>
+	<value>startDate</value>
+</StartDateTxt>
+
+<EndDateTxt>
+	<key>ID</key>
+	<value>endDate</value>
+</EndDateTxt>
+
+<SearchBtn>
+	<key>ID</key>
+	<value>searchBtn</value>
+</SearchBtn>
+
+<ResetBtn>
+	<key>ID</key>
+	<value>resetBtn</value>
+</ResetBtn>
+
+</root>

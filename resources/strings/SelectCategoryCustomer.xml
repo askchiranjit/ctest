@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+
+<CategoryList>
+	<key>Xpath</key>
+	<value>//li[contains(@class,'lightGray')]//a</value>
+</CategoryList>
+
+</root>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<root>
+
+	<OkBtn>
+		<key>Xpath</key>
+		<value>//div[@id='suggestedServiceDialog']//following-sibling::div//span[text()='Ok']</value>
+	</OkBtn>
+	
+	<CancelBtn>
+		<key>Xpath</key>
+		<value>//div[@id='suggestedServiceDialog']//following-sibling::div//span[text()='Cancel']</value>
+	</CancelBtn>
+	
+</root>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root>
+
+	<OfferLet>
+		<key>ClassName</key>
+		<value>pOfferList</value>
+	</OfferLet>
+	
+	<OrderButtons>
+		<key>ClassName</key>
+		<value>black-button-shade</value>
+	</OrderButtons>
+
+</root>

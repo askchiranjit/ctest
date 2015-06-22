@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<root>
+	<OrganizationOfList>
+		<key>ID</key>
+		<value>searchCriteriaSP</value>
+	</OrganizationOfList>
+	
+	<SearchByLst>
+		<key>ID</key>
+		<value>searchCriteria</value>
+	</SearchByLst>
+	
+	<KeywordTxt>
+		<key>ID</key>
+		<value>searchCriteriaValue</value>
+	</KeywordTxt>
+	
+	<StreetName>
+		<key>ID</key>
+		<value>street_name</value>
+	</StreetName>
+	
+	<CityName>
+		<key>ID</key>
+		<value>city_name</value>
+	</CityName>
+	
+	<ZipCode>
+		<key>ID</key>
+		<value>zip</value>
+	</ZipCode>
+	
+	<ResellerNameOrVatTxt>
+		<key>ID</key>
+		<value>searchCriteriaValueReseller</value>
+	</ResellerNameOrVatTxt>
+	
+	<SearchBtn>
+		<key>ID</key>
+		<value>customerSearch</value>
+	</SearchBtn>
+	
+	<ResetBtn>
+		<key>Xpath</key>
+		<value>//*[@id="filters"]/div[2]/div[2]</value>
+	</ResetBtn>
+	
+	<SearchTypeSimilarSound>
+		<key>Xpath</key>
+		<value>//*[@id="phoneticSearchRadio"]/table/tbody/tr/td[1]</value>
+	</SearchTypeSimilarSound>
+	
+	<SearchTypeStartsWith>
+		<key>Xpath</key>
+		<value>//*[@id="normalSearchRadio"]/table/tbody/tr/td[1]</value>
+	</SearchTypeStartsWith>
+	
+	<SearchTypeContains>
+		<key>Xpath</key>
+		<value>//*[@id="deepSearchRadio"]/table/tbody/tr/td[1]</value>
+	</SearchTypeContains>
+</root>

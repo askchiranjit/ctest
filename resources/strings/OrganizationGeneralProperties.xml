@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<root>
+	<GeneralPropertiesLnk>
+		<key>Xpath</key>
+		<value>//div[contains(@id,'genDetails')]//h3//a[contains(text(),'General Properties')]</value>
+	</GeneralPropertiesLnk>
+	<StatusFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Status')]//following-sibling::td[1]</value>
+	</StatusFld>
+	<ChangeStatusBtn>
+		<key>ID</key>
+		<value>editStatus</value>
+	</ChangeStatusBtn>
+	<DefaultBCFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Default Business Contact')]//following-sibling::td</value>
+	</DefaultBCFld>
+	<DefaultTCFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Default Technical Contact')]//following-sibling::td</value>
+	</DefaultTCFld>
+	<VATNumberFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'VAT Number')]//following-sibling::td</value>
+	</VATNumberFld>
+	<CommunicationLangFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Communication Language')]//following-sibling::td</value>
+	</CommunicationLangFld>
+	<BillingLangFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Billing Language')]//following-sibling::td</value>
+	</BillingLangFld>
+	<MacroSegmentFld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Macro Segment')]//following-sibling::td</value>
+	</MacroSegmentFld>
+	<OrgOwnerInfoLnk>
+		<key>Xpath</key>
+		<value>//div[contains(@id,'genDetails')]//h3//a[contains(text(),'Organization owner information')]</value>
+	</OrgOwnerInfoLnk>
+	<OrgOwnedByFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Organization owned by')]//parent::td//following-sibling::td[1]</value>
+	</OrgOwnedByFld>
+	<OwnerTypeFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Owner type')]//parent::td//following-sibling::td[1]</value>
+	</OwnerTypeFld>
+	<ChangeOwnerBtn>
+		<key>ID</key>
+		<value>changeOwnershipButton</value>
+	</ChangeOwnerBtn>
+	<SalesRepAssignedFld>
+		<key>ID</key>
+		<value>saleRep_id</value>
+	</SalesRepAssignedFld>
+	<ChangeSalesRepBtn>
+		<key>ID</key>
+		<value>changeSalesRep</value>
+	</ChangeSalesRepBtn>
+	<SalesRepNameFld>
+		<key>ID</key>
+		<value>salesRep_name</value>
+	</SalesRepNameFld>
+	<SalesRepEmailFld>
+		<key>ID</key>
+		<value>salesRep_primaryEmail</value>
+	</SalesRepEmailFld>
+	<SalesRepMobileFld>
+		<key>ID</key>
+		<value>salesRep_contactNo</value>
+	</SalesRepMobileFld>
+	<SalesRepresentativeIDTxt>
+		<key>ID</key>
+		<value>salesRep_dummy</value>
+	</SalesRepresentativeIDTxt>
+	<SalesRepresentativeIDCheckBtn>
+		<key>ID</key>
+		<value>avlblSalesRep</value>
+	</SalesRepresentativeIDCheckBtn>
+	<CancelSalesRepresentativeEditBtn>
+		<key>ID</key>
+		<value>cancelSalesRepEdit</value>
+	</CancelSalesRepresentativeEditBtn>
+	<UpdateSalesRepresentativeEditBtn>
+		<key>ID</key>
+		<value>updateSalesRep</value>
+	</UpdateSalesRepresentativeEditBtn>
+	<OrgGlobalDiscountLnk>
+		<key>Xpath</key>
+		<value>//div[contains(@id,'genDetails')]//h3//a[contains(text(),'Organization Global Discount')]</value>
+	</OrgGlobalDiscountLnk>
+	<GlobalDiscountPresentFld>
+		<key>Xpath</key>
+		<value>//img[contains(@src,'check.png')]</value>
+	</GlobalDiscountPresentFld>
+	<GlobalDiscountNotPresentFld>
+		<key>ID</key>
+		<value>//img[contains(@src,'cross_new.png')]</value>
+	</GlobalDiscountNotPresentFld>
+	<OrgDiscountFld>
+		<key>Xpath</key>
+		<value>//tr[contains(@id,'discSpan')]//td[2]//div[1]</value>
+	</OrgDiscountFld>
+	<RevokeOnFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Revoked on')]//parent::td//following-sibling::td[1]</value>
+	</RevokeOnFld>
+	<RevokeByFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Revoked by')]//parent::td//following-sibling::td[1]</value>
+	</RevokeByFld>
+	<EnableDiscountBtn>
+		<key>Xpath</key>
+		<value>//span[contains(text(),'Enable')]</value>
+	</EnableDiscountBtn>
+	<EnabledSinceFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Enabled since')]//parent::td//following-sibling::td[1]</value>
+	</EnabledSinceFld>
+	<EnabledByFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Enabled by')]//parent::td//following-sibling::td[1]</value>
+	</EnabledByFld>
+	<RevokeDiscountBtn>
+		<key>Xpath</key>
+		<value>//span[contains(text(),'Revoke')]</value>
+	</RevokeDiscountBtn>
+	<EditDiscountBtn>
+		<key>ID</key>
+		<value>discEdit</value>
+	</EditDiscountBtn>
+	<EditDiscountTxt>
+		<key>ID</key>
+		<value>discEditText</value>
+	</EditDiscountTxt>
+	<CancelDiscountBtn>
+		<key>ID</key>
+		<value>cancelDiscEdit</value>
+	</CancelDiscountBtn>
+	<UpdateDiscountBtn>
+		<key>ID</key>
+		<value>updateDisc</value>
+	</UpdateDiscountBtn>
+	<CustomFieldsLnk>
+		<key>Xpath</key>
+		<value>//div[contains(@id,'genDetails')]//h3//a[contains(text(),'Custom Fields')]</value>
+	</CustomFieldsLnk>
+	<CustomField1Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field1')]//following-sibling::td</value>
+	</CustomField1Fld>
+	<CustomField2Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field2')]//following-sibling::td</value>
+	</CustomField2Fld>
+	<CustomField3Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field3')]//following-sibling::td</value>
+	</CustomField3Fld>
+	<CustomField4Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field4')]//following-sibling::td</value>
+	</CustomField4Fld>
+	<CustomField5Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field5')]//following-sibling::td</value>
+	</CustomField5Fld>
+	<CustomField6Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field6')]//following-sibling::td</value>
+	</CustomField6Fld>
+	<CustomField7Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field7')]//following-sibling::td</value>
+	</CustomField7Fld>
+	<CustomField8Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field8')]//following-sibling::td</value>
+	</CustomField8Fld>
+	<CustomField9Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field9')]//following-sibling::td</value>
+	</CustomField9Fld>
+	<CustomField10Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field10')]//following-sibling::td</value>
+	</CustomField10Fld>
+	<CustomField11Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field11')]//following-sibling::td</value>
+	</CustomField11Fld>
+	<CustomField12Fld>
+		<key>Xpath</key>
+		<value>//td[contains(text(),'Custom Field12')]//following-sibling::td</value>
+	</CustomField12Fld>
+</root>

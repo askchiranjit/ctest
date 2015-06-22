@@ -77,4 +77,67 @@ public class LoginScreen extends AppData
 			}
 		}
 		public SignUpBtn signUpBtn = new SignUpBtn();
+		
+		public class LanguageLst extends Element
+		{
+			public LanguageLst()
+			{
+				setElement(readAppData(this));
+			}
+			public void select(String data)
+			{
+				super.selectVisibleText(data);
+			}
+			public String getSelectedText()
+			{
+				return super.selectedText();
+			}
+		}
+		public LanguageLst languageLst = new LanguageLst();
+		
+		public class RecoverUsername extends Element
+		{
+			public RecoverUsername()
+			{
+				setElement(readAppData(this));
+			}
+			public String readDefaultString()
+			{
+				return super.getAttributeValue("placeholder");
+			}
+		}
+		public RecoverUsername recoverUsernameTxt = new RecoverUsername();
+		
+		public class RecoverEmail extends Element
+		{
+			public RecoverEmail()
+			{
+				setElement(readAppData(this));
+			}
+		}
+		public RecoverEmail recoverEmailTxt = new RecoverEmail();
+		
+		public class ResetPasswordBtn extends Element
+		{
+			public ResetPasswordBtn()
+			{
+				setElement(readAppData(this));
+			}
+			
+			@Override
+			public String read()
+			{
+				return super.getAttributeValue("value");
+			}
+		}
+		public ResetPasswordBtn resetPasswordBtn = new ResetPasswordBtn();
+		
+		public class ResetPasswordHeadingLbl extends Element
+		{
+			public ResetPasswordHeadingLbl()
+			{
+				setElement(readAppData(this));
+			}
+		}
+		public ResetPasswordHeadingLbl resetPasswordHeadingLbl = new ResetPasswordHeadingLbl();
 	}

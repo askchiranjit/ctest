@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <root>
-	<ResultRows>
-		<key>ID</key>
-		<value>selectable</value>
-	</ResultRows>
-
-	<RowInfo>
+	<CommonTable>
 		<key>ClassName</key>
-		<value>ui-list-item_BB</value>
-	</RowInfo>
+		<value>ui-list-item-4</value>
+	</CommonTable>
+	
+	<ActionButtonInfo>
+		<key>ClassName</key>
+		<value>secondary_button</value>
+	</ActionButtonInfo>
 	
 	<PreviousPageBtn>
 		<key>ID</key>
@@ -19,6 +19,5 @@
 		<key>ID</key>
 		<value>searchButtonNext</value>
 	</NextPageBtn>
-
-
+	
 </root>

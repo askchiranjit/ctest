@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+
+<ResourcesHeadingTxt>
+    <key>ClassName</key>
+	<value>menuHeading</value>
+</ResourcesHeadingTxt>
+
+<AddResourcesBtn>
+    <key>ID</key>
+	<value>addResource</value>
+</AddResourcesBtn>
+
+<EditResourcesBtn>
+    <key>ID</key>
+	<value>editresource</value>
+</EditResourcesBtn>
+
+</root>

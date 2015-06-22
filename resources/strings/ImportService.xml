@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<root>
+	<BrowseBtn>
+		<key>Xpath</key>
+		<value>//input[@type='file' and @name='myFile']</value>
+	</BrowseBtn>
+	<ImportBtn>
+		<key>Xpath</key>
+		<value>//input[@type='submit' and @value='Import']</value>	
+	</ImportBtn>
+</root>

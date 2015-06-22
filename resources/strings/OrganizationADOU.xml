@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<root>
+	<OrgADOUUserNameSuffixFld>
+		<key>ID</key>
+		<value>domainUpntext</value>
+	</OrgADOUUserNameSuffixFld>
+	<OrgADOUContactEmailIDFld>
+		<key>ID</key>
+		<value>domainEmailText</value>
+	</OrgADOUContactEmailIDFld>
+	<OrgADOURoleFld>
+		<key>ID</key>
+		<value>ossadminroleText</value>
+	</OrgADOURoleFld>
+	<OrgADOUCreationStatusFld>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'AD OU Creation Status')]//parent::td//following-sibling::td</value>
+	</OrgADOUCreationStatusFld>
+	<OrgADOUEditBtn>
+		<key>ID</key>
+		<value>editDomainInfo_1</value>
+	</OrgADOUEditBtn>
+	<OrgADOUUserNameSuffixEditTxt>
+		<key>ID</key>
+		<value>upnSuffixedit</value>
+	</OrgADOUUserNameSuffixEditTxt>
+	<OrgADOUContactEmailIDEditTxt>
+		<key>ID</key>
+		<value>emailedit</value>
+	</OrgADOUContactEmailIDEditTxt>
+	<OrgADOUCancelBtn>
+		<key>ID</key>
+		<value>cancelDomainInfo_1</value>
+	</OrgADOUCancelBtn>
+	<OrgADOUUpdateBtn>
+		<key>ID</key>
+		<value>updateDomainInfolink_1</value>
+	</OrgADOUUpdateBtn>
+</root>

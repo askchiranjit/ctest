@@ -1,61 +1,43 @@
-package com.ensimtest.tests;
+package com.ensimtest.tests.regression;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.AlertHandler;
 import com.ensimtest.config.Browser;
-import com.ensimtest.config.DriverSettings;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.resource.GetEASMessages;
-import com.ensimtest.resource.PropertyReader;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
 
 public class SignUpTestCases 
 {
-	
-	private DriverSettings settings;
 	private Browser browser;
-	private static String baseURL;
-	private static String browserName;
-	private RandomData Rd=new RandomData();
+	private RandomData randomData=new RandomData();
 	private GetEASMessages getMessage=new GetEASMessages();
-
-	public SignUpTestCases()
-	{
-		settings = new DriverSettings();
-		browser = new Browser();
-	}
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
-		PropertyReader pr=new PropertyReader();
-		baseURL=pr.getURL();
-		browserName=pr.getBrowserName();
 	}
-
 
 	@BeforeMethod
 	public void setUp()
 	{
-		settings.setUpDriver(browserName, 10);
+		browser = new Browser();
 	}
 
 	@AfterMethod
 	public void tearDown()
 	{
-		settings.closeDriver();
+		browser.close();
 	}
 
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -69,13 +51,13 @@ public class SignUpTestCases
 		String cityName=testData.get("cityName").toString();
 		
 		// Generating random values
-		String Email=Rd.getRandomEmailID();
-		String phno=Rd.getRandomNum(11);
-		String zipCode=Rd.getRandomNum(6);
-		String corporateID=Rd.getRandomAlfaNumeric(6);
+		String Email=randomData.getRandomEmailID();
+		String phno=randomData.getRandomNum(11);
+		String zipCode=randomData.getRandomNum(6);
+		String corporateID=randomData.getRandomAlfaNumeric(6);
 		
 		// Open the browser and goto site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Click on sign up link
 		LoginScreen loginScreen = new LoginScreen();
@@ -119,11 +101,11 @@ public class SignUpTestCases
 	public void selfRegWithDuplicateEmail(HashMap<?, ?> testData)
 	{
 		// Generating random values
-		String orgName=Rd.getRandomAlfaNumeric(6);
+		String orgName=randomData.getRandomAlfaNumeric(6);
 		//Get test data from data provider
 		String duplicateEmail=testData.get("duplicateEmail").toString();
 	   // Open the browser and goto site
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		
 		// Click on sign up link
 		LoginScreen loginScreen = new LoginScreen();
@@ -143,14 +125,14 @@ public class SignUpTestCases
 	@Test
 	public void signupValidations()
 	{
-		browser.navigateTo(baseURL);
+		browser.navigateTo();
 		// Generating random values
-		String orgName=Rd.getRandomString(4);
-		String email=Rd.getRandomEmailID();
-		String phNo=Rd.getRandomNum(12);
-		String zipCode=Rd.getRandomNum(6);
-		String state=Rd.getRandomString(3);
-		String city=Rd.getRandomString(3);
+		String orgName=randomData.getRandomString(4);
+		String email=randomData.getRandomEmailID();
+		String phNo=randomData.getRandomNum(12);
+		String zipCode=randomData.getRandomNum(6);
+		String state=randomData.getRandomString(3);
+		String city=randomData.getRandomString(3);
 		// Click on sign up link
 		LoginScreen loginScreen = new LoginScreen();
 		loginScreen.signUpBtn.click();

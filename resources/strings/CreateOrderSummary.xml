@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<root>
+
+<EmailBCLbl>
+	<key>ID</key>
+	<value>summary_BC</value>
+</EmailBCLbl>
+
+<EmailTCLbl>
+	<key>ID</key>
+	<value>summary_TC</value>
+</EmailTCLbl>
+
+<ServiceAccountLbl>
+	<key>ID</key>
+	<value>summary_service_account_name</value>
+</ServiceAccountLbl>
+
+<BillableAccountLbl>
+	<key>ID</key>
+	<value>summary_billing_account_name</value>
+</BillableAccountLbl>
+
+<IAgreeTC>
+	<key>XPath</key>
+	<value>//*[@id="TandCdialog_data"]/div[2]/table/tbody/tr/td[1]</value>
+</IAgreeTC>
+
+<IDisagreeTC>
+	<key>XPath</key>
+	<value>//*[@id="TandCdialog_data"]/div[2]/table/tbody/tr/td[4]</value>
+</IDisagreeTC>
+
+<InternalNotesTC>
+	<key>ID</key>
+	<value>TnC_message</value>
+</InternalNotesTC>
+
+<CloseTCBtn>
+	<key>Xpath</key>
+	<value>//html/body/div[10]/div[3]/div/button/span[text()='close']</value>
+</CloseTCBtn>
+
+<SubmitTCBtn>
+	<key>Xpath</key>
+	<value>//html/body/div[10]/div[3]/div/button/span[text()='submit']</value>
+</SubmitTCBtn>
+
+<ApproveOrder>
+	<key>ID</key>
+	<value>momofexe</value>
+</ApproveOrder>
+
+<ApproveOrderCancelBtn>
+	<key>Xpath</key>
+	<value>//html/body/div[11]/div[3]/div/button/span[text()='Cancel']</value>
+</ApproveOrderCancelBtn>
+
+<ApproveOrderApproveNowBtn>
+	<key>Xpath</key>
+	<value>//button//span[text()='Approve Now']</value>
+</ApproveOrderApproveNowBtn>
+
+<ApproveOrderMsgLbl>
+	<key>ID</key>
+	<value>approved_msg</value>
+</ApproveOrderMsgLbl>
+
+<OrderNOCustomer>
+	<key>Xpath</key>
+	<value>//div[@id='suggestedServicesDiv']//table[@class='bb_center']//div//b</value>
+</OrderNOCustomer>
+
+<GotoCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='wiz_visit_cart']//span[contains(text(),'Go to CART')]</value>
+</GotoCartBtn>
+
+
+</root>
