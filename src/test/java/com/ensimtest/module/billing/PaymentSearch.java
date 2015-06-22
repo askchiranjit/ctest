@@ -27,6 +27,10 @@ public class PaymentSearch extends AppData{
 		{
 			setElement(readAppData(this));
 		}
+		public void select(String data)
+		{
+			super.selectVisibleText(data);
+		}
 	}
 	public PaymentByLst paymentByLst = new PaymentByLst();
 	

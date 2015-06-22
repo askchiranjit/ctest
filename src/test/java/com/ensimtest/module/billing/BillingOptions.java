@@ -23,7 +23,7 @@ public class BillingOptions extends AppData
 		}	
 
 	}
-	public BillingMenu billingMenu = new BillingMenu();
+	public BillingMenu menu = new BillingMenu();
 
 	public class InvoicesLink extends Element{
 		public InvoicesLink()
