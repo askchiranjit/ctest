@@ -7,7 +7,7 @@
 
 	<ListOrderLnk>
 		<key>Xpath</key>
-		<value>//a[text()='List Order']</value>
+		<value>//a[contains(text(),'List Orders')]</value>
 	</ListOrderLnk>
 
 	<CreateOrderLnk>
