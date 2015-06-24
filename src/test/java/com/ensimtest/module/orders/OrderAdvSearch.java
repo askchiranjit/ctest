@@ -162,7 +162,7 @@ public class OrderAdvSearch extends AppData{
 			setElement(readAppData(this));
 		}
 	}
-	public BillingStartDate BillingStartDate = new BillingStartDate();
+	public BillingStartDate billingStartDate = new BillingStartDate();
 
 	public class ProvisionedDate extends Element{
 		public ProvisionedDate()
