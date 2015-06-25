@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+
+<CancelBtn>
+<key>ID</key>
+<value>cancelCusPaymentListButton</value>
+</CancelBtn>
+
+<ProceedBtn>
+<key>ID</key>
+<value>searchButtonNext</value>
+</ProceedBtn>
+
+
+
+</root>
