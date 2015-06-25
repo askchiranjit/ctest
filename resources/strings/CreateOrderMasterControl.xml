@@ -56,4 +56,19 @@
 	<value>//a[@id='addToCart']//span[contains(text(),'Add to CART')]</value>
 </AddToCartBtn>
 
+<SaveToCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='saveCart']//span[contains(text(),'Save CART')]</value>
+</SaveToCartBtn>
+
+<PlaceUpgradeBtn>
+	<key>ID</key>
+	<value>create</value>
+</PlaceUpgradeBtn>
+
+<SaveAsDraftCusBtn>
+	<key>Xpath</key>
+	<value>//span[contains(text(),'Save as Draft')]//parent::a</value>
+</SaveAsDraftCusBtn>
+
 </root>

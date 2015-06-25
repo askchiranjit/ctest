@@ -1,5 +1,6 @@
 package com.ensimtest.tests.orderBct;
 
+import java.awt.Button;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -19,9 +20,12 @@ import com.ensimtest.module.orders.CreateOrderProvisioningInfo;
 import com.ensimtest.module.orders.CreateOrderSelectCategory;
 import com.ensimtest.module.orders.CreateOrderSelectItems;
 import com.ensimtest.module.orders.CreateOrderSummary;
+import com.ensimtest.module.orders.OfferUpgradableTo;
+import com.ensimtest.module.orders.OfferUpgradableTo.UpgradeOffersDetails;
 import com.ensimtest.module.orders.OrderActionCustomer;
 import com.ensimtest.module.orders.OrderAndSubscription;
 import com.ensimtest.module.orders.OrderAndSubscription.SubsribedOrderDetails;
+import com.ensimtest.module.orders.OrderCancelPopUP;
 import com.ensimtest.module.orders.OrderDetails;
 import com.ensimtest.module.orders.SearchOrder;
 import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
@@ -30,6 +34,8 @@ import com.ensimtest.module.orders.OrderProvisioningInfo.ProvItemLst;
 import com.ensimtest.module.orders.SelectCategoryCustomer;
 import com.ensimtest.module.orders.SelectOfferCustomer;
 import com.ensimtest.module.orders.SelectOfferCustomer.OfferDetails;
+import com.ensimtest.module.orders.UpsizeOrderSelectItems;
+import com.ensimtest.module.orders.UpsizeOrderSelectItems.UpsizeItemRow;
 import com.ensimtest.module.utility.PerformAction;
 import com.ensimtest.resource.GetEASMessages;
 import com.ensimtest.resource.TestDataProvider;
@@ -239,18 +245,631 @@ public class OrderCustomerBCT
 //
 //	}
 
+//	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+//	public void upsizeOrder(HashMap<?, ?> testData) throws Exception
+//	{
+//		
+//		boolean flag=false;
+//		
+//		// Get data from test-data (XLS based)
+//		String userName=testData.get("UserName").toString();
+//		String password=testData.get("password").toString();
+//		String offerName=testData.get("offerName").toString();
+//		String itemDetails=testData.get("itemDetails").toString();
+//
+//
+//		// Navigate to ENSIM site
+//		browser.navigateTo();
+//
+//		LoginScreen loginScreen = new LoginScreen();
+//		loginScreen.username.write(userName);
+//		loginScreen.password.write(password);
+//
+//		// Click on login button
+//		loginScreen.loginBtn.click();
+//		
+//		OrderAndSubscription orderAndSubscription=new OrderAndSubscription();
+//		
+//		SubsribedOrderDetails orderDetails[]=orderAndSubscription.orderList.getOrders();
+//		
+//		for(int i=0;i<orderDetails.length;i++)
+//		{
+//			if(offerName.equalsIgnoreCase(orderDetails[i].offerName))
+//			{
+//				flag=true;
+//				orderDetails[i].actionButton.click();
+//			}
+//		}
+//		
+//
+//		
+//		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
+//		orderActionCustomer.upsizeBtn.click();
+//		System.out.println("Clicked");
+//		
+//		TestUtils.delay(10000);
+//		
+//		PerformAction performActn=new PerformAction();
+//		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+//		UpsizeItemRow itemr[]=items.getItemRows(browser);
+//		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+//		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+//		
+//		
+//		for(int i=0;i<itemr.length;i++)
+//		{
+//			System.out.println(itemr[i].itemName);
+//			System.out.println(itemr[i].checkBox);
+//			System.out.println(itemr[i].checkedMark);
+//			System.out.println(itemr[i].listBox);
+//			System.out.println(itemr[i].textBox);
+//		}
+//		
+//		for(int i=0;i<itemdetailslst.length;i++)
+//		{
+//			for(int j=0;j<itemr.length;j++)
+//			{
+//				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+//				{
+//					if(itemdetailslst[i].operation==true)
+//					{
+//						if(itemdetailslst[i].checkbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+//						}
+//
+//						if(itemdetailslst[i].textbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+//						}
+//						if(itemdetailslst[i].dropdown==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+//						}
+//					}
+//
+//					break;
+//				}
+//			}
+//		}
+//		
+//		
+//
+//		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+//		buttons.continueBtn.click();
+//		TestUtils.delay(5000);
+//		buttons.continueBtn.click();
+//		TestUtils.delay(5000);
+//		buttons.continueBtn.click();
+//		TestUtils.delay(5000);
+//		buttons.saveToCartBtn.click();
+//		
+//		CreateOrderSummary summary = new CreateOrderSummary();
+//
+//		String orderNo=summary.orderNOCustomer.read().trim();
+//
+//		summary.gotoCartBtn.click();
+//
+//		TestUtils.delay(5000);
+//
+//
+//		CreateOrderCart createOrderCart=new CreateOrderCart();
+//		CartOrderDetails cartOrderDetails[]=createOrderCart.cartDetails.getOrderList();
+//
+//		for(int i=0;i<cartOrderDetails.length;i++)
+//		{
+//			if(orderNo.equalsIgnoreCase(cartOrderDetails[i].orderNo.read()))
+//			{
+//				cartOrderDetails[i].checkBox.click();
+//				break;
+//			}
+//		}
+//		TestUtils.delay(5000);
+//		createOrderCart.checkoutBtn.click();
+//		TestUtils.delay(5000);
+//		createOrderCart.yesBtn.click();
+//		TestUtils.delay(5000);
+//		Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_upsize_success"));
+//	}
+	
+//	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+//	public void downsizeOrder(HashMap<?, ?> testData) throws Exception
+//	{
+//		
+//		boolean flag=false;
+//		
+//		// Get data from test-data (XLS based)
+//		String userName=testData.get("UserName").toString();
+//		String password=testData.get("password").toString();
+//		String offerName=testData.get("offerName").toString();
+//		String itemDetails=testData.get("itemDetails").toString();
+//
+//
+//		// Navigate to ENSIM site
+//		browser.navigateTo();
+//
+//		LoginScreen loginScreen = new LoginScreen();
+//		loginScreen.username.write(userName);
+//		loginScreen.password.write(password);
+//
+//		// Click on login button
+//		loginScreen.loginBtn.click();
+//		
+//		OrderAndSubscription orderAndSubscription=new OrderAndSubscription();
+//		
+//		SubsribedOrderDetails orderDetails[]=orderAndSubscription.orderList.getOrders();
+//		
+//		for(int i=0;i<orderDetails.length;i++)
+//		{
+//			if(offerName.equalsIgnoreCase(orderDetails[i].offerName))
+//			{
+//				flag=true;
+//				orderDetails[i].actionButton.click();
+//			}
+//		}
+//		
+//
+//		
+//		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
+//		orderActionCustomer.downsizeBtn.click();
+//		System.out.println("Clicked");
+//		
+//		TestUtils.delay(10000);
+//		
+//		PerformAction performActn=new PerformAction();
+//		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+//		UpsizeItemRow itemr[]=items.getItemRows(browser);
+//		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+//		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+//	
+//
+//		for(int i=0;i<itemdetailslst.length;i++)
+//		{
+//			for(int j=0;j<itemr.length;j++)
+//			{
+//				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+//				{
+//					if(itemdetailslst[i].operation==true)
+//					{
+//						if(itemdetailslst[i].checkbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+//						}
+//
+//						if(itemdetailslst[i].textbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+//						}
+//						if(itemdetailslst[i].dropdown==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+//						}
+//					}
+//
+//					break;
+//				}
+//			}
+//		}
+//		
+//		
+//
+//		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+//		buttons.continueBtn.click();
+//		TestUtils.delay(5000);
+//		buttons.continueBtn.click();
+//		TestUtils.delay(5000);
+//		buttons.continueBtn.click();
+//		TestUtils.delay(5000);
+//		buttons.saveToCartBtn.click();
+//		
+//		CreateOrderSummary summary = new CreateOrderSummary();
+//
+//		String orderNo=summary.orderNOCustomer.read().trim();
+//
+//		summary.gotoCartBtn.click();
+//
+//		TestUtils.delay(5000);
+//
+//
+//		CreateOrderCart createOrderCart=new CreateOrderCart();
+//		CartOrderDetails cartOrderDetails[]=createOrderCart.cartDetails.getOrderList();
+//
+//		for(int i=0;i<cartOrderDetails.length;i++)
+//		{
+//			if(orderNo.equalsIgnoreCase(cartOrderDetails[i].orderNo.read()))
+//			{
+//				cartOrderDetails[i].checkBox.click();
+//				break;
+//			}
+//		}
+//		TestUtils.delay(5000);
+//		createOrderCart.checkoutBtn.click();
+//		TestUtils.delay(5000);
+//		createOrderCart.yesBtn.click();
+//		TestUtils.delay(5000);
+//		Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_upsize_success"));
+//	}
+	
+	
+//	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+//	public void upgradeOrder(HashMap<?, ?> testData) throws Exception
+//	{
+//		
+//		boolean flag=false;
+//		
+//		// Get data from test-data (XLS based)
+//		String userName=testData.get("UserName").toString();
+//		String password=testData.get("password").toString();
+//		String offerName=testData.get("offerName").toString();	
+//		String upgradeOfferName=testData.get("upgradeOfferName").toString();
+//		String itemDetails=testData.get("itemDetails").toString();
+//		String provInfo=testData.get("provInfoDetails").toString();
+//		
+//		// Navigate to ENSIM site
+//		browser.navigateTo();
+//
+//		LoginScreen loginScreen = new LoginScreen();
+//		loginScreen.username.write(userName);
+//		loginScreen.password.write(password);
+//
+//		// Click on login button
+//		loginScreen.loginBtn.click();
+//		
+//		OrderAndSubscription orderAndSubscription=new OrderAndSubscription();
+//		
+//		SubsribedOrderDetails orderDetails[]=orderAndSubscription.orderList.getOrders();
+//		
+//		for(int i=0;i<orderDetails.length;i++)
+//		{
+//			if(offerName.equalsIgnoreCase(orderDetails[i].offerName))
+//			{
+//				flag=true;
+//				orderDetails[i].actionButton.click();
+//			}
+//		}
+//		
+//
+//		
+//		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
+//		orderActionCustomer.upgradeBtn.click();
+//		System.out.println("Clicked");
+//		
+//		
+//		
+//		OfferUpgradableTo offerUpTo=new OfferUpgradableTo();
+//		UpgradeOffersDetails upgradeOfferDetails[]=offerUpTo.upgradableOffers.getOfferLst();
+//		
+//		for(int i=0;i<upgradeOfferDetails.length;i++)
+//		{
+//			if(upgradeOfferDetails[i].offerName.equalsIgnoreCase(upgradeOfferName))
+//			{
+//				System.out.println("Inside");
+//				upgradeOfferDetails[i].offerLink.click();
+//				break;
+//			}
+//		}
+//		
+//	
+//		CreateOrderMasterControl createOrderMasterControl=new CreateOrderMasterControl();
+//		createOrderMasterControl.placeUpgradeBtn.click();
+//	
+//		TestUtils.delay(5000);
+//		
+//		PerformAction performActn=new PerformAction();
+//		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+//		UpsizeItemRow itemr[]=items.getItemRows(browser);
+//		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+//		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+//		
+//		for(int i=0;i<itemdetailslst.length;i++)
+//		{
+//			for(int j=0;j<itemr.length;j++)
+//			{
+//				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+//				{
+//					if(itemdetailslst[i].operation==true)
+//					{
+//						if(itemdetailslst[i].checkbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+//						}
+//
+//						if(itemdetailslst[i].textbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+//						}
+//						if(itemdetailslst[i].dropdown==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+//						}
+//					}
+//
+//					break;
+//				}
+//			}
+//		}
+//		
+//		
+//		TestUtils.delay(6000);
+//		
+//		
+//		createOrderMasterControl.continueBtn.click();
+//		TestUtils.delay(3000);
+//		createOrderMasterControl.continueBtn.click();
+//
+//		OrderProvisioningInfo prov = new OrderProvisioningInfo();
+//		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
+//
+//		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
+//		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
+//
+//
+//		for(int i=0;i<provInfoDetails.length;i++)
+//		{
+//			for(int j=0;j<provItemLst.length;j++)
+//			{
+//				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
+//				{
+//					System.out.println("Inside");
+//					if(provInfoDetails[i].operation==true)
+//					{
+//						if(provInfoDetails[i].checkbox==true)
+//						{
+//							performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+//						}
+//
+//						if(provInfoDetails[i].textbox==true)
+//						{
+//							performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
+//						}
+//						if(provInfoDetails[i].dropdown==true)
+//						{
+//							performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
+//						}
+//					}
+//
+//					break;
+//				}
+//			}
+//		}
+//
+//		TestUtils.delay(2000);
+//		createOrderMasterControl.continueBtn.click();
+//		TestUtils.delay(10000);
+//		createOrderMasterControl.saveAsDraftCusBtn.click();
+//		
+//		TestUtils.delay(10000);
+//		
+//		CreateOrderSummary summary = new CreateOrderSummary();
+//
+//		
+//		String orderNo=summary.orderNOUpgradeCustomer.read().trim();
+//		System.out.println(orderNo);
+//		summary.gotoCartBtn.click();
+//
+//		TestUtils.delay(5000);
+//
+//
+//		CreateOrderCart createOrderCart=new CreateOrderCart();
+//		CartOrderDetails cartOrderDetails[]=createOrderCart.cartDetails.getOrderList();
+//
+//		for(int i=0;i<cartOrderDetails.length;i++)
+//		{
+//			if(orderNo.equalsIgnoreCase(cartOrderDetails[i].orderNo.read()))
+//			{
+//				cartOrderDetails[i].checkBox.click();
+//				break;
+//			}
+//		}
+//		TestUtils.delay(5000);
+//		createOrderCart.checkoutBtn.click();
+//		TestUtils.delay(5000);
+//		createOrderCart.yesBtn.click();
+//		TestUtils.delay(5000);
+//		Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_upsize_success"));
+//		
+//		
+//		
+//	}
+	
+//	
+//	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
+//	public void downgradeOrder(HashMap<?, ?> testData) throws Exception
+//	{
+//		
+//		boolean flag=false;
+//		
+//		// Get data from test-data (XLS based)
+//		String userName=testData.get("UserName").toString();
+//		String password=testData.get("password").toString();
+//		String offerName=testData.get("offerName").toString();	
+//		String downgradeOfferName=testData.get("downgradeOfferName").toString();
+//		String itemDetails=testData.get("itemDetails").toString();
+//		String provInfo=testData.get("provInfoDetails").toString();
+//		
+//		// Navigate to ENSIM site
+//		browser.navigateTo();
+//
+//		LoginScreen loginScreen = new LoginScreen();
+//		loginScreen.username.write(userName);
+//		loginScreen.password.write(password);
+//
+//		// Click on login button
+//		loginScreen.loginBtn.click();
+//		
+//		OrderAndSubscription orderAndSubscription=new OrderAndSubscription();
+//		
+//		SubsribedOrderDetails orderDetails[]=orderAndSubscription.orderList.getOrders();
+//		
+//		for(int i=0;i<orderDetails.length;i++)
+//		{
+//			if(offerName.equalsIgnoreCase(orderDetails[i].offerName))
+//			{
+//				flag=true;
+//				orderDetails[i].actionButton.click();
+//			}
+//		}
+//		
+//
+//		
+//		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
+//		orderActionCustomer.downgradeBtn.click();
+//		System.out.println("Clicked");
+//		
+//		
+//		
+//		OfferUpgradableTo offerUpTo=new OfferUpgradableTo();
+//		UpgradeOffersDetails upgradeOfferDetails[]=offerUpTo.upgradableOffers.getOfferLst();
+//		
+//		for(int i=0;i<upgradeOfferDetails.length;i++)
+//		{
+//			if(upgradeOfferDetails[i].offerName.equalsIgnoreCase(downgradeOfferName))
+//			{
+//				System.out.println("Inside");
+//				upgradeOfferDetails[i].offerLink.click();
+//				break;
+//			}
+//		}
+//		
+//	
+//		CreateOrderMasterControl createOrderMasterControl=new CreateOrderMasterControl();
+//		createOrderMasterControl.placeUpgradeBtn.click();
+//	
+//		TestUtils.delay(5000);
+//		
+//		PerformAction performActn=new PerformAction();
+//		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+//		UpsizeItemRow itemr[]=items.getItemRows(browser);
+//		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+//		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+//		
+//		for(int i=0;i<itemdetailslst.length;i++)
+//		{
+//			for(int j=0;j<itemr.length;j++)
+//			{
+//				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+//				{
+//					if(itemdetailslst[i].operation==true)
+//					{
+//						if(itemdetailslst[i].checkbox==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+//						}
+//
+//						if(itemdetailslst[i].textbox==true)
+//						{
+//							System.out.println(itemr[j].itemName);
+//							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+//						}
+//						if(itemdetailslst[i].dropdown==true)
+//						{
+//							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+//						}
+//					}
+//
+//					break;
+//				}
+//			}
+//		}
+//		
+//		
+//		TestUtils.delay(6000);
+//		
+//		
+//		createOrderMasterControl.continueBtn.click();
+//		TestUtils.delay(3000);
+//		createOrderMasterControl.continueBtn.click();
+//
+//		OrderProvisioningInfo prov = new OrderProvisioningInfo();
+//		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
+//
+//		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
+//		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
+//
+//
+//		for(int i=0;i<provInfoDetails.length;i++)
+//		{
+//			for(int j=0;j<provItemLst.length;j++)
+//			{
+//				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
+//				{
+//					System.out.println("Inside");
+//					if(provInfoDetails[i].operation==true)
+//					{
+//						if(provInfoDetails[i].checkbox==true)
+//						{
+//							performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+//						}
+//
+//						if(provInfoDetails[i].textbox==true)
+//						{
+//							performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
+//						}
+//						if(provInfoDetails[i].dropdown==true)
+//						{
+//							performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
+//						}
+//					}
+//
+//					break;
+//				}
+//			}
+//		}
+//
+//		TestUtils.delay(2000);
+//		createOrderMasterControl.continueBtn.click();
+//		TestUtils.delay(10000);
+//		createOrderMasterControl.saveAsDraftCusBtn.click();
+//		
+//		TestUtils.delay(10000);
+//		
+//		CreateOrderSummary summary = new CreateOrderSummary();
+//
+//		
+//		String orderNo=summary.orderNOUpgradeCustomer.read().trim();
+//		System.out.println(orderNo);
+//		summary.gotoCartBtn.click();
+//
+//		TestUtils.delay(5000);
+//
+//
+//		CreateOrderCart createOrderCart=new CreateOrderCart();
+//		CartOrderDetails cartOrderDetails[]=createOrderCart.cartDetails.getOrderList();
+//
+//		for(int i=0;i<cartOrderDetails.length;i++)
+//		{
+//			if(orderNo.equalsIgnoreCase(cartOrderDetails[i].orderNo.read()))
+//			{
+//				cartOrderDetails[i].checkBox.click();
+//				break;
+//			}
+//		}
+//		TestUtils.delay(5000);
+//		createOrderCart.checkoutBtn.click();
+//		TestUtils.delay(5000);
+//		createOrderCart.yesBtn.click();
+//		TestUtils.delay(5000);
+//		Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_upsize_success"));
+////		
+//		
+//		
+//	}
+//	
+	
+	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void upsizeOrder(HashMap<?, ?> testData) throws Exception
+	public void cancleFromStableState(HashMap<?, ?> testData) throws Exception
 	{
 		
 		boolean flag=false;
-		
-		// Get data from test-data (XLS based)
+		boolean deleted=true;
 		String userName=testData.get("UserName").toString();
 		String password=testData.get("password").toString();
-		String offerName=testData.get("offerName").toString();
-
-
+		String offerName=testData.get("offerName").toString();	
+		String comment=testData.get("comment").toString();
+		String resonForCancel=testData.get("resonForCancel").toString();
+		
+		
 		// Navigate to ENSIM site
 		browser.navigateTo();
 
@@ -274,14 +893,32 @@ public class OrderCustomerBCT
 			}
 		}
 		
-		TestUtils.delay(10000);
+
 		
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
-		orderActionCustomer.upgradeBtn.click();
+		orderActionCustomer.cancelBtn.click();
 		
-	}
-	
-	
+		OrderCancelPopUP orderCancelPopUP=new OrderCancelPopUP();
+		orderCancelPopUP.reasonLst.selectReason(resonForCancel);
+		orderCancelPopUP.commentTxt.write(comment);
+		orderCancelPopUP.oKBtn.click();
+	   
+		TestUtils.delay(10000);
+		
+		SubsribedOrderDetails orderDetailsAfterCancle[]=orderAndSubscription.orderList.getOrders();
+		
+		for(int i=0;i<orderDetailsAfterCancle.length;i++)
+		{
+			if(offerName.equalsIgnoreCase(orderDetailsAfterCancle[i].offerName))
+			{
+				deleted=false;
+				break;
+			}
+		}
+		
+		Assert.assertEquals(deleted, true);
+		
+    }
 	
 	}
 	

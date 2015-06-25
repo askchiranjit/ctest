@@ -23,12 +23,7 @@ public class CreateOrderCart extends AppData
 			this.removeBtn=setElement(elementSet.getSubElementSet(e, "Xpath", "td[4]//table//tbody//tr//td//a[@id='abort']"));
 			String []temp = setElement(elementSet.getSubElementSet(e, "Xpath", "td[4]//table//tbody//tr//td[@class='borderAllAroundgrey']")).read().split(" ");
 			this.totalAmount = temp[temp.length-1].trim();
-			System.out.println(this.offerName);
-			System.out.println(this.orderNo);
-			System.out.println(this.checkBox);
-			System.out.println(this.editBtn);
-			System.out.println(this.removeBtn);
-			System.out.println(this.totalAmount);
+
 		}
 	}
 	
