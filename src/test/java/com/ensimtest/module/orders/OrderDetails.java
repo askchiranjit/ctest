@@ -94,4 +94,67 @@ public class OrderDetails extends AppData
 		}
 	}
 	public OrderDetailsButtons buttons = new OrderDetailsButtons();
+	
+	public class ViewNotification extends Element
+	{
+		public ViewNotification()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ViewNotification viewNotification = new ViewNotification();
+
+	public class GenerateQuote extends Element
+	{
+		public GenerateQuote()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public GenerateQuote generateQuote = new GenerateQuote();
+
+	public class ManageInstallments extends Element
+	{
+		public ManageInstallments()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ManageInstallments manageInstallments = new ManageInstallments();
+
+	public class ConfirmOrderFulfillment extends Element
+	{
+		public ConfirmOrderFulfillment()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ConfirmOrderFulfillment confirmOrderFulfillment = new ConfirmOrderFulfillment();
+
+	public class InitiateBilling extends Element
+	{
+		public InitiateBilling()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public InitiateBilling initiateBilling = new InitiateBilling();
+
+	public class ManageRenewal extends Element
+	{
+		public ManageRenewal()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public ManageRenewal manageRenewal = new ManageRenewal();
+
+	public class AdjustOrderData extends Element
+	{
+		public AdjustOrderData()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public AdjustOrderData adjustOrderData = new AdjustOrderData();
 }

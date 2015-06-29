@@ -59,6 +59,7 @@ public class OrderList extends AppData
 		}
 		public Element[] getResultRow(String childType, String childValue)
 		{
+			System.out.println(childType + " : " + childValue);
 			ElementSet set = new ElementSet();
 			Element []elements = set.getSubElementSet(super.getElement(), childType, childValue);
 			return elements;
@@ -109,9 +110,13 @@ public class OrderList extends AppData
 			break;
 		}
 		CommonResultRows resultRows = new CommonResultRows(info);
+		
+		System.out.println("CommonResultRows : "  + info[0] + info[1]);
+		
 		RowInfo rowInfo = new RowInfo();
 		Element[] elements = resultRows.getResultRow(rowInfo.info[0], rowInfo.info[1]);
 
+		System.out.println("Row " + elements);
 		OrderRow []row = new OrderRow[elements.length];
 		for(int i=0; i<elements.length; i++)
 		{
