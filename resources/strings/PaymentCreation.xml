@@ -1,16 +1,100 @@
 <?xml version="1.0"?>
-<root>
+<root>>
+	<OrganizationPaymentTab>
+	<key>Xpath</key>
+		<value>//a[text()='Organization Payments']</value>
+	</OrganizationPaymentTab>
+	
 	<PaymentReceivedRdo>
 		<key>Xpath</key>
-		<value>//td[text()='Payment Received']//preceding::td[1]//input[@type='radio']</value>
+		<value>(//td[text()='Payment Received']//preceding::td[1]//input[@type='radio'])[1]</value>
 	</PaymentReceivedRdo>
+	
 	<AdjustmentRdo>
 		<key>Xpath</key>
-		<value>//td[text()='Adjustment']//preceding::td[1]//input[@type='radio']</value>
+		<value>(//td[text()='Adjustment']//preceding::td[1]//input[@type='radio'])[1]</value>
 	</AdjustmentRdo>
+	
 	<PaymentDate>
 		<key>ID</key>
 		<value>paymentdate</value>
 	</PaymentDate>
+	
+	<AccOrganizationIdTxt>
+	<key>ID</key>
+		<value>entered_id</value>
+	</AccOrganizationIdTxt>
+	
+	<AmountPaidTxt>
+	<key>ID</key>
+		<value>amountpaid</value>
+	</AmountPaidTxt>
+	
+	<ModeOfPaymentLst>
+	<key>ID</key>
+		<value>modeofpayment</value>
+	</ModeOfPaymentLst>
+	
+	<CurrencyLst>
+	<key>ID</key>
+		<value>currencyId</value>
+	</CurrencyLst>
+	
+	<FinancialInstitutionLst>
+	<key>ID</key>
+	<value>financialinstitution</value>
+	</FinancialInstitutionLst>
+
+	<CardType>
+	<key>ID</key>
+	<value>cardtype</value>
+	</CardType>
+
+	<InstrumentNumber>
+	<key>ID</key>
+	<value>instrumentnumber</value>
+	</InstrumentNumber>
+
+	<ChequeDate>
+	<key>ID</key>
+	<value>chequedate</value>
+	/ChequeDate>
+	
+	
+	<CommentTxt>
+	<key>ID</key>
+		<value>comments</value>
+	</CommentTxt>
+	
+	<AdjustmentNumberTxt>
+	<key>ID</key>
+	<value>adjustment_number</value>
+	</AdjustmentNumberTxt>
+	
+	<CreditNoteRDo>
+	<key>Xpath</key>
+	<value>//td[text()='Credit Note']//preceding::td[1]//input[@class='paymentAdjustmentType']</value>
+	</CreditNoteRDo>
+	
+	<DebitNoteRDo>
+	<key>Xpath</key>
+	<value>//td[text()='Debit Note']//preceding::td[1]//input[@class='paymentAdjustmentType']</value>
+	</DebitNoteRDo>
+	
+	<CancelBtn>
+	<key>ID</key>
+		<value>cancelCusPaymentButton</value>
+	</CancelBtn>
+	
+	<SavePaymentBtn>
+	<key>ID</key>
+	<value>saveCusPaymentButton</value>
+	</SavePaymentBtn>
+	
+	<UploadCsvBtn>
+	<key>ID</key>
+	<value>csvCusPaymentButton</value>
+	</UploadCsvBtn>
+	
 	
 </root>

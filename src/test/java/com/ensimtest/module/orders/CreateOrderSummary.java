@@ -171,6 +171,14 @@ public class CreateOrderSummary extends AppData
 	
 	public GotoCartBtn gotoCartBtn= new GotoCartBtn();
 	
-	
+public class OrderNOUpgradeCustomer extends Element
+{
+	public OrderNOUpgradeCustomer()
+	{
+		setElement(readAppData(this));
+	}
+}
+
+public OrderNOUpgradeCustomer orderNOUpgradeCustomer=new OrderNOUpgradeCustomer();
 	
 }
