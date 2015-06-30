@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+	<LimitOrganizationGlobalDiscountTxt>
+	<key>ID</key>
+	<value>comissionVal</value>
+    </LimitOrganizationGlobalDiscountTxt>
+    
+    <LimitOrganizationGlobalDiscountOKBtn>
+	<key>Xpath</key>
+	<value>//div[@aria-labelledby='ui-dialog-title-distributer_commision']//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Ok')]</value>
+    </LimitOrganizationGlobalDiscountOKBtn>
+    
+    <LimitOrganizationGlobalDiscountCancelBtn>
+	<key>Xpath</key>
+	<value>//div[@aria-labelledby='ui-dialog-title-distributer_commision']//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Cancel')]</value>
+    </LimitOrganizationGlobalDiscountCancelBtn>
+</root>

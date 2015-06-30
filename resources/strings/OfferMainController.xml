@@ -42,7 +42,7 @@
 	
 	<OfferTermsAndNotificationMacroLnk>
 		<key>Xpath</key>
-		<value>//a[contains(text(),'T&C and Notification Macros')]</value>
+		<value>//a[contains(text(),'Notification Macros')]</value>
 	</OfferTermsAndNotificationMacroLnk>
 	
 	<OfferCancelBtn>
