@@ -392,6 +392,14 @@ public class OfferGeneralProperties extends AppData{
 		public OfferMaxOrderQtyPerOrgTxt(){
 			setElement(readAppData(this));
 		}
+		
+		@Override
+		public void write(String data){
+		
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
 	}
 	
 	public OfferMaxOrderQtyPerOrgTxt offerMaxOrderQtyPerOrgTxt = new OfferMaxOrderQtyPerOrgTxt();
