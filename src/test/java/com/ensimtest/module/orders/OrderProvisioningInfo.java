@@ -16,7 +16,7 @@ public class OrderProvisioningInfo extends AppData
     		{
     		browser.setWait(1);
     		ElementSet elementSet = new ElementSet();
-    		Element provInfoLst[]=elementSet.getElementSet("Xpath", "//table[@id='copy_width_from']//tbody//tr");
+    		Element provInfoLst[]=elementSet.getElementSet("Xpath", "(//div[@id='wizard_screen3' or @id='Wizard_screen3']//following::table)[1]/tbody//tr");
     		System.out.println("No of provisioning Item:- "+provInfoLst.length);
     		
     		ProvItemLst provItemLst[]=new ProvItemLst[provInfoLst.length];
