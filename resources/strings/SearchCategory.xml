@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+<RowInfo>
+	<key>Xpath</key>
+	<value>tr[contains(@id,'poffer')]</value>
+</RowInfo>
+<CategoryResultRows>
+	<key>Xpath</key>
+	<value>(//div[contains(@id,'categoryList')]//table//tbody)[1]</value>
+</CategoryResultRows>
+<Components>
+	<key>Xpath</key>
+	<value>td//a</value>
+</Components>
+</root>
