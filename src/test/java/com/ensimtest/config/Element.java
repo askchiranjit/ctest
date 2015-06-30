@@ -2,12 +2,14 @@ package com.ensimtest.config;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.ensimtest.base.Driver;
 import com.ensimtest.base.ElementType;
 import com.ensimtest.base.IElement;
-
 /**
  * This implements IElements along with some additional methods
  * @author Chiranjit
@@ -292,5 +294,17 @@ public class Element implements IElement
 		Select select = new Select(webElement);
 		return select.getFirstSelectedOption().getText();
 	}
+	
+	public void clearAllChars(int length)
+	{		
+		click();
+		Actions action = new Actions(Driver.driver);
+		
+		for(int i=0; i<length; i++)
+		{
+			action.sendKeys(Keys.BACK_SPACE).build().perform();
+		}
+	}
+	
 
 }
