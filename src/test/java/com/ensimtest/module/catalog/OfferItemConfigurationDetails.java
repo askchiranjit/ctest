@@ -106,6 +106,7 @@ public class OfferItemConfigurationDetails extends AppData{
 		
 		public void select(String data){
 			super.selectVisibleText(data);
+			super.click();
 		}
 	}
 	
@@ -123,6 +124,8 @@ public class OfferItemConfigurationDetails extends AppData{
 			super.selectVisibleText(data);
 		}
 	}
+	
+	public OfferPurchaseOptionsOfItemLst offerPurchaseOptionsOfItemLst = new OfferPurchaseOptionsOfItemLst();
 	
 	/*
 	 * To add an item in offer
@@ -145,5 +148,20 @@ public class OfferItemConfigurationDetails extends AppData{
 	}
 	
 	public OfferItemPriceBtn offerItemPriceBtn = new OfferItemPriceBtn();
+	
+	/*
+	 * To select from existing price of an offer
+	 */
+	public class OfferPriceSelectLst extends Element{
+		public OfferPriceSelectLst(){
+			setElement(readAppData(this));
+		}
+		
+		public void select(String data){
+			super.selectVisibleText(data);
+		}
+	}
+	
+	public OfferPriceSelectLst offerPriceSelectLst = new OfferPriceSelectLst();
 
 }
