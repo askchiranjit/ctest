@@ -157,6 +157,15 @@ public class ElementHandler
 		}
 	}
 
-	
+	public void scrollDown(){
+		Actions dragger = new Actions(Driver.driver);
+		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath("(//div[contains(@class,'slimScrollBar ui-draggable')])[2]"));
+
+		// drag downwards
+		int numberOfPixelsToDragTheScrollbarDown = 8;
+		// this causes a gradual drag of the scroll bar, 10 units at a time
+		dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
+		 
+	}
 	
 }

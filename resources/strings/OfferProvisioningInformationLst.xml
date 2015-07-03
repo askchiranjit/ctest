@@ -2,12 +2,12 @@
 <root>
 <ProvisioningInfoRowFinder>
 	<key>Xpath</key>
-	<value>tr[contains(@class,'escm_oddrow') or contains(@class,'')]</value>
+	<value>tr</value>
 </ProvisioningInfoRowFinder>
 
 <ProvisioningInfoTable>
 	<key>Xpath</key>
-	<value>//div[contains(@class,'slimScrollDiv')]//div[contains(@id,'otcr_divDB')]//table</value>
+	<value>//div[contains(@class,'slimScrollDiv')]//div[contains(@id,'otcr_div')]//table//tbody</value>
 </ProvisioningInfoTable>
 
 </root>

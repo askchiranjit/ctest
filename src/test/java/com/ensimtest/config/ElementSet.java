@@ -23,12 +23,17 @@ public class ElementSet
 	}
 	public Element[] getSubElementSet(Element element, String elementType, String elementName)
 	{
-		boolean isExistingElement = element.isExists();
-		if(!isExistingElement)
+		try
 		{
-			System.out.println("Super element does not exist");
+			element.read();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Super element does not exists");
+			System.out.println(e);
 			return null;
 		}
+		
 		ElementHandler handler = new ElementHandler();
 		ElementType typeOfElement = handler.getElementType(elementType);
 		List<WebElement> list = handler.getElements(element, elementName, typeOfElement);
@@ -43,10 +48,15 @@ public class ElementSet
 	
 	public Element getSubElement(Element element, String elementType, String elementName)
 	{
-		boolean isExistingElement = element.isExists();
-		if(!isExistingElement)
+		
+		try
 		{
-			System.out.println("Super element does not exist");
+			element.read();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Super element does not exists");
+			System.out.println(e);
 			return null;
 		}
 		ElementHandler handler = new ElementHandler();
