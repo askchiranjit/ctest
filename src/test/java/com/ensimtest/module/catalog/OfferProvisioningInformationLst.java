@@ -75,7 +75,12 @@ public class OfferProvisioningInformationLst extends AppData{
 			//System.out.println(exportChk);
 			
 			ElementHandler elementHandler=new ElementHandler();
-			elementHandler.scrollDown();
+			try{
+				elementHandler.scrollDown();
+			}catch(Exception e){
+				System.out.println(e);
+			}
+			
 		}
 	}
 	private class ProvisioningInfoTable extends Element
