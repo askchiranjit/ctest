@@ -128,17 +128,14 @@ public class Element implements IElement
 
 
 
-	protected void write(String characterSeq, String msg) {
-		webElement = getReloadedElement(elementName, type);
-		webElement.sendKeys(characterSeq,msg);
-	}
+
 
 	/**
 	 * Returns attribute value based on the attribute name of the element
 	 * @param attributeName : name of the attribute associated with the element
 	 * @return : returns the value as String
 	 */
-	protected String getAttributeValue(String attributeName)
+	public String getAttributeValue(String attributeName)
 	{
 		webElement = getReloadedElement(elementName, type);
 		String s = webElement.getAttribute(attributeName);

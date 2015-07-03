@@ -100,7 +100,7 @@ public class OfferProvisioningInformationLst extends AppData{
 		}
 	}
 	
-	public ProvisioningInfoRow[] getItemRows(Browser browser)
+	public ProvisioningInfoRow[] getProvisioningInfoRows(Browser browser)
 	{
 		try
 		{
