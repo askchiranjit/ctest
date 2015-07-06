@@ -4,6 +4,7 @@ import com.ensimtest.config.Browser;
 import com.ensimtest.config.Element;
 import com.ensimtest.config.ElementSet;
 import com.ensimtest.resource.AppData;
+import com.ensimtest.utils.TestUtils;
 
 /**
  * To select currencies for an offer
@@ -77,6 +78,27 @@ public class SelectCurrenciesForOffer extends AppData{
 		finally
 		{
 			browser.setDefaultWait();
+		}
+	}
+	
+	/**
+	 * To search and select elements
+	 * @param currencyList
+	 * @param br
+	 */
+	public void selectCurrencies(String[] currencyList, Browser br){
+		SelectCurrencyRow []currencyrow = getCurrenciesRows(br);
+		TestUtils.delay(10000);
+		
+        for(int i=0; i<currencyList.length; i++){  //user input currency read
+			
+			for(int j=0; j<currencyrow.length; j++){ //element rows
+				
+				if(currencyrow[j].currencyName.equalsIgnoreCase(currencyList[i])){
+					currencyrow[j].currencyChk.click();
+					break;
+				}
+			}
 		}
 	}
 	

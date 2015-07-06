@@ -35,8 +35,9 @@ public class OfferPOFixValue extends AppData{
 			quantityTxt = set.getSubElementSet(element, "Xpath", "td[3]//input")[0];
 			//System.out.println(quantityTxt);
 			
-			ElementHandler elementHandler=new ElementHandler();
+			
 			try{
+				ElementHandler elementHandler=new ElementHandler();
 				String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[1]";
 				elementHandler.scrollDown(scrlXpath);
 			}catch(Exception e){
@@ -78,6 +79,13 @@ public class OfferPOFixValue extends AppData{
 			{
 				//System.out.println("Row no:- "+i);
 				rows[i] = new POFixValueRow(elements[i]);
+			}
+			try{
+				ElementHandler elementHandler=new ElementHandler();
+				String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[1]";
+				elementHandler.scrollUp(scrlXpath);;
+			}catch(Exception e){
+				System.out.println(e);
 			}
 			return rows;
 		}
