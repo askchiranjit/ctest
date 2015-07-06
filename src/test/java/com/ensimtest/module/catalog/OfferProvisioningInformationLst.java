@@ -76,7 +76,8 @@ public class OfferProvisioningInformationLst extends AppData{
 			
 			ElementHandler elementHandler=new ElementHandler();
 			try{
-				elementHandler.scrollDown();
+				String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[2]";
+				elementHandler.scrollDown(scrlXpath);
 			}catch(Exception e){
 				System.out.println(e);
 			}

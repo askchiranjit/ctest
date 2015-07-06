@@ -157,9 +157,13 @@ public class ElementHandler
 		}
 	}
 
-	public void scrollDown(){
+	/**
+	 *@author Dip 
+	 * @param scrlXpath : Xpath of the scroll bar
+	 */
+	public void scrollDown(String scrlXpath){
 		Actions dragger = new Actions(Driver.driver);
-		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath("(//div[contains(@class,'slimScrollBar ui-draggable')])[2]"));
+		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath(scrlXpath));
 
 		// drag downwards
 		int numberOfPixelsToDragTheScrollbarDown = 8;
