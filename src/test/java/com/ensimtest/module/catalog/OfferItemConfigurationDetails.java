@@ -91,10 +91,6 @@ public class OfferItemConfigurationDetails extends AppData{
 	
 	public OfferPriceDisplayFormatLst offerPriceDisplayFormatLst = new OfferPriceDisplayFormatLst();
 
-//To edit Already adder item list
-
-	
-	
 //Add new ITEM	
 	/*
 	 * To Select a item name from list
