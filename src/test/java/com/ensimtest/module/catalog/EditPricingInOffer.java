@@ -4,36 +4,28 @@ import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 
 /**
- * To add Price plan for an Item in offer
+ * To edit price of an item in offer
  * @author Dip
  *
  */
-public class AddPriceForItemInOffer extends AppData{
-	
+public class EditPricingInOffer extends AppData{
+
 	/*
-	 * To add Price code
+	 * To edit Price Code
 	 */
-	public class PriceCodeForItemTxt extends Element{
-		public PriceCodeForItemTxt(){
+	public class ItemPriceCodeTxt extends Element{
+		public ItemPriceCodeTxt(){
 			setElement(readAppData(this));
-		}
-		
-		@Override
-		public void write(String data){
-		
-			String str = super.getAttributeValue("value");
-			super.clearAllChars(str.length());
-			super.write(data);
 		}
 	}
 	
-	public PriceCodeForItemTxt priceCodeForItemTxt = new PriceCodeForItemTxt();
+	public ItemPriceCodeTxt itemPriceCodeTxt = new ItemPriceCodeTxt();
 	
 	/*
-	 * To select price rate type
+	 * To change rate type
 	 */
-	public class SelectPriceTypeOfItemLst extends Element{
-		public SelectPriceTypeOfItemLst(){
+	public class PriceTypeLst extends Element{
+		public PriceTypeLst(){
 			setElement(readAppData(this));
 		}
 		
@@ -42,10 +34,10 @@ public class AddPriceForItemInOffer extends AppData{
 		}
 	}
 	
-	public SelectPriceTypeOfItemLst selectPriceTypeOfItemLst = new SelectPriceTypeOfItemLst();
-	
+	public PriceTypeLst priceTypeLst = new PriceTypeLst();
+		
 	/*
-	 * To select Tiered starts and end type
+	 * To Edit Tiered starts and end type
 	 */
 	public class SlectStartsWithOrEndWithLst extends Element{
 		public SlectStartsWithOrEndWithLst(){
@@ -60,10 +52,10 @@ public class AddPriceForItemInOffer extends AppData{
 	public SlectStartsWithOrEndWithLst slectStartsWithOrEndWithLst = new SlectStartsWithOrEndWithLst();
 	
 	/*
-	 * To select Billing Frequency
+	 * To change Billing frequency
 	 */
-	public class BillingFrequencyOfOfferLst extends Element{
-		public BillingFrequencyOfOfferLst(){
+	public class BillingFrequencyLst extends Element{
+		public BillingFrequencyLst(){
 			setElement(readAppData(this));
 		}
 		
@@ -72,10 +64,10 @@ public class AddPriceForItemInOffer extends AppData{
 		}
 	}
 	
-	public BillingFrequencyOfOfferLst billingFrequencyOfOfferLst = new BillingFrequencyOfOfferLst();
+	public BillingFrequencyLst billingFrequencyLst = new BillingFrequencyLst();
 	
 	/*
-	 * To set a number for Installment times
+	 * To change number for Installment times
 	 */
 	public class InstallmentTimesOfOfferTxt extends Element{
 		public InstallmentTimesOfOfferTxt(){
@@ -92,7 +84,7 @@ public class AddPriceForItemInOffer extends AppData{
 	}
 	
 	/*
-	 * To on Agent Commission for an item 
+	 * To on or off Agent Commission for an item 
 	 */
 	public class CommissionForItemChk extends Element{
 		public CommissionForItemChk(){
@@ -103,7 +95,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public CommissionForItemChk commissionForItemChk = new CommissionForItemChk();
 	
 	/*
-	 * To provide Agent Commission for an Item
+	 * To change Agent Commission for an Item
 	 */
 	public class CommissionForItemTxt extends Element{
 		public CommissionForItemTxt(){
@@ -122,7 +114,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public CommissionForItemTxt commissionForItemTxt = new CommissionForItemTxt();
 	
 	/*
-	 * To on Allow sales representatives to grant one-off discount
+	 * To on or off Allow sales representatives to grant one-off discount
 	 */
 	public class AllowSalesRepresentativesToGrantOneOffDiscountChk extends Element{
 		public AllowSalesRepresentativesToGrantOneOffDiscountChk(){
@@ -133,7 +125,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public AllowSalesRepresentativesToGrantOneOffDiscountChk allowSalesRepresentativesToGrantOneOffDiscountChk = new AllowSalesRepresentativesToGrantOneOffDiscountChk();
 	
 	/*
-	 * To on Price with Discount i.e. need to provide discounted price for an Item
+	 * To on or off Price with Discount i.e. need to provide discounted price for an Item
 	 */
 	public class PriceWithDiscountRdo extends Element{
 		public PriceWithDiscountRdo(){
@@ -142,9 +134,8 @@ public class AddPriceForItemInOffer extends AppData{
 	}
 	
 	public PriceWithDiscountRdo priceWithDiscountRdo = new PriceWithDiscountRdo();
-	
 	/*
-	 * To on Discount % on Unit Price i.e. discount % per item price
+	 * To on or off Discount % on Unit Price i.e. discount % per item price
 	 */
 	public class DiscountPercentageOnUnitPriceRdo extends Element{
 		public DiscountPercentageOnUnitPriceRdo(){
@@ -155,7 +146,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public DiscountPercentageOnUnitPriceRdo discountPercentageOnUnitPriceRdo = new DiscountPercentageOnUnitPriceRdo();
 	
 	/*
-	 * To provide web site Link check box
+	 * To change web site Link check box
 	 */
 	public class LinkForWebSiteChk extends Element{
 		public LinkForWebSiteChk(){
@@ -166,7 +157,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public LinkForWebSiteChk linkForWebSiteChk = new LinkForWebSiteChk();
 	
 	/*
-	 * To provide web site Link Text box
+	 * To change web site Link Text box
 	 */
 	public class LinkForWebSiteTxt extends Element{
 		public LinkForWebSiteTxt(){
@@ -185,7 +176,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public LinkForWebSiteTxt LinkForWebSiteTxt = new LinkForWebSiteTxt();
 	
 	/*
-	 * To on Unit Price option
+	 * To on or off Unit Price option
 	 */
 	public class UnitPriceForItemChk extends Element{
 		public UnitPriceForItemChk(){
@@ -196,7 +187,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public UnitPriceForItemChk unitPriceForItemChk = new UnitPriceForItemChk();
 	
 	/*
-	 * To provide Profit Margin % for unit price item i.e. mark up %
+	 * To change Profit Margin % for unit price item i.e. mark up %
 	 */
 	public class ProfitMarginForUnitPriceItemTxt extends Element{
 		public ProfitMarginForUnitPriceItemTxt(){
@@ -215,7 +206,20 @@ public class AddPriceForItemInOffer extends AppData{
 	public ProfitMarginForUnitPriceItemTxt profitMarginForUnitPriceItemTxt = new ProfitMarginForUnitPriceItemTxt();
 	
 	/*
-	 * To provide Billing Name of Item which will appear in invoice
+	 * To click on currency tab
+	 */
+	public class CurrencyTab extends Element{
+		public CurrencyTab(){}
+		
+		public void click(String currencyName){
+			String currencyXpath = "//div[contains(@class,'mappedCurrency')]//span[@id='" + currencyName + "']";
+			setElement("Xpath", currencyXpath);
+			super.click();
+		}
+	}
+	
+	/*
+	 * To change Billing Name of Item which will appear in invoice
 	 */
 	public class BillingNameForItemTxt extends Element{
 		public BillingNameForItemTxt(){
@@ -234,7 +238,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public BillingNameForItemTxt billingNameForItemTxt = new BillingNameForItemTxt();
 	
 	/*
-	 * To provide Unit Price for an Item i.e. net price of Item
+	 * To change Unit Price for an Item i.e. net price of Item
 	 */
 	public class UnitPriceForItemTxt extends Element{
 		public UnitPriceForItemTxt(){
@@ -253,7 +257,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public UnitPriceForItemTxt unitPriceForItemTxt = new UnitPriceForItemTxt();
 	
 	/*
-	 * To provide max discount % for an Item
+	 * To change max discount % for an Item
 	 */
 	public class MaxDiscountPercentageTxt extends Element{
 		public MaxDiscountPercentageTxt(){
@@ -272,7 +276,7 @@ public class AddPriceForItemInOffer extends AppData{
 	public MaxDiscountPercentageTxt maxDiscountPercentageTxt = new MaxDiscountPercentageTxt();
 	
 	/*
-	 * To provide minimum discount % for an Item
+	 * To change minimum discount % for an Item
 	 */
 	public class MinDiscountPercentageTxt extends Element{
 		public MinDiscountPercentageTxt(){
@@ -327,5 +331,4 @@ public class AddPriceForItemInOffer extends AppData{
 	}
 	
 	public PricePlanCancelBtn pricePlanCancelBtn = new PricePlanCancelBtn();
-
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<root>
+<ItemPriceCodeTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</ItemPriceCodeTxt>
+
+<PriceTypeLst>
+	<key>Xpath</key>
+	<value>tr</value>
+</PriceTypeLst>
+
+<SlectStartsWithOrEndWithLst>
+	<key>Xpath</key>
+	<value>tr</value>
+</SlectStartsWithOrEndWithLst>
+
+<BillingFrequencyLst>
+	<key>Xpath</key>
+	<value>tr</value>
+</BillingFrequencyLst>
+
+<InstallmentTimesOfOfferTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</InstallmentTimesOfOfferTxt>
+
+<CommissionForItemChk>
+	<key>Xpath</key>
+	<value>tr</value>
+</CommissionForItemChk>
+
+<CommissionForItemTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</CommissionForItemTxt>
+
+<AllowSalesRepresentativesToGrantOneOffDiscountChk>
+	<key>Xpath</key>
+	<value>tr</value>
+</AllowSalesRepresentativesToGrantOneOffDiscountChk>
+
+<PriceWithDiscountRdo>
+	<key>Xpath</key>
+	<value>tr</value>
+</PriceWithDiscountRdo>
+
+<DiscountPercentageOnUnitPriceRdo>
+	<key>Xpath</key>
+	<value>tr</value>
+</DiscountPercentageOnUnitPriceRdo>
+
+<LinkForWebSiteChk>
+	<key>Xpath</key>
+	<value>tr</value>
+</LinkForWebSiteChk>
+
+<LinkForWebSiteTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</LinkForWebSiteTxt>
+
+<UnitPriceForItemChk>
+	<key>Xpath</key>
+	<value>tr</value>
+</UnitPriceForItemChk>
+
+<ProfitMarginForUnitPriceItemTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</ProfitMarginForUnitPriceItemTxt>
+
+<BillingNameForItemTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</BillingNameForItemTxt>
+
+<UnitPriceForItemTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</UnitPriceForItemTxt>
+
+<MaxDiscountPercentageTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</MaxDiscountPercentageTxt>
+
+<MinDiscountPercentageTxt>
+	<key>Xpath</key>
+	<value>tr</value>
+</MinDiscountPercentageTxt>
+
+</root>

@@ -300,6 +300,10 @@ public class Element implements IElement
 		return select.getFirstSelectedOption().getText();
 	}
 	
+	/**
+	 * @author Dip
+	 * @param length
+	 */
 	public void clearAllChars(int length)
 	{		
 		click();
