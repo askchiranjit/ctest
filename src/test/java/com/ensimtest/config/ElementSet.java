@@ -25,7 +25,7 @@ public class ElementSet
 	{
 		try
 		{
-			String data = element.read();
+			element.read();
 		}
 		catch(Exception e)
 		{

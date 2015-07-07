@@ -3,9 +3,7 @@ package com.ensimtest.utils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import com.google.gson.JsonParseException;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class OrderItemJsonHandler 
 {

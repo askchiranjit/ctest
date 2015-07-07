@@ -22,25 +22,18 @@ import com.ensimtest.module.orders.CreateOrderSummary;
 import com.ensimtest.module.orders.OrderDetails;
 import com.ensimtest.module.orders.CreateOrderSelectOffer;
 import com.ensimtest.module.orders.OrderList;
-import com.ensimtest.module.orders.OrderProvisioningInfo;
 import com.ensimtest.module.orders.UpgradeOrder;
 import com.ensimtest.module.orders.CreateOrderSelectOffer.Offer;
 import com.ensimtest.module.orders.OrderList.OrderRow;
-import com.ensimtest.module.orders.OrderProvisioningInfo.ProvItemLst;
 import com.ensimtest.module.orders.UpgradeOrder.OrderOption;
 import com.ensimtest.module.orders.OrderOptions;
 import com.ensimtest.module.orders.SearchOrder;
 import com.ensimtest.module.orders.SelectAcFromOrg;
 import com.ensimtest.module.userspace.LoggedInUser;
-import com.ensimtest.module.utility.PerformAction;
 import com.ensimtest.resource.TestDataProvider;
-import com.ensimtest.utils.OrderItemJsonHandler;
-import com.ensimtest.utils.OrderProvInfoJsonHandler;
 import com.ensimtest.utils.TestUtils;
-import com.ensimtest.utils.OrderItemJsonHandler.ItemDetails;
-import com.ensimtest.utils.OrderProvInfoJsonHandler.ProvInfoDetails;
 
-public class OrderTestCases
+public class AgentOrderTestCases
 {
 	private Browser browser;
 	
@@ -178,8 +171,7 @@ public class OrderTestCases
 		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 
-	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
-	public void testPlaceOrderWithItems(HashMap<?, ?> data) throws Exception
+	public void testPlaceOrderWithItems(HashMap<?, ?> data) throws InterruptedException
     {
 		String userName = data.get("UserName").toString();
 		String password = data.get("Password").toString();
@@ -187,8 +179,6 @@ public class OrderTestCases
 		String category = data.get("category").toString();
 		String offerName = data.get("offerName").toString();
 		String orgID = data.get("orgID").toString();
-		String itemDetails = data.get("itemDetails").toString();
-		String provInfo = data.get("provInfoDetails").toString();
 		
 		browser.navigateTo();
 
@@ -207,11 +197,10 @@ public class OrderTestCases
 		
 		SearchOrganization search = new SearchOrganization();
 		search.keywordTxt.write(orgName);
-		TestUtils.delay(2000);
-		System.out.println("Clicking...");
 		search.searchTypeContains.click();
-		TestUtils.delay(2000);
+		
 		search.searchBtn.click();
+		
 		
 		TestUtils.delay(10000);
 		
@@ -223,58 +212,20 @@ public class OrderTestCases
 		TestUtils.delay(5000);
 		
 		CreateOrderSelectCategory cat = new CreateOrderSelectCategory();
-		System.out.println("category : " + category);
+
 		cat.categories.selectCategory(category);
 		
 		TestUtils.delay(2000);
 		
 		CreateOrderSelectOffer offer = new CreateOrderSelectOffer();
 		Offer []offers = offer.getOffers();
-		
-		for(int i=0; i<offers.length; i++)
-		{
-			if(offers[i].offerName.equals(offerName))
-			{
-				offers[i].orderBtn.click();
-				break;
-			}
-		}
-		
+		Assert.assertEquals(offers[0].offerName, offerName);
+		 
+		offers[0].orderBtn.click();
 		TestUtils.delay(8000);
-		
-		PerformAction performActn=new PerformAction();
+
 		CreateOrderSelectItems items = new CreateOrderSelectItems();
-		ItemRow itemr[]=items.getItemRows(browser);
-		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
-		ItemDetails itemdetailslst[]= orderItems.itemDetails(itemDetails);
-		for(int i=0;i<itemdetailslst.length;i++)
-		{
-			for(int j=0;j<itemr.length;j++)
-			{
-				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
-				{
-					if(itemdetailslst[i].operation==true)
-					{
-						if(itemdetailslst[i].checkbox==true)
-						{
-							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
-						}
-
-						if(itemdetailslst[i].textbox==true)
-						{
-							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
-						}
-						if(itemdetailslst[i].dropdown==true)
-						{
-							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
-						}
-					}
-
-					break;
-				}
-			}
-		}
-		
+		ItemRow []rows =  items.getItemRows(browser);
 		
 		TestUtils.delay(3000);
 		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
@@ -282,47 +233,11 @@ public class OrderTestCases
 		TestUtils.delay(3000);
 		buttons.continueBtn.click();
 		
-		OrderProvisioningInfo prov = new OrderProvisioningInfo();
-		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
-
-		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
-		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
-
-
-		for(int i=0;i<provInfoDetails.length;i++)
-		{
-			for(int j=0;j<provItemLst.length;j++)
-			{
-				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
-				{
-					System.out.println("Inside");
-					if(provInfoDetails[i].operation==true)
-					{
-						if(provInfoDetails[i].checkbox==true)
-						{
-							performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
-						}
-
-						if(provInfoDetails[i].textbox==true)
-						{
-							performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
-						}
-						if(provInfoDetails[i].dropdown==true)
-						{
-							performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
-						}
-					}
-
-					break;
-				}
-			}
-		}
-		
-		CreateOrderProvisioningInfo provCustField = new CreateOrderProvisioningInfo();
-		int x = provCustField.getCustomFields().length;
+		CreateOrderProvisioningInfo prov = new CreateOrderProvisioningInfo();
+		int x = prov.getCustomFields().length;
 		System.out.println(x);
 		
-		CustomInfo []info = provCustField.getCustomFields();
+		CustomInfo []info = prov.getCustomFields();
 		for(int i=0; i <info.length; i ++)
 		{
 			if(info[i].label!=null)
@@ -374,44 +289,6 @@ public class OrderTestCases
 		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
 		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
 		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
-	}
-	
-	@Test
-	public void searchOrderByOrgID()
-	{
-		browser.navigateTo();
-
-		LoginScreen loginScreen = new LoginScreen();
-		
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
-
-		// Click on login button
-		loginScreen.loginBtn.click();
-		
-		OrderOptions order = new OrderOptions();
-		order.orderMenu.mouseHover();
-		
-		// Click on list order option
-		order.listOrderLnk.click();
-		TestUtils.delay(5000);
-		
-		// Search for the offer
-		SearchOrder search = new SearchOrder();
-		search.organizationIDTxt.write("10006");
-		search.searchBtn.click();
-		TestUtils.delay(5000);
-		
-		// Verify results
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = null;
-		
-		// Verify all results contains the same org-ID
-		do
-		{
-			rows = listOfOrder.getOrderResultRows("Recent");
-		}
-		while(listOfOrder.)
 	}
 	
 	@Test

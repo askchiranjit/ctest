@@ -37,11 +37,13 @@ public class LoginTestCases
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
 	public void ISPUserSuccessfulLogin(HashMap<?, ?> h) throws InterruptedException
     {
+		
 		String userName = (String) h.get("UserName");
 		String passWord = (String) h.get("Password");
 		
 		// Navigate to ENSIM site
 		browser.navigateTo();
+
 		// Verify user-name, password, login button are displayed
 		LoginScreen loginScreen = new LoginScreen();
 		
@@ -49,6 +51,7 @@ public class LoginTestCases
 		Assert.assertEquals(true, loginScreen.password.isDisplayed());
 		Assert.assertEquals(true, loginScreen.loginBtn.isDisplayed());
 
+		// Enter user credentials
 		loginScreen.username.write(userName);
 		loginScreen.password.write(passWord);
 

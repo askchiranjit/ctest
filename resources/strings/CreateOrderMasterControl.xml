@@ -18,7 +18,7 @@
 
 <PlaceOrderBtn>
 	<key>Xpath</key>
-	<value>//a[@id='addAndApprove']//span[text()='Place Order']</value>
+	<value>//a[@id='addAndApprove']//span[contains(text(),'Place Order')]</value>
 </PlaceOrderBtn>
 
 <SaveAsDraftBtn>
