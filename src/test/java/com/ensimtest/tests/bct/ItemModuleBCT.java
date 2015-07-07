@@ -616,7 +616,7 @@ public class ItemModuleBCT
 
 		}
 		
-		Assert.assertEquals(flag, false, "Service got deleted");
+		Assert.assertEquals(flag, true, "Service got deleted");
 
 
 	}
