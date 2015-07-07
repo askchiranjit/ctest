@@ -179,6 +179,14 @@ public class Element implements IElement
 	{
 		webElement = getReloadedElement(elementName, type);
 		handler.moveMouseToElement(webElement);
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 	@Override

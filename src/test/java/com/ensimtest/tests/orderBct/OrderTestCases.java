@@ -405,10 +405,7 @@ public class OrderTestCases
 		// Verify results
 		OrderList listOfOrder = new OrderList();
 		OrderRow []rows = null;
-		
-		// Verify all results contains the same org-ID
-		
-		
+
 	}
 	
 	@Test
