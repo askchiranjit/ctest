@@ -61,4 +61,10 @@
 		<key>Xpath</key>
 		<value>//*[@id="cust_reg_button_div"]/li[12]/ul/li[2]</value>
 	</AgreeTermsAndConditionTxt>
+	
+	<CurencyLst>
+	<key>ID</key>
+	<value>currency_id</value>
+	</CurencyLst>
+	
 </root>
