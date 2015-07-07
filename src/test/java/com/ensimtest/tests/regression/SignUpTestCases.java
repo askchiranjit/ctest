@@ -49,7 +49,7 @@ public class SignUpTestCases
 		String stateName=testData.get("stateName").toString();
 		String language=testData.get("language").toString();
 		String cityName=testData.get("cityName").toString();
-		
+		String curency=testData.get("curency").toString();
 		// Generating random values
 		String Email=randomData.getRandomEmailID();
 		String phno=randomData.getRandomNum(11);
@@ -76,6 +76,7 @@ public class SignUpTestCases
 		signUpScreen.zipCodeTxt.write(zipCode);
 		signUpScreen.cityTxt.write(cityName);
 		signUpScreen.corporateIdTxt.write(corporateID);
+		signUpScreen.curencyLst.selectCurency(curency);
 		signUpScreen.agreeTermsCondChkBox.click();
 		TestUtils.delay(2000);
 		
