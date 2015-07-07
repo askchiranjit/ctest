@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<root>
+	<OfferPaymentModeForRegisteredOrganizationsLst>
+		<key>ID</key>
+		<value>payment_for_register_customer</value>
+	</OfferPaymentModeForRegisteredOrganizationsLst>
+	
+	<OfferPaymentModeForSelfRegisteredOrganizationsLst>
+		<key>ID</key>
+		<value>payment_for_self_register_customer</value>
+	</OfferPaymentModeForSelfRegisteredOrganizationsLst>
+	
+	<OfferBillingActionsForProvisionProratedRdo>
+		<key>ID</key>
+		<value>provisionProrated</value>
+	</OfferBillingActionsForProvisionProratedRdo>
+	
+	<OfferBillingActionsForProvisionFullMonthRdo>
+		<key>ID</key>
+		<value>provisionFullMonth</value>
+	</OfferBillingActionsForProvisionFullMonthRdo>
+	
+	<OfferBillingActionsForProvisionNextMonthRdo>
+		<key>ID</key>
+		<value>provisionNextMonth</value>
+	</OfferBillingActionsForProvisionNextMonthRdo>
+	
+	<OfferBillingActionsForUpsizeProratedRdo>
+		<key>ID</key>
+		<value>upsizeProrated</value>
+	</OfferBillingActionsForUpsizeProratedRdo>
+	
+	<OfferBillingActionsForUpsizeFullMonthRdo>
+		<key>ID</key>
+		<value>upsizeFullMonth</value>
+	</OfferBillingActionsForUpsizeFullMonthRdo>
+	
+	<OfferBillingActionsForDownsizeProratedRdo>
+		<key>ID</key>
+		<value>downSizeProrated</value>
+	</OfferBillingActionsForDownsizeProratedRdo>
+	
+	<OfferBillingActionsForDownsizeFullMonthRdo>
+		<key>ID</key>
+		<value>downSizeFullMonth</value>
+	</OfferBillingActionsForDownsizeFullMonthRdo>
+</root>

@@ -571,7 +571,7 @@ public class ItemModuleBCT
 
 		}
 
-		Assert.assertEquals(flag, false, "Service got present");
+		Assert.assertEquals(flag, true, "Service not present");
 
 		serviceHome.deleteServiceBtn.click();
 		
@@ -684,7 +684,7 @@ public class ItemModuleBCT
 
 		}
 
-		Assert.assertEquals(flag, false, "Service not present");
+		Assert.assertEquals(flag, true, "Service not present");
 		
 		serviceHome.deleteServiceBtn.click();
 		

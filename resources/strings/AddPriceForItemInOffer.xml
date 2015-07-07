@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<root>
+<PriceCodeForItemTxt>
+	<key>ID</key>
+	<value>ppeName</value>
+</PriceCodeForItemTxt>
+
+<SelectPriceTypeOfItemLst>
+	<key>ID</key>
+	<value>pricePlanType</value>
+</SelectPriceTypeOfItemLst>
+
+<BillingFrequencyOfOfferLst>
+	<key>ID</key>
+	<value>pricePlanTariff</value>
+</BillingFrequencyOfOfferLst>
+
+<InstallmentTimesOfOfferTxt>
+	<key>ID</key>
+	<value>ageValue</value>
+</InstallmentTimesOfOfferTxt>
+
+<CommissionForItemChk>
+	<key>ID</key>
+	<value>commisionable</value>
+</CommissionForItemChk>
+
+<CommissionForItemTxt>
+	<key>ID</key>
+	<value>commissionpercent</value>
+</CommissionForItemTxt>
+
+<AllowSalesRepresentativesToGrantOneOffDiscountChk>
+	<key>ID</key>
+	<value>useDiscount</value>
+</AllowSalesRepresentativesToGrantOneOffDiscountChk>
+
+<PriceWithDiscountRdo>
+	<key>ID</key>
+	<value>absoluteDisc</value>
+</PriceWithDiscountRdo>
+
+<DiscountPercentageOnUnitPriceRdo>
+	<key>ID</key>
+	<value>percentageDisc</value>
+</DiscountPercentageOnUnitPriceRdo>
+
+<LinkForWebSiteChk>
+	<key>ID</key>
+	<value>link_availableforlink</value>
+</LinkForWebSiteChk>
+
+<LinkForWebSiteTxt>
+	<key>ID</key>
+	<value>link_linkurl</value>
+</LinkForWebSiteTxt>
+
+<UnitPriceForItemChk>
+	<key>ID</key>
+	<value>special_item</value>
+</UnitPriceForItemChk>
+
+<ProfitMarginForUnitPriceItemTxt>
+	<key>ID</key>
+	<value>pmpercentageNew</value>
+</ProfitMarginForUnitPriceItemTxt>
+
+<BillingNameForItemTxt>
+	<key>ID</key>
+	<value>newagentuser_0_field_1_tiername</value>
+</BillingNameForItemTxt>
+
+<UnitPriceForItemTxt>
+	<key>ID</key>
+	<value>newagentuser_0_field_1_baserate</value>
+</UnitPriceForItemTxt>
+
+<MaxDiscountPercentageTxt>
+	<key>ID</key>
+	<value>newagentuser_0_field_1_maxdisc</value>
+</MaxDiscountPercentageTxt>
+
+<MinDiscountPercentageTxt>
+	<key>ID</key>
+	<value>newagentuser_0_field_1_mindisc</value>
+</MinDiscountPercentageTxt>
+
+<PricePlanOKBtn>
+	<key>Xpath</key>
+	<value>//div[@aria-labelledby='ui-dialog-title-addNewPricePlan']//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Ok')]</value>
+</PricePlanOKBtn>
+
+<PricePlanCancelBtn>
+	<key>Xpath</key>
+	<value>//div[@aria-labelledby='ui-dialog-title-addNewPricePlan']//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Cancel')]</value>
+</PricePlanCancelBtn>
+</root>

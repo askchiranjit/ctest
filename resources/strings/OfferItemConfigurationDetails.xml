@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<root>
+<OfferInvoiceZeroQuantityChk>
+	<key>ID</key>
+	<value>invoicezeroquantity</value>
+</OfferInvoiceZeroQuantityChk>
+
+<OfferInvoiceZeroPriceChk>
+	<key>ID</key>
+	<value>invoicezeroprice</value>
+</OfferInvoiceZeroPriceChk>
+
+<OfferBillableOfferChk>
+	<key>ID</key>
+	<value>billableOffer</value>
+</OfferBillableOfferChk>
+
+<OfferAvailableCurrenciesSelectBtn>
+	<key>ID</key>
+	<value>associatedCurrency</value>
+</OfferAvailableCurrenciesSelectBtn>
+
+<OfferUseDiscountForSellingChk>
+	<key>ID</key>
+	<value>sellingDiscount</value>
+</OfferUseDiscountForSellingChk>
+
+<OfferDiscountApproverEmailTxt>
+	<key>ID</key>
+	<value>approvalEmail</value>
+</OfferDiscountApproverEmailTxt>
+
+<OfferPriceDisplayFormatLst>
+	<key>ID</key>
+	<value>moneyFormat</value>
+</OfferPriceDisplayFormatLst>
+
+<OfferItemNameLst>
+	<key>ID</key>
+	<value>offerpricePlanitem</value>
+</OfferItemNameLst>
+
+<OfferPurchaseOptionsOfItemLst>
+	<key>Xpath</key>
+	<value>//select[@class='offer-priceplan-possval']</value>
+</OfferPurchaseOptionsOfItemLst>
+
+<OfferAddItemBtn>
+	<key>Xpath</key>
+	<value>//div[contains(@class,'inp-bg')]//img[contains(@src,'add.png')]</value>
+</OfferAddItemBtn>
+
+<OfferItemPriceBtn>
+	<key>ID</key>
+	<value>addUserButton</value>
+</OfferItemPriceBtn>
+
+<OfferPriceSelectLst>
+	<key>ID</key>
+	<value>offerpricePlanelement</value>
+</OfferPriceSelectLst>
+</root>

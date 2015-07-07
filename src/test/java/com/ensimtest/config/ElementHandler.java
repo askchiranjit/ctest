@@ -157,6 +157,37 @@ public class ElementHandler
 		}
 	}
 
+	/**
+	 *@author Dip 
+	 *To Scroll down
+	 * @param scrlXpath : Xpath of the scroll bar
+	 */
+	public void scrollDown(String scrlXpath){
+		Actions dragger = new Actions(Driver.driver);
+		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath(scrlXpath));
+
+		// drag downwards
+		int numberOfPixelsToDragTheScrollbarDown = 8;
 	
+		dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
+		 
+	}
+	
+	/**
+	 *@author Dip 
+	 *To Scroll Up
+	 * @param scrlXpath : Xpath of the scroll bar
+	 */
+	public void scrollUp(String scrlXpath){
+		Actions dragger = new Actions(Driver.driver);
+		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath(scrlXpath));
+
+		// drag Upwards
+		int numberOfPixelsToDragTheScrollbarDown = -50;
+		for (int i=500;i>10;i=i+numberOfPixelsToDragTheScrollbarDown){
+		dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
+		}
+		 
+	}
 	
 }

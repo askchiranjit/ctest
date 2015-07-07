@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<root>
+	<OfferTypeAvailableAsLst>
+		<key>ID</key>
+		<value>offerType</value>
+	</OfferTypeAvailableAsLst>
+	
+	<OfferDiscountForType2ResellersChk>
+		<key>ID</key>
+		<value>enableResellerCommision</value>
+	</OfferDiscountForType2ResellersChk>
+	
+	<OfferDiscountForType2ResellersValueTxt>
+		<key>ID</key>
+		<value>resellerComission</value>
+	</OfferDiscountForType2ResellersValueTxt>
+	
+	<OfferOptInTrailModeRdo>
+		<key>ID</key>
+		<value>OptMode1</value>
+	</OfferOptInTrailModeRdo>
+	
+	<OfferOptOutTrailModeRdo>
+		<key>ID</key>
+		<value>OptMode2</value>
+	</OfferOptOutTrailModeRdo>
+	
+	<OfferTrialPeriodValueTxt>
+		<key>ID</key>
+		<value>trial-period</value>
+	</OfferTrialPeriodValueTxt>
+	
+	<OfferTrialPeriodTypeLst>
+		<key>ID</key>
+		<value>trial_period_unit</value>
+	</OfferTrialPeriodTypeLst>
+	
+	<OfferPurchaseBeforeExpireChk>
+		<key>Xpath</key>
+		<value>//input[@name='purchaseBeforeExpiry']</value>
+	</OfferPurchaseBeforeExpireChk>
+	
+	<OfferAutoPurchaseAfterTrialExpireChk>
+		<key>ID</key>
+		<value>autoUpgrade</value>
+	</OfferAutoPurchaseAfterTrialExpireChk>
+	
+	<OfferTrialUpgradeOptionLst>
+		<key>ID</key>
+		<value>trialexcludecategory</value>
+	</OfferTrialUpgradeOptionLst>
+	
+	<OfferTrialUpgradeToLst>
+		<key>ID</key>
+		<value>trialexcludecategoryoptout</value>
+	</OfferTrialUpgradeToLst>
+		
+	<OfferFirstNotificationTxt>
+		<key>ID</key>
+		<value>firstnotification1</value>
+	</OfferFirstNotificationTxt>
+	
+	<OfferSecondNotificationChk>
+		<key>ID</key>
+		<value>enablesecondnotification</value>
+	</OfferSecondNotificationChk>
+	
+	<OfferSecondNotificationTxt>
+		<key>ID</key>
+		<value>secondnotification</value>
+	</OfferSecondNotificationTxt>
+	
+	<OfferThirdNotificationChk>
+		<key>ID</key>
+		<value>enablethirdnotification2</value>
+	</OfferThirdNotificationChk>
+	
+	<OfferThirdNotificationTxt>
+		<key>ID</key>
+		<value>thirdnotification</value>
+	</OfferThirdNotificationTxt>
+</root>

@@ -29,6 +29,7 @@ public class ElementSet
 		}
 		catch(Exception e)
 		{
+			System.out.println("Super element does not exists");
 			System.out.println(e);
 			return null;
 		}
@@ -47,10 +48,15 @@ public class ElementSet
 	
 	public Element getSubElement(Element element, String elementType, String elementName)
 	{
-		boolean isExistingElement = element.isExists();
-		if(!isExistingElement)
+		
+		try
 		{
-			System.out.println("Super element does not exist");
+			element.read();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Super element does not exists");
+			System.out.println(e);
 			return null;
 		}
 		ElementHandler handler = new ElementHandler();

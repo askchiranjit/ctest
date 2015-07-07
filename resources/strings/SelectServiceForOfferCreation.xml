@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<root>
+
+<ForSaleToDirectOrganizationsRdo>
+    <key>ID</key>
+	<value>notavailable4Reseller</value>
+</ForSaleToDirectOrganizationsRdo>
+
+<ForSaleViaResellersRdo>
+    <key>ID</key>
+	<value>available4Reseller</value>
+</ForSaleViaResellersRdo>
+
+<SelectResellerForWhomOfferNeedToCreateLst>
+    <key>ID</key>
+	<value>enterpriseBaseId</value>
+</SelectResellerForWhomOfferNeedToCreateLst>
+
+<OfferServiceSelectionCancelBtn>
+    <key>ID</key>
+	<value>cancel_offer_primary</value>
+</OfferServiceSelectionCancelBtn>
+
+<OfferServiceSelectionContinueBtn>
+    <key>ID</key>
+	<value>offer_primary_continue</value>
+</OfferServiceSelectionContinueBtn>
+
+</root>
