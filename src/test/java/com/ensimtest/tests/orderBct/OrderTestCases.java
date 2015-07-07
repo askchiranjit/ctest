@@ -405,13 +405,7 @@ public class OrderTestCases
 		// Verify results
 		OrderList listOfOrder = new OrderList();
 		OrderRow []rows = null;
-		
-		// Verify all results contains the same org-ID
-//		do
-//		{
-//			rows = listOfOrder.getOrderResultRows("Recent");
-//		}
-//		while(listOfOrder.)
+
 	}
 	
 	@Test
