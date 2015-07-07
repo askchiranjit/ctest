@@ -118,30 +118,31 @@ public class SearchResults extends AppData
 	public class OrgReseller
 	{
 		public Element link;
-		private String resellerName, resellerID;
+		private String resellerName, vatNumber;
 		public OrgReseller(Element link)
 		{
 			this.link = link;
 			String data = link.read().trim();
 			String info[] = data.split("\n");
 			resellerName = info[0].trim();
-			if(info[1].trim().contains(","))
-			{
-				resellerID = info[1].trim().split(",")[0].trim();
-			}
-			else
-			{
-				resellerID = info[1].trim();
-			}
-			resellerID = resellerID.split(":")[1].trim();
+//			if(info[1].trim().contains(","))
+//			{
+//				vatNumber = info[1].trim().split(",")[0].trim();
+//			}
+//			else
+//			{
+//				vatNumber = info[1].trim();
+//			}
+			vatNumber = info[1].trim();
+			vatNumber = vatNumber.replace("VAT Number :", "").trim();
 		}
 		public String getResellerName()
 		{
 			return resellerName;
 		}
-		public String getResellerID()
+		public String getVatNumber()
 		{
-			return resellerID;
+			return vatNumber;
 		}
 	}
 	
