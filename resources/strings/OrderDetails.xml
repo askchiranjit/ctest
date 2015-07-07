@@ -9,4 +9,39 @@
 		<key>ID</key>
 		<value>orderDetail</value>
 	</OrderDetailsButtons>
+	
+	<ViewNotification>
+	<key>Xpath</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'View Notifications')]/preceding-sibling::a</value>
+</ViewNotification>
+
+<GenerateQuote>
+	<key>Xpath</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'Generate Quote')]/preceding-sibling::a</value>
+</GenerateQuote>
+
+<ManageInstallments>
+	<key>ID</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'Manage Installments')]/preceding-sibling::a</value>
+</ManageInstallments>
+
+<ConfirmOrderFulfillment>
+	<key>ID</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'Confirm Order Fulfillment')]/preceding-sibling::a</value>
+</ConfirmOrderFulfillment>
+
+<InitiateBilling>
+	<key>ID</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'Initiate Billing')]/preceding-sibling::a</value>
+</InitiateBilling>
+
+<ManageRenewal>
+	<key>Xpath</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'Manage Renewal')]/preceding-sibling::a</value>
+</ManageRenewal>
+
+<AdjustOrderData>
+	<key>Xpath</key>
+	<value>//*[@id="orderDetail"]//span[contains(text(),'Adjust Order Data')]/preceding-sibling::a</value>
+</AdjustOrderData>
 </root>

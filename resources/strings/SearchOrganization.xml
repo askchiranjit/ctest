@@ -47,16 +47,16 @@
 	
 	<SearchTypeSimilarSound>
 		<key>Xpath</key>
-		<value>//*[@id="phoneticSearchRadio"]/table/tbody/tr/td[1]</value>
+		<value>//*[@id="phoneticSearchRadio"]//table//tbody//tr//td[1]//input</value>
 	</SearchTypeSimilarSound>
 	
 	<SearchTypeStartsWith>
 		<key>Xpath</key>
-		<value>//*[@id="normalSearchRadio"]/table/tbody/tr/td[1]</value>
+		<value>//*[@id="normalSearchRadio"]//table//tbody//tr//td[1]//input</value>
 	</SearchTypeStartsWith>
 	
 	<SearchTypeContains>
 		<key>Xpath</key>
-		<value>//*[@id="deepSearchRadio"]/table/tbody/tr/td[1]</value>
+		<value>//*[@id="deepSearchRadio"]//table//tbody//tr//td[1]//input</value>
 	</SearchTypeContains>
 </root>

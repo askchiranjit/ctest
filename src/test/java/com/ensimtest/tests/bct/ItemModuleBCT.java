@@ -15,7 +15,6 @@ import com.ensimtest.module.catalog.AddBaseItem;
 import com.ensimtest.module.catalog.AddResources;
 import com.ensimtest.module.catalog.AddService;
 import com.ensimtest.module.catalog.CatalogOptions;
-import com.ensimtest.module.catalog.ImportService;
 import com.ensimtest.module.catalog.ItemLandingPage;
 import com.ensimtest.module.catalog.ItemList;
 import com.ensimtest.module.catalog.ListOfSuggestedServices;

@@ -5,6 +5,7 @@ import com.ensimtest.config.Element;
 import com.ensimtest.config.ElementHandler;
 import com.ensimtest.config.ElementSet;
 import com.ensimtest.resource.AppData;
+import com.ensimtest.utils.TestUtils;
 
 /**
  * To get the list of Provisioning Information of offer
@@ -74,8 +75,9 @@ public class OfferProvisioningInformationLst extends AppData{
 			exportChk = set.getSubElementSet(element, "Xpath", "td[7]//input")[0];
 			//System.out.println(exportChk);
 			
-			ElementHandler elementHandler=new ElementHandler();
+			
 			try{
+				ElementHandler elementHandler=new ElementHandler();
 				String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[2]";
 				elementHandler.scrollDown(scrlXpath);
 			}catch(Exception e){
@@ -118,11 +120,54 @@ public class OfferProvisioningInformationLst extends AppData{
 				//System.out.println("Row no:- "+i);
 				rows[i] = new ProvisioningInfoRow(elements[i]);
 			}
+			try{
+				ElementHandler elementHandler=new ElementHandler();
+				String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[2]";
+				elementHandler.scrollUp(scrlXpath);;
+			}catch(Exception e){
+				System.out.println(e);
+			}
 			return rows;
 		}
 		finally
 		{
 			browser.setDefaultWait();
+		}
+	}
+	
+	/**
+	 * To Provide values in Provisioning Informations
+	 * @param provisioningInfoList
+	 * @param defaultValueList
+	 * @param br
+	 */
+	public void writeProvisioningInfo(String[] provisioningInfoList, String[] defaultValueList, Browser br){
+		ProvisioningInfoRow []provInfoRow = getProvisioningInfoRows(br);
+		TestUtils.delay(20000);
+		ElementHandler elementHandler=new ElementHandler();
+		
+        for(int i=0; i<provisioningInfoList.length; i++){  //user input Provisioning Information read
+			
+			for(int j=0; j<provInfoRow.length; j++){ //element rows
+				
+				if(provInfoRow[j].resourceName.equalsIgnoreCase(provisioningInfoList[i])){
+					provInfoRow[j].defaultTxt.write(defaultValueList[i]);
+					try{
+						String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[2]";
+						elementHandler.scrollUp(scrlXpath);;
+					}catch(Exception e){
+						System.out.println(e);
+					}
+					break;
+				}
+				
+				try{
+					String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[2]";
+					elementHandler.scrollDown(scrlXpath);
+				}catch(Exception e){
+					System.out.println(e);
+				}
+			}
 		}
 	}
 }

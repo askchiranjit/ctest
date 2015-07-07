@@ -2,11 +2,14 @@ package com.ensimtest.config;
 
 import java.io.File;
 import java.io.IOException;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
 import com.ensimtest.base.Driver;
 import com.ensimtest.resource.PropertyReader;
+import com.ensimtest.utils.TestUtils;
 
 public class Browser {
 	
@@ -103,5 +106,33 @@ public class Browser {
 	public void setDefaultWait()
 	{
 		driverSetting.setWait(timeToWait);
+	}
+	
+	public void waitForElement(Element element, long maxTimeoutMiliSec) throws Exception
+	{
+		if(maxTimeoutMiliSec<=0)
+		{
+			throw new Exception("In-correct time out enetered");
+		}
+		int offsetTime = 100;
+		int waitTime = offsetTime - timeToWait;
+		long timeSpent = 0;
+		do
+		{
+			try
+			{
+				if(element.isDisplayed()==true)
+				{
+					return;
+				}
+			}
+			finally
+			{
+				;
+			}
+			TestUtils.delay(waitTime);
+			timeSpent = timeSpent + offsetTime;
+		}
+		while(timeSpent < maxTimeoutMiliSec);
 	}
 }

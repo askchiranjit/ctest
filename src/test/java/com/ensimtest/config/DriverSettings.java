@@ -66,7 +66,7 @@ public class DriverSettings
 	 */
 	public void closeDriver()
 	{
-		Driver.driver.manage().deleteAllCookies();
+		//Driver.driver.manage().deleteAllCookies();
 		Driver.driver.close();
 		Driver.driver.quit();
 	}
