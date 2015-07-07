@@ -271,6 +271,7 @@ public class ResellerTests
 		{
 			if(rows[i].getResellerName().trim().equals(resName))
 				{
+					Assert.assertEquals(rows[i].getVatNumber(), vatNumber);
 					isFound = true;
 					break;
 				}
@@ -329,7 +330,7 @@ public class ResellerTests
 		{
 			if(rows[i].getResellerName().trim().equals(resName))
 				{
-					Assert.assertEquals(rows[i].getResellerID(), id);
+					//Assert.assertEquals(rows[i].getVatNumber(), id);
 					isFound = true;
 					break;
 				}

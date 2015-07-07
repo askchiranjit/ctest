@@ -183,4 +183,22 @@ public class SignUpScreen extends AppData
 		}
 	}
 	public AgreeTermsAndConditionTxt agreeTermsAndConditionTxt=new AgreeTermsAndConditionTxt();
+	
+	public class CurencyLst extends Element
+	{
+		public CurencyLst()
+		{
+			setElement(readAppData(this));
+		}
+		
+		public void selectCurency(String curency)
+		{
+			super.selectVisibleText(curency);
+		}
+		
+		
+	}
+	public CurencyLst curencyLst=new CurencyLst();
+	
+	
 }
