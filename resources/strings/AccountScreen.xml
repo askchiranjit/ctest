@@ -1,0 +1,211 @@
+<root>
+	<AccountMenu>
+		<key>Xpath</key>
+		<value>//div[@id='organization']/a</value>
+	</AccountMenu>
+		
+	<OrganizationDetailsBtn>
+		<key>Xpath</key>
+		<value>//div[contains(text(),'Organization Details')]</value>
+	</OrganizationDetailsBtn>
+	
+	<MyProfileBtn>
+		<key>ID</key>
+		<value>userMyself</value>
+	</MyProfileBtn>
+	
+	<UserBtn>
+		<key>Xpath</key>
+		<value>//li[@id='userInfo']/a</value>
+	</UserBtn>
+	
+	<BulkAssignmentBtn>
+		<key>ID</key>
+		<value>bulkUser</value>
+	</BulkAssignmentBtn>
+	
+	<InvoicesAndPaymentsBtn>
+		<key>Xpath</key>
+		<value>//div[contains(text(),'Invoices and Payments')]</value>
+	</InvoicesAndPaymentsBtn>
+	
+	<OrganizationDetailsTable>
+		<key>ID</key>
+		<value>organizationData</value>
+	</OrganizationDetailsTable>
+	<EditOrganizationDetailsBtn>
+		<key>ID</key>
+		<value>editOrgDetailButton1</value>
+	</EditOrganizationDetailsBtn>
+	
+	<AddUserBtn>
+		<key>Xpath</key>
+		<value>//div[contains(text(),'Add User')]</value>
+	</AddUserBtn>
+	
+	<UserNameInNewUserPageTxt>
+		<key>ID</key>
+		<value>userName1</value>
+	</UserNameInNewUserPageTxt>
+	
+	<PasswordInNewUserPageTxt>
+		<key>ID</key>
+		<value>pass</value>
+	</PasswordInNewUserPageTxt>
+	
+	<VerifyPasswordInNewUserPageTxt>
+		<key>ID</key>
+		<value>repass</value>
+	</VerifyPasswordInNewUserPageTxt>
+	
+	<AccountInNewUserPage>
+		<key>ID</key>
+		<value>ossdomain</value>
+	</AccountInNewUserPage>
+	
+	<LanguageInNewUserPage>
+		<key>ID</key>
+		<value>user.languageId</value>
+	</LanguageInNewUserPage>
+	
+	<PrimaryRoleInNewUserPage>
+		<key>ID</key>
+		<value>role</value>
+	</PrimaryRoleInNewUserPage>
+	
+	<SecondaryRolesInNewUserPage>
+		<key>ID</key>
+		<value>secondaryRoleIds</value>
+	</SecondaryRolesInNewUserPage>
+	
+	<IsDefaultBCInNewUserPage>
+		<key>ID</key>
+		<value>chkBoxDefaultBC</value>
+	</IsDefaultBCInNewUserPage>
+	
+	<IsDefaultTCInNewUserPage>
+		<key>ID</key>
+		<value>chkBoxDefaultTC</value>
+	</IsDefaultTCInNewUserPage>
+	
+	<FirstNameInNewUserPage>
+		<key>ID</key>
+		<value>contact_firstName</value>
+	</FirstNameInNewUserPage>
+	
+	<LastNameInNewUserPage>
+		<key>ID</key>
+		<value>contact_lastName</value>
+	</LastNameInNewUserPage>
+	
+	<EmailAddressInNewUserPage>
+		<key>ID</key>
+		<value>contact_email</value>
+	</EmailAddressInNewUserPage>
+	
+	<SecondaryEmailAddressInNewUserPage>
+		<key>ID</key>
+		<value>contact_secondaryemail</value>
+	</SecondaryEmailAddressInNewUserPage>
+	
+	<PhoneNumberInNewUserPage>
+		<key>ID</key>
+		<value>phoneno</value>
+	</PhoneNumberInNewUserPage>
+	
+	<MobileInNewUserPage>
+		<key>ID</key>
+		<value>contact_mobile</value>
+	</MobileInNewUserPage>
+	
+	<FaxCountryCodeNewUserPage>
+		<key>ID</key>
+		<value>contact_faxCountryCode</value>
+	</FaxCountryCodeNewUserPage>
+	
+	<FaxAreaCodeInNewUserPage>
+		<key>ID</key>
+		<value>contact_faxAreaCode</value>
+	</FaxAreaCodeInNewUserPage>
+	
+	<FaxNumberInNewUserPage>
+		<key>ID</key>
+		<value>contact_faxNumber</value>
+	</FaxNumberInNewUserPage>
+	
+	<AddressLine1InNewUserPage>
+		<key>ID</key>
+		<value>add1</value>
+	</AddressLine1InNewUserPage>
+	
+	<AddressLine2InNewUserPage>
+		<key>ID</key>
+		<value>contact_address2</value>
+	</AddressLine2InNewUserPage>
+	
+	<CityInNewUserPage>
+		<key>ID</key>
+		<value>contact_city</value>
+	</CityInNewUserPage>
+	
+	<StateInNewUserPage>
+		<key>ID</key>
+		<value>state</value>
+	</StateInNewUserPage>
+	
+	<ZipCodeInNewUserPage>
+		<key>ID</key>
+		<value>contact_postalCode</value>
+	</ZipCodeInNewUserPage>
+	
+	<CountryInNewUserPage>
+		<key>ID</key>
+		<value>contact_countryCode</value>
+	</CountryInNewUserPage>
+	
+	<CreateUserBtnInNewUserPage>
+		<key>ID</key>
+		<value>saveandproceed</value>
+	</CreateUserBtnInNewUserPage>
+	
+	<SearchUserTextBox>
+		<key>ID</key>
+		<value>searchUser</value>
+	</SearchUserTextBox>
+	
+	<SearchUserBtn>
+		<key>Xpath</key>
+		<value>//div[@class='mouseout_event_div']/div[3]/img</value>
+	</SearchUserBtn>
+		 
+	<SelectUserFromUserList>
+		<key>Xpath</key>
+		<value>//table[@id='users']/tbody/tr[1]/td[3]</value>
+	</SelectUserFromUserList>
+	
+	<EmailAddressInEditOrgPage>
+		<key>ID</key>
+		<value>email</value>
+	</EmailAddressInEditOrgPage>
+	
+	<CommunicationLanguageInEditOrgPage>
+		<key>ID</key>
+		<value>communication_language</value>
+	</CommunicationLanguageInEditOrgPage>
+	
+	<BillingLanguageInEditOrgPage>
+		<key>ID</key>
+		<value>billing_language</value>
+	</BillingLanguageInEditOrgPage>
+	
+	<DateTimeFormatInEditOrgPage>
+		<key>ID</key>
+		<value>datetimeformat</value>
+	</DateTimeFormatInEditOrgPage>
+	
+	<SaveOrgDetailsBtnInEditOrgPage>
+		<key>ID</key>
+		<value>finalSave</value>
+	</SaveOrgDetailsBtnInEditOrgPage>
+	
+</root>
