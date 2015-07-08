@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<root>
+<CurrencyInfoTable>
+	<key>Xpath</key>
+	<value>//div[@id='offerCurrencyData']//table//tbody</value>
+</CurrencyInfoTable>
+
+<CurrencyRowFinder>
+	<key>Xpath</key>
+	<value>tr</value>
+</CurrencyRowFinder>
+
+<OkButtonToSaveCurrency>
+	<key>Xpath</key>
+	<value>//div[contains(@aria-labelledby,'ui-dialog-title-offerCurrencyData')]//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Ok')]</value>
+</OkButtonToSaveCurrency>
+
+<CancelButtonToDiscardCurrencyChanges>
+	<key>Xpath</key>
+	<value>//div[contains(@aria-labelledby,'ui-dialog-title-offerCurrencyData')]//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Cancel')]</value>
+</CancelButtonToDiscardCurrencyChanges>
+</root>

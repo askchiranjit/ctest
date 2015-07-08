@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<root>
+	<CheckoutBtn>
+		<key>Xpath</key>
+		<value>//b[contains(text(),'Checkout')]//parent::div</value>
+	</CheckoutBtn>
+	
+	<YesBtn>
+		<key>Xpath</key>
+		<value>//a//div[contains(text(),'Yes')]</value>
+	</YesBtn>
+	
+	<OrderSuccessMsg>
+		<key>Xpath</key>
+		<value>//div[contains(@class,'escm_succ')]</value>
+	</OrderSuccessMsg>
+	
+</root>

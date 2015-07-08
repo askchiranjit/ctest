@@ -2,12 +2,14 @@ package com.ensimtest.config;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import com.ensimtest.base.Driver;
 import com.ensimtest.base.ElementType;
 import com.ensimtest.base.IElement;
-
 /**
  * This implements IElements along with some additional methods
  * @author Chiranjit
@@ -126,17 +128,14 @@ public class Element implements IElement
 
 
 
-	protected void write(String characterSeq, String msg) {
-		webElement = getReloadedElement(elementName, type);
-		webElement.sendKeys(characterSeq,msg);
-	}
+
 
 	/**
 	 * Returns attribute value based on the attribute name of the element
 	 * @param attributeName : name of the attribute associated with the element
 	 * @return : returns the value as String
 	 */
-	protected String getAttributeValue(String attributeName)
+	public String getAttributeValue(String attributeName)
 	{
 		webElement = getReloadedElement(elementName, type);
 		String s = webElement.getAttribute(attributeName);
@@ -158,9 +157,9 @@ public class Element implements IElement
 	 * Selects visible value from the drop-down/list box
 	 * @param data : the value to be selected
 	 */
-	protected void selectVisibleText(String data)
+	public void selectVisibleText(String data)
 	{
-		webElement = handler.reloadElement(elementName, type);
+		webElement = getReloadedElement(elementName, type);
 		Select select = new Select(webElement);
 		select.selectByVisibleText(data);
 	}
@@ -180,6 +179,14 @@ public class Element implements IElement
 	{
 		webElement = getReloadedElement(elementName, type);
 		handler.moveMouseToElement(webElement);
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 	@Override
@@ -292,5 +299,21 @@ public class Element implements IElement
 		Select select = new Select(webElement);
 		return select.getFirstSelectedOption().getText();
 	}
+	
+	/**
+	 * @author Dip
+	 * @param length
+	 */
+	public void clearAllChars(int length)
+	{		
+		click();
+		Actions action = new Actions(Driver.driver);
+		
+		for(int i=0; i<length; i++)
+		{
+			action.sendKeys(Keys.BACK_SPACE).build().perform();
+		}
+	}
+	
 
 }

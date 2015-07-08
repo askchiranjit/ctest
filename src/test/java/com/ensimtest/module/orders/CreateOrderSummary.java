@@ -149,4 +149,36 @@ public class CreateOrderSummary extends AppData
 		}
 	}
 	public ApproveOrderMsgLbl approveOrderMsgLbl = new ApproveOrderMsgLbl();
+	
+	public class OrderNOCustomer extends Element
+	{
+		public OrderNOCustomer()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	
+	public OrderNOCustomer orderNOCustomer= new OrderNOCustomer();
+	
+	
+	public class GotoCartBtn extends Element
+	{
+		public GotoCartBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	
+	public GotoCartBtn gotoCartBtn= new GotoCartBtn();
+	
+public class OrderNOUpgradeCustomer extends Element
+{
+	public OrderNOUpgradeCustomer()
+	{
+		setElement(readAppData(this));
+	}
+}
+
+public OrderNOUpgradeCustomer orderNOUpgradeCustomer=new OrderNOUpgradeCustomer();
+	
 }

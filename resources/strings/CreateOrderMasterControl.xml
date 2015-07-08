@@ -18,7 +18,7 @@
 
 <PlaceOrderBtn>
 	<key>Xpath</key>
-	<value>//a[@id='addAndApprove']//span[text()='Place Order']</value>
+	<value>//a[@id='addAndApprove']//span[contains(text(),'Place Order')]</value>
 </PlaceOrderBtn>
 
 <SaveAsDraftBtn>
@@ -50,5 +50,25 @@
 	<key>Xpath</key>
 	<value>"//*[@id=""sections""]/div[4]"</value>
 </SummaryBreadCrumb>
+
+<AddToCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='addToCart']//span[contains(text(),'Add to CART')]</value>
+</AddToCartBtn>
+
+<SaveToCartBtn>
+	<key>Xpath</key>
+	<value>//a[@id='saveCart']//span[contains(text(),'Save CART')]</value>
+</SaveToCartBtn>
+
+<PlaceUpgradeBtn>
+	<key>ID</key>
+	<value>create</value>
+</PlaceUpgradeBtn>
+
+<SaveAsDraftCusBtn>
+	<key>Xpath</key>
+	<value>//span[contains(text(),'Save as Draft')]//parent::a</value>
+</SaveAsDraftCusBtn>
 
 </root>

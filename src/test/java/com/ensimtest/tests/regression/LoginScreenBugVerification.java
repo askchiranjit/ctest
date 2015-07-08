@@ -13,6 +13,7 @@ import com.ensimtest.config.Browser;
 import com.ensimtest.module.authentication.LoginScreen;
 import com.ensimtest.module.authentication.SignUpScreen;
 import com.ensimtest.resource.TestDataProvider;
+import com.ensimtest.utils.TestUtils;
 
 public class LoginScreenBugVerification
 {
@@ -21,7 +22,7 @@ public class LoginScreenBugVerification
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
 	{
-		//TestUtils.checkSuitRunnable(this);
+		TestUtils.checkSuitRunnable(this);
 		
 	}
 

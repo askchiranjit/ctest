@@ -1,9 +1,12 @@
 package com.ensimtest.config;
 
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import com.ensimtest.base.Driver;
 
 public class DriverSettings
@@ -29,9 +32,9 @@ public class DriverSettings
 			Driver.driver = new InternetExplorerDriver(cap);
 			break;
 		case "chrome" : 
-			System.setProperty("webdriver.ie.driver", "resources\\thirdparty\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "resources\\thirdparty\\chromedriver.exe");
 			cap = DesiredCapabilities.chrome();
-			Driver.driver = new InternetExplorerDriver(cap);
+			Driver.driver = new ChromeDriver(cap);
 			break;
 		default : 
 			cap = DesiredCapabilities.firefox();
@@ -63,7 +66,7 @@ public class DriverSettings
 	 */
 	public void closeDriver()
 	{
-		Driver.driver.manage().deleteAllCookies();
+		//Driver.driver.manage().deleteAllCookies();
 		Driver.driver.close();
 		Driver.driver.quit();
 	}

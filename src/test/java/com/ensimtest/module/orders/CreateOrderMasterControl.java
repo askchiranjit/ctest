@@ -94,4 +94,43 @@ public class CreateOrderMasterControl extends AppData
 		}
 	}
 	public SummaryBreadCrumb summaryBreadCrumb = new SummaryBreadCrumb();
+	
+	public class AddToCartBtn extends Element
+	{
+		public AddToCartBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public AddToCartBtn addToCartBtn = new AddToCartBtn();
+	
+	
+	public class SaveToCartBtn extends Element
+	{
+		public SaveToCartBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public SaveToCartBtn saveToCartBtn = new SaveToCartBtn();
+	
+	
+	public class PlaceUpgradeBtn extends Element
+	{
+		public PlaceUpgradeBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	public PlaceUpgradeBtn placeUpgradeBtn = new PlaceUpgradeBtn();
+	
+	public class SaveAsDraftCusBtn extends Element
+	{
+		public SaveAsDraftCusBtn()
+		{
+			setElement(readAppData(this));
+		}
+	}
+	
+	public SaveAsDraftCusBtn saveAsDraftCusBtn = new SaveAsDraftCusBtn();
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<root>
+<EndOfCurrentMonthChk>
+	<key>Xpath</key>
+	<value>"//*[@id=""sendcancelledreason""]/table[1]/tbody/tr[2]/td[1]/input"</value>
+</EndOfCurrentMonthChk>
+
+<AsSoonAsPossibleChk>
+	<key>Xpath</key>
+	<value>"//*[@id=""sendcancelledreason""]/table[1]/tbody/tr[3]/td[1]/input"</value>
+</AsSoonAsPossibleChk>
+
+<ReasonLst>
+	<key>ID</key>
+	<value>reason</value>
+</ReasonLst>
+
+<CommentsTxt>
+	<key>ID</key>
+	<value>comments</value>
+</CommentsTxt>
+
+<WarningMsgLbl>
+	<key>ID</key>
+	<value>msg</value>
+</WarningMsgLbl>
+
+<CancelBtn>
+	<key>Xpath</key>
+	<value>/html/body/div[3]/div[11]/div/button[2]/span</value>
+</CancelBtn>
+
+<OkBtn>
+	<key>Xpath</key>
+	<value>/html/body/div[3]/div[11]/div/button[1]/span</value>
+</OkBtn>
+
+<PopUpMsg>
+	<key>ID</key>
+	<value>popup_message</value>
+</PopUpMsg>
+
+<PopUpOkBtn>
+	<key>ID</key>
+	<value>popup_ok</value>
+</PopUpOkBtn>
+
+<PopUpCancelBtn>
+	<key>Xpath</key>
+	<value>popup_cancel</value>
+</PopUpCancelBtn>
+
+</root>

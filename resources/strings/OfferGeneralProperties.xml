@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<root>
+	<OfferCategoryNameLst>
+		<key>ID</key>
+		<value>offercategory</value>
+	</OfferCategoryNameLst>
+	
+	<OfferServiceCodeTxt>
+		<key>ID</key>
+		<value>serviceCode</value>
+	</OfferServiceCodeTxt>
+	
+	<OfferUniqueIdentifierTxt>
+		<key>ID</key>
+		<value>offer_guid</value>
+	</OfferUniqueIdentifierTxt>
+	
+	<OfferUniqueIdentifierMsgChkLbl>
+		<key>ID</key>
+		<value>guidavailable</value>
+	</OfferUniqueIdentifierMsgChkLbl>
+	
+	<OfferCatalogIDTxt>
+		<key>ID</key>
+		<value>catalogueid</value>
+	</OfferCatalogIDTxt>
+	
+	<OfferTariffCodeTxt>
+		<key>ID</key>
+		<value>atfcode</value>
+	</OfferTariffCodeTxt>
+	
+	<OfferDisplayNameTxt>
+		<key>ID</key>
+		<value>displayname</value>
+	</OfferDisplayNameTxt>
+	
+	<OfferGlobalRegionRdo>
+		<key>ID</key>
+		<value>global</value>
+	</OfferGlobalRegionRdo>
+	
+	<OfferRegionalRdo>
+		<key>ID</key>
+		<value>regional</value>
+	</OfferRegionalRdo>
+	
+	<OfferRegionSelectLst>
+		<key>ID</key>
+		<value>regionlist</value>
+	</OfferRegionSelectLst>
+	
+	<OfferDescriptionTxt>
+		<key>ID</key>
+		<value>podescription</value>
+	</OfferDescriptionTxt>
+	
+	<OfferActivationStatusLst>
+		<key>ID</key>
+		<value>offerstatus</value>
+	</OfferActivationStatusLst>
+	
+	<OfferSearchTagsTxt>
+		<key>ID</key>
+		<value>searchTag</value>
+	</OfferSearchTagsTxt>
+	
+	<OfferLockFurtherEditingChk>
+		<key>ID</key>
+		<value>editlock</value>
+	</OfferLockFurtherEditingChk>
+	
+	<OfferTagToResellerLst>
+		<key>ID</key>
+		<value>editEnterpriseBaseId</value>
+	</OfferTagToResellerLst>
+	
+	<OfferAtLeastOneConstraintChk>
+		<key>ID</key>
+		<value>aloc</value>
+	</OfferAtLeastOneConstraintChk>
+	
+	<OfferConfigAtLeastOneConstraintBtn>
+		<key>ID</key>
+		<value>aloc-button</value>
+	</OfferConfigAtLeastOneConstraintBtn>
+	
+	<OfferDependsOnConstraintChk>
+		<key>ID</key>
+		<value>doc</value>
+	</OfferDependsOnConstraintChk>
+	
+	<OfferConfigDependsOnConstraintBtn>
+		<key>ID</key>
+		<value>doc-button</value>
+	</OfferConfigDependsOnConstraintBtn>
+	
+	<OfferLimitOrganizationGlobalDiscountChk>
+		<key>ID</key>
+		<value>distribDiscount</value>
+	</OfferLimitOrganizationGlobalDiscountChk>
+	
+	<OfferConfigLimitOrganizationGlobalDiscountBtn>
+		<key>ID</key>
+		<value>distribDiscountButton</value>
+	</OfferConfigLimitOrganizationGlobalDiscountBtn>
+	
+	<OfferUpgradableToLst>
+		<key>ID</key>
+		<value>excludecategory</value>
+	</OfferUpgradableToLst>
+	
+	<OfferConfigureUpgradableToBtn>
+		<key>ID</key>
+		<value>cofigureInplaceUpgradePath</value>
+	</OfferConfigureUpgradableToBtn>
+	
+	<OfferUpgradeWeightTxt>
+		<key>ID</key>
+		<value>upgradeweight</value>
+	</OfferUpgradeWeightTxt>
+	
+	<OfferUpsizeAllowedChk>
+		<key>ID</key>
+		<value>upsizeAllowed</value>
+	</OfferUpsizeAllowedChk>
+	
+	<OfferDownsizeAllowedChk>
+		<key>ID</key>
+		<value>downsizeAllowed</value>
+	</OfferDownsizeAllowedChk>
+	
+	<OfferMessageDuringUpgradeChk>
+		<key>ID</key>
+		<value>multiLngMessageCheck</value>
+	</OfferMessageDuringUpgradeChk>
+	
+	<OfferContractPeriodValueTxt>
+		<key>Xpath</key>
+		<value>//input[@id='contractperiod']</value>
+	</OfferContractPeriodValueTxt>
+	
+	<OfferContractPeriodTypeLst>
+		<key>ID</key>
+		<value>contracttime</value>
+	</OfferContractPeriodTypeLst>
+	
+	<OfferMaxOrderQtyPerOrgTxt>
+		<key>ID</key>
+		<value>product.offer.multipleinstance</value>
+	</OfferMaxOrderQtyPerOrgTxt>
+	
+	<OfferDataRetentionPeriodValueTxt>
+		<key>ID</key>
+		<value>retention</value>
+	</OfferDataRetentionPeriodValueTxt>
+	
+	<OfferDataRetentionPeriodTypeLst>
+		<key>ID</key>
+		<value>retentionUnit</value>
+	</OfferDataRetentionPeriodTypeLst>
+	
+	<OfferFirstNotificationChk>
+		<key>ID</key>
+		<value>enableOfferFirstNotification</value>
+	</OfferFirstNotificationChk>
+	
+	<OfferFirstNotificationTxt>
+		<key>ID</key>
+		<value>offerFirstNotif</value>
+	</OfferFirstNotificationTxt>
+	
+	<OfferSecondNotificationChk>
+		<key>ID</key>
+		<value>enableOfferSecondNotification</value>
+	</OfferSecondNotificationChk>
+	
+	<OfferSecondNotificationTxt>
+		<key>ID</key>
+		<value>offerSecondNotification</value>
+	</OfferSecondNotificationTxt>
+	
+	<OfferThirdNotificationChk>
+		<key>ID</key>
+		<value>enableOfferThirdNotification</value>
+	</OfferThirdNotificationChk>
+	
+	<OfferThirdNotificationTxt>
+		<key>ID</key>
+		<value>offerThirdNotification</value>
+	</OfferThirdNotificationTxt>
+	
+	<OfferCustomField1Txt>
+		<key>ID</key>
+		<value>CustomField1</value>
+	</OfferCustomField1Txt>
+	
+	<OfferCustomField2Txt>
+		<key>ID</key>
+		<value>CustomField2</value>
+	</OfferCustomField2Txt>
+	
+	<OfferCustomField3Txt>
+		<key>ID</key>
+		<value>CustomField3</value>
+	</OfferCustomField3Txt>
+	
+	<OfferCustomField4Txt>
+		<key>ID</key>
+		<value>CustomField4</value>
+	</OfferCustomField4Txt>
+	
+	<OfferCustomField5Txt>
+		<key>ID</key>
+		<value>CustomField5</value>
+	</OfferCustomField5Txt>
+	
+	<OfferCustomField6Txt>
+		<key>ID</key>
+		<value>CustomField6</value>
+	</OfferCustomField6Txt>
+	
+	<OfferCustomField7Txt>
+		<key>ID</key>
+		<value>CustomField7</value>
+	</OfferCustomField7Txt>
+	
+	<OfferCustomField8Txt>
+		<key>ID</key>
+		<value>CustomField8</value>
+	</OfferCustomField8Txt>
+	
+	<OfferCustomField9Txt>
+		<key>ID</key>
+		<value>CustomField9</value>
+	</OfferCustomField9Txt>
+	
+	<OfferCustomField10Txt>
+		<key>ID</key>
+		<value>CustomField10</value>
+	</OfferCustomField10Txt>
+	
+	<OfferCustomField11Txt>
+		<key>ID</key>
+		<value>CustomField11</value>
+	</OfferCustomField11Txt>
+	
+	<OfferCustomField12Txt>
+		<key>ID</key>
+		<value>CustomField12</value>
+	</OfferCustomField12Txt>
+	
+</root>

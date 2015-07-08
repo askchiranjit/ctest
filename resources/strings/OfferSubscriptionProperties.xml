@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<root>
+	<OfferMonthToMonthSubscriptionRdo>
+		<key>ID</key>
+		<value>m2mOffer</value>
+	</OfferMonthToMonthSubscriptionRdo>
+	
+	<OfferTermedSubscriptionRdo>
+		<key>ID</key>
+		<value>subscribeOffer</value>
+	</OfferTermedSubscriptionRdo>
+	
+	<OfferSubscriptionPeriodValueTxt>
+		<key>ID</key>
+		<value>subscriptionTime</value>
+	</OfferSubscriptionPeriodValueTxt>
+	
+	<OfferSubscriptionPeriodTypeLst>
+		<key>ID</key>
+		<value>subscriptionPeriod</value>
+	</OfferSubscriptionPeriodTypeLst>
+	
+	<OfferBillingFrequencyValueTxt>
+		<key>ID</key>
+		<value>product.offer.billingFrequencyLength</value>
+	</OfferBillingFrequencyValueTxt>
+	
+	<OfferBillingFrequencyTypeLst>
+		<key>ID</key>
+		<value>billingFrequencyPeriod</value>
+	</OfferBillingFrequencyTypeLst>
+	
+	<OfferSubscriptionCodeTxt>
+		<key>ID</key>
+		<value>subscriptionCode</value>
+	</OfferSubscriptionCodeTxt>
+	
+	<OfferAutoRenewSubscriptionRdo>
+		<key>ID</key>
+		<value>autoRenew</value>
+	</OfferAutoRenewSubscriptionRdo>
+	
+	<OfferAutoCancelSubscriptionRdo>
+		<key>ID</key>
+		<value>AutoCancel</value>
+	</OfferAutoCancelSubscriptionRdo>
+	
+	<OfferAllowUpgradeDuringSubscriptionChk>
+		<key>ID</key>
+		<value>upgraadeAllowDuringSubscription</value>
+	</OfferAllowUpgradeDuringSubscriptionChk>
+	
+	<OfferRenewSubscriptionWithActiveUserChk>
+		<key>ID</key>
+		<value>RenewWithActiveUser</value>
+	</OfferRenewSubscriptionWithActiveUserChk>
+	
+	<OfferFirstNotificationChk>
+		<key>ID</key>
+		<value>subscriptionFirstNotifNeed</value>
+	</OfferFirstNotificationChk>
+	
+	<OfferFirstNotificationTxt>
+		<key>ID</key>
+		<value>subscribeFirstNotif</value>
+	</OfferFirstNotificationTxt>
+	
+	<OfferSecondNotificationChk>
+		<key>ID</key>
+		<value>subscriptionsndNotifNeed</value>
+	</OfferSecondNotificationChk>
+	
+	<OfferSecondNotificationTxt>
+		<key>ID</key>
+		<value>subscribeSecondNotif</value>
+	</OfferSecondNotificationTxt>
+	
+	<OfferThirdNotificationChk>
+		<key>ID</key>
+		<value>subscriptionThirdNotifNeed</value>
+	</OfferThirdNotificationChk>
+	
+	<OfferThirdNotificationTxt>
+		<key>ID</key>
+		<value>subscribeThirdNotif</value>
+	</OfferThirdNotificationTxt>
+	
+</root>

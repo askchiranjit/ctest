@@ -1,9 +1,11 @@
 package com.ensimtest.config;
 
 import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import com.ensimtest.base.ElementType;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.ensimtest.base.Driver;
@@ -143,4 +145,49 @@ public class ElementHandler
 		Actions action = new Actions(Driver.driver);
 		action.moveToElement(element).build().perform();
 	}
+	
+	protected WebElement getElement(Element masterElement, String elementName, ElementType type)
+	{
+		List<WebElement> list = getElements(masterElement,elementName, type);
+		if(list.size()==0)
+			throw new ElementNotFoundException(elementName, type.toString(), elementName);
+		else
+		{
+			return list.get(0);
+		}
+	}
+
+	/**
+	 *@author Dip 
+	 *To Scroll down
+	 * @param scrlXpath : Xpath of the scroll bar
+	 */
+	public void scrollDown(String scrlXpath){
+		Actions dragger = new Actions(Driver.driver);
+		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath(scrlXpath));
+
+		// drag downwards
+		int numberOfPixelsToDragTheScrollbarDown = 8;
+	
+		dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
+		 
+	}
+	
+	/**
+	 *@author Dip 
+	 *To Scroll Up
+	 * @param scrlXpath : Xpath of the scroll bar
+	 */
+	public void scrollUp(String scrlXpath){
+		Actions dragger = new Actions(Driver.driver);
+		WebElement draggablePartOfScrollbar = Driver.driver.findElement(By.xpath(scrlXpath));
+
+		// drag Upwards
+		int numberOfPixelsToDragTheScrollbarDown = -50;
+		for (int i=500;i>10;i=i+numberOfPixelsToDragTheScrollbarDown){
+		dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
+		}
+		 
+	}
+	
 }

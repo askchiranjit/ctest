@@ -66,4 +66,21 @@
 	<value>approved_msg</value>
 </ApproveOrderMsgLbl>
 
+<OrderNOCustomer>
+	<key>Xpath</key>
+	<value>//div[@id='suggestedServicesDiv']//table[@class='bb_center']//div//b</value>
+</OrderNOCustomer>
+
+<GotoCartBtn>
+	<key>Xpath</key>
+	<value>//span[contains(text(),'Go to CART')]//parent::a</value>
+</GotoCartBtn>
+
+
+<OrderNOUpgradeCustomer>
+	<key>Xpath</key>
+	<value>//div[@id='summary_approval_div']//div[@class='bb_center']//table[@class='bb_center']//tbody//tr//td//div//b</value>
+</OrderNOUpgradeCustomer>
+
+
 </root>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<root>
+	<OfferGeneralPropertiesLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'General Properties')]</value>
+	</OfferGeneralPropertiesLnk>
+	
+	<OfferSubscriptionPropertiesLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Subscription Properties')]</value>
+	</OfferSubscriptionPropertiesLnk>
+	
+	<OfferTypePropertiesLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Offer Type')]</value>
+	</OfferTypePropertiesLnk>
+	
+	<OfferBillingRulesLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Billing Rules')]</value>
+	</OfferBillingRulesLnk>
+	
+	<OfferItemConfigurationDetailsLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Item Configuration Details')]</value>
+	</OfferItemConfigurationDetailsLnk>
+	
+	<OfferMarketplaceContentLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Marketplace Content')]</value>
+	</OfferMarketplaceContentLnk>
+	
+	<OfferCatalogAttributesLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Catalog Attributes')]</value>
+	</OfferCatalogAttributesLnk>
+	
+	<OfferProvisioningWorkflowLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Provisioning Workflow')]</value>
+	</OfferProvisioningWorkflowLnk>
+	
+	<OfferTermsAndNotificationMacroLnk>
+		<key>Xpath</key>
+		<value>//a[contains(text(),'Notification Macros')]</value>
+	</OfferTermsAndNotificationMacroLnk>
+	
+	<OfferCancelBtn>
+		<key>Xpath</key>
+		<value>//a[@id='cancel_edit']</value>
+	</OfferCancelBtn>
+	
+	<OfferSaveBtn>
+		<key>Xpath</key>
+		<value>//div[@id='save_offer']</value>
+	</OfferSaveBtn>
+</root>

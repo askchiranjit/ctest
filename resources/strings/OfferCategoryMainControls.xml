@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<root>
+	<OfferAddCategoryBtn>
+		<key>ID</key>
+		<value>add_offer_category</value>
+	</OfferAddCategoryBtn>
+	
+	<OfferDownloadCatalogBtn>
+		<key>ID</key>
+		<value>download_offer_csv</value>
+	</OfferDownloadCatalogBtn>
+	
+	<ImportOfferBtn>
+		<key>ID</key>
+		<value>import</value>
+	</ImportOfferBtn>
+	
+	<EditOfferCategoryRankBtn>
+		<key>ID</key>
+		<value>editSLno1</value>
+	</EditOfferCategoryRankBtn>
+	
+	<OfferCategoryNavigateUsingPageNumberTxt>
+		<key>ID</key>
+		<value>searchPage</value>
+	</OfferCategoryNavigateUsingPageNumberTxt>
+	
+	<OfferCategoryPreviousBtn>
+		<key>ID</key>
+		<value>searchButtonPrevious</value>
+	</OfferCategoryPreviousBtn>
+	
+	<OfferCategoryNextBtn>
+		<key>ID</key>
+		<value>searchButtonNext</value>
+	</OfferCategoryNextBtn>
+	
+	<EditOffersRankBtn>
+		<key>ID</key>
+		<value>editSLnooffer1</value>
+	</EditOffersRankBtn>
+	
+	<AddOfferBtn>
+		<key>ID</key>
+		<value>add_offer</value>
+	</AddOfferBtn>
+	
+	<OfferPageNavigateUsingPageNumberTxt>
+		<key>ID</key>
+		<value>searchPageOffer</value>
+	</OfferPageNavigateUsingPageNumberTxt>
+	
+	<OffersPreviousPageBtn>
+		<key>ID</key>
+		<value>searchButtonPreviousOffer</value>
+	</OffersPreviousPageBtn>
+	
+	<OfferNextPageBtn>
+		<key>ID</key>
+		<value>searchButtonNextOffer</value>
+	</OfferNextPageBtn>
+</root>

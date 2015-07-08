@@ -7,7 +7,7 @@
 	
 	<OffersLnk>
 		<key>Xpath</key>
-		<value>//a//span[text()='Offers']</value>
+		<value>//a//span[contains(text(),'Offers')]</value>
 	</OffersLnk>
 
 	<RegionsLnk>

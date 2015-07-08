@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<root>
+	<OfferCategoryCodeTxt>
+		<key>ID</key>
+		<value>offer.category.code</value>
+	</OfferCategoryCodeTxt>
+	
+	<OfferCategoryNameTxt>
+		<key>ID</key>
+		<value>categoryname</value>
+	</OfferCategoryNameTxt>
+	
+	<OfferCategoryDescriptionTxt>
+		<key>ID</key>
+		<value>categorydescription</value>
+	</OfferCategoryDescriptionTxt>
+	
+	<OfferCategoryCancelBtn>
+		<key>ID</key>
+		<value>leave_category</value>
+	</OfferCategoryCancelBtn>
+	
+	<OfferCategorySaveBtn>
+		<key>ID</key>
+		<value>add_new_category</value>
+	</OfferCategorySaveBtn>
+</root>
