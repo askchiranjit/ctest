@@ -59,7 +59,7 @@
 	
 	<AgreeTermsAndConditionTxt>
 		<key>Xpath</key>
-		<value>//*[@id="cust_reg_button_div"]/li[12]/ul/li[2]</value>
+		<value>//input[@id='acceptTerms']//parent::li//following::li[1]</value>
 	</AgreeTermsAndConditionTxt>
 	
 	<CurencyLst>

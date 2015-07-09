@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<root>
+
+<UserTable>
+	<key>Xpath</key>
+	<value>//table[@id='users']//tbody//tr</value>
+</UserTable>
+
+<SelectThisChk>
+	<key>Xpath</key>
+	<value>td[@id='removalServicestdId']//input[1]</value>
+</SelectThisChk>
+
+<ServiceAssignBtn>
+	<key>Xpath</key>
+	<value>./td/a</value>
+</ServiceAssignBtn>
+
+<Status>
+	<key>Xpath</key>
+	<value>./td/img</value>
+</Status>
+
+<UserNameLink>
+	<key>Xpath</key>
+	<value>.//td[2]</value>
+</UserNameLink>
+
+</root>
