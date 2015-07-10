@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<root>
+<TieredItemPriceInfoRowFinder>
+	<key>Xpath</key>
+	<value>tr</value>
+</TieredItemPriceInfoRowFinder>
+
+<TieredItemPriceTable>
+	<key>Xpath</key>
+	<value>//div[@id='currency']//table//tbody</value>
+</TieredItemPriceTable>
+
+</root>

@@ -59,6 +59,126 @@ public class AddPriceForItemInOffer extends AppData{
 	
 	public SlectStartsWithOrEndWithLst slectStartsWithOrEndWithLst = new SlectStartsWithOrEndWithLst();
 	
+//Tiered part handle over here
+	/*
+	 * to provide billing name
+	 */
+	public class TieredBillingNameTxt extends Element{
+		public TieredBillingNameTxt(){}
+		
+		public void writeValue(String data, int count){
+			String xpath = "//input[@id='newagentuser_0_field_" + count +"_tiername']";
+			setElement("Xpath", xpath);
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
+	}
+	
+	public TieredBillingNameTxt tieredBillingNameTxt = new TieredBillingNameTxt();
+	
+	/*
+	 * to provide range min
+	 */
+	public class TieredRangeMinTxt extends Element{
+		public TieredRangeMinTxt(){}
+		
+		public void writeValue(String data, int count){
+			String xpath = "//input[@id='newagentuser_0_" + count + "']";
+			setElement("Xpath", xpath);
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
+	}
+	
+	public TieredRangeMinTxt tieredRangeMinTxt = new TieredRangeMinTxt();
+	
+	/*
+	 * to provide range max
+	 */
+	public class TieredRangeMaxTxt extends Element{
+		public TieredRangeMaxTxt(){}
+		
+		public void writeValue(String data, int count){
+			String xpath = "//input[@id='newagentuser_0_" + count + "_max']";
+			setElement("Xpath", xpath);
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
+	}
+	
+	public TieredRangeMaxTxt tieredRangeMaxTxt = new TieredRangeMaxTxt();
+	
+	/*
+	 * to provide Unit price
+	 */
+	public class TieredUnitPriceTxt extends Element{
+		public TieredUnitPriceTxt(){}
+		
+		public void writeValue(String data, int count){
+			String xpath = "//input[@id='newagentuser_0_field_" + count + "_baserate']";
+			setElement("Xpath", xpath);
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
+	}
+	
+	public TieredUnitPriceTxt tieredUnitPriceTxt = new TieredUnitPriceTxt();
+	
+	/*
+	 * to provide min discount
+	 */
+	public class TieredMinDiscountTxt extends Element{
+		public TieredMinDiscountTxt(){}
+		
+		public void writeValue(String data, int count){
+			String xpath = "//input[@id='newagentuser_0_field_" + count + "_mindisc']";
+			setElement("Xpath", xpath);
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
+	}
+	
+	public TieredMinDiscountTxt tieredMinDiscountTxt = new TieredMinDiscountTxt();
+	
+	/*
+	 * to provide max discount
+	 */
+	public class TieredMaxDiscountTxt extends Element{
+		public TieredMaxDiscountTxt(){}
+		
+		public void writeValue(String data, int count){
+			String xpath = "//input[@id='newagentuser_0_field_" + count + "_maxdisc']";
+			setElement("Xpath", xpath);
+			String str = super.getAttributeValue("value");
+			super.clearAllChars(str.length());
+			super.write(data);
+		}
+	}
+	
+	public TieredMaxDiscountTxt tieredMaxDiscountTxt = new TieredMaxDiscountTxt();
+	
+	/*
+	 * to click on add button
+	 */
+	public class TieredAddBtn extends Element{
+		public TieredAddBtn(){}
+		
+		public void click(int count){
+			String xpath = "//a[@onclick='addNewAgentFields(this, 841, 0, " + count + ", 2)']";
+			setElement("Xpath", xpath);
+			super.click();
+		}
+	}
+	
+//End of tiered handle part
+	
+	public TieredAddBtn tieredAddBtn = new TieredAddBtn();
+	
 	/*
 	 * To select Billing Frequency
 	 */
