@@ -89,4 +89,50 @@ public class SearchOrder extends AppData
 		}
 	}
 	public ResetBtn resetBtn = new ResetBtn();
+	
+	public class NextBtn extends Element
+	{
+		public NextBtn()
+		{
+			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isEnabled()
+		{
+			boolean isenable = false;
+			try
+			{
+				isenable = super.isEnabled();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			return isenable;
+		}
+	}
+	public NextBtn nextBtn = new NextBtn();
+	
+	public class PreviousBtn extends Element
+	{
+		public PreviousBtn()
+		{
+			setElement(readAppData(this));
+		}
+		@Override
+		public boolean isEnabled()
+		{
+			boolean isenable = false;
+			try
+			{
+				isenable = super.isEnabled();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			return isenable;
+		}
+	}
+	public PreviousBtn previousBtn = new PreviousBtn();
 }

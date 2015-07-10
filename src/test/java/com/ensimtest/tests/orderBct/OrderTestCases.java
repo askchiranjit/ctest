@@ -19,10 +19,12 @@ import com.ensimtest.module.orders.CreateOrderSelectItems;
 import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
 import com.ensimtest.module.orders.CancelOrder;
 import com.ensimtest.module.orders.CreateOrderSummary;
+import com.ensimtest.module.orders.OrderAdvSearch;
 import com.ensimtest.module.orders.OrderDetails;
 import com.ensimtest.module.orders.CreateOrderSelectOffer;
 import com.ensimtest.module.orders.OrderList;
 import com.ensimtest.module.orders.OrderProvisioningInfo;
+import com.ensimtest.module.orders.OrderSearch;
 import com.ensimtest.module.orders.UpgradeOrder;
 import com.ensimtest.module.orders.CreateOrderSelectOffer.Offer;
 import com.ensimtest.module.orders.OrderList.OrderRow;
@@ -32,6 +34,7 @@ import com.ensimtest.module.orders.OrderOptions;
 import com.ensimtest.module.orders.SearchOrder;
 import com.ensimtest.module.orders.SelectAcFromOrg;
 import com.ensimtest.module.userspace.LoggedInUser;
+import com.ensimtest.module.utility.OrderUtility;
 import com.ensimtest.module.utility.PerformAction;
 import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.OrderItemJsonHandler;
@@ -379,12 +382,15 @@ public class OrderTestCases
 	@Test
 	public void searchOrderByOrgID()
 	{
+		String orgID = "10006";
+		String username = "admin";
+		String password = "123qwe";
 		browser.navigateTo();
 
 		LoginScreen loginScreen = new LoginScreen();
 		
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
+		loginScreen.username.write(username);
+		loginScreen.password.write(password);
 
 		// Click on login button
 		loginScreen.loginBtn.click();
@@ -398,13 +404,45 @@ public class OrderTestCases
 		
 		// Search for the offer
 		SearchOrder search = new SearchOrder();
-		search.organizationIDTxt.write("10006");
+		search.organizationIDTxt.write(orgID);
 		search.searchBtn.click();
 		TestUtils.delay(5000);
 		
 		// Verify results
 		OrderList listOfOrder = new OrderList();
 		OrderRow []rows = null;
+		boolean shouldProceed = true;
+		while(shouldProceed)
+		{
+			rows = listOfOrder.getOrderResultRows("recent");
+			
+			// Check in each row for same org-Id
+			for(int i=0; i<rows.length; i++)
+			{
+				Assert.assertEquals(rows[i].orgID, orgID);
+			}
+			
+			// Check enable next button
+			if(search.nextBtn.isEnabled())
+			{
+				search.nextBtn.click();
+				TestUtils.delay(5000);
+			}
+			else
+			{
+				shouldProceed = false;
+			}
+		}
+		
+		// Log out
+		LoggedInUser user = new LoggedInUser();
+		user.userInfo.mouseHover();
+		user.logOut.click();
+		
+		// Verify login screen is displayed
+		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 
 	}
 	
@@ -535,5 +573,222 @@ public class OrderTestCases
 	
 	// Resume
 	
-	// Abort
+	// Cancel - Cancel
+	@Test
+	public void testCancelCancelOrder()
+	{
+		String orderId = "2015-06-18-000038";
+		String orgId = "10017";
+		String reason = "For some other reason";
+		String cancelMsg = "Test message";
+		
+		// Select the order
+		SearchOrder search = new SearchOrder();
+		search.orderIdTxt.write(orderId);
+		search.searchBtn.click();
+		
+		// Verify results
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		Assert.assertEquals(rows.length, 1);
+		
+		// Select the order
+		Assert.assertEquals(rows[0].orgID, orgId);
+		Assert.assertEquals(rows[0].orderID, orderId);
+		rows[0].link.click();
+		TestUtils.delay(3000);
+		
+		// Click on Cancel
+		OrderDetails details = new OrderDetails();
+		Assert.assertEquals(details.buttons.cancel.isEnabled(), true);
+		details.buttons.cancel.click();
+		
+		// Verify org id in the message lbl.
+		CancelOrder cancelOrder = new CancelOrder();
+		Assert.assertEquals(cancelOrder.warningMsgLbl.read().contains(orgId), true);
+		
+		// Select reason
+		cancelOrder.reasonLst.selectVisibleText(reason);
+		
+		// Add comments
+		cancelOrder.commentsTxt.write(cancelMsg);
+		
+		// Click on cancel
+		cancelOrder.cancelBtn.click();
+		
+		// Search for the order again
+		search.orderIdTxt.clear();
+		search.orderIdTxt.write(orderId);
+		search.searchBtn.click();
+		
+		// Verify result
+		listOfOrder = new OrderList();
+		rows = listOfOrder.getOrderResultRows("recent");
+		Assert.assertEquals(rows.length, 1);
+		
+		// Select the order
+		Assert.assertEquals(rows[0].orgID, orgId);
+		Assert.assertEquals(rows[0].orderID, orderId);
+		rows[0].link.click();
+		TestUtils.delay(3000);
+		
+		// Verify cancel button is enabled
+		details = new OrderDetails();
+		Assert.assertEquals(details.buttons.cancel.isEnabled(), true);
+	}
+	
+	// TODO
+	// Cancel - Ok
+	@Test
+	public void testCancelOkOrder()
+	{
+		String orderId = "2015-06-18-000038";
+		String orgId = "10017";
+		String reason = "For some other reason";
+		String cancelMsg = "Test message";
+		
+		// Select the order
+		SearchOrder search = new SearchOrder();
+		search.orderIdTxt.write(orderId);
+		search.searchBtn.click();
+		
+		// Verify results
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		Assert.assertEquals(rows.length, 1);
+		
+		// Select the order
+		Assert.assertEquals(rows[0].orgID, orgId);
+		Assert.assertEquals(rows[0].orderID, orderId);
+		rows[0].link.click();
+		TestUtils.delay(3000);
+		
+		// Click on Cancel
+		OrderDetails details = new OrderDetails();
+		Assert.assertEquals(details.buttons.cancel.isEnabled(), true);
+		details.buttons.cancel.click();
+		
+		// Verify org id in the message lbl.
+		CancelOrder cancelOrder = new CancelOrder();
+		Assert.assertEquals(cancelOrder.warningMsgLbl.read().contains(orgId), true);
+		
+		// Select reason
+		cancelOrder.reasonLst.selectVisibleText(reason);
+		
+		// Add comments
+		cancelOrder.commentsTxt.write(cancelMsg);
+		
+		// Click on cancel
+		cancelOrder.okBtn.click();
+		
+		// TODO: check for next steps
+		
+		
+		// Search for the order again
+		search.orderIdTxt.clear();
+		search.orderIdTxt.write(orderId);
+		search.searchBtn.click();
+		
+		// Verify result
+		listOfOrder = new OrderList();
+		rows = listOfOrder.getOrderResultRows("recent");
+		Assert.assertEquals(rows.length, 1);
+		
+		// Select the order
+		Assert.assertEquals(rows[0].orgID, orgId);
+		Assert.assertEquals(rows[0].orderID, orderId);
+		rows[0].link.click();
+		TestUtils.delay(3000);
+		
+		// Verify cancel button is enabled
+		details = new OrderDetails();
+		Assert.assertEquals(details.buttons.cancel.isEnabled(), true);
+		
+		// Click on cancel button
+		details.buttons.cancel.click();
+		
+		
+	}
+
+	@Test
+	public void testSuspendOrder()
+	{
+		String orderId = "2015-06-18-000038";
+		String orgId = "10017";
+		String reason = "For some other reason";
+		String cancelMsg = "Test message";
+		
+		// Select the order
+		SearchOrder search = new SearchOrder();
+		search.orderIdTxt.write(orderId);
+		search.searchBtn.click();
+		
+		// Verify results
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		Assert.assertEquals(rows.length, 1);
+		
+		// Select the order
+		Assert.assertEquals(rows[0].orgID, orgId);
+		Assert.assertEquals(rows[0].orderID, orderId);
+		rows[0].link.click();
+		TestUtils.delay(3000);
+		
+		// Suspend the offer
+		OrderDetails details = new OrderDetails();
+		Assert.assertEquals(details.buttons.suspend.isEnabled(), true);
+		details.buttons.suspend.click();
+		
+		// TODO: handle pop-up
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "testPlaceOrderWithItems" })
+	public void TestForOrderProvisioned(HashMap<?, ?> data) throws Exception
+	{
+		String username = data.get("username").toString();
+		String password = data.get("password").toString();
+		String orderNumber = "";
+		
+		loginAndListOrder(username, password);
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(orderNumber);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Provisioned", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
+	}
+	
+	private void loginAndListOrder(String username, String password)
+	{
+		browser.navigateTo();
+
+		LoginScreen loginScreen = new LoginScreen();
+		
+		loginScreen.username.write(username);
+		loginScreen.password.write(password);
+
+		// Click on login button
+		loginScreen.loginBtn.click();
+		
+		OrderOptions order = new OrderOptions();
+		order.orderMenu.mouseHover();
+		
+		// Click on list order option
+		order.listOrderLnk.click();
+		TestUtils.delay(5000);
+	}
 }

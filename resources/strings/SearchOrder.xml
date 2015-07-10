@@ -45,4 +45,14 @@
 	<value>resetBtn</value>
 </ResetBtn>
 
+<NextBtn>
+	<key>ID</key>
+	<value>searchButtonNext0</value>
+</NextBtn>
+
+<PreviousBtn>
+	<key>ID</key>
+	<value>searchButtonPrevious0</value>
+</PreviousBtn>
+
 </root>

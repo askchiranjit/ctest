@@ -70,10 +70,15 @@ public class OrderList extends AppData
 	{
 		public Element link;
 		public String orderID, orgID, orderState, offerName;
+		private Element status;
 		
 		public OrderRow(Element link)
 		{
 			this.link = link;
+			
+			ElementSet set = new ElementSet();
+			status = set.getSubElement(link, "Xpath", "span[contains(@id, 'status_span')]//img");
+			orderState = status.getAttributeValue("title");
 			String []data = link.read().trim().split("\n");
 			data[0] = data[0].replaceAll("ID", "");
 			data[0] = data[0].replaceAll("Organization", "");
@@ -81,8 +86,7 @@ public class OrderList extends AppData
 			String []firstRow = data[0].split(":");
 			orderID = firstRow[1].trim();
 			orgID = firstRow[2].trim();
-			orderState = data[1].trim();
-			offerName = data[3].replaceAll("Offer : ", "").trim();
+			offerName = data[1].replaceAll("Offer : ", "").trim();
 		}
 	}
 	
