@@ -1010,6 +1010,8 @@ public class OrderCustomerBCT
 		
 		
 		
+		
+		
 //		Assert.assertEquals(details.buttons.approve.isEnabled(), true);
 //		details.buttons.approve.click();
 //		CreateOrderSummary summary = new CreateOrderSummary();
