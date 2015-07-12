@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<root>
+<EditBtn>
+	<key>ID</key>
+	<value>edit</value>
+</EditBtn>
+
+<ApproveBtn>
+	<key>ID</key>
+	<value>approved</value>
+</ApproveBtn>
+
+<SubmitForApprovalBtn>
+	<key>ID</key>
+	<value>seekapproval</value>
+</SubmitForApprovalBtn>
+
+<AbortBtn>
+	<key>ID</key>
+	<value>abort</value>
+</AbortBtn>
+
+<CancelBtn>
+	<key>ID</key>
+	<value>cancel</value>
+</CancelBtn>
+
+<ViewHistoryBtn>
+	<key>ID</key>
+	<value>orderhistory</value>
+</ViewHistoryBtn>
+
+<SuspendBtn>
+	<key>ID</key>
+	<value>suspend</value>
+</SuspendBtn>
+
+<ResumeBtn>
+	<key>ID</key>
+	<value>resume</value>
+</ResumeBtn>
+
+<DiscardDraftBtn>
+	<key>ID</key>
+	<value>undo</value>
+</DiscardDraftBtn>
+
+<ConfigureBtn>
+	<key>Xpath</key>
+	<value>//input[@type='button' and @id='configure'] | //input[@type='button' and @id='logintocontrolpanel']</value>
+</ConfigureBtn>
+
+<UpgradeBtn>
+	<key>ID</key>
+	<value>upgrade</value>
+</UpgradeBtn>
+
+<DowngradeBtn>
+	<key>ID</key>
+	<value>downgrade</value>
+</DowngradeBtn>
+
+<UpsizeBtn>
+	<key>ID</key>
+	<value>upsize</value>
+</UpsizeBtn>
+
+<DownsizeBtn>
+	<key>ID</key>
+	<value>downsize</value>
+</DownsizeBtn>
+
+<RetryBtn>
+	<key>ID</key>
+	<value>retry</value>
+</RetryBtn>
+
+<RectifyFailure>
+	<key>ID</key>
+	<value>undonew</value>
+</RectifyFailure>
+
+</root>

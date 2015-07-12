@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+
+	<ItemTable>
+		<key>Xpath</key>
+		<value>(//table[@class='ProductInfo']//tbody)[1]</value>
+	</ItemTable>
+	
+	<ItemRowFinder>
+		<key>Xpath</key>
+		<value>tr</value>
+	</ItemRowFinder>
+	
+	
+</root>

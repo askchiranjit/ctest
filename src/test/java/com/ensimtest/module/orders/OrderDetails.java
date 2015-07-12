@@ -84,7 +84,9 @@ public class OrderDetails extends AppData
 			suspend = set.getSubElement(this, "ID", "suspend");
 			resume = set.getSubElement(this, "ID", "resume");
 			discardDraft = set.getSubElement(this, "ID", "undo");
-			configure = set.getSubElement(this, "ID", "logintocontrolpanel");
+			System.out.println("Inside");
+			configure = set.getSubElement(this, "Xpath", "//input[@type='button' and @id='configure'] | //input[@type='button' and @id='logintocontrolpanel']");
+			System.out.println("Outside");
 			upgrade = set.getSubElement(this, "ID", "upgrade");
 			downgrade = set.getSubElement(this, "ID", "downgrade");
 			upsize = set.getSubElement(this, "ID", "upsize");
@@ -93,7 +95,7 @@ public class OrderDetails extends AppData
 			rectifyFailure = set.getSubElement(this, "ID", "undonew");
 		}
 	}
-	public OrderDetailsButtons buttons = new OrderDetailsButtons();
+//	public OrderDetailsButtons buttons = new OrderDetailsButtons();
 	
 	public class ViewNotification extends Element
 	{
