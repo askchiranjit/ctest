@@ -1003,12 +1003,17 @@ public class OrderCustomerBCT
 		
 		// Verify only one result is found
 		Assert.assertEquals(rows.length, 1);
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Pending Approval", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
 		
-		OrderDetails details = new OrderDetails();
+		
+		
 //		Assert.assertEquals(details.buttons.approve.isEnabled(), true);
 //		details.buttons.approve.click();
-		CreateOrderSummary summary = new CreateOrderSummary();
-		summary.approveOrderApproveNowBtn.click();
+//		CreateOrderSummary summary = new CreateOrderSummary();
+//		summary.approveOrderApproveNowBtn.click();
 
 }	
 	
