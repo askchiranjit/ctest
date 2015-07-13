@@ -66,6 +66,11 @@ public class AddPriceForItemInOffer extends AppData{
 	public class TieredBillingNameTxt extends Element{
 		public TieredBillingNameTxt(){}
 		
+		/**
+		 * To write value for billing name
+		 * @param data
+		 * @param count
+		 */
 		public void writeValue(String data, int count){
 			String xpath = "//input[@id='newagentuser_0_field_" + count +"_tiername']";
 			setElement("Xpath", xpath);
@@ -83,6 +88,11 @@ public class AddPriceForItemInOffer extends AppData{
 	public class TieredRangeMinTxt extends Element{
 		public TieredRangeMinTxt(){}
 		
+		/**
+		 * To write value for minimum range
+		 * @param data
+		 * @param count
+		 */
 		public void writeValue(String data, int count){
 			String xpath = "//input[@id='newagentuser_0_" + count + "']";
 			setElement("Xpath", xpath);
@@ -95,11 +105,16 @@ public class AddPriceForItemInOffer extends AppData{
 	public TieredRangeMinTxt tieredRangeMinTxt = new TieredRangeMinTxt();
 	
 	/*
-	 * to provide range max
+	 * To provide range max
 	 */
 	public class TieredRangeMaxTxt extends Element{
 		public TieredRangeMaxTxt(){}
 		
+		/**
+		 * To write value for maximum range
+		 * @param data
+		 * @param count
+		 */
 		public void writeValue(String data, int count){
 			String xpath = "//input[@id='newagentuser_0_" + count + "_max']";
 			setElement("Xpath", xpath);
@@ -117,6 +132,11 @@ public class AddPriceForItemInOffer extends AppData{
 	public class TieredUnitPriceTxt extends Element{
 		public TieredUnitPriceTxt(){}
 		
+		/**
+		 * To write value for net price of an item of different tired
+		 * @param data
+		 * @param count
+		 */
 		public void writeValue(String data, int count){
 			String xpath = "//input[@id='newagentuser_0_field_" + count + "_baserate']";
 			setElement("Xpath", xpath);
@@ -134,6 +154,11 @@ public class AddPriceForItemInOffer extends AppData{
 	public class TieredMinDiscountTxt extends Element{
 		public TieredMinDiscountTxt(){}
 		
+		/**
+		 * To write value in minimum discount field
+		 * @param data
+		 * @param count
+		 */
 		public void writeValue(String data, int count){
 			String xpath = "//input[@id='newagentuser_0_field_" + count + "_mindisc']";
 			setElement("Xpath", xpath);
@@ -151,6 +176,11 @@ public class AddPriceForItemInOffer extends AppData{
 	public class TieredMaxDiscountTxt extends Element{
 		public TieredMaxDiscountTxt(){}
 		
+		/**
+		 * To write value in maximum discount field
+		 * @param data
+		 * @param count
+		 */
 		public void writeValue(String data, int count){
 			String xpath = "//input[@id='newagentuser_0_field_" + count + "_maxdisc']";
 			setElement("Xpath", xpath);
@@ -168,6 +198,10 @@ public class AddPriceForItemInOffer extends AppData{
 	public class TieredAddBtn extends Element{
 		public TieredAddBtn(){}
 		
+		/**
+		 * To click on add button to add tiered
+		 * @param count
+		 */
 		public void click(int count){
 			String xpath = "//a[@onclick='addNewAgentFields(this, 841, 0, " + count + ", 2)']";
 			setElement("Xpath", xpath);

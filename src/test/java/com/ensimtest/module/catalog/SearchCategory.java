@@ -3,6 +3,7 @@ package com.ensimtest.module.catalog;
 import com.ensimtest.config.Element;
 import com.ensimtest.config.ElementSet;
 import com.ensimtest.resource.AppData;
+import com.ensimtest.utils.TestUtils;
 
 /**
  * To list out all the categories
@@ -86,6 +87,39 @@ public class SearchCategory extends AppData
 			categoryName=e[0].read().split("\n")[0].trim();
 		}
 		
+	}
+	
+	/**
+	 * To search a particular category and click on that
+	 * @param categoryName
+	 */
+	public void searchAndClickOnCategory(String categoryName){
+		
+		OfferCategoryMainControls offerCategoryManiControls = new OfferCategoryMainControls();
+		
+		CategoryRow categoryRow[] = categoryResultRows.getCategoryList();
+		
+		boolean flag = false;
+		
+		while(flag == false){
+			for(int i=0;i<categoryRow.length;i++){
+				if(categoryRow[i].categoryName.equalsIgnoreCase(categoryName)){
+					categoryRow[i].categoryNameLnk.click();
+					flag = true;
+					break;
+				}
+			}
+			
+			if(flag==false){
+				if(offerCategoryManiControls.offerCategoryNextBtn.isEnabled()==true){
+					offerCategoryManiControls.offerCategoryNextBtn.click();
+					TestUtils.delay(5000);
+				}
+				else{
+					break;
+				}
+			}
+		}
 	}
 
 }

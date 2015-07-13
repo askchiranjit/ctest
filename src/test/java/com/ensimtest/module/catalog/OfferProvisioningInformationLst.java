@@ -139,9 +139,10 @@ public class OfferProvisioningInformationLst extends AppData{
 	 * To Provide values in Provisioning Informations
 	 * @param provisioningInfoList
 	 * @param defaultValueList
+	 * @param visibilityInOrder
 	 * @param br
 	 */
-	public void writeProvisioningInfo(String[] provisioningInfoList, String[] defaultValueList, Browser br){
+	public void writeProvisioningInfo(String[] provisioningInfoList, String[] visibilityInOrder,String[] defaultValueList, Browser br){
 		ProvisioningInfoRow []provInfoRow = getProvisioningInfoRows(br);
 		TestUtils.delay(20000);
 		ElementHandler elementHandler=new ElementHandler();
@@ -151,6 +152,7 @@ public class OfferProvisioningInformationLst extends AppData{
 			for(int j=0; j<provInfoRow.length; j++){ //element rows
 				
 				if(provInfoRow[j].resourceName.equalsIgnoreCase(provisioningInfoList[i])){
+					provInfoRow[j].visibilityInOrderLst.selectVisibleText(visibilityInOrder[i]);
 					provInfoRow[j].defaultTxt.write(defaultValueList[i]);
 					try{
 						String scrlXpath = "(//div[contains(@class,'slimScrollBar ui-draggable')])[2]";
