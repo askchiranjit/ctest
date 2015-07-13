@@ -7,7 +7,7 @@ public class OrderUtility
 {
 	public boolean waitForStatusUpdate(OrderRow row, String expectecStatus, int maxSecondToWait) throws InterruptedException
 	{
-		int timeSlice = 10 * 1000; // 10 seconds
+		int timeSlice = 30 * 1000; // 10 seconds
 		int totalTimeSpent = 0;
 		while(totalTimeSpent < (maxSecondToWait * 1000))
 		{
@@ -17,9 +17,12 @@ public class OrderUtility
 			// Wait for time
 			Thread.sleep(timeSlice);
 			
+			System.out.println("after wait");
+			
 			// Verify the status
 			OrderDetails details = new OrderDetails();
 			String status = details.orderInfo.status.trim().toLowerCase();
+			System.out.println("Status:- "+status);
 			if(status.equals(expectecStatus.trim().toLowerCase()))
 			{
 				return true;

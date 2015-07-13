@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<root>
+
+<CancelBtn>
+	<key>Xpath</key>
+	<value>//button[@class='escm_dialog_buttons small_font']//span[contains(text(),'Cancel')]</value>
+</CancelBtn>
+
+<OKBtn>
+	<key>Xpath</key>
+	<value>//button[@class='escm_dialog_buttons small_font']//span[contains(text(),'Ok')]</value>
+</OKBtn>
+
+<ReasonLst>
+	<key>ID</key>
+	<value>reason</value>
+</ReasonLst>
+
+<CommentTxt>
+	<key>ID</key>
+	<value>comments</value>
+</CommentTxt>
+
+</root>
