@@ -139,7 +139,7 @@ public class OrderCustomerBCT
 			}
 		}
 
-		TestUtils.delay(10000);
+		TestUtils.delay(30000);
 		PerformAction performActn=new PerformAction();
 		CreateOrderSelectItems items = new CreateOrderSelectItems();
 		ItemRow itemr[]=items.getItemRows(browser);
@@ -376,7 +376,7 @@ public class OrderCustomerBCT
 		orderActionCustomer.upsizeBtn.click();
 		System.out.println("Clicked");
 		
-		TestUtils.delay(10000);
+		TestUtils.delay(30000);
 		
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -584,7 +584,7 @@ public class OrderCustomerBCT
 		orderActionCustomer.downsizeBtn.click();
 		System.out.println("Clicked");
 		
-		TestUtils.delay(10000);
+		TestUtils.delay(30000);
 		
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -800,7 +800,7 @@ public class OrderCustomerBCT
 		CreateOrderMasterControl createOrderMasterControl=new CreateOrderMasterControl();
 		createOrderMasterControl.placeUpgradeBtn.click();
 	
-		TestUtils.delay(5000);
+		TestUtils.delay(30000);
 		
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -1038,6 +1038,7 @@ public class OrderCustomerBCT
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
 		orderActionCustomer.downgradeBtn.click();
 		System.out.println("Clicked");
+		TestUtils.delay(10000);
 		
 		
 		
@@ -1058,7 +1059,7 @@ public class OrderCustomerBCT
 		CreateOrderMasterControl createOrderMasterControl=new CreateOrderMasterControl();
 		createOrderMasterControl.placeUpgradeBtn.click();
 	
-		TestUtils.delay(5000);
+		TestUtils.delay(30000);
 		
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
