@@ -25,10 +25,12 @@ import com.ensimtest.module.orders.OrderList;
 import com.ensimtest.module.orders.OrderProvisioningInfo;
 import com.ensimtest.module.orders.OrderSearch;
 import com.ensimtest.module.orders.UpgradeOrder;
+import com.ensimtest.module.orders.UpsizeOrderSelectItems;
 import com.ensimtest.module.orders.CreateOrderSelectOffer.Offer;
 import com.ensimtest.module.orders.OrderList.OrderRow;
 import com.ensimtest.module.orders.OrderProvisioningInfo.ProvItemLst;
 import com.ensimtest.module.orders.UpgradeOrder.OrderOption;
+import com.ensimtest.module.orders.UpsizeOrderSelectItems.UpsizeItemRow;
 import com.ensimtest.module.orders.OrderOptions;
 import com.ensimtest.module.orders.SearchOrder;
 import com.ensimtest.module.orders.SelectAcFromOrg;
@@ -45,7 +47,7 @@ import com.ensimtest.utils.OrderProvInfoJsonHandler.ProvInfoDetails;
 public class OrderIspBCT
 {
 	private Browser browser;
-	
+	private String refNo="";
 	
 	@BeforeMethod
 	public void setUp()
@@ -122,7 +124,8 @@ public class OrderIspBCT
 			}
 		}
 		
-		TestUtils.delay(8000);
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		browser.waitForElement(buttons.continueBtn, 60*1000);
 		
 		PerformAction performActn=new PerformAction();
 		CreateOrderSelectItems items = new CreateOrderSelectItems();
@@ -159,7 +162,7 @@ public class OrderIspBCT
 		
 		
 		TestUtils.delay(3000);
-		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		
 		buttons.continueBtn.click();
 		TestUtils.delay(3000);
 		buttons.continueBtn.click();
@@ -204,43 +207,661 @@ public class OrderIspBCT
 		TestUtils.delay(6000);
 		buttons.placeOrderBtn.click();
 		TestUtils.delay(6000);
-		CreateOrderSummary summary = new CreateOrderSummary();
-//		summary.iAgreeTC.click();
-//		summary.internalNotesTC.write("test notes");
-//		summary.submitTCBtn.click();
 		
+		// Approve order
+		CreateOrderSummary summary = new CreateOrderSummary();
 		summary.approveOrderApproveNowBtn.click();
 		
-		String refNo = summary.approveOrderMsgLbl.getRefNumber().trim();
+		// Read the order number
+		refNo = summary.approveOrderMsgLbl.getRefNumber().trim();
 		System.out.println(refNo);
 		
 		order.orderMenu.mouseHover();
 		TestUtils.delay(2000);
 		order.listOrderLnk.click();
 		
-		
+		// Search for the order
 		SearchOrder searchOrder = new SearchOrder();
 		searchOrder.orderIdTxt.write(refNo);
 		searchOrder.searchBtn.click();
 		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Click on the offer
+		rows[0].link.click();
+		TestUtils.delay(3000);
+		
+		// Verify order information
 		OrderDetails details = new OrderDetails();
 		Assert.assertEquals(details.orderInfo.orgName, orgName);
 		Assert.assertEquals(details.orderInfo.orderId, refNo);
 		Assert.assertEquals(details.orderInfo.orgID, orgID);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "placeOrder" })
+	public void verifyOrderProvisioned(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
 		
-		LoggedInUser user = new LoggedInUser();
-		Assert.assertEquals(true, user.userInfo.isDisplayed());
+		listOrder();
 		
-		// Mouse hover on user context
-		user.userInfo.mouseHover();
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
 		
-		// Click on log-out button
-		user.logOut.click();
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
 		
-		// Verify logged out and redirected to login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Provisioned", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderProvisioned" })
+	public void upsizeOrder(HashMap<?, ?> data) throws Exception
+	{
+		String itemDetails=data.get("itemDetails").toString();
+		
+		// Click on Up-size
+		OrderISPButtons ispButtons = new OrderISPButtons();
+		Assert.assertEquals(ispButtons.upsizeBtn.isEnabled(), true);
+		ispButtons.upsizeBtn.click();
+		
+		// Update items
+		PerformAction performActn=new PerformAction();
+		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+		UpsizeItemRow itemr[]=items.getItemRows(browser);
+		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+		
+		
+		for(int i=0;i<itemr.length;i++)
+		{
+			System.out.println(itemr[i].itemName);
+			System.out.println(itemr[i].checkBox);
+			System.out.println(itemr[i].checkedMark);
+			System.out.println(itemr[i].listBox);
+			System.out.println(itemr[i].textBox);
+		}
+		
+		for(int i=0;i<itemdetailslst.length;i++)
+		{
+			for(int j=0;j<itemr.length;j++)
+			{
+				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+				{
+					if(itemdetailslst[i].operation==true)
+					{
+						if(itemdetailslst[i].checkbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+						}
+
+						if(itemdetailslst[i].textbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+						}
+						if(itemdetailslst[i].dropdown==true)
+						{
+							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+						}
+					}
+
+					break;
+				}
+			}
+		}
+		
+		// Updated the data
+		
+		// click on Continue
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		buttons.continueBtn.click();
+		TestUtils.delay(3000);
+		
+		// Contact details
+		buttons.continueBtn.click();
+		TestUtils.delay(3000);
+		
+		// Provisioning info.
+		buttons.continueBtn.click();
+		TestUtils.delay(3000);
+		
+		// Summary
+		buttons.placeOrderBtn.click();
+		TestUtils.delay(3000);
+		
+		// Approve now
+		CreateOrderSummary summary = new CreateOrderSummary();
+		summary.approveOrderApproveNowBtn.click();
+		
+		// Get the order number
+		String upsizedOrderNumber = summary.approveOrderMsgLbl.getRefNumber().trim();
+		Assert.assertEquals(upsizedOrderNumber, refNo);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "upsizeOrder" })
+	public void verifyOrderUpsized(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
+		
+		listOrder();
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Upsized", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderUpsized" })
+	public void downsizeOrder(HashMap<?, ?> data) throws Exception
+	{
+		String itemDetails=data.get("itemDetails").toString();
+		
+		// Click on Up-size
+		OrderISPButtons ispButtons = new OrderISPButtons();
+		Assert.assertEquals(ispButtons.upsizeBtn.isEnabled(), true);
+		ispButtons.upsizeBtn.click();
+		
+		// Update items
+		PerformAction performActn=new PerformAction();
+		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+		UpsizeItemRow itemr[]=items.getItemRows(browser);
+		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+		
+		
+		for(int i=0;i<itemr.length;i++)
+		{
+			System.out.println(itemr[i].itemName);
+			System.out.println(itemr[i].checkBox);
+			System.out.println(itemr[i].checkedMark);
+			System.out.println(itemr[i].listBox);
+			System.out.println(itemr[i].textBox);
+		}
+		
+		for(int i=0;i<itemdetailslst.length;i++)
+		{
+			for(int j=0;j<itemr.length;j++)
+			{
+				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+				{
+					if(itemdetailslst[i].operation==true)
+					{
+						if(itemdetailslst[i].checkbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+						}
+
+						if(itemdetailslst[i].textbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+						}
+						if(itemdetailslst[i].dropdown==true)
+						{
+							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+						}
+					}
+
+					break;
+				}
+			}
+		}
+		
+		// Updated the data
+		
+		// click on Continue
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		buttons.continueBtn.click();
+		TestUtils.delay(3000);
+		
+		// Contact details
+		buttons.continueBtn.click();
+		TestUtils.delay(3000);
+		
+		// Provisioning info.
+		buttons.continueBtn.click();
+		TestUtils.delay(3000);
+		
+		// Summary
+		buttons.placeOrderBtn.click();
+		TestUtils.delay(3000);
+		
+		// Approve now
+		CreateOrderSummary summary = new CreateOrderSummary();
+		summary.approveOrderApproveNowBtn.click();
+		
+		// Get the order number
+		String upsizedOrderNumber = summary.approveOrderMsgLbl.getRefNumber().trim();
+		Assert.assertEquals(upsizedOrderNumber, refNo);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "downsizeOrder" })
+	public void verifyOrderDownsized(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
+		
+		listOrder();
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Downsized", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData",dependsOnMethods = { "verifyOrderDownsized" })
+	public void upgradeOrder(HashMap<?, ?> testData) throws Exception
+	{
+		// Get data from test-data (XLS based)	
+		String upgradeOfferName=testData.get("upgradeOfferName").toString();
+		String itemDetails=testData.get("itemDetails").toString();
+		String provInfo=testData.get("provInfoDetails").toString();
+		
+		// Click on upgrade buttons
+		OrderISPButtons ispButtons = new OrderISPButtons();
+		Assert.assertEquals(ispButtons.upgradeBtn.isEnabled(), true);
+		ispButtons.upgradeBtn.click();
+		
+		// Get the options
+		UpgradeOrder upgrade = new UpgradeOrder();
+		OrderOption []orderOptions =  upgrade.getAvailableOrderOptions();
+		
+		// Select the order
+		for(int i=0; i<orderOptions.length; i++)
+		{
+			if(orderOptions[i].orderName.equals(upgradeOfferName))
+			{
+				orderOptions[i].showElementBtn.click();
+				break;
+			}
+		}
+		
+		// Place the order
+		upgrade.placeUpdatedOrder.click();
+	
+		TestUtils.delay(30000);
+		
+		PerformAction performActn=new PerformAction();
+		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+		UpsizeItemRow itemr[]=items.getItemRows(browser);
+		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+		
+		for(int i=0;i<itemdetailslst.length;i++)
+		{
+			for(int j=0;j<itemr.length;j++)
+			{
+				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+				{
+					if(itemdetailslst[i].operation==true)
+					{
+						if(itemdetailslst[i].checkbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+						}
+
+						if(itemdetailslst[i].textbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+						}
+						if(itemdetailslst[i].dropdown==true)
+						{
+							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+						}
+					}
+
+					break;
+				}
+			}
+		}
+		
+		
+		TestUtils.delay(6000);
+		
+		CreateOrderMasterControl createOrderMasterControl = new CreateOrderMasterControl();
+		createOrderMasterControl.continueBtn.click();
+		TestUtils.delay(3000);
+		createOrderMasterControl.continueBtn.click();
+
+		OrderProvisioningInfo prov = new OrderProvisioningInfo();
+		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
+
+		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
+		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
+
+
+		for(int i=0;i<provInfoDetails.length;i++)
+		{
+			for(int j=0;j<provItemLst.length;j++)
+			{
+				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
+				{
+					System.out.println("Inside");
+					if(provInfoDetails[i].operation==true)
+					{
+						if(provInfoDetails[i].checkbox==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+						}
+
+						if(provInfoDetails[i].textbox==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
+						}
+						if(provInfoDetails[i].dropdown==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
+						}
+					}
+
+					break;
+				}
+			}
+		}
+
+		TestUtils.delay(2000);
+		createOrderMasterControl.continueBtn.click();
+		browser.waitForElement(createOrderMasterControl.placeOrderBtn, 10*1000);
+		createOrderMasterControl.placeOrderBtn.click();
+		
+		TestUtils.delay(10000);
+		
+		CreateOrderSummary summary = new CreateOrderSummary();
+		summary.approveOrderApproveNowBtn.click();
+		TestUtils.delay(5000);
+
+		//Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_upsize_success"));
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "upgradeOrder" })
+	public void verifyOrderUpgraded(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
+		
+		listOrder();
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Upgraded", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData",dependsOnMethods = { "verifyOrderUpgraded" })
+	public void downgradeOrder(HashMap<?, ?> testData) throws Exception
+	{
+		// Get data from test-data (XLS based)	
+		String upgradeOfferName=testData.get("upgradeOfferName").toString();
+		String itemDetails=testData.get("itemDetails").toString();
+		String provInfo=testData.get("provInfoDetails").toString();
+		
+		// Click on upgrade buttons
+		OrderISPButtons ispButtons = new OrderISPButtons();
+		Assert.assertEquals(ispButtons.upgradeBtn.isEnabled(), true);
+		ispButtons.upgradeBtn.click();
+		
+		// Get the options
+		UpgradeOrder upgrade = new UpgradeOrder();
+		OrderOption []orderOptions =  upgrade.getAvailableOrderOptions();
+		
+		// Select the order
+		for(int i=0; i<orderOptions.length; i++)
+		{
+			if(orderOptions[i].orderName.equals(upgradeOfferName))
+			{
+				orderOptions[i].showElementBtn.click();
+				break;
+			}
+		}
+		
+		// Place the order
+		upgrade.placeUpdatedOrder.click();
+	
+		TestUtils.delay(30000);
+		
+		PerformAction performActn=new PerformAction();
+		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
+		UpsizeItemRow itemr[]=items.getItemRows(browser);
+		OrderItemJsonHandler orderItems=new OrderItemJsonHandler();
+		ItemDetails itemdetailslst[]=orderItems.itemDetails(itemDetails);
+		
+		for(int i=0;i<itemdetailslst.length;i++)
+		{
+			for(int j=0;j<itemr.length;j++)
+			{
+				if(itemdetailslst[i].itemName.equalsIgnoreCase(itemr[j].itemName))
+				{
+					if(itemdetailslst[i].operation==true)
+					{
+						if(itemdetailslst[i].checkbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].checkBox, "checkbox", itemdetailslst[i].value);
+						}
+
+						if(itemdetailslst[i].textbox==true)
+						{
+							performActn.doActionOnElement(itemr[j].textBox, "textbox", itemdetailslst[i].value);
+						}
+						if(itemdetailslst[i].dropdown==true)
+						{
+							performActn.doActionOnElement(itemr[j].listBox, "dropdown", itemdetailslst[i].value);
+						}
+					}
+
+					break;
+				}
+			}
+		}
+		
+		
+		TestUtils.delay(6000);
+		
+		CreateOrderMasterControl createOrderMasterControl = new CreateOrderMasterControl();
+		createOrderMasterControl.continueBtn.click();
+		TestUtils.delay(3000);
+		createOrderMasterControl.continueBtn.click();
+
+		OrderProvisioningInfo prov = new OrderProvisioningInfo();
+		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
+
+		OrderProvInfoJsonHandler orderProvInfoJsonHandler=new OrderProvInfoJsonHandler();
+		ProvInfoDetails provInfoDetails[]=orderProvInfoJsonHandler.provInfoLst(provInfo);
+
+
+		for(int i=0;i<provInfoDetails.length;i++)
+		{
+			for(int j=0;j<provItemLst.length;j++)
+			{
+				if(provInfoDetails[i].itemName.equalsIgnoreCase(provItemLst[j].itemName))
+				{
+					System.out.println("Inside");
+					if(provInfoDetails[i].operation==true)
+					{
+						if(provInfoDetails[i].checkbox==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].textbox, "checkbox", provInfoDetails[i].value);
+						}
+
+						if(provInfoDetails[i].textbox==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].textbox, "textbox", provInfoDetails[i].value);
+						}
+						if(provInfoDetails[i].dropdown==true)
+						{
+							performActn.doActionOnElement(provItemLst[j].dropDown, "dropdown", provInfoDetails[i].value);
+						}
+					}
+
+					break;
+				}
+			}
+		}
+
+		TestUtils.delay(2000);
+		createOrderMasterControl.continueBtn.click();
+		browser.waitForElement(createOrderMasterControl.placeOrderBtn, 10*1000);
+		createOrderMasterControl.placeOrderBtn.click();
+		
+		TestUtils.delay(10000);
+		
+		CreateOrderSummary summary = new CreateOrderSummary();
+		summary.approveOrderApproveNowBtn.click();
+		TestUtils.delay(5000);
+
+		//Assert.assertEquals(createOrderCart.orderSuccessMsg.read(),getMessage.getProperty("order_cust_upsize_success"));
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "downgradeOrder" })
+	public void verifyOrderDowngraded(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
+		
+		listOrder();
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Downgraded", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
+	public void cancelOrder(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
+		
+		listOrder();
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Click on row
+		rows[0].link.click();
+		
+		// Click on cancel button
+		OrderISPButtons ispButtons = new OrderISPButtons();
+		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
+		ispButtons.cancelBtn.click();
+		
+		// Cancel pop-up handler
+		CancelOrder cancelOrder = new CancelOrder();
+		cancelOrder.asSoonAsPossibleChk.click();
+		cancelOrder.reasonLst.selectVisibleText("For some other reason");
+		cancelOrder.commentsTxt.write("Sample Comment");
+		cancelOrder.popUpOkBtn.click();
+		
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "cancelOrder" })
+	public void verifyOrderCancel(HashMap<?, ?> data) throws Exception
+	{
+		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
+		
+		listOrder();
+		
+		// Search by purchase Order Number
+		OrderSearch orderSearch = new OrderSearch();
+		orderSearch.advSearchBtn.click();
+		OrderAdvSearch advanceSearch = new OrderAdvSearch();
+		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
+		advanceSearch.searchBtn.click();
+		TestUtils.delay(3000);
+		
+		// Verify in result
+		OrderList listOfOrder = new OrderList();
+		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+		
+		// Verify only one result is found
+		Assert.assertEquals(rows.length, 1);
+		
+		// Verify provisioned
+		OrderUtility orderUtility = new OrderUtility();
+		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Suspended for Cancellation", 5 * 60);
+		Assert.assertEquals(updateInfo, true);
 	}
 	
 	@Test
@@ -310,71 +931,7 @@ public class OrderIspBCT
 
 	}
 	
-	@Test
-	public void testUpsizingOrder2()
-	{
-		browser.navigateTo();
-
-		LoginScreen loginScreen = new LoginScreen();
-		
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
-
-		// Click on login button
-		loginScreen.loginBtn.click();
-		
-		OrderOptions order = new OrderOptions();
-		order.orderMenu.mouseHover();
-		
-		order.listOrderLnk.click();
-		TestUtils.delay(5000);
-		
-		// Search for the offer
-		SearchOrder search = new SearchOrder();
-		search.orderIdTxt.write("2015-06-09-000015");
-		search.searchBtn.click();
-		
-		// Select the offer
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = listOfOrder.getOrderResultRows("Recent");
-		Assert.assertEquals(rows.length, 1);
-		rows[0].link.click();
-		
-		// Click on Cancel
-		OrderDetails details = new OrderDetails();
-		OrderISPButtons ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
-		ispButtons.cancelBtn.click();
-		
-		// Enter details
-		CancelOrder cancel = new CancelOrder();
-		cancel.endOfCurrentMonthChk.click();
-		cancel.reasonLst.selectVisibleText("For some other reason");
-		cancel.commentsTxt.write("Sample message");
-		
-		// Click on Ok btn
-		cancel.okBtn.click();
-		
-		// Verify the status
-		Assert.assertEquals(details.orderInfo.status, "To be cancelled");
-		
-		// Wait for 2-min
-		TestUtils.delay(2 * 1000 * 60);
-		
-		// Verify the status
-		Assert.assertEquals(details.orderInfo.status, "Cancelling");
-		
-		// Click on Confirm order fulfillment
-		details.confirmOrderFulfillment.click();
-		
-		// Click on Ok btn
-		cancel.popUpOkBtn.click();
-		
-		// Check status
-		TestUtils.delay(1000);
-		Assert.assertEquals(details.orderInfo.status, "Suspended for Cancellation");
-		
-	}
+	
 	
 	@Test
 	public void testUpgrade()
@@ -580,8 +1137,8 @@ public class OrderIspBCT
 	{
 		String orderId = "2015-06-18-000038";
 		String orgId = "10017";
-		String reason = "For some other reason";
-		String cancelMsg = "Test message";
+		//String reason = "For some other reason";
+		//String cancelMsg = "Test message";
 		
 		// Select the order
 		SearchOrder search = new SearchOrder();
@@ -607,48 +1164,8 @@ public class OrderIspBCT
 		// TODO: handle pop-up
 	}
 	
-	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "placeOrder" })
-	public void TestForOrderProvisioned(HashMap<?, ?> data) throws Exception
+	private void listOrder()
 	{
-		String username = data.get("username").toString();
-		String password = data.get("password").toString();
-		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
-		
-		loginAndListOrder(username, password);
-		
-		// Search by purchase Order Number
-		OrderSearch orderSearch = new OrderSearch();
-		orderSearch.advSearchBtn.click();
-		OrderAdvSearch advanceSearch = new OrderAdvSearch();
-		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
-		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
-		
-		// Verify in result
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
-		
-		// Verify only one result is found
-		Assert.assertEquals(rows.length, 1);
-		
-		// Verify provisioned
-		OrderUtility orderUtility = new OrderUtility();
-		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Provisioned", 5 * 60);
-		Assert.assertEquals(updateInfo, true);
-	}
-	
-	private void loginAndListOrder(String username, String password)
-	{
-		browser.navigateTo();
-
-		LoginScreen loginScreen = new LoginScreen();
-		
-		loginScreen.username.write(username);
-		loginScreen.password.write(password);
-
-		// Click on login button
-		loginScreen.loginBtn.click();
-		
 		OrderOptions order = new OrderOptions();
 		order.orderMenu.mouseHover();
 		
@@ -657,3 +1174,23 @@ public class OrderIspBCT
 		TestUtils.delay(5000);
 	}
 }
+
+
+//// Verify the status
+//Assert.assertEquals(details.orderInfo.status, "To be cancelled");
+//
+//// Wait for 2-min
+//TestUtils.delay(2 * 1000 * 60);
+//
+//// Verify the status
+//Assert.assertEquals(details.orderInfo.status, "Cancelling");
+//
+//// Click on Confirm order fulfillment
+//details.confirmOrderFulfillment.click();
+//
+//// Click on Ok btn
+//cancel.popUpOkBtn.click();
+//
+//// Check status
+//TestUtils.delay(1000);
+//Assert.assertEquals(details.orderInfo.status, "Suspended for Cancellation");

@@ -45,7 +45,6 @@ import com.ensimtest.utils.OrderItemJsonHandler;
 import com.ensimtest.utils.OrderItemJsonHandler.ItemDetails;
 import com.ensimtest.utils.OrderProvInfoJsonHandler;
 import com.ensimtest.utils.OrderProvInfoJsonHandler.ProvInfoDetails;
-import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
 
 public class OrderCustomerBCT 
@@ -53,7 +52,6 @@ public class OrderCustomerBCT
 {
 	private Browser browser;
 	private GetEASMessages getMessage=new GetEASMessages(); 
-	private RandomData randomdata=new RandomData();
 
 	@BeforeClass
 	public void checkSuiteRunmode() throws IOException
@@ -332,8 +330,6 @@ public class OrderCustomerBCT
 	public void upsizeOrder(HashMap<?, ?> testData) throws Exception
 	{
 		
-		boolean flag=false;
-		
 		// Get data from test-data (XLS based)
 		String userName=testData.get("UserName").toString();
 		String password=testData.get("password").toString();
@@ -355,6 +351,7 @@ public class OrderCustomerBCT
 		
 		SubsribedOrderDetails orderDetails[]=orderAndSubscription.orderList.getOrders();
 		
+		boolean flag=false;
 		for(int i=0;i<orderDetails.length;i++)
 		{
 			if(offerName.equalsIgnoreCase(orderDetails[i].offerName))
@@ -364,7 +361,7 @@ public class OrderCustomerBCT
 			}
 		}
 		
-
+		Assert.assertEquals(flag, true, "Unable to click the order action button");
 		
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
 		orderActionCustomer.upsizeBtn.click();
@@ -539,9 +536,7 @@ public class OrderCustomerBCT
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData",dependsOnMethods = { "TestForOrderUpsized" })
 	public void downsizeOrder(HashMap<?, ?> testData) throws Exception
 	{
-		
-		boolean flag=false;
-		
+
 		// Get data from test-data (XLS based)
 		String userName=testData.get("UserName").toString();
 		String password=testData.get("password").toString();
@@ -563,6 +558,8 @@ public class OrderCustomerBCT
 		
 		SubsribedOrderDetails orderDetails[]=orderAndSubscription.orderList.getOrders();
 		
+		boolean flag=false;
+		
 		for(int i=0;i<orderDetails.length;i++)
 		{
 			if(offerName.equalsIgnoreCase(orderDetails[i].offerName))
@@ -572,7 +569,7 @@ public class OrderCustomerBCT
 			}
 		}
 		
-
+		Assert.assertEquals(flag, true, "Unable to click the order action button");
 		
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
 		orderActionCustomer.downsizeBtn.click();
@@ -769,7 +766,7 @@ public class OrderCustomerBCT
 			}
 		}
 		
-
+		Assert.assertEquals(flag, true, "Unable to click the order action button");
 		
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
 		orderActionCustomer.upgradeBtn.click();
@@ -954,8 +951,7 @@ public class OrderCustomerBCT
 		popupHandel.acceptPopUP.click();
 		
 		TestUtils.delay(5000);
-		
-}	
+	}	
 
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData",dependsOnMethods = { "approvedUpgradeOrderFromISP" })
@@ -1027,7 +1023,7 @@ public class OrderCustomerBCT
 			}
 		}
 		
-
+		Assert.assertEquals(flag, true, "Unable to click the order action button");
 		
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
 		orderActionCustomer.downgradeBtn.click();
@@ -1311,7 +1307,7 @@ public class OrderCustomerBCT
 			}
 		}
 		
-
+		Assert.assertEquals(flag, true, "Unable to click the order action button");
 		
 		OrderActionCustomer orderActionCustomer=new OrderActionCustomer();
 		orderActionCustomer.cancelBtn.click();
