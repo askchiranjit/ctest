@@ -15,8 +15,8 @@ import com.ensimtest.module.orders.CreateOrderMasterControl;
 import com.ensimtest.module.orders.CreateOrderProvisioningInfo;
 import com.ensimtest.module.orders.CreateOrderProvisioningInfo.CustomInfo;
 import com.ensimtest.module.orders.CreateOrderSelectCategory;
-import com.ensimtest.module.orders.CreateOrderSelectItems;
-import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
+//import com.ensimtest.module.orders.CreateOrderSelectItems;
+//import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
 import com.ensimtest.module.orders.CreateOrderSummary;
 import com.ensimtest.module.orders.OrderDetails;
 import com.ensimtest.module.orders.CreateOrderSelectOffer;
@@ -219,8 +219,8 @@ public class OrderRegTestCases
 		offers[0].orderBtn.click();
 		TestUtils.delay(8000);
 
-		CreateOrderSelectItems items = new CreateOrderSelectItems();
-		ItemRow []rows =  items.getItemRows(browser);
+		//CreateOrderSelectItems items = new CreateOrderSelectItems();
+		//ItemRow []rows =  items.getItemRows(browser);
 		
 		TestUtils.delay(3000);
 		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
