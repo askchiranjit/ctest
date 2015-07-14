@@ -97,8 +97,6 @@ public class OfferBCT {
 	public void createP2OSubscriptionOffer(HashMap<?, ?> testData) throws Exception{
 		
 		//To get data from Test-Data (XLS based)
-		String userName = testData.get("UserName").toString();
-		String password = testData.get("password").toString();
 		String offerSaleType = testData.get("OfferSaleType").toString();
 		String serviceName = testData.get("ServiceName").toString();
 		String catalogID = "CatID" + randomData.getRandomNum(4);
@@ -114,8 +112,8 @@ public class OfferBCT {
 		String contractPeriodValue = testData.get("ContractPeriodValue").toString();
 		String contractPeriodType = testData.get("contractPeriodType").toString();
 		String maxNoOrdrPerOrg = testData.get("MaxNoOrdrPerOrg").toString();
-		String dataRetentionPeriodType = testData.get("dataRetentionPeriodType").toString();
-		String dataRetentionPeriodValue = testData.get("dataRetentionPeriodValue").toString();
+		String dataRetentionPeriodType = testData.get("DataRetentionPeriodType").toString();
+		String dataRetentionPeriodValue = testData.get("DataRetentionPeriodValue").toString();
 		String custFld1 = randomData.getRandomAlfaNumeric(4);
 		String subscriptionType = testData.get("SubscriptionType").toString();
 		String subscriptionValue = testData.get("SubscriptionVlaue").toString();
@@ -137,23 +135,6 @@ public class OfferBCT {
 		String providerApprove = testData.get("ProviderApprove").toString();
 		String orderApproveTime = testData.get("OrderApproveTime").toString();
 		String approveToEmail = testData.get("ApproveToEmail").toString();
-		String approveCCEmail = testData.get("ApproveCCEmail").toString();
-		
-		//Navigate to ENSIM site
-		browser.navigateTo();
-		
-		//To provide login screen values
-		LoginScreen loginScreen = new LoginScreen();
-		loginScreen.username.write(userName);
-		loginScreen.password.write(password);
-		
-		//To click on login button
-		loginScreen.loginBtn.click();
-		
-		//Go to catalog menu and click on offer option
-		CatalogOptions catalogOptions = new CatalogOptions();
-		catalogOptions.catalogMenu.mouseHover();
-		catalogOptions.offersLnk.click();
 		
 		//To search provided category
 		SearchCategory searchCategory = new SearchCategory();
@@ -237,8 +218,8 @@ public class OfferBCT {
 		offerGeneralProperties.offerDataRetentionPeriodTypeLst.select(dataRetentionPeriodType);
 		offerGeneralProperties.offerDataRetentionPeriodValueTxt.write(dataRetentionPeriodValue);
 		
-		//To set value for Custom Field 1
-		offerGeneralProperties.offerCustomField1Txt.write(custFld1);
+		//To set value for Custom Field 2
+		offerGeneralProperties.offerCustomField2Txt.write(custFld1);
 		
 //----------------------------------Offer Subscription Properties---------------------------------------------------
 		//To click on subscription properties link
@@ -296,9 +277,9 @@ public class OfferBCT {
 		
 		for(int i=0;i<itemNameList.length;i++){
 			offerItemConfigurationDetails.offerItemNameLst.select(itemNameList[i]);
-			TestUtils.delay(5000);
+			TestUtils.delay(10000);
 			offerItemConfigurationDetails.offerPurchaseOptionsOfItemLst.select(purchaseOptionList[i]);
-			
+			TestUtils.delay(10000);
 			priceBtn = offerItemConfigurationDetails.offerItemPriceBtn.isExists();
 			
 			if(priceBtn){
@@ -306,15 +287,16 @@ public class OfferBCT {
 			}else{
 				offerItemConfigurationDetails.offerPriceSelectLst.select("create another PricePlan");
 			}
-			
+			TestUtils.delay(10000);
 			//To provide values for price plan
 			addPriceForItemInOffer.billingNameForItemTxt.write(itemNameList[i]);
 			addPriceForItemInOffer.unitPriceForItemTxt.write(unitPriceList[i]);
 			addPriceForItemInOffer.minDiscountPercentageTxt.write(minDisPriceList[i]);
 			addPriceForItemInOffer.maxDiscountPercentageTxt.write(maxDisPriceList[i]);
+			TestUtils.delay(10000);
 			
 			//To click on OK button
-			addPriceForItemInOffer.pricePlanOKBtn.click(i);
+			addPriceForItemInOffer.pricePlanOKBtn.click();
 			TestUtils.delay(10000);
 			
 			//To click on add button to add an item in offer
@@ -356,12 +338,15 @@ public class OfferBCT {
 		
 		//To set approve TO email id
 		offerProvisioningWorkflow.toMailIDTxt.write(approveToEmail);
-		
-		//To set approve CC email id
-		offerProvisioningWorkflow.cCMailIDTxt.write(approveCCEmail);
-		
+				
 //------------------------------------------------To save offer------------------------------------------------------
+		System.out.println("done");
 		offerMainController.offerSaveBtn.click();
+		
+		TestUtils.delay(6000);
+		
+		
+		// TODO offer added pop-up
 	}
 	
 }

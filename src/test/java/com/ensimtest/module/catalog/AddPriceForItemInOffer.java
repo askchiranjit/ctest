@@ -452,10 +452,11 @@ public class AddPriceForItemInOffer extends AppData{
 			setElement(readAppData(this));
 		}
 		
-		public void click(int count){
+		@Override
+		public void click(){
 			String []actualPath = new String[2];
 			actualPath[0]="Xpath";
-			actualPath[1]="(//div[@aria-labelledby='ui-dialog-title-addNewPricePlan']//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Ok')])[" + count + "]";
+			actualPath[1]="(//div[@aria-labelledby='ui-dialog-title-addNewPricePlan'])[1]//div[contains(@class,'ui-dialog-buttonpane')]//button//span[contains(text(),'Ok')]";
 			setElement(actualPath);
 			super.click();
 		}

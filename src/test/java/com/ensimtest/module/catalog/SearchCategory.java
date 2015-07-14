@@ -96,12 +96,13 @@ public class SearchCategory extends AppData
 	public void searchAndClickOnCategory(String categoryName){
 		
 		OfferCategoryMainControls offerCategoryManiControls = new OfferCategoryMainControls();
-		
-		CategoryRow categoryRow[] = categoryResultRows.getCategoryList();
+		CategoryRow categoryRow[];
 		
 		boolean flag = false;
 		
 		while(flag == false){
+			categoryRow = categoryResultRows.getCategoryList();
+			
 			for(int i=0;i<categoryRow.length;i++){
 				if(categoryRow[i].categoryName.equalsIgnoreCase(categoryName)){
 					categoryRow[i].categoryNameLnk.click();
