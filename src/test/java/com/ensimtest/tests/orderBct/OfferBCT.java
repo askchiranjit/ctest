@@ -26,7 +26,7 @@ import com.ensimtest.resource.TestDataProvider;
 import com.ensimtest.utils.RandomData;
 import com.ensimtest.utils.TestUtils;
 
-public class OfferTestCases {
+public class OfferBCT {
 
 	private Browser browser;
 	private RandomData randomData = new RandomData();
