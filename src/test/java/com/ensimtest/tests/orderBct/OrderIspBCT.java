@@ -236,11 +236,11 @@ public class OrderIspBCT
 		rows[0].link.click();
 		TestUtils.delay(3000);
 		
-		// Verify order information
-		OrderDetails details = new OrderDetails();
-		Assert.assertEquals(details.orderInfo.orgName, orgName);
-		Assert.assertEquals(details.orderInfo.orderId, refNo);
-		Assert.assertEquals(details.orderInfo.orgID, orgID);
+//		// Verify order information
+//		OrderDetails details = new OrderDetails();
+//		Assert.assertEquals(details.orderInfo.orgName, orgName);
+//		Assert.assertEquals(details.orderInfo.orderId, refNo);
+//		Assert.assertEquals(details.orderInfo.orgID, orgID);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "placeOrder" })
