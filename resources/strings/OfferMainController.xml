@@ -52,6 +52,6 @@
 	
 	<OfferSaveBtn>
 		<key>Xpath</key>
-		<value>//div[@id='save_offer']</value>
+		<value>//div[@id='save_offer']//span//span</value>
 	</OfferSaveBtn>
 </root>

@@ -273,8 +273,11 @@ public class OfferGeneralProperties extends AppData{
 			setElement(readAppData(this));
 		}
 		
-		public void select(String data){
-			super.selectVisibleText(data);
+		public void select(String[] upgradeList){
+			for(int i=0;i<upgradeList.length;i++){
+				String upgradeOfferName = getActualString(upgradeList[i]);
+				super.selectVisibleText(upgradeOfferName);
+			}
 		}
 		
 		public String getActualString(String data){

@@ -102,7 +102,6 @@ public class OfferItemConfigurationDetails extends AppData{
 		
 		public void select(String data){
 			super.selectVisibleText(data);
-			super.click();
 		}
 	}
 	

@@ -10,6 +10,11 @@
 	<value>pricePlanType</value>
 </SelectPriceTypeOfItemLst>
 
+<SlectStartsWithOrEndWithLst>
+	<key>ID</key>
+	<value>ppebound</value>
+</SlectStartsWithOrEndWithLst>
+
 <BillingFrequencyOfOfferLst>
 	<key>ID</key>
 	<value>pricePlanTariff</value>
