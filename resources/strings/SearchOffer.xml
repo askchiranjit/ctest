@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<root>
+<OfferRowFinder>
+	<key>Xpath</key>
+	<value>tr</value>
+</OfferRowFinder>
+
+<OfferTable>
+	<key>Xpath</key>
+	<value>(//div[@id='product-offer']//table//tbody)[1]</value>
+</OfferTable>
+
+</root>
