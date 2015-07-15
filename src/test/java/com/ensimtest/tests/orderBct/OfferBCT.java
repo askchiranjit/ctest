@@ -344,9 +344,7 @@ public class OfferBCT {
 		offerMainController.offerSaveBtn.click();
 		
 		TestUtils.delay(6000);
-		
-		
-		// TODO offer added pop-up
+
 	}
 	
 }
