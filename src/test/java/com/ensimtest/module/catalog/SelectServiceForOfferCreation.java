@@ -54,7 +54,7 @@ public class SelectServiceForOfferCreation extends AppData{
 	public class SelectAServiceToCreateOfferRdo extends Element{
 		public SelectAServiceToCreateOfferRdo(){}
 		
-		public void setXpath(String xpath){
+		public void select(String xpath){
 			String prefixXpath = "//strong[contains(text(),'";
 			String sufixXpath = "')]//preceding::input[1]";
 			String customXpath = prefixXpath + xpath + sufixXpath;

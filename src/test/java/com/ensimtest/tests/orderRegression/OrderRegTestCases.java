@@ -18,8 +18,8 @@ import com.ensimtest.module.orders.CreateOrderMasterControl;
 import com.ensimtest.module.orders.CreateOrderProvisioningInfo;
 import com.ensimtest.module.orders.CreateOrderProvisioningInfo.CustomInfo;
 import com.ensimtest.module.orders.CreateOrderSelectCategory;
-import com.ensimtest.module.orders.CreateOrderSelectItems;
-import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
+//import com.ensimtest.module.orders.CreateOrderSelectItems;
+//import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
 import com.ensimtest.module.orders.CreateOrderSummary;
 import com.ensimtest.module.orders.OrderDetails;
 import com.ensimtest.module.orders.CreateOrderSelectOffer;
@@ -197,6 +197,5 @@ public class OrderRegTestCases
 		order.listOrderLnk.click();
 		TestUtils.delay(5000);
 	}	
-	
 
 }

@@ -1,7 +1,6 @@
 package com.ensimtest.module.orders;
 
 import com.ensimtest.config.Element;
-import com.ensimtest.config.ElementSet;
 import com.ensimtest.resource.AppData;
 
 public class OrderDetails extends AppData

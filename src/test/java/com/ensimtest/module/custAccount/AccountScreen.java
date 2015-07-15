@@ -2,7 +2,7 @@ package com.ensimtest.module.custAccount;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.config.ElementSet;
-import com.ensimtest.module.orders.CreateOrderProvisioningInfo.CustomInfo;
+//import com.ensimtest.module.orders.CreateOrderProvisioningInfo.CustomInfo;
 
 import com.ensimtest.resource.AppData;
 

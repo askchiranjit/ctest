@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<root>
+<ProvisioningWorkflowLst>
+	<key>ID</key>
+	<value>provisioningWorkflow</value>
+</ProvisioningWorkflowLst>
+
+<OrganizationMustApproveChk>
+	<key>ID</key>
+	<value>customerApprove</value>
+</OrganizationMustApproveChk>
+
+<ProviderMustApproveChk>
+	<key>ID</key>
+	<value>providerApprove</value>
+</ProviderMustApproveChk>
+
+<OrderMustApproveTimeTxt>
+	<key>ID</key>
+	<value>approvalTime</value>
+</OrderMustApproveTimeTxt>
+
+<ToMailIDTxt>
+	<key>ID</key>
+	<value>customerToAddress</value>
+</ToMailIDTxt>
+
+<CCMailIDTxt>
+	<key>ID</key>
+	<value>customerCcAddress</value>
+</CCMailIDTxt>
+</root>
