@@ -283,6 +283,9 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.upsizeBtn.isEnabled(), true);
 		ispButtons.upsizeBtn.click();
 		
+		
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		browser.waitForElement(buttons.continueBtn, 60*1000);
 		// Update items
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -331,7 +334,6 @@ public class OrderIspBCT
 		// Updated the data
 		
 		// click on Continue
-		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
 		buttons.continueBtn.click();
 		TestUtils.delay(3000);
 		
@@ -394,6 +396,8 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.upsizeBtn.isEnabled(), true);
 		ispButtons.upsizeBtn.click();
 		
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		browser.waitForElement(buttons.continueBtn, 60*1000);
 		// Update items
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -442,7 +446,7 @@ public class OrderIspBCT
 		// Updated the data
 		
 		// click on Continue
-		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+
 		buttons.continueBtn.click();
 		TestUtils.delay(3000);
 		
@@ -508,6 +512,10 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.upgradeBtn.isEnabled(), true);
 		ispButtons.upgradeBtn.click();
 		
+		
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		browser.waitForElement(buttons.continueBtn, 60*1000);
+		
 		// Get the options
 		UpgradeOrder upgrade = new UpgradeOrder();
 		OrderOption []orderOptions =  upgrade.getAvailableOrderOptions();
@@ -564,10 +572,9 @@ public class OrderIspBCT
 		
 		TestUtils.delay(6000);
 		
-		CreateOrderMasterControl createOrderMasterControl = new CreateOrderMasterControl();
-		createOrderMasterControl.continueBtn.click();
+		buttons.continueBtn.click();
 		TestUtils.delay(3000);
-		createOrderMasterControl.continueBtn.click();
+		buttons.continueBtn.click();
 
 		OrderProvisioningInfo prov = new OrderProvisioningInfo();
 		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
@@ -605,10 +612,10 @@ public class OrderIspBCT
 			}
 		}
 
-		TestUtils.delay(2000);
-		createOrderMasterControl.continueBtn.click();
-		browser.waitForElement(createOrderMasterControl.placeOrderBtn, 10*1000);
-		createOrderMasterControl.placeOrderBtn.click();
+		TestUtils.delay(3000);
+		buttons.continueBtn.click();
+		browser.waitForElement(buttons.placeOrderBtn, 10*1000);
+		buttons.placeOrderBtn.click();
 		
 		TestUtils.delay(10000);
 		
@@ -660,6 +667,8 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.downgradeBtn.isEnabled(), true);
 		ispButtons.downgradeBtn.click();
 		
+	
+		
 		// Get the options
 		UpgradeOrder upgrade = new UpgradeOrder();
 		OrderOption []orderOptions =  upgrade.getAvailableOrderOptions();
@@ -677,7 +686,9 @@ public class OrderIspBCT
 		// Place the order
 		upgrade.placeUpdatedOrder.click();
 	
-		TestUtils.delay(30000);
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		browser.waitForElement(buttons.continueBtn, 60*1000);
+		
 		
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -716,10 +727,9 @@ public class OrderIspBCT
 		
 		TestUtils.delay(6000);
 		
-		CreateOrderMasterControl createOrderMasterControl = new CreateOrderMasterControl();
-		createOrderMasterControl.continueBtn.click();
+		buttons.continueBtn.click();
 		TestUtils.delay(3000);
-		createOrderMasterControl.continueBtn.click();
+		buttons.continueBtn.click();
 
 		OrderProvisioningInfo prov = new OrderProvisioningInfo();
 		ProvItemLst provItemLst[]=prov.provInfoLst.getProvInfos(browser);
@@ -758,9 +768,9 @@ public class OrderIspBCT
 		}
 
 		TestUtils.delay(2000);
-		createOrderMasterControl.continueBtn.click();
-		browser.waitForElement(createOrderMasterControl.placeOrderBtn, 10*1000);
-		createOrderMasterControl.placeOrderBtn.click();
+		buttons.continueBtn.click();
+		browser.waitForElement(buttons.placeOrderBtn, 10*1000);
+		buttons.placeOrderBtn.click();
 		
 		TestUtils.delay(10000);
 		
