@@ -3,7 +3,9 @@ package com.ensimtest.tests.orderBct;
 import java.util.HashMap;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -49,16 +51,16 @@ public class OrderIspBCT
 	private Browser browser;
 	private String refNo="";
 	
-	@BeforeMethod
+	@BeforeClass
 	public void setUp()
 	{
 		browser = new Browser();
 	}
 	
-	@AfterMethod
+	@AfterClass
 	public void tearDown()
 	{
-//		browser.close();
+		browser.close();
 	}
 	
 
