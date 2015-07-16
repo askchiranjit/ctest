@@ -226,7 +226,7 @@ public class OrderIspBCT
 		SearchOrder searchOrder = new SearchOrder();
 		searchOrder.orderIdTxt.write(refNo);
 		searchOrder.searchBtn.click();
-		
+		TestUtils.delay(20000);
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
 		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
@@ -258,7 +258,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
@@ -369,7 +369,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
@@ -480,7 +480,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
@@ -632,7 +632,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
@@ -784,7 +784,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
@@ -812,7 +812,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
@@ -851,7 +851,7 @@ public class OrderIspBCT
 		OrderAdvSearch advanceSearch = new OrderAdvSearch();
 		advanceSearch.purchaseOrderNum.write(purchesOrderNo);
 		advanceSearch.searchBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Verify in result
 		OrderList listOfOrder = new OrderList();
