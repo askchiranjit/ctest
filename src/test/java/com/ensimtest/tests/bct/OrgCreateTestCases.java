@@ -263,7 +263,7 @@ public class OrgCreateTestCases
 		searchOrg.keywordTxt.write(_orgName);
 		searchOrg.searchBtn.click();
 		
-		TestUtils.delay(3000);
+		TestUtils.delay(8000);
 		SearchResults searchResults = new SearchResults();
 		OrgRow rows[] = null;
 		
@@ -278,6 +278,7 @@ public class OrgCreateTestCases
 				if(rows[i].getOrgName().equals(_orgName))
 				{
 					isOrgNameFound = true;
+					break;
 				}
 			}
 			if(searchResults.nextPageBtn.isEnabled()==false)
@@ -306,7 +307,7 @@ public class OrgCreateTestCases
 		
 		searchOrg.searchBtn.click();
 		
-		TestUtils.delay(3000);
+		TestUtils.delay(8000);
 		SearchResults searchResults = new SearchResults();
 		OrgRow rows[] = null;
 		
@@ -321,6 +322,7 @@ public class OrgCreateTestCases
 				if(rows[i].getOrgName().equals(_orgName))
 				{
 					isOrgNameFound = true;
+					break;
 				}
 			}
 			if(searchResults.nextPageBtn.isEnabled()==false)
