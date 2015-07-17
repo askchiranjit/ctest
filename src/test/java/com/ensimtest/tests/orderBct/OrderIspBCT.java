@@ -4,9 +4,7 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.ensimtest.config.Browser;
@@ -20,7 +18,6 @@ import com.ensimtest.module.orders.CreateOrderSelectItems.ItemRow;
 import com.ensimtest.module.orders.CancelOrder;
 import com.ensimtest.module.orders.CreateOrderSummary;
 import com.ensimtest.module.orders.OrderAdvSearch;
-import com.ensimtest.module.orders.OrderDetails;
 import com.ensimtest.module.orders.CreateOrderSelectOffer;
 import com.ensimtest.module.orders.OrderISPButtons;
 import com.ensimtest.module.orders.OrderList;
@@ -72,7 +69,7 @@ public class OrderIspBCT
 		String orgName = data.get("OrgName").toString();
 		String category = data.get("category").toString();
 		String offerName = data.get("offerName").toString();
-		String orgID = data.get("orgID").toString();
+		//String orgID = data.get("orgID").toString();
 		String itemDetails = data.get("itemDetails").toString();
 		String provInfo = data.get("provInfoDetails").toString();
 		

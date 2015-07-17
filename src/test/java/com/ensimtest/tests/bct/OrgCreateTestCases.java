@@ -127,6 +127,8 @@ public class OrgCreateTestCases
 		masterAc.masterAccountNameTxt.write(_masterAcName);
 		masterAc.paymentAgreementList.selectAgreement(paymentAgreement);
 		masterAc.usernameSuffixTxt.write(_userSuffix);
+		masterAc.masterAccountNameTxt.click();
+		
 		TestUtils.delay(1000);
 //		masterAc.confirmUsernameSuffixTxt.click();
 //		masterAc.confirmUsernameSuffixTxt.write(_userSuffix);

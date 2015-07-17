@@ -2,12 +2,10 @@ package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.Element;
 import com.ensimtest.module.authentication.LoginScreen;
@@ -37,14 +35,14 @@ public class ItemModuleBCT
 	private RandomData randomdata=new RandomData();
 
 
-	@BeforeClass
+	@BeforeMethod
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
 		browser = new Browser();
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown()
 	{
 		browser.close();
