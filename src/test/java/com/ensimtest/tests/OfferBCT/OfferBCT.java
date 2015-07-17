@@ -1,4 +1,4 @@
-package com.ensimtest.tests.orderBct;
+package com.ensimtest.tests.OfferBCT;
 
 import java.io.IOException;
 import java.util.HashMap;
