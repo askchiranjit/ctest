@@ -691,10 +691,12 @@ public class ItemModuleBCT
 		TestUtils.delay(5000);
 		PopUPHandler popUpHandler=new PopUPHandler();
 		Assert.assertEquals(getMessage.getProperty("service_delete_confirmation"), popUpHandler.getPopUPData.read());
+		TestUtils.delay(5000);
 		popUpHandler.acceptPopUP.click();
+		
 		Assert.assertEquals(getMessage.getProperty("service_withoutitem_delete"), popUpHandler.getPopUPData.read());
 		popUpHandler.acceptPopUP.click();
-
+		TestUtils.delay(5000);
 		serviceHome.searchServiceTxt.write(serviceName);
 		serviceHome.searchServiceImg.click();
 		TestUtils.delay(5000);
