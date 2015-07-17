@@ -261,7 +261,7 @@ public class UserSearchTestCase
 		entity.menuBtn.mouseHover();
 		entity.usersLnk.click();
 		SearchUser user = new SearchUser();
-		user.emailAddressTxt.write("ensimautotest@outlook.com");
+		user.emailAddressTxt.write(_email);
 		user.searchBtn.click();
 		TestUtils.delay(3000);
 		SearchResultList search = new SearchResultList();

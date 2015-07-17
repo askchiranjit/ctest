@@ -163,7 +163,7 @@ public class ResellerTests
 		
 		btns.saveBtn.click();
 		
-		TestUtils.delay(10 * 1000);
+		TestUtils.delay(30 * 1000);
 		Assert.assertEquals(summary.createStatus.read(), "Completed");
 		
 		// Click on log-out button

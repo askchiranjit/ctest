@@ -2,12 +2,10 @@ package com.ensimtest.tests.bct;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.ensimtest.config.Browser;
 import com.ensimtest.config.Element;
 import com.ensimtest.module.authentication.LoginScreen;
@@ -37,14 +35,14 @@ public class ItemModuleBCT
 	private RandomData randomdata=new RandomData();
 
 
-	@BeforeClass
+	@BeforeMethod
 	public void checkSuiteRunmode() throws IOException
 	{
 		TestUtils.checkSuitRunnable(this);
 		browser = new Browser();
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown()
 	{
 		browser.close();
@@ -538,7 +536,7 @@ public class ItemModuleBCT
 		
 		serviceHome.searchServiceTxt.write(serviceName);
 		serviceHome.searchServiceImg.click();
-		TestUtils.delay(5000);
+		TestUtils.delay(10000);
 
 		ServiceSearchResult serv=new ServiceSearchResult();
 		ServiceRow ser[];
@@ -575,6 +573,7 @@ public class ItemModuleBCT
 		Assert.assertEquals(flag, true, "Service not present");
 
 		serviceHome.deleteServiceBtn.click();
+		TestUtils.delay(5000);
 		
 		PopUPHandler popUpHandler=new PopUPHandler();
 		Assert.assertEquals(getMessage.getProperty("service_delete_confirmation"), popUpHandler.getPopUPData.read());
@@ -689,12 +688,15 @@ public class ItemModuleBCT
 		
 		serviceHome.deleteServiceBtn.click();
 		
+		TestUtils.delay(5000);
 		PopUPHandler popUpHandler=new PopUPHandler();
 		Assert.assertEquals(getMessage.getProperty("service_delete_confirmation"), popUpHandler.getPopUPData.read());
+		TestUtils.delay(5000);
 		popUpHandler.acceptPopUP.click();
+		
 		Assert.assertEquals(getMessage.getProperty("service_withoutitem_delete"), popUpHandler.getPopUPData.read());
 		popUpHandler.acceptPopUP.click();
-
+		TestUtils.delay(5000);
 		serviceHome.searchServiceTxt.write(serviceName);
 		serviceHome.searchServiceImg.click();
 		TestUtils.delay(5000);
