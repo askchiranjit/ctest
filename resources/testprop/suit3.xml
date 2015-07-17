@@ -3,7 +3,7 @@
 <suite name="Default suite">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="com.ensimtest.tests.orderBct.OrderIspBCT"/>
+      <class name="com.ensimtest.tests.orderBct.OrderCustomerBCT"/>
     </classes>
   </test> <!-- Default test -->
 </suite> <!-- Default suite -->
