@@ -788,7 +788,7 @@ public class OrderCustomerBCT
 		}
 		
 	
-		TestUtils.delay(5000);
+		TestUtils.delay(10000);
 		CreateOrderMasterControl createOrderMasterControl=new CreateOrderMasterControl();
 		createOrderMasterControl.placeUpgradeBtn.click();
 	
@@ -1046,7 +1046,7 @@ public class OrderCustomerBCT
 			}
 		}
 		
-		TestUtils.delay(5000);
+		TestUtils.delay(10000);
 		CreateOrderMasterControl createOrderMasterControl=new CreateOrderMasterControl();
 		createOrderMasterControl.placeUpgradeBtn.click();
 	
