@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<root>
+<ProvisioningActionsChk>
+	<key>ID</key>
+	<value>macro1Need</value>
+</ProvisioningActionsChk>
+
+<ProvisioningActionsTxt>
+	<key>ID</key>
+	<value>macro_0_desc</value>
+</ProvisioningActionsTxt>
+
+<OptOutTrialDisclaimerChk>
+	<key>ID</key>
+	<value>macro2Need</value>
+</OptOutTrialDisclaimerChk>
+
+<OptOutTrialDisclaimerTxt>
+	<key>ID</key>
+	<value>macro_1_desc</value>
+</OptOutTrialDisclaimerTxt>
+
+<OptInTrialDisclaimerChk>
+	<key>ID</key>
+	<value>macro3Need</value>
+</OptInTrialDisclaimerChk>
+
+<OptInTrialDisclaimerTxt>
+	<key>ID</key>
+	<value>macro_2_desc</value>
+</OptInTrialDisclaimerTxt>
+
+<OfferDescriptionChk>
+	<key>ID</key>
+	<value>macro4Need</value>
+</OfferDescriptionChk>
+
+<OfferDescriptionTxt>
+	<key>ID</key>
+	<value>macro_3_desc</value>
+</OfferDescriptionTxt>
+
+<HowToUseChk>
+	<key>ID</key>
+	<value>macro5Need</value>
+</HowToUseChk>
+
+<HowToUseTxt>
+	<key>ID</key>
+	<value>macro_4_desc</value>
+</HowToUseTxt>
+
+<TermsAndConditionsChk>
+	<key>ID</key>
+	<value>macro6Need</value>
+</TermsAndConditionsChk>
+
+<TermsAndConditionsTxt>
+	<key>ID</key>
+	<value>macro_5_desc</value>
+</TermsAndConditionsTxt>
+
+<CustomMacro1Chk>
+	<key>ID</key>
+	<value>macro7Need</value>
+</CustomMacro1Chk>
+
+<CustomMacro1Txt>
+	<key>ID</key>
+	<value>macro_6_desc</value>
+</CustomMacro1Txt>
+
+<CustomMacro2Chk>
+	<key>ID</key>
+	<value>macro8Need</value>
+</CustomMacro2Chk>
+
+<CustomMacro2Txt>
+	<key>ID</key>
+	<value>macro_7_desc</value>
+</CustomMacro2Txt>
+
+<CustomMacro3Chk>
+	<key>ID</key>
+	<value>macro9Need</value>
+</CustomMacro3Chk>
+
+<CustomMacro3Txt>
+	<key>ID</key>
+	<value>macro_8_desc</value>
+</CustomMacro3Txt>
+
+<CustomMacro4Chk>
+	<key>ID</key>
+	<value>macro10Need</value>
+</CustomMacro4Chk>
+
+<CustomMacro4Txt>
+	<key>ID</key>
+	<value>macro_9_desc</value>
+</CustomMacro4Txt>
+
+<CustomMacro5Chk>
+	<key>ID</key>
+	<value>macro11Need</value>
+</CustomMacro5Chk>
+
+<CustomMacro5Txt>
+	<key>ID</key>
+	<value>macro_10_desc</value>
+</CustomMacro5Txt>
+
+<CustomMacro6Chk>
+	<key>ID</key>
+	<value>macro12Need</value>
+</CustomMacro6Chk>
+
+<CustomMacro6Txt>
+	<key>ID</key>
+	<value>macro_11_desc</value>
+</CustomMacro6Txt>
+</root>

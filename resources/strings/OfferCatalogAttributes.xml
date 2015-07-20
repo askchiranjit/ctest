@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<root>
+<DisplayOrderTxt>
+	<key>ID</key>
+	<value>features.0.displayorder</value>
+</DisplayOrderTxt>
+
+<DisplayTextTxt>
+	<key>ID</key>
+	<value>features.0.featuredisplayText</value>
+</DisplayTextTxt>
+
+<AddDisplayTextBtn>
+	<key>Xpath</key>
+	<value>//div[@id='resource_no']//div[4]//a//img[contains(@src,'add.png')]</value>
+</AddDisplayTextBtn>
+
+</root>
