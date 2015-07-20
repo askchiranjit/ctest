@@ -873,7 +873,7 @@ public class OrderIspBCT
 		Assert.assertEquals(updateInfo, true);
 	}
 	
-	//@Test
+	//(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
 	public void searchOrderByOrgID()
 	{
 		String orgID = "10006";
@@ -942,7 +942,7 @@ public class OrderIspBCT
 	
 	
 	
-	//@Test
+	//(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
 	public void testUpgrade()
 	{
 		browser.navigateTo();
@@ -1005,7 +1005,7 @@ public class OrderIspBCT
 	// Resume
 	
 	// Cancel - Cancel
-	//@Test
+	//@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
 	public void testCancelCancelOrder()
 	{
 		String orderId = "2015-06-18-000038";
@@ -1068,9 +1068,8 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
 	}
 	
-	// TODO
 	// Cancel - Ok
-	//@Test
+	//@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
 	public void testCancelOkOrder()
 	{
 		String orderId = "2015-06-18-000038";
@@ -1141,7 +1140,7 @@ public class OrderIspBCT
 		
 	}
 
-	//@Test
+	//@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
 	public void testSuspendOrder()
 	{
 		String orderId = "2015-06-18-000038";

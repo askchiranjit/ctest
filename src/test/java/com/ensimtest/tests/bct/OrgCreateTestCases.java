@@ -162,9 +162,8 @@ public class OrgCreateTestCases
 		TestUtils.delay(3000);
 		
 		// Verify the alert message
-		// TODO : GRAMMER ERROR
-		// String s = summary.createSuccessAlert.read();
-		//Assert.assertEquals(s, "Organization " + _orgName + " created successfully.");
+		String messageData = summary.createSuccessAlert.read();
+		Assert.assertEquals(messageData, "Organization " + _orgName + " created successfully.");
 		boolean isExists = summary.createSuccessAlert.isExists();
 		summary.createSuccessAlertOkBtn.click();
 		Assert.assertEquals(isExists, true);
