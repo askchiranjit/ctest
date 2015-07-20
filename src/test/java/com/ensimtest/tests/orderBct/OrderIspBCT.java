@@ -382,7 +382,7 @@ public class OrderIspBCT
 		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Upsized", 5 * 60);
 		Assert.assertEquals(updateInfo, true);
 	}
-	
+	//
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderUpsized" })
 	public void downsizeOrder(HashMap<?, ?> data) throws Exception
 	{
@@ -390,8 +390,8 @@ public class OrderIspBCT
 		
 		// Click on Up-size
 		OrderISPButtons ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.upsizeBtn.isEnabled(), true);
-		ispButtons.upsizeBtn.click();
+		Assert.assertEquals(ispButtons.downsizeBtn.isEnabled(), true);
+		ispButtons.downsizeBtn.click();
 		
 		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
 		browser.waitForElement(buttons.continueBtn, 60*1000);
@@ -467,7 +467,7 @@ public class OrderIspBCT
 		String upsizedOrderNumber = summary.approveOrderMsgLbl.getRefNumber().trim();
 		Assert.assertEquals(upsizedOrderNumber, refNo);
 	}
-	
+
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "downsizeOrder" })
 	public void verifyOrderDownsized(HashMap<?, ?> data) throws Exception
 	{
@@ -495,11 +495,12 @@ public class OrderIspBCT
 		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Downsized", 5 * 60);
 		Assert.assertEquals(updateInfo, true);
 	}
+//	
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData",dependsOnMethods = { "verifyOrderDownsized" })
 	public void upgradeOrder(HashMap<?, ?> testData) throws Exception
 	{
-		// Get data from test-data (XLS based)	
+    	// Get data from test-data (XLS based)	
 		String upgradeOfferName=testData.get("upgradeOfferName").toString();
 		String itemDetails=testData.get("itemDetails").toString();
 		String provInfo=testData.get("provInfoDetails").toString();
@@ -509,15 +510,12 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.upgradeBtn.isEnabled(), true);
 		ispButtons.upgradeBtn.click();
 		
-		
-		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
-		browser.waitForElement(buttons.continueBtn, 60*1000);
-		
 		// Get the options
 		UpgradeOrder upgrade = new UpgradeOrder();
 		OrderOption []orderOptions =  upgrade.getAvailableOrderOptions();
 		
 		// Select the order
+		System.out.println(upgradeOfferName);
 		for(int i=0; i<orderOptions.length; i++)
 		{
 			if(orderOptions[i].orderName.equals(upgradeOfferName))
@@ -530,7 +528,8 @@ public class OrderIspBCT
 		// Place the order
 		upgrade.placeUpdatedOrder.click();
 	
-		TestUtils.delay(30000);
+		CreateOrderMasterControl buttons = new CreateOrderMasterControl();
+		browser.waitForElement(buttons.continueBtn, 60*1000);
 		
 		PerformAction performActn=new PerformAction();
 		UpsizeOrderSelectItems items = new UpsizeOrderSelectItems();
@@ -654,9 +653,10 @@ public class OrderIspBCT
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData",dependsOnMethods = { "verifyOrderUpgraded" })
 	public void downgradeOrder(HashMap<?, ?> testData) throws Exception
 	{
+		
 		// Get data from test-data (XLS based)	
 		String downgradeOfferName=testData.get("downgradeOfferName").toString();
-		String itemDetails=testData.get("itemDetailsitemDetails").toString();
+		String itemDetails=testData.get("itemDetails").toString();
 		String provInfo=testData.get("provInfoDetails").toString();
 		
 		// Click on upgrade buttons
@@ -675,7 +675,9 @@ public class OrderIspBCT
 		{
 			if(orderOptions[i].orderName.equals(downgradeOfferName))
 			{
+				System.out.println(orderOptions[i].orderName);
 				orderOptions[i].showElementBtn.click();
+				TestUtils.delay(5000);
 				break;
 			}
 		}
@@ -805,10 +807,11 @@ public class OrderIspBCT
 		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Downgraded", 5 * 60);
 		Assert.assertEquals(updateInfo, true);
 	}
-	
+//	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "verifyOrderDowngraded" })
 	public void cancelOrder(HashMap<?, ?> data) throws Exception
 	{
+		TestUtils.delay(30000);
 		String purchesOrderNo =data.get("purchesOrderNo").toString() ;
 		
 		listOrder();
@@ -836,15 +839,18 @@ public class OrderIspBCT
 		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
 		ispButtons.cancelBtn.click();
 		
+		TestUtils.delay(10000);
 		// Cancel pop-up handler
 		CancelOrder cancelOrder = new CancelOrder();
 		cancelOrder.asSoonAsPossibleChk.click();
-		cancelOrder.reasonLst.selectVisibleText("For some other reason");
-		cancelOrder.commentsTxt.write("Sample Comment");
-		cancelOrder.popUpOkBtn.click();
+		TestUtils.delay(5000);
+		// TODO : bug filed as no reason list is populated
+//		cancelOrder.reasonLst.selectVisibleText("For some other reason");
+//		cancelOrder.commentsTxt.write("Sample Comment");
+		cancelOrder.okBtn.click();
 		
 	}
-	
+//	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "cancelOrder" })
 	public void verifyOrderCancel(HashMap<?, ?> data) throws Exception
 	{
@@ -872,307 +878,307 @@ public class OrderIspBCT
 		boolean updateInfo = orderUtility.waitForStatusUpdate(rows[0], "Suspended for Cancellation", 5 * 60);
 		Assert.assertEquals(updateInfo, true);
 	}
-	
-	//@Test
-	public void searchOrderByOrgID()
-	{
-		String orgID = "10006";
-		String username = "admin";
-		String password = "123qwe";
-		browser.navigateTo();
-
-		LoginScreen loginScreen = new LoginScreen();
-		
-		loginScreen.username.write(username);
-		loginScreen.password.write(password);
-
-		// Click on login button
-		loginScreen.loginBtn.click();
-		
-		OrderOptions order = new OrderOptions();
-		order.orderMenu.mouseHover();
-		
-		// Click on list order option
-		order.listOrderLnk.click();
-		TestUtils.delay(5000);
-		
-		// Search for the offer
-		SearchOrder search = new SearchOrder();
-		search.organizationIDTxt.write(orgID);
-		search.searchBtn.click();
-		TestUtils.delay(5000);
-		
-		// Verify results
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = null;
-		boolean shouldProceed = true;
-		while(shouldProceed)
-		{
-			rows = listOfOrder.getOrderResultRows("recent");
-			
-			// Check in each row for same org-Id
-			for(int i=0; i<rows.length; i++)
-			{
-				Assert.assertEquals(rows[i].orgID, orgID);
-			}
-			
-			// Check enable next button
-			if(search.nextBtn.isEnabled())
-			{
-				search.nextBtn.click();
-				TestUtils.delay(5000);
-			}
-			else
-			{
-				shouldProceed = false;
-			}
-		}
-		
-		// Log out
-		LoggedInUser user = new LoggedInUser();
-		user.userInfo.mouseHover();
-		user.logOut.click();
-		
-		// Verify login screen is displayed
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
-
-	}
-	
-	
-	
-	//@Test
-	public void testUpgrade()
-	{
-		browser.navigateTo();
-
-		LoginScreen loginScreen = new LoginScreen();
-		
-		loginScreen.username.write("admin");
-		loginScreen.password.write("123qwe");
-
-		// Click on login button
-		loginScreen.loginBtn.click();
-		
-		OrderOptions order = new OrderOptions();
-		order.orderMenu.mouseHover();
-		
-		order.listOrderLnk.click();
-		TestUtils.delay(5000);
-		
-		// Search for the offer
-		SearchOrder search = new SearchOrder();
-		search.orderIdTxt.write("2015-06-09-000001");
-		search.searchBtn.click();
-		
-		
-		TestUtils.delay(3000);
-		
-		// Click on Upgrade
-		OrderISPButtons ispButtons = new OrderISPButtons();
-		// System.out.println(" :: " + details.buttons.upgrade.isEnabled());
-		//Assert.assertEquals(details.buttons.upgrade.isEnabled(), true);111
-		ispButtons.upgradeBtn.click();
-		
-		UpgradeOrder upgrade = new UpgradeOrder();
-		OrderOption []options = upgrade.getAvailableOrderOptions();
-		
-		for(int i=0; i<options.length; i++)
-		{
-			System.out.println(options[i].orderName);
-			if(options[i].orderName.contains("Automation Order three"))
-			{
-				System.out.println("Matched");
-				options[i].showElementBtn.click();
-				break;
-			}
-		}
-		
-		
-		upgrade.placeUpdatedOrder.click();
-		TestUtils.delay(5000);
-	}
-	
-	// Down-sizing
-	
-	// Upgrade
-	
-	// Down-grade
-	
-	// Cancel
-	
-	// Resume
-	
-	// Cancel - Cancel
-	//@Test
-	public void testCancelCancelOrder()
-	{
-		String orderId = "2015-06-18-000038";
-		String orgId = "10017";
-		String reason = "For some other reason";
-		String cancelMsg = "Test message";
-		
-		// Select the order
-		SearchOrder search = new SearchOrder();
-		search.orderIdTxt.write(orderId);
-		search.searchBtn.click();
-		
-		// Verify results
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
-		Assert.assertEquals(rows.length, 1);
-		
-		// Select the order
-		Assert.assertEquals(rows[0].orgID, orgId);
-		Assert.assertEquals(rows[0].orderID, orderId);
-		rows[0].link.click();
-		TestUtils.delay(3000);
-		
-		// Click on Cancel
-		OrderISPButtons ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
-		ispButtons.cancelBtn.click();
-		
-		// Verify org id in the message lbl.
-		CancelOrder cancelOrder = new CancelOrder();
-		Assert.assertEquals(cancelOrder.warningMsgLbl.read().contains(orgId), true);
-		
-		// Select reason
-		cancelOrder.reasonLst.selectVisibleText(reason);
-		
-		// Add comments
-		cancelOrder.commentsTxt.write(cancelMsg);
-		
-		// Click on cancel
-		cancelOrder.cancelBtn.click();
-		
-		// Search for the order again
-		search.orderIdTxt.clear();
-		search.orderIdTxt.write(orderId);
-		search.searchBtn.click();
-		
-		// Verify result
-		listOfOrder = new OrderList();
-		rows = listOfOrder.getOrderResultRows("recent");
-		Assert.assertEquals(rows.length, 1);
-		
-		// Select the order
-		Assert.assertEquals(rows[0].orgID, orgId);
-		Assert.assertEquals(rows[0].orderID, orderId);
-		rows[0].link.click();
-		TestUtils.delay(3000);
-		
-		// Verify cancel button is enabled
-		ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
-	}
-	
-	// TODO
-	// Cancel - Ok
-	//@Test
-	public void testCancelOkOrder()
-	{
-		String orderId = "2015-06-18-000038";
-		String orgId = "10017";
-		String reason = "For some other reason";
-		String cancelMsg = "Test message";
-		
-		// Select the order
-		SearchOrder search = new SearchOrder();
-		search.orderIdTxt.write(orderId);
-		search.searchBtn.click();
-		
-		// Verify results
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
-		Assert.assertEquals(rows.length, 1);
-		
-		// Select the order
-		Assert.assertEquals(rows[0].orgID, orgId);
-		Assert.assertEquals(rows[0].orderID, orderId);
-		rows[0].link.click();
-		TestUtils.delay(3000);
-		
-		// Click on Cancel
-		OrderISPButtons ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
-		ispButtons.cancelBtn.click();
-		
-		// Verify org id in the message lbl.
-		CancelOrder cancelOrder = new CancelOrder();
-		Assert.assertEquals(cancelOrder.warningMsgLbl.read().contains(orgId), true);
-		
-		// Select reason
-		cancelOrder.reasonLst.selectVisibleText(reason);
-		
-		// Add comments
-		cancelOrder.commentsTxt.write(cancelMsg);
-		
-		// Click on cancel
-		cancelOrder.okBtn.click();
-		
-		// TODO: check for next steps
-		
-		
-		// Search for the order again
-		search.orderIdTxt.clear();
-		search.orderIdTxt.write(orderId);
-		search.searchBtn.click();
-		
-		// Verify result
-		listOfOrder = new OrderList();
-		rows = listOfOrder.getOrderResultRows("recent");
-		Assert.assertEquals(rows.length, 1);
-		
-		// Select the order
-		Assert.assertEquals(rows[0].orgID, orgId);
-		Assert.assertEquals(rows[0].orderID, orderId);
-		rows[0].link.click();
-		TestUtils.delay(3000);
-		
-		// Verify cancel button is enabled
-		ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
-		
-		// Click on cancel button
-		ispButtons.cancelBtn.click();
-		
-		
-	}
-
-	//@Test
-	public void testSuspendOrder()
-	{
-		String orderId = "2015-06-18-000038";
-		String orgId = "10017";
-		//String reason = "For some other reason";
-		//String cancelMsg = "Test message";
-		
-		// Select the order
-		SearchOrder search = new SearchOrder();
-		search.orderIdTxt.write(orderId);
-		search.searchBtn.click();
-		
-		// Verify results
-		OrderList listOfOrder = new OrderList();
-		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
-		Assert.assertEquals(rows.length, 1);
-		
-		// Select the order
-		Assert.assertEquals(rows[0].orgID, orgId);
-		Assert.assertEquals(rows[0].orderID, orderId);
-		rows[0].link.click();
-		TestUtils.delay(3000);
-		
-		// Suspend the offer
-		OrderISPButtons ispButtons = new OrderISPButtons();
-		Assert.assertEquals(ispButtons.suspendBtn.isEnabled(), true);
-		ispButtons.suspendBtn.click();
-		
-		// TODO: handle pop-up
-	}
-	
+//	
+//	//@Test
+//	public void searchOrderByOrgID()
+//	{
+//		String orgID = "10006";
+//		String username = "admin";
+//		String password = "123qwe";
+//		browser.navigateTo();
+//
+//		LoginScreen loginScreen = new LoginScreen();
+//		
+//		loginScreen.username.write(username);
+//		loginScreen.password.write(password);
+//
+//		// Click on login button
+//		loginScreen.loginBtn.click();
+//		
+//		OrderOptions order = new OrderOptions();
+//		order.orderMenu.mouseHover();
+//		
+//		// Click on list order option
+//		order.listOrderLnk.click();
+//		TestUtils.delay(5000);
+//		
+//		// Search for the offer
+//		SearchOrder search = new SearchOrder();
+//		search.organizationIDTxt.write(orgID);
+//		search.searchBtn.click();
+//		TestUtils.delay(5000);
+//		
+//		// Verify results
+//		OrderList listOfOrder = new OrderList();
+//		OrderRow []rows = null;
+//		boolean shouldProceed = true;
+//		while(shouldProceed)
+//		{
+//			rows = listOfOrder.getOrderResultRows("recent");
+//			
+//			// Check in each row for same org-Id
+//			for(int i=0; i<rows.length; i++)
+//			{
+//				Assert.assertEquals(rows[i].orgID, orgID);
+//			}
+//			
+//			// Check enable next button
+//			if(search.nextBtn.isEnabled())
+//			{
+//				search.nextBtn.click();
+//				TestUtils.delay(5000);
+//			}
+//			else
+//			{
+//				shouldProceed = false;
+//			}
+//		}
+//		
+//		// Log out
+//		LoggedInUser user = new LoggedInUser();
+//		user.userInfo.mouseHover();
+//		user.logOut.click();
+//		
+//		// Verify login screen is displayed
+//		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
+//		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
+//		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+//
+//	}
+//	
+//	
+//	
+//	//@Test
+//	public void testUpgrade()
+//	{
+//		browser.navigateTo();
+//
+//		LoginScreen loginScreen = new LoginScreen();
+//		
+//		loginScreen.username.write("admin");
+//		loginScreen.password.write("123qwe");
+//
+//		// Click on login button
+//		loginScreen.loginBtn.click();
+//		
+//		OrderOptions order = new OrderOptions();
+//		order.orderMenu.mouseHover();
+//		
+//		order.listOrderLnk.click();
+//		TestUtils.delay(5000);
+//		
+//		// Search for the offer
+//		SearchOrder search = new SearchOrder();
+//		search.orderIdTxt.write("2015-06-09-000001");
+//		search.searchBtn.click();
+//		
+//		
+//		TestUtils.delay(3000);
+//		
+//		// Click on Upgrade
+//		OrderISPButtons ispButtons = new OrderISPButtons();
+//		// System.out.println(" :: " + details.buttons.upgrade.isEnabled());
+//		//Assert.assertEquals(details.buttons.upgrade.isEnabled(), true);111
+//		ispButtons.upgradeBtn.click();
+//		
+//		UpgradeOrder upgrade = new UpgradeOrder();
+//		OrderOption []options = upgrade.getAvailableOrderOptions();
+//		
+//		for(int i=0; i<options.length; i++)
+//		{
+//			System.out.println(options[i].orderName);
+//			if(options[i].orderName.contains("Automation Order three"))
+//			{
+//				System.out.println("Matched");
+//				options[i].showElementBtn.click();
+//				break;
+//			}
+//		}
+//		
+//		
+//		upgrade.placeUpdatedOrder.click();
+//		TestUtils.delay(5000);
+//	}
+//	
+//	// Down-sizing
+//	
+//	// Upgrade
+//	
+//	// Down-grade
+//	
+//	// Cancel
+//	
+//	// Resume
+//	
+//	// Cancel - Cancel
+//	//@Test
+//	public void testCancelCancelOrder()
+//	{
+//		String orderId = "2015-06-18-000038";
+//		String orgId = "10017";
+//		String reason = "For some other reason";
+//		String cancelMsg = "Test message";
+//		
+//		// Select the order
+//		SearchOrder search = new SearchOrder();
+//		search.orderIdTxt.write(orderId);
+//		search.searchBtn.click();
+//		
+//		// Verify results
+//		OrderList listOfOrder = new OrderList();
+//		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+//		Assert.assertEquals(rows.length, 1);
+//		
+//		// Select the order
+//		Assert.assertEquals(rows[0].orgID, orgId);
+//		Assert.assertEquals(rows[0].orderID, orderId);
+//		rows[0].link.click();
+//		TestUtils.delay(3000);
+//		
+//		// Click on Cancel
+//		OrderISPButtons ispButtons = new OrderISPButtons();
+//		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
+//		ispButtons.cancelBtn.click();
+//		
+//		// Verify org id in the message lbl.
+//		CancelOrder cancelOrder = new CancelOrder();
+//		Assert.assertEquals(cancelOrder.warningMsgLbl.read().contains(orgId), true);
+//		
+//		// Select reason
+//		cancelOrder.reasonLst.selectVisibleText(reason);
+//		
+//		// Add comments
+//		cancelOrder.commentsTxt.write(cancelMsg);
+//		
+//		// Click on cancel
+//		cancelOrder.cancelBtn.click();
+//		
+//		// Search for the order again
+//		search.orderIdTxt.clear();
+//		search.orderIdTxt.write(orderId);
+//		search.searchBtn.click();
+//		
+//		// Verify result
+//		listOfOrder = new OrderList();
+//		rows = listOfOrder.getOrderResultRows("recent");
+//		Assert.assertEquals(rows.length, 1);
+//		
+//		// Select the order
+//		Assert.assertEquals(rows[0].orgID, orgId);
+//		Assert.assertEquals(rows[0].orderID, orderId);
+//		rows[0].link.click();
+//		TestUtils.delay(3000);
+//		
+//		// Verify cancel button is enabled
+//		ispButtons = new OrderISPButtons();
+//		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
+//	}
+//	
+//	// TODO
+//	// Cancel - Ok
+//	//@Test
+//	public void testCancelOkOrder()
+//	{
+//		String orderId = "2015-06-18-000038";
+//		String orgId = "10017";
+//		String reason = "For some other reason";
+//		String cancelMsg = "Test message";
+//		
+//		// Select the order
+//		SearchOrder search = new SearchOrder();
+//		search.orderIdTxt.write(orderId);
+//		search.searchBtn.click();
+//		
+//		// Verify results
+//		OrderList listOfOrder = new OrderList();
+//		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+//		Assert.assertEquals(rows.length, 1);
+//		
+//		// Select the order
+//		Assert.assertEquals(rows[0].orgID, orgId);
+//		Assert.assertEquals(rows[0].orderID, orderId);
+//		rows[0].link.click();
+//		TestUtils.delay(3000);
+//		
+//		// Click on Cancel
+//		OrderISPButtons ispButtons = new OrderISPButtons();
+//		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
+//		ispButtons.cancelBtn.click();
+//		
+//		// Verify org id in the message lbl.
+//		CancelOrder cancelOrder = new CancelOrder();
+//		Assert.assertEquals(cancelOrder.warningMsgLbl.read().contains(orgId), true);
+//		
+//		// Select reason
+//		cancelOrder.reasonLst.selectVisibleText(reason);
+//		
+//		// Add comments
+//		cancelOrder.commentsTxt.write(cancelMsg);
+//		
+//		// Click on cancel
+//		cancelOrder.okBtn.click();
+//		
+//		// TODO: check for next steps
+//		
+//		
+//		// Search for the order again
+//		search.orderIdTxt.clear();
+//		search.orderIdTxt.write(orderId);
+//		search.searchBtn.click();
+//		
+//		// Verify result
+//		listOfOrder = new OrderList();
+//		rows = listOfOrder.getOrderResultRows("recent");
+//		Assert.assertEquals(rows.length, 1);
+//		
+//		// Select the order
+//		Assert.assertEquals(rows[0].orgID, orgId);
+//		Assert.assertEquals(rows[0].orderID, orderId);
+//		rows[0].link.click();
+//		TestUtils.delay(3000);
+//		
+//		// Verify cancel button is enabled
+//		ispButtons = new OrderISPButtons();
+//		Assert.assertEquals(ispButtons.cancelBtn.isEnabled(), true);
+//		
+//		// Click on cancel button
+//		ispButtons.cancelBtn.click();
+//		
+//		
+//	}
+//
+//	//@Test
+//	public void testSuspendOrder()
+//	{
+//		String orderId = "2015-06-18-000038";
+//		String orgId = "10017";
+//		//String reason = "For some other reason";
+//		//String cancelMsg = "Test message";
+//		
+//		// Select the order
+//		SearchOrder search = new SearchOrder();
+//		search.orderIdTxt.write(orderId);
+//		search.searchBtn.click();
+//		
+//		// Verify results
+//		OrderList listOfOrder = new OrderList();
+//		OrderRow []rows = listOfOrder.getOrderResultRows("recent");
+//		Assert.assertEquals(rows.length, 1);
+//		
+//		// Select the order
+//		Assert.assertEquals(rows[0].orgID, orgId);
+//		Assert.assertEquals(rows[0].orderID, orderId);
+//		rows[0].link.click();
+//		TestUtils.delay(3000);
+//		
+//		// Suspend the offer
+//		OrderISPButtons ispButtons = new OrderISPButtons();
+//		Assert.assertEquals(ispButtons.suspendBtn.isEnabled(), true);
+//		ispButtons.suspendBtn.click();
+//		
+//		// TODO: handle pop-up
+//	}
+//	
 	private void listOrder()
 	{
 		OrderOptions order = new OrderOptions();
