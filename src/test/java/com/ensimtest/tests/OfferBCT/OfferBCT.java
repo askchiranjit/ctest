@@ -347,4 +347,19 @@ public class OfferBCT {
 
 	}
 	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods={"createCategory"})
+	public void createP2OTrialOnlyOffer(HashMap<?, ?> testData) throws Exception{
+		
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods={"createCategory"})
+	public void createP2OTrialAndPurchasedOffer(HashMap<?, ?> testData) throws Exception{
+		
+	}
+	
+	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods={"createCategory"})
+	public void createP2OTrialUpgradeOffer(HashMap<?, ?> testData) throws Exception{
+		
+	}
+	
 }

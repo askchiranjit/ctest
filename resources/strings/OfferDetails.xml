@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<root>
+<OfferDetailsRowFinder>
+	<key>Xpath</key>
+	<value>tr</value>
+</OfferDetailsRowFinder>
+
+<OfferDetailsTable>
+	<key>Xpath</key>
+	<value>(//div[@class='button_div_gen'])[2]//table//tbody</value>
+</OfferDetailsTable>
+
+<PromoDetailsLnk>
+	<key>Xpath</key>
+	<value>//div[@class='ui-list-item']</value>
+</PromoDetailsLnk>
+
+<DeleteOfferBtn>
+	<key>ID</key>
+	<value>offer_delete</value>
+</DeleteOfferBtn>
+
+<DeactivateOfferBtn>
+	<key>ID</key>
+	<value>offer_deactivate</value>
+</DeactivateOfferBtn>
+
+<EditOfferBtn>
+	<key>ID</key>
+	<value>offer_edit</value>
+</EditOfferBtn>
+
+<CopyOfferBtn>
+	<key>ID</key>
+	<value>copy_offer</value>
+</CopyOfferBtn>
+
+<ManageVersionBtn>
+	<key>ID</key>
+	<value>create_po_version</value>
+</ManageVersionBtn>
+
+<ExportOfferBtn>
+	<key>ID</key>
+	<value>export_offer</value>
+</ExportOfferBtn>
+
+<PublishOfferBtn>
+	<key>ID</key>
+	<value>assign_2_reseller</value>
+</PublishOfferBtn>
+
+<EditResellerDiscountBtn>
+	<key>ID</key>
+	<value>update_reseller_discount</value>
+</EditResellerDiscountBtn>
+
+<DeactivateAllCopiesBtn>
+	<key>ID</key>
+	<value>offer_deactivate_child</value>
+</DeactivateAllCopiesBtn>
+
+<ActivateBtn>
+	<key>ID</key>
+	<value>offer_activate</value>
+</ActivateBtn>
+
+<OfferItemDetailsRowFinder>
+	<key>Xpath</key>
+	<value>tr</value>
+</OfferItemDetailsRowFinder>
+
+<OfferItemDetailsTable>
+	<key>Xpath</key>
+	<value>(//div[@class='button_div_gen'])[5]//table//tbody</value>
+</OfferItemDetailsTable>
+</root>
