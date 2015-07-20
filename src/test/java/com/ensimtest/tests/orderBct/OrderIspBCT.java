@@ -205,7 +205,7 @@ public class OrderIspBCT
 		buttons.continueBtn.click();
 		TestUtils.delay(6000);
 		buttons.placeOrderBtn.click();
-		TestUtils.delay(6000);
+		TestUtils.delay(20000);
 		
 		// Approve order
 		CreateOrderSummary summary = new CreateOrderSummary();
@@ -344,7 +344,7 @@ public class OrderIspBCT
 		
 		// Summary
 		buttons.placeOrderBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Approve now
 		CreateOrderSummary summary = new CreateOrderSummary();
@@ -457,7 +457,7 @@ public class OrderIspBCT
 		
 		// Summary
 		buttons.placeOrderBtn.click();
-		TestUtils.delay(3000);
+		TestUtils.delay(20000);
 		
 		// Approve now
 		CreateOrderSummary summary = new CreateOrderSummary();
@@ -614,7 +614,7 @@ public class OrderIspBCT
 		browser.waitForElement(buttons.placeOrderBtn, 10*1000);
 		buttons.placeOrderBtn.click();
 		
-		TestUtils.delay(10000);
+		TestUtils.delay(20000);
 		
 		CreateOrderSummary summary = new CreateOrderSummary();
 		summary.approveOrderApproveNowBtn.click();
@@ -769,7 +769,7 @@ public class OrderIspBCT
 		browser.waitForElement(buttons.placeOrderBtn, 10*1000);
 		buttons.placeOrderBtn.click();
 		
-		TestUtils.delay(10000);
+		TestUtils.delay(20000);
 		
 		CreateOrderSummary summary = new CreateOrderSummary();
 		summary.approveOrderApproveNowBtn.click();
