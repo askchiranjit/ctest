@@ -170,11 +170,6 @@ public class ResellerTests
 		LoggedInUser user = new LoggedInUser();
 		user.userInfo.mouseHover();
 		user.logOut.click();
-		
-		// Verify in login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -224,11 +219,6 @@ public class ResellerTests
 		LoggedInUser user = new LoggedInUser();
 		user.userInfo.mouseHover();
 		user.logOut.click();
-				
-		// Verify in login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -282,11 +272,6 @@ public class ResellerTests
 		LoggedInUser user = new LoggedInUser();
 		user.userInfo.mouseHover();
 		user.logOut.click();
-				
-		// Verify in login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -341,11 +326,6 @@ public class ResellerTests
 		LoggedInUser user = new LoggedInUser();
 		user.userInfo.mouseHover();
 		user.logOut.click();
-				
-		// Verify in login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -389,11 +369,6 @@ public class ResellerTests
 		LoggedInUser user = new LoggedInUser();
 		user.userInfo.mouseHover();
 		user.logOut.click();
-				
-		// Verify in login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 }

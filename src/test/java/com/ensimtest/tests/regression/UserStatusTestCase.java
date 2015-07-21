@@ -187,7 +187,6 @@ public class UserStatusTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData", dependsOnMethods = { "reactivateUser" })
@@ -207,6 +206,5 @@ public class UserStatusTestCase
 		LoggedInUser user = new LoggedInUser();
 		user.userInfo.mouseHover();
 		user.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
 	}
 }

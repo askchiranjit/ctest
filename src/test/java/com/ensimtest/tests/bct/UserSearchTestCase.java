@@ -134,10 +134,6 @@ public class UserSearchTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		
-		Assert.assertEquals(loginScreen.username.isExists(), true);
-		Assert.assertEquals(loginScreen.password.isExists(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -185,9 +181,6 @@ public class UserSearchTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
-		Assert.assertEquals(loginScreen.password.isExists(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -235,9 +228,6 @@ public class UserSearchTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
-		Assert.assertEquals(loginScreen.password.isExists(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -285,9 +275,6 @@ public class UserSearchTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
-		Assert.assertEquals(loginScreen.password.isExists(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -338,9 +325,6 @@ public class UserSearchTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
-		Assert.assertEquals(loginScreen.password.isExists(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -374,8 +358,5 @@ public class UserSearchTestCase
 		LoggedInUser userLogg = new LoggedInUser();
 		userLogg.userInfo.mouseHover();
 		userLogg.logOut.click();
-		Assert.assertEquals(loginScreen.username.isExists(), true);
-		Assert.assertEquals(loginScreen.password.isExists(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isExists(), true);
 	}
 }

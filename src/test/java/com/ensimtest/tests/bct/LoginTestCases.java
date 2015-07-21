@@ -67,11 +67,7 @@ public class LoginTestCases
 		
 		// Click on log-out button
 		user.logOut.click();
-		
-		// Verify logged out and redirected to login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
+
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -104,11 +100,6 @@ public class LoginTestCases
 		
 		// Click on log-out button
 		user.logOut.click();
-		
-		// Verify logged out and redirected to login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -141,11 +132,6 @@ public class LoginTestCases
 		
 		// Click on log-out button
 		user.logOut.click();
-		
-		// Verify logged out and redirected to login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test(dataProviderClass=TestDataProvider.class, dataProvider="TestData")
@@ -205,11 +191,6 @@ public class LoginTestCases
 		
 		// Click on log-out button
 		user.logOut.click();
-		
-		// Verify logged out and redirected to login page
-		Assert.assertEquals(loginScreen.username.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.password.isDisplayed(), true);
-		Assert.assertEquals(loginScreen.loginBtn.isDisplayed(), true);
 	}
 	
 	@Test
