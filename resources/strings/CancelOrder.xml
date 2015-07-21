@@ -2,12 +2,12 @@
 <root>
 <EndOfCurrentMonthChk>
 	<key>Xpath</key>
-	<value>"//*[@id=""sendcancelledreason""]/table[1]/tbody/tr[2]/td[1]/input"</value>
+	<value>//input[@type='radio' and @value='ECM' and @name='cancel_moe']</value>
 </EndOfCurrentMonthChk>
 
 <AsSoonAsPossibleChk>
 	<key>Xpath</key>
-	<value>"//*[@id=""sendcancelledreason""]/table[1]/tbody/tr[3]/td[1]/input"</value>
+	<value>//input[@type='radio' and @value='NOW' and @name='cancel_moe']</value>
 </AsSoonAsPossibleChk>
 
 <ReasonLst>
@@ -27,12 +27,12 @@
 
 <CancelBtn>
 	<key>Xpath</key>
-	<value>/html/body/div[3]/div[11]/div/button[2]/span</value>
+	<value>(//div[@id='delorder']//following::button//span[contains(text(),'Cancel')])[1]</value>
 </CancelBtn>
 
 <OkBtn>
 	<key>Xpath</key>
-	<value>/html/body/div[3]/div[11]/div/button[1]/span</value>
+	<value>(//div[@id='delorder']//following::button//span[contains(text(),'Ok')])[1]</value>
 </OkBtn>
 
 <PopUpMsg>

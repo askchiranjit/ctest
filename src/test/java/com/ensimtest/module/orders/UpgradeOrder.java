@@ -12,9 +12,9 @@ public class UpgradeOrder extends AppData
 		public Element showElementBtn;
 		public OrderOption(Element element)
 		{
-			orderName = element.read().trim();
+			orderName = element.read().trim().split("\n")[0].trim();
 			ElementSet set = new ElementSet();
-			showElementBtn = set.getSubElement(element, "Xpath", "//table//tbody//tr//td[contains(text(),'Show Details')]");
+			showElementBtn = set.getSubElement(element, "Xpath", "div//table//tbody//tr//td[contains(text(),'Show Details')]");
 		}
 	}
 	public OrderOption[] getAvailableOrderOptions()
