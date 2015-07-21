@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<root>
+
+<CommercialInfoLinkTxt>
+	<key>ID</key>
+	<value>infolink</value>
+</CommercialInfoLinkTxt>
+
+<DisplayInCatalogChk>
+	<key>ID</key>
+	<value>displayMarketplace</value>
+</DisplayInCatalogChk>
+
+<DisplayAsFeaturedServiceChk>
+	<key>ID</key>
+	<value>displayFeaturedProduct</value>
+</DisplayAsFeaturedServiceChk>
+
+<RankTxt>
+	<key>ID</key>
+	<value>featuredisorder</value>
+</RankTxt>
+
+<ImageURLBtn>
+	<key>ID</key>
+	<value>imageurlButton</value>
+</ImageURLBtn>
+
+<CrossButtonOfPopUpBtn>
+	<key>Xpath</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-image_url']//div)[1]//a//span[contains(text(),'close')]</value>
+</CrossButtonOfPopUpBtn>
+
+<SmallImageURLTxt>
+	<key>Xpath</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-image_url']//div)[2]//table//tbody//tr[1]//td[3]</value>
+</SmallImageURLTxt>
+
+<MediumImageURLTxt>
+	<key>Xpath</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-image_url']//div)[2]//table//tbody//tr[3]//td[3]</value>
+</MediumImageURLTxt>
+
+<RectangleImageURLTxt>
+	<key>Xpath</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-image_url']//div)[2]//table//tbody//tr[4]//td[3]</value>
+</RectangleImageURLTxt>
+
+<OKButtonToSaveImageURLBtn>
+	<key>Xpath</key>
+	<value>//div[@aria-labelledby='ui-dialog-title-image_url']//div//div[contains(@class,'ui-dialog-buttonset')]//button//span[contains(text(),'Ok')]</value>
+</OKButtonToSaveImageURLBtn>
+
+<CancelButtonToSaveImageURLBtn>
+	<key>Xpath</key>
+	<value>//div[@aria-labelledby='ui-dialog-title-image_url']//div//div[contains(@class,'ui-dialog-buttonset')]//button//span[contains(text(),'Cancel')]</value>
+</CancelButtonToSaveImageURLBtn>
+
+<CurrencyTextAreaTxt>
+	<key>ID</key>
+	<value>minimumPricePlan</value>
+</CurrencyTextAreaTxt>
+</root>

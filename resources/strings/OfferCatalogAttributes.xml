@@ -1,14 +1,5 @@
 <?xml version="1.0"?>
 <root>
-<DisplayOrderTxt>
-	<key>ID</key>
-	<value>features.0.displayorder</value>
-</DisplayOrderTxt>
-
-<DisplayTextTxt>
-	<key>ID</key>
-	<value>features.0.featuredisplayText</value>
-</DisplayTextTxt>
 
 <AddDisplayTextBtn>
 	<key>Xpath</key>
