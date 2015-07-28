@@ -315,5 +315,16 @@ public class Element implements IElement
 		}
 	}
 	
+	
+	protected Element getParentElement()
+	{
+		ElementSet set = new ElementSet();
+		
+		setElement(getReloadedElement(elementName, type));
+		Element SuperElement=set.getSubElement(getElement(),"Xpath","..");
+		return SuperElement;
+		
+	}
+	
 
 }
