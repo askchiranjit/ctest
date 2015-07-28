@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<root>
+<ServiceOverviewLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Service Overview')]//parent::a</value>
+</ServiceOverviewLnk>
+
+<VirtualserversLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Virtual Servers')]//parent::a</value>
+</VirtualserversLnk>
+
+<NetworkLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Network')]//parent::a</value>
+</NetworkLnk>
+
+<TemplatesLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Templates')]//parent::a</value>
+</TemplatesLnk>
+
+<UsersLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Users')]//parent::a</value>
+</UsersLnk>
+
+<ActionLogsLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Action Logs')]//parent::a</value>
+</ActionLogsLnk>
+
+<VDCInformationLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'VDC Information')]//parent::a</value>
+</VDCInformationLnk>
+
+<DownloadVMRCLnk>
+	<key>Xpath</key>
+	<value>//div[contains(text(),'Download VMRC Browser Plugin')]//parent::a</value>
+</DownloadVMRCLnk>
+
+</root>

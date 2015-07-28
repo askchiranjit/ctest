@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<root>
+<LinuxOSTab>
+    <key>Xpath</key>
+	<value>//h2[contains(text(),'Linux OS')]</value>
+</LinuxOSTab>
+<WindowsOSTab>
+    <key>Xpath</key>
+	<value>//h2[contains(text(),'Windows OS')]</value>
+</WindowsOSTab>
+<OthersTab>
+    <key>Xpath</key>
+	<value>//h2[contains(text(),'Other')]</value>
+</OthersTab>
+
+<NextBtn>
+    <key>ClassName</key>
+	<value>buttonNext</value>
+</NextBtn>
+
+<DisplayNameTxt>
+    <key>ID</key>
+	<value>displayName</value>
+</DisplayNameTxt>
+
+<VmOwnerLst>
+    <key>ID</key>
+	<value>vmowner</value>
+</VmOwnerLst>
+
+<CPUTxt>
+    <key>ID</key>
+	<value>cpu</value>
+</CPUTxt>
+
+<RAMTxt>
+    <key>ID</key>
+	<value>memory</value>
+</RAMTxt>
+
+<PrimaryDiskLst>
+    <key>ID</key>
+	<value>tieredStorage</value>
+</PrimaryDiskLst>
+
+<PrimaryDiskTxt>
+    <key>ID</key>
+	<value>tshdd</value>
+</PrimaryDiskTxt>
+
+<NetworkAdapterLst>
+    <key>ID</key>
+	<value>drpDwnVLAN1</value>
+</NetworkAdapterLst>
+
+<AdminNoteTxt>
+    <key>ID</key>
+	<value>adminnote</value>
+</AdminNoteTxt>
+
+<CreateVMBtn>
+    <key>ClassName</key>
+	<value>buttonFinish</value>
+</CreateVMBtn>
+
+
+</root>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+
+<AddVMBtn>
+	<key>Xpath</key>
+	<value>//div[@class='black-button-shade' and text()[contains(.,'Add VM')]]//parent::a</value>
+</AddVMBtn>
+
+<UpsizeVDCBtn>
+    <key>Xpath</key>
+	<value>//div[@class='black-button-shade' and text()[contains(.,'Upsize VDC')]]//parent::a</value>
+</UpsizeVDCBtn>
+
+
+</root>

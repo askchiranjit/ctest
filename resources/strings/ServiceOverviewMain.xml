@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<root>
+<VirtualDataCenterTab>
+	<key>Xpath</key>
+	<value>//a[text()='Virtual Data Center']</value>
+</VirtualDataCenterTab>
+
+<VirtualServersTab>
+	<key>Xpath</key>
+	<value>//a[text()='Virtual Servers']</value>
+</VirtualServersTab>
+
+<NetworkTab>
+	<key>Xpath</key>
+	<value>//a[text()='Network']</value>
+</NetworkTab>
+
+<TemplatesTab>
+	<key>Xpath</key>
+	<value>//a[text()='Templates']</value>
+</TemplatesTab>
+
+<UsersTab>
+	<key>Xpath</key>
+	<value>//h3//a[text()='Users']</value>
+</UsersTab>
+
+<ActionLogsTab>
+	<key>Xpath</key>
+	<value>//a[text()='Action Logs']</value>
+</ActionLogsTab>
+
+<VDCInformationTab>
+	<key>Xpath</key>
+	<value>//a[text()='VDC Information']</value>
+</VDCInformationTab>
+
+</root>

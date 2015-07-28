@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<root>
+
+<PermissionBtn>
+	<key>ID</key>
+	<value>permissions</value>
+</PermissionBtn>
+
+<EditBtn>
+	<key>ID</key>
+	<value>edit</value>
+</EditBtn>
+
+<ActivationEmailBtn>
+	<key>ID</key>
+	<value>resendActivationEmailDisable</value>
+</ActivationEmailBtn>
+
+<DeactiveUserBtn>
+	<key>ID</key>
+	<value>deactivateButton</value>
+</DeactiveUserBtn>
+
+<ResetPasswordBtn>
+	<key>ID</key>
+	<value>resetPasswordButton</value>
+</ResetPasswordBtn>
+
+<RegenaratePasswordBtn>
+	<key>ID</key>
+	<value>regeneratePasswordButton</value>
+</RegenaratePasswordBtn>
+
+
+</root>
