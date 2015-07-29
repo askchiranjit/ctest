@@ -1,9 +1,9 @@
-package com.ensimtest.connector.vcenter;
+package com.ensimtest.connector.vcenter34;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 
-public class VirtualDataCenterHome extends AppData
+public class VirtualDataCenterHome34 extends AppData
 {
 
 	public class AddVMBtn extends Element

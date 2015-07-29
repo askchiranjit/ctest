@@ -156,6 +156,23 @@ public class ElementHandler
 			return list.get(0);
 		}
 	}
+	
+	
+	
+//	protected WebElement getElementMod(Element masterElement, String elementName, ElementType type)
+//	{
+//		List<WebElement> list = getElements(masterElement,elementName, type);
+//		if(list==null)
+//		{
+//			return null;
+//		}
+//		if(list.size()==0)
+//			throw new ElementNotFoundException(elementName, type.toString(), elementName);
+//		else
+//		{
+//			return list.get(0);
+//		}
+//	}
 
 	/**
 	 *@author Dip 

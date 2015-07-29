@@ -1,9 +1,9 @@
-package com.ensimtest.connector.vcenter;
+package com.ensimtest.connector.vcenter34;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 
-public class ControlPanelMenuVcent extends AppData
+public class ControlPanelMenuVcent34 extends AppData
 {
 
 	public class ServiceOverviewLnk extends Element

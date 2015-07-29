@@ -1,9 +1,9 @@
-package com.ensimtest.connector.vcenter;
+package com.ensimtest.connector.vcenter34;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.resource.AppData;
 
-public class AddVM extends AppData
+public class AddVM34 extends AppData
 {
 
 	public class LinuxOSTab extends Element

@@ -1,10 +1,10 @@
-package com.ensimtest.connector.vcenter;
+package com.ensimtest.connector.vcenter34;
 
 import com.ensimtest.config.Element;
 import com.ensimtest.config.ElementSet;
 import com.ensimtest.resource.AppData;
 
-public class ServiceOverviewMain extends AppData
+public class ServiceOverviewMain34 extends AppData
 {
 
 	public class VirtualDataCenterTab extends Element
