@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<root>
+	
+	<LinuxOSTab>
+		<key>Xpath</key>
+		<value>//a[text()='Linux OS']</value>
+	</LinuxOSTab>
+	
+	<OthersTab>
+		<key>Xpath</key>
+		<value>//a[text()='Other']</value>
+	</OthersTab>
+	
+	<WindowsOSTab>
+		<key>Xpath</key>
+		<value>//a[text()='Windows OS']</value>
+	</WindowsOSTab>
+	
+	
+</root>

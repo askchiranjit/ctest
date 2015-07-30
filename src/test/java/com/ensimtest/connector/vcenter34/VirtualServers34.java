@@ -41,7 +41,6 @@ public class VirtualServers34 extends AppData
 			vmName=elementSet.getSubElement(e, "Xpath", "*//h3").read().trim();
 			template=elementSet.getSubElement(e, "Xpath", "*//b//parent::td").read().split(":")[1].trim();
 			cloneVmBtn=setElement(elementSet.getSubElementSet(e, "Xpath", "*//a[contains(@onclick,'openCloneVMDialogue')]"));
-			System.out.println(cloneVmBtn);
 			editPropertyBtn=setElement(elementSet.getSubElementSet(e, "Xpath","*//a[contains(@onclick,'openVMDetailsDialogue')]"));
 			deleteVM=setElement(elementSet.getSubElementSet(e, "Xpath", "*//a[contains(@onclick,'showRemoveVMConfirm')]"));
 			startVM=setElement(elementSet.getSubElementSet(e, "Xpath", "*//img[@title='Start']//parent::a"));
