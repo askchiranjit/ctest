@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<root>
+<CopyOfferToSelfRdo>
+	<key>ID</key>
+	<value>publishOption1</value>
+</CopyOfferToSelfRdo>
+
+<CopyOfferAsP2ROrP2OChk>
+	<key>ID</key>
+	<value>copyAs</value>
+</CopyOfferAsP2ROrP2OChk>
+
+<CopyOfferToResellerRdo>
+	<key>ID</key>
+	<value>publishOption2</value>
+</CopyOfferToResellerRdo>
+
+<CopyOfferToResellerTxt>
+	<key>ID</key>
+	<value>publish_offer_type1_resId</value>
+</CopyOfferToResellerTxt>
+
+<CopyOfferOkBtn>
+	<key>Xpath</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-publish_offer_options']//div[11])[1]//button//span[contains(text(),'Ok')]</value>
+</CopyOfferOkBtn>
+
+<CopyOfferCancelBtn>
+	<key>Xpath</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-publish_offer_options']//div[11])[1]//button//span[contains(text(),'Cancel')]</value>
+</CopyOfferCancelBtn>
+
+</root>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<root>
+<PublishOfferToAllT2ResellerRdo>
+	<key>ID</key>
+	<value>publishOption3</value>
+</PublishOfferToAllT2ResellerRdo>
+
+<PublishOfferToSpecificT2ResellerRdo>
+	<key>ID</key>
+	<value>publishOption4</value>
+</PublishOfferToSpecificT2ResellerRdo>
+
+<PublishOfferToSpecificT2ResellerTxt>
+	<key>ID</key>
+	<value>publish_offer_type2_resId</value>
+</PublishOfferToSpecificT2ResellerTxt>
+
+<PublishOfferAsActiveRdo>
+	<key>ID</key>
+	<value>saleAllowed1</value>
+</PublishOfferAsActiveRdo>
+
+<PublishOfferAsInactiveRdo>
+	<key>Xpath</key>
+	<value>(//div[@id='publish_offer_options'])[1]//tr//td//input[@id='saleAllowed1']//parent::td//parent::tr//following-sibling::tr[1]//input</value>
+</PublishOfferAsInactiveRdo>
+
+<PublishOfferOKBtn>
+	<key>ID</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-publish_offer_options']//div[11])[1]//button//span[contains(text(),'Ok')]</value>
+</PublishOfferOKBtn>
+
+<PublishOfferCancelBtn>
+	<key>ID</key>
+	<value>(//div[@aria-labelledby='ui-dialog-title-publish_offer_options']//div[11])[1]//button//span[contains(text(),'Cancel')]</value>
+</PublishOfferCancelBtn>
+
+</root>
